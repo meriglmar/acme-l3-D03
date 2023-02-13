@@ -19,7 +19,7 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link-student1" action="http://www.example.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link-student1" action="https://shop.realbetisbalompie.es/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-student2" action="https://es.shein.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-student3" action="https://www.youtube.com/channel/UCxT6yeg3kKoi6-RJ5ut3wmw"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-student4" action="http://www.example.com/"/>
