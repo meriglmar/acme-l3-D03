@@ -13,7 +13,7 @@ master.company.text = \
 	Acme Learning, Inc. is a fictitious company that provides studying material \
 	for both students and teachers. This project is developed on the Design and Testing subject of the \
 	Software Engineering Curriculum of the University of Seville.
-master.company.name = Acme, Inc.
+master.company.name = Acme Learning, Inc.
 master.company.address = 01 Acme Learning Drive, Wondercity, Wonderland
 master.company.phone = +1 000 111 222
 master.company.email = contact@acme-learning.com
