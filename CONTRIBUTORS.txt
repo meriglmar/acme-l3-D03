@@ -9,8 +9,6 @@
 # they accept any liabilities with respect to them.
 
 - Francisco Javier Barba Trejo (correo@alum.us.es)
-- Angela Bernal Martin (angbermar1@alum.us.es)
-- Jose Maria Garcia Berdejo (josgarber6@alum.us.es)
-- Mercedes Iglesias Martin (meriglmar@alum.us.es)
-- Paola Martin Sanchez (paomarsan@alum.us.es)
-
+- Angela Bernal Martin (correo@alum.us.es)
+- Mercedes Iglesias Martin (correo@alum.us.es)
+- Paola Martin Sanchez (correo@alum.us.es)
