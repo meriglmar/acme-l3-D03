@@ -1,6 +1,7 @@
 
 package acme.entities.banner;
 
+import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -53,5 +54,11 @@ public class Banner extends AbstractEntity {
 	@URL
 	@NotBlank
 	protected String			docLink;
+
+
+	//Debe durar al menos una semana
+	public Duration periodOfTime() {
+		return Duration.ofDays(this.finPeriod.getTime() - this.startPeriod.getTime());
+	}
 
 }
