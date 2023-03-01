@@ -11,6 +11,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.entities.enrolment.TypeCourse;
+import acme.framework.components.datatypes.Money;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -46,7 +47,7 @@ public class Course {
 	protected TypeCourse		type;
 
 	@PositiveOrZero
-	protected int				retailPrice;
+	protected Money				retailPrice;
 
 	@URL
 	protected String			link;
