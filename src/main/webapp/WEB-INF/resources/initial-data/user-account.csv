@@ -5,3 +5,5 @@ user-account-student1,true,"UserIdentity{name: 'Student1', surname: 'Acme3', ema
 user-account-student2,true,"UserIdentity{name: 'Student2', surname: 'Acme4', email: 'student2@acme.com'}",student2,student2
 user-account-administrador1,true,"UserIdentity{name: 'Administrador1', surname: 'Acme4', email: 'administrador1@acme.com'}",administrador1,administrador1
 user-account-administrador2,true,"UserIdentity{name: 'Administrador2', surname: 'Acme4', email: 'administrador2@acme.com'}",administrador2,administrador2
+user-account-lecturer1,true,"UserIdentity{name: 'Lecturer1', surname: 'Acme4', email: 'lecturer1@acme.com'}",lecturer1,lecturer1
+user-account-lecturer2,true,"UserIdentity{name: 'Lecturer2', surname: 'Acme4', email: 'lecturer2@acme.com'}",lecturer2,lecturer2
