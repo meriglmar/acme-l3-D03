@@ -1,5 +1,5 @@
 
-package acme.entities.enrolment;
+package acme.entities.course;
 
 public enum TypeCourse {
 	THEORY, HANDS_ON
