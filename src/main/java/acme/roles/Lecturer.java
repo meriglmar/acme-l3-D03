@@ -20,7 +20,7 @@ public class Lecturer extends AbstractRole {
 	/*
 	 * There is a new project-specific role called lecturer,
 	 * which has the following profile data: alma ma-ter
-	 * (not blank, shorter than 76 characters), a résumé
+	 * (not blank, shorter than 76 characters), a resume
 	 * (not blank, shorter than 101 characters), list of qualifications
 	 * (not blank, shorter than 101 characters),
 	 * and an optional link with further information.
@@ -38,7 +38,7 @@ public class Lecturer extends AbstractRole {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			résumé;
+	protected String			resume;
 
 	@NotBlank
 	@Length(max = 100)
