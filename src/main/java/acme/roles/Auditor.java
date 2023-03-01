@@ -32,6 +32,7 @@ public class Auditor extends AbstractRole {
 	protected String			professionalID;
 
 	@NotBlank
+	@Length(max = 101)
 	protected String			certifications;
 
 	protected String			moreInfo;
