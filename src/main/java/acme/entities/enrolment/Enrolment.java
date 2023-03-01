@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -33,13 +34,13 @@ public class Enrolment extends AbstractEntity {
 	protected String			code;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	protected String			motivation;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	protected String			goals;
 
-	//Me falta el tiempo de trabajo
-
+	@PositiveOrZero
+	protected int				workTime;
 }
