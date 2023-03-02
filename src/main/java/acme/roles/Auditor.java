@@ -1,8 +1,6 @@
 
 package acme.roles;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
@@ -36,7 +34,7 @@ public class Auditor extends AbstractRole {
 
 	@NotBlank
 	@Length(max = 100)
-	protected List<String>		certifications;
+	protected String			certifications;
 
 	@URL
 	protected String			moreInfo;
