@@ -8,6 +8,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -47,6 +48,7 @@ public class Note extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 75)
+	@Pattern(regexp = "^\\w+\\s*-\\s*\\p{L}+,\\s*\\p{L}+$")
 	protected String			author;
 
 	@NotBlank
@@ -59,8 +61,8 @@ public class Note extends AbstractEntity {
 	@URL
 	protected String			link;
 
-	//Me falta: “〈nombre de usuario〉 - 〈apellido, nombre〉”,
-	// * donde “〈nombre de usuario〉” denota el nombre de usuario del principal que ha publicado
-	// * la nota y “〈apellido, nombre〉” denota su o su nombre completo
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
 
 }
