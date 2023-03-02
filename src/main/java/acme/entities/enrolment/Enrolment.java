@@ -42,5 +42,5 @@ public class Enrolment extends AbstractEntity {
 	protected String			goals;
 
 	@PositiveOrZero
-	protected int				workTime;
+	protected double			workTime;
 }
