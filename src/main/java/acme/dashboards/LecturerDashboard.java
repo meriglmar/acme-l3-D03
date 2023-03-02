@@ -1,14 +1,13 @@
 
 package acme.dashboards;
 
-import java.io.Serializable;
-
+import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class LecturerDashboard implements Serializable {
+public class LecturerDashboard extends AbstractForm {
 	/*
 	 * 
 	 * The system must handle lecturer dashboard with the following data:
@@ -24,18 +23,18 @@ public class LecturerDashboard implements Serializable {
 
 	// Attributes -------------------------------------------------------------
 
-	int							totalNumberOfTheoryLectures;
-	int							totalNumberOfHandsOnLectures;
+	protected int				totalNumberOfTheoryLectures;
+	protected int				totalNumberOfHandsOnLectures;
 
-	Double						averageLearningTimeOfLecturers;
-	Double						deviationLearningTimeOfLecturers;
-	Double						minimumLearningTimeOfLecturers;
-	Double						maximumLearningTimeOfLecturers;
+	protected Double			averageLearningTimeOfLecturers;
+	protected Double			deviationLearningTimeOfLecturers;
+	protected Double			minimumLearningTimeOfLecturers;
+	protected Double			maximumLearningTimeOfLecturers;
 
-	Double						averageLearningTimeOfCourses;
-	Double						deviationLearningTimeOfCourses;
-	Double						minimumLearningTimeOfCourses;
-	Double						maximumLearningTimeOfCourses;
+	protected Double			averageLearningTimeOfCourses;
+	protected Double			deviationLearningTimeOfCourses;
+	protected Double			minimumLearningTimeOfCourses;
+	protected Double			maximumLearningTimeOfCourses;
 
 	// Derived attributes -----------------------------------------------------
 
