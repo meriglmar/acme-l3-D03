@@ -44,13 +44,19 @@ public class Practicum extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			summary; //Como "abstract" es una palabra reservada, pongo mejor "summary" 
+	protected String			summary;
 
 	@NotBlank
 	@Length(max = 100)
 	protected String			goals;
 
 	@PositiveOrZero
-	protected int				estimatedTotalTime; //Me falta: calculado a partir de las sesiones correspondientes más/menos 10%
+	protected int				estimatedTotalTime;
+
+	// Derived attributes -----------------------------------------------------
+
+	//Me falta: calculado a partir de las sesiones correspondientes más/menos 10%
+
+	// Relationships ----------------------------------------------------------
 
 }
