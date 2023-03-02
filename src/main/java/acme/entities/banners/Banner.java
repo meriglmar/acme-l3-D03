@@ -57,7 +57,7 @@ public class Banner extends AbstractEntity {
 
 
 	//Debe durar al menos una semana
-	public Duration periodOfTime() {
+	protected Duration periodOfTime() {
 		return Duration.ofDays(this.finPeriod.getTime() - this.startPeriod.getTime());
 	}
 
