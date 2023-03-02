@@ -1,5 +1,5 @@
 
-package acme.entities.workbook;
+package acme.entities.activities;
 
 import java.time.Duration;
 import java.util.Date;
