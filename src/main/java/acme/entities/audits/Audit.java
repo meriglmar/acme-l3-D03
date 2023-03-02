@@ -49,6 +49,8 @@ public class Audit extends AbstractEntity {
 	@Length(max = 100)
 	protected String			weakPoints;
 
+	// Derived attributes -----------------------------------------------------
+	//Para hacer este tiene que estar el de Merme
 	@PositiveOrZero
 	protected int				mark; //una nota (computada como la moda de las notas en los registros de auditoría correspondientes; empates debe romperse arbitrariamente si es necesario).
 
