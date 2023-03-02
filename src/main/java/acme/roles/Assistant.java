@@ -1,26 +1,20 @@
 
-package acme.entities.peeps;
-
-import java.util.Date;
+package acme.roles;
 
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.framework.data.AbstractEntity;
+import acme.framework.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Peep extends AbstractEntity {
+public class Assistant extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -28,24 +22,17 @@ public class Peep extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Past
-	@Temporal(TemporalType.TIMESTAMP)
-	protected Date				moment;
-
 	@NotBlank
 	@Length(max = 75)
-	protected String			title;
-
-	@NotBlank
-	@Length(max = 75)
-	protected String			nick;
+	protected String			supervisor;
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			message;
+	protected String			listOfExpertiseFields;
 
-	@Email
-	protected String			email;
+	@NotBlank
+	@Length(max = 100)
+	protected String			resume;
 
 	@URL
 	protected String			link;

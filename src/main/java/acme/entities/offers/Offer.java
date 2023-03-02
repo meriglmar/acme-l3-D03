@@ -1,18 +1,19 @@
 
-package acme.entities.peeps;
+package acme.entities.offers;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,7 +21,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Peep extends AbstractEntity {
+public class Offer extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -28,24 +29,26 @@ public class Peep extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Past
 	@Temporal(TemporalType.TIMESTAMP)
+	@Past
 	protected Date				moment;
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			title;
-
-	@NotBlank
-	@Length(max = 75)
-	protected String			nick;
+	protected String			heading;
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			message;
+	protected String			summary;
 
-	@Email
-	protected String			email;
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				availabilityStartDate;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				availabilityEndDate;
+
+	@PositiveOrZero
+	protected Money				price;
 
 	@URL
 	protected String			link;

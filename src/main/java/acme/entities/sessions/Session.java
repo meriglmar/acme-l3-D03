@@ -1,14 +1,10 @@
 
-package acme.entities.peeps;
+package acme.entities.sessions;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -20,7 +16,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Peep extends AbstractEntity {
+public class Session extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -28,24 +24,19 @@ public class Peep extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Past
-	@Temporal(TemporalType.TIMESTAMP)
-	protected Date				moment;
-
 	@NotBlank
 	@Length(max = 75)
 	protected String			title;
 
 	@NotBlank
-	@Length(max = 75)
-	protected String			nick;
-
-	@NotBlank
 	@Length(max = 100)
-	protected String			message;
+	protected String			abstract_;
 
-	@Email
-	protected String			email;
+	protected Boolean			theorySession;
+
+	protected LocalDateTime		initTimePeriod;
+
+	protected LocalDateTime		finishTimePeriod;
 
 	@URL
 	protected String			link;
