@@ -1,8 +1,11 @@
 
 package acme.entities.auditingRecords;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -37,9 +40,9 @@ public class AuditingRecord extends AbstractEntity {
 	@Length(max = 100)
 	protected String			assessment;
 
-	//Esta falta ponerle que sea una fecha anterior a la actual
 	//Al menos una hora de duración
-	protected String			period;
+	@PastOrPresent
+	protected LocalDateTime		period;
 
 	protected TypeMark			mark;
 

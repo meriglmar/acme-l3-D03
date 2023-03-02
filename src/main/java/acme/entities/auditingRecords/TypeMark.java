@@ -2,6 +2,5 @@
 package acme.entities.auditingRecords;
 
 public enum TypeMark {
-	A, B, C, F
-	//Me falta A+ y F- xq da error
+	APLUS, A, B, C, F, FMINUS
 }
