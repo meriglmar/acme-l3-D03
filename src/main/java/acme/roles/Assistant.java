@@ -14,8 +14,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-
-public class Student extends AbstractRole {
+public class Assistant extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -24,22 +23,18 @@ public class Student extends AbstractRole {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Length(max = 76)
-	protected String			statement;
+	@Length(max = 75)
+	protected String			supervisor;
 
 	@NotBlank
-	@Length(max = 101)
-	protected String			strongFeatures;
+	@Length(max = 100)
+	protected String			listOfExpertiseFields;
 
 	@NotBlank
-	@Length(max = 101)
-	protected String			weakFeatures;
+	@Length(max = 100)
+	protected String			resume;
 
 	@URL
-	protected String			urlInfo;
-
-	// Derived attributes -----------------------------------------------------
-
-	// Relationships ----------------------------------------------------------
+	protected String			link;
 
 }

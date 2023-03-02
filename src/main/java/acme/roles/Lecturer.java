@@ -15,7 +15,16 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class Student extends AbstractRole {
+public class Lecturer extends AbstractRole {
+
+	/*
+	 * There is a new project-specific role called lecturer,
+	 * which has the following profile data: alma ma-ter
+	 * (not blank, shorter than 76 characters), a resume
+	 * (not blank, shorter than 101 characters), list of qualifications
+	 * (not blank, shorter than 101 characters),
+	 * and an optional link with further information.
+	 */
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -24,16 +33,16 @@ public class Student extends AbstractRole {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Length(max = 76)
-	protected String			statement;
+	@Length(max = 75)
+	protected String			almaMater;
 
 	@NotBlank
-	@Length(max = 101)
-	protected String			strongFeatures;
+	@Length(max = 100)
+	protected String			resume;
 
 	@NotBlank
-	@Length(max = 101)
-	protected String			weakFeatures;
+	@Length(max = 100)
+	protected String			qualifications;
 
 	@URL
 	protected String			urlInfo;

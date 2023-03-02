@@ -1,5 +1,5 @@
 
-package acme.entities.offer;
+package acme.entities.workbook;
 
 import java.util.Date;
 
@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -20,7 +18,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Offer extends AbstractEntity {
+public class Workbook extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -28,28 +26,20 @@ public class Offer extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Past
-	protected Date				moment;
+	@NotBlank
+	@Length(max = 76)
+	protected String			title;
 
 	@NotBlank
-	@Length(max = 75)
-	protected String			heading;
+	@Length(max = 101)
+	protected String			abstractt;
 
 	@NotBlank
-	@Length(max = 100)
-	protected String			summary;
+	protected ActivityType		activityType;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date				availabilityStartDate;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	protected Date				availabilityEndDate;
-
-	@PositiveOrZero
-	protected Boolean			price;
+	protected Date				timePeriod;
 
 	@URL
 	protected String			link;
-
 }
