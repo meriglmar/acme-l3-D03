@@ -9,3 +9,5 @@ user-account-administrador1,true,"UserIdentity{name: 'Administrador1', surname: 
 user-account-administrador2,true,"UserIdentity{name: 'Administrador2', surname: 'Acme4', email: 'administrador2@acme.com'}",administrador2,administrador2
 user-account-lecturer1,true,"UserIdentity{name: 'Lecturer1', surname: 'Acme4', email: 'lecturer1@acme.com'}",lecturer1,lecturer1
 user-account-lecturer2,true,"UserIdentity{name: 'Lecturer2', surname: 'Acme4', email: 'lecturer2@acme.com'}",lecturer2,lecturer2
+user-account-auditor1,true,"UserIdentity{name: 'Auditor1', surname: 'Acme4', email: 'auditor1@acme.com'}",auditor1,auditor1
+user-account-auditor2,true,"UserIdentity{name: 'Auditor2', surname: 'Acme4', email: 'auditor2@acme.com'}",auditor2,auditor2
