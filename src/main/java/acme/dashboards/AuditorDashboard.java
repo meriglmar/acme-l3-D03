@@ -12,8 +12,8 @@ public class AuditorDashboard extends AbstractForm {
 	protected static final long	serialVersionUID	= 1L;
 
 	//total number of audits that they have written for theory and hand-on courses
-	protected int				totalNumberOfTheoryCourses;
-	protected int				totalNumberOfHandsOnCourses;
+	protected int				totalNumberOfTheoryAudits;
+	protected int				totalNumberOfHandsOnAudits;
 
 	//average, deviation, minimum, and maximum number of auditing records in their audits
 	protected Double			averageNumberOfAuditingRecords;
