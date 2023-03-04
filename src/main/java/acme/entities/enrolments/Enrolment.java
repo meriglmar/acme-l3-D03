@@ -1,14 +1,19 @@
 
-package acme.entities.enrolment;
+package acme.entities.enrolments;
+
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.entities.activities.Activity;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -41,6 +46,17 @@ public class Enrolment extends AbstractEntity {
 	@Length(max = 100)
 	protected String			goals;
 
-	@PositiveOrZero
-	protected double			workTime;
+
+	@Transient
+	protected double workTime() {
+		double totalWorkTime = 0;
+		for (final Activity activity : this.activities)
+			totalWorkTime += activity.getDuration();
+		return totalWorkTime;
+	}
+
+
+	@NotNull
+	@OneToMany(mappedBy = "enrolment")
+	protected List<Activity> activities;
 }
