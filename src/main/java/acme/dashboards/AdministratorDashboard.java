@@ -11,11 +11,7 @@ import lombok.Setter;
 @Setter
 public class AdministratorDashboard extends AbstractForm {
 
-	// Serialisation identifier -----------------------------------------------
-
 	protected static final long	serialVersionUID	= 1L;
-
-	// Attributes -------------------------------------------------------------
 
 	//total number of principals with each role
 	private Integer				totalNumberOfAssistants;
@@ -44,4 +40,5 @@ public class AdministratorDashboard extends AbstractForm {
 	private double				minimumNotesInLast10Weeks;
 	private double				maximumNotesInLast10Weeks;
 	private double				deviationNotesInLast10Weeks;
+
 }
