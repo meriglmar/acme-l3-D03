@@ -10,9 +10,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AdministratorDashboard extends AbstractForm {
-	//The system must handle administrator dashboards with the following indicators:
-	//average, minimum, maximum, and standard deviation of the budget in the offers grouped by currency
-	//average, minimum, maximum, and standard deviation of the number of notes posted over the last 10 weeks.
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -36,13 +33,13 @@ public class AdministratorDashboard extends AbstractForm {
 	private double				ratioCriticalBulletins;
 	private double				ratioNonCriticalBulletins;
 
-	// Average, minimum, maximum, and standard deviation of the budget in the offers grouped by currency.
+	//average, minimum, maximum, and standard deviation of the budget in the offers grouped by currency
 	private Map<String, Double>	averageBudgetByCurrency;
 	private Map<String, Double>	minimumBudgetByCurrency;
 	private Map<String, Double>	maximumBudgetByCurrency;
 	private Map<String, Double>	deviationBudgetByCurrency;
 
-	// Average, minimum, maximum, and standard deviation of the number of notes posted over the last 10 weeks.
+	//average, minimum, maximum, and standard deviation of the number of notes posted over the last 10 weeks.
 	private double				averageNotesInLast10Weeks;
 	private double				minimumNotesInLast10Weeks;
 	private double				maximumNotesInLast10Weeks;
