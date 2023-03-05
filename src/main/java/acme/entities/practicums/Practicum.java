@@ -1,15 +1,22 @@
 
 package acme.entities.practicums;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.entities.sessions.PracticumSession;
 import acme.framework.data.AbstractEntity;
+import acme.roles.Company;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -44,13 +51,33 @@ public class Practicum extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			summary; //Como "abstract" es una palabra reservada, pongo mejor "summary" 
+	protected String			summary;
 
 	@NotBlank
 	@Length(max = 100)
 	protected String			goals;
 
-	@PositiveOrZero
-	protected int				estimatedTotalTime; //Me falta: calculado a partir de las sesiones correspondientes más/menos 10%
+	// Derived attributes -----------------------------------------------------
+
+
+	@Transient
+	protected double estimatedTotalTime() {
+		double totalTime = 0;
+		for (final PracticumSession pSession : this.practicumSessions)
+			totalTime += pSession.getDuration();
+		return totalTime * 1.1;
+
+	}
+
+
+	// Relationships ----------------------------------------------------------
+	@NotNull
+	@OneToMany(mappedBy = "practicum")
+	protected List<PracticumSession>	practicumSessions;
+
+	//@Valid
+	@NotNull
+	@ManyToOne(optional = false)
+	protected Company					company;
 
 }
