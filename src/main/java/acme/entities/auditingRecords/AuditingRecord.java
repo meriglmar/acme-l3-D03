@@ -19,33 +19,30 @@ import lombok.Setter;
 @Setter
 public class AuditingRecord extends AbstractEntity {
 
-	//El sistema debe almacenar los siguientes datos sobre los registros de auditoría de un curso:
-	//una materia (no en blanco, de menos de 76 caracteres)
-	//una evaluación (no en blanco, de menos de 101 caracteres)
-	//el período durante el cual la materia fue auditada ( en el pasado, al menos una hora de duración)
-	//una marca ("A+", "A", "B", "C", "F" o "F-")
-	//un enlace opcional con más información.
-
 	// Serialisation identifier -----------------------------------------------
 
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
+	//a subject (not blank, shorter than 76 characters)
 	@NotBlank
 	@Length(max = 75)
 	protected String			subject;
 
+	//an assessment (not blank, shorter than 101 characters)
 	@NotBlank
 	@Length(max = 100)
 	protected String			assessment;
 
-	//Al menos una hora de duración
+	//the period during which the subject was audited (in the past, at least one hour long)
 	@PastOrPresent
 	protected LocalDateTime		period;
 
+	//a mark (“A+”, “A”, “B”, “C”, “F”, or “F-“)
 	protected TypeMark			mark;
 
+	//an optional link with further information. 
 	@URL
 	protected String			moreInfo;
 
