@@ -4,13 +4,15 @@ package acme.entities.sessions;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
-
+import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.tutorials.Tutorial;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -44,5 +46,11 @@ public class Session extends AbstractEntity {
 
 	@URL
 	protected String			link;
+
+	// Relationships ----------------------------------------------------------
+
+	@NotNull
+	@ManyToOne(optional = false)
+	protected Tutorial			tutorial;
 
 }
