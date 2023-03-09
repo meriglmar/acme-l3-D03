@@ -9,6 +9,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
@@ -34,9 +35,9 @@ public class Session extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			abstract_;
+	protected String			abstractSession;
 
-	protected Boolean			isTheorySession;
+	protected Boolean			theorySession;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				initTimePeriod;
