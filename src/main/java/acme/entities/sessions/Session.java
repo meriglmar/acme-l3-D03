@@ -1,10 +1,12 @@
 
 package acme.entities.sessions;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -37,9 +39,11 @@ public class Session extends AbstractEntity {
 
 	protected Boolean			theorySession;
 
-	protected LocalDateTime		initTimePeriod;
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				initTimePeriod;
 
-	protected LocalDateTime		finishTimePeriod;
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				finishTimePeriod;
 
 	@URL
 	protected String			link;
