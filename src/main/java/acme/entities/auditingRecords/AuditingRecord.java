@@ -1,7 +1,7 @@
 
 package acme.entities.auditingRecords;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -40,10 +40,10 @@ public class AuditingRecord extends AbstractEntity {
 
 	//the period during which the subject was audited (in the past, at least one hour long)
 	@Temporal(TemporalType.TIMESTAMP)
-	protected LocalDateTime		startTime;
+	protected Date				startTime;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	protected LocalDateTime		finishTime;
+	protected Date				finishTime;
 
 	//a mark (“A+”, “A”, “B”, “C”, “F”, or “F-“)
 	@Enumerated(EnumType.STRING)
