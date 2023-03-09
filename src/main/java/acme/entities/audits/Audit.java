@@ -1,14 +1,22 @@
 
 package acme.entities.audits;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.entities.auditingRecords.TypeMark;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -49,9 +57,26 @@ public class Audit extends AbstractEntity {
 	@Length(max = 100)
 	protected String			weakPoints;
 
-	// Derived attributes -----------------------------------------------------
-	//Para hacer este tiene que estar el de Merme
-	@PositiveOrZero
-	protected int				mark; //una nota (computada como la moda de las notas en los registros de auditoría correspondientes; empates debe romperse arbitrariamente si es necesario).
 
+	// Derived attributes -----------------------------------------------------
+	//una nota (computada como la moda de las notas en los registros de auditoría correspondientes; empates debe romperse arbitrariamente si es necesario).
+	@Transient
+	protected TypeMark mode(final List<TypeMark> lista) {
+
+		final Map<TypeMark, Integer> dicc = new HashMap<>();
+
+		for (final TypeMark type : lista)
+			if (dicc.containsKey(type)) {
+				Integer res = dicc.get(type);
+				res++;
+			} else
+				dicc.put(type, 1);
+
+		final Map<TypeMark, Integer> sortedMap = dicc.entrySet().stream().sorted(Map.Entry.<TypeMark, Integer> comparingByValue().reversed())
+			.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+
+		final Iterator<TypeMark> iterator = sortedMap.keySet().iterator();
+		return iterator.next();
+
+	}
 }

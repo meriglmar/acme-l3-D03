@@ -1,11 +1,14 @@
 
 package acme.entities.auditingRecords;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -36,10 +39,14 @@ public class AuditingRecord extends AbstractEntity {
 	protected String			assessment;
 
 	//the period during which the subject was audited (in the past, at least one hour long)
-	@PastOrPresent
-	protected LocalDateTime		period;
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				startTime;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				finishTime;
 
 	//a mark (“A+”, “A”, “B”, “C”, “F”, or “F-“)
+	@Enumerated(EnumType.STRING)
 	protected TypeMark			mark;
 
 	//an optional link with further information. 
