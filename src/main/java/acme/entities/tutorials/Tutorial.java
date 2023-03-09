@@ -1,14 +1,17 @@
 
 package acme.entities.tutorials;
 
-import java.time.LocalTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import acme.entities.sessions.Session;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -41,6 +44,12 @@ public class Tutorial extends AbstractEntity {
 	@Size(max = 100)
 	protected String			goals;
 
-	protected LocalTime			estimatedTotalTime;
+	protected Double			estimatedTotalTime;
+
+	// Relationships ----------------------------------------------------------
+
+	@NotNull
+	@OneToMany(mappedBy = "session")
+	protected List<Session>		sessions;
 
 }
