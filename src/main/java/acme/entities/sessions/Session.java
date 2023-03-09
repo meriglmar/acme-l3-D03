@@ -1,9 +1,11 @@
 
 package acme.entities.sessions;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
@@ -32,11 +34,13 @@ public class Session extends AbstractEntity {
 	@Length(max = 100)
 	protected String			abstract_;
 
-	protected Boolean			theorySession;
+	protected Boolean			isTheorySession;
 
-	protected LocalDateTime		initTimePeriod;
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				initTimePeriod;
 
-	protected LocalDateTime		finishTimePeriod;
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				finishTimePeriod;
 
 	@URL
 	protected String			link;
