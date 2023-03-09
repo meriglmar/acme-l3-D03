@@ -35,7 +35,7 @@ public class Session extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			abstract_;
+	protected String			abstractSession;
 
 	protected Boolean			theorySession;
 
