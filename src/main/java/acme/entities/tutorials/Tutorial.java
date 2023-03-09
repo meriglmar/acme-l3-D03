@@ -38,7 +38,7 @@ public class Tutorial extends AbstractEntity {
 
 	@NotBlank
 	@Size(max = 100)
-	protected String			abstract_;
+	protected String			abstractTutorial;
 
 	@NotBlank
 	@Size(max = 100)
@@ -49,7 +49,7 @@ public class Tutorial extends AbstractEntity {
 	// Relationships ----------------------------------------------------------
 
 	@NotNull
-	@OneToMany(mappedBy = "session")
+	@OneToMany(mappedBy = "tutorial")
 	protected List<Session>		sessions;
 
 }
