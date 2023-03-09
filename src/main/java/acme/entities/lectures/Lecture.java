@@ -2,11 +2,13 @@
 package acme.entities.lectures;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -38,21 +40,23 @@ public class Lecture extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	protected String			title;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	protected String			abstractLecture;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	protected String			body;
 
-	@PositiveOrZero
-	protected int				estimatedLearningTimeInHours;
+	@Digits(integer = 3, fraction = 2)
+	@Min((long) 0.01)
+	protected Double			estimatedLearningTimeInHours;
 
-	@NotBlank
+	@NotNull
+	@Enumerated(EnumType.STRING)
 	protected TypeLecture		lectureType;
 
 	@URL
@@ -63,7 +67,7 @@ public class Lecture extends AbstractEntity {
 	protected Course			course;
 
 	@NotNull
-	@OneToOne(optional = false)
+	@ManyToOne
 	protected Lecturer			lecturer;
 
 }
