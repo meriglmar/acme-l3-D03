@@ -5,8 +5,10 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -15,6 +17,7 @@ import org.hibernate.validator.constraints.Length;
 
 import acme.entities.activities.Activity;
 import acme.framework.data.AbstractEntity;
+import acme.roles.Student;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -58,5 +61,10 @@ public class Enrolment extends AbstractEntity {
 
 	@NotNull
 	@OneToMany(mappedBy = "enrolment")
-	protected List<Activity> activities;
+	protected List<Activity>	activities;
+
+	@Valid
+	@NotNull
+	@ManyToOne(optional = false)
+	protected Student			student;
 }

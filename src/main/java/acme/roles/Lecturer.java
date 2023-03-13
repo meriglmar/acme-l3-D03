@@ -14,7 +14,6 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-
 public class Lecturer extends AbstractRole {
 
 	/*

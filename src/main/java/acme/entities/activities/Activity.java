@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -60,12 +59,10 @@ public class Activity extends AbstractEntity {
 	//Propiedades derivadas
 
 
-	@Transient
 	protected Duration timePeriod() {
 		return Duration.ofMillis(this.finPeriod.getTime() - this.startPeriod.getTime());
 	}
 
-	@Transient
 	public double getDuration() {
 		final Duration duration = this.timePeriod();
 		return duration.toHours();
