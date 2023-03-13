@@ -1,7 +1,7 @@
 
-package acme.dashboards;
+package acme.forms;
 
-import java.util.Map;
+import java.util.List;
 
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
@@ -21,22 +21,21 @@ public class CompanyDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long		serialVersionUID	= 1L;
+	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes ----------------------------------------------------------
 
-	protected Map<String, Integer>	totalPracticumsTheoryCoursesByMonthLastYear;
-	protected Map<String, Integer>	totalPracticumsHandsOnCoursesByMonthLastYear;
+	protected List<String>		pTLastYearByMonthNumber;
 
-	protected double				avgPracticumSessionTime;
-	protected double				devPracticumSessionTime;
-	protected double				minPracticumSessionTime;
-	protected double				maxPracticumSessionTime;
+	protected Double			avgPracticumSessionTime;
+	protected Double			devPracticumSessionTime;
+	protected Double			minPracticumSessionTime;
+	protected Double			maxPracticumSessionTime;
 
-	protected double				avgPracticumTime;
-	protected double				devPracticumTime;
-	protected double				minPracticumTime;
-	protected double				maxPracticumTime;
+	protected Double			avgPracticumTime;
+	protected Double			devPracticumTime;
+	protected Double			minPracticumTime;
+	protected Double			maxPracticumTime;
 
 	// Derived attributes --------------------------------------------------
 
