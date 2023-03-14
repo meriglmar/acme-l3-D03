@@ -26,14 +26,6 @@ import lombok.Setter;
 @Setter
 public class Audit extends AbstractEntity {
 
-	//Una auditoría es un documento con registros de auditoría sobre un curso publicado. 
-	//El sistema debe almacenar los siguientes datos sobre ellos: 
-	//un código (patrón “[A-Z]{1,3}[0-9][0-9]{3}”, no en blanco, único)
-	//una conclusión (no en blanco, menos de 101 caracteres)
-	//algunos puntos fuertes (no en blanco, menos de 101 caracteres)
-	//algunos puntos débiles (no en blanco, menos de 101 caracteres)
-	//una nota (computada como la moda de las notas en los registros de auditoría correspondientes; empates debe romperse arbitrariamente si es necesario).
-
 	// Serialisation identifier -----------------------------------------------
 
 	protected static final long	serialVersionUID	= 1L;
@@ -61,7 +53,7 @@ public class Audit extends AbstractEntity {
 	// Derived attributes -----------------------------------------------------
 	//una nota (computada como la moda de las notas en los registros de auditoría correspondientes; empates debe romperse arbitrariamente si es necesario).
 	@Transient
-	protected TypeMark mode(final List<TypeMark> lista) {
+	protected TypeMark mark(final List<TypeMark> lista) {
 
 		final Map<TypeMark, Integer> dicc = new HashMap<>();
 
