@@ -14,6 +14,7 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.entities.course.Course;
 import acme.entities.sessions.PracticumSession;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Company;
@@ -51,7 +52,7 @@ public class Practicum extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String					summary;
+	protected String					abstract$;
 
 	@NotBlank
 	@Length(max = 100)
@@ -62,6 +63,7 @@ public class Practicum extends AbstractEntity {
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
+
 	@NotNull
 	@OneToMany(mappedBy = "practicum")
 	protected List<PracticumSession>	practicumSessions;
@@ -70,5 +72,10 @@ public class Practicum extends AbstractEntity {
 	@NotNull
 	@ManyToOne(optional = false)
 	protected Company					company;
+
+	@Valid
+	@NotNull
+	@ManyToOne(optional = false)
+	protected Course					course;
 
 }
