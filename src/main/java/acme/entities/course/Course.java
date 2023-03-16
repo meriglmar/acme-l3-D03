@@ -15,6 +15,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.audits.Audit;
 import acme.entities.lectures.Lecture;
 import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
@@ -91,4 +92,8 @@ public class Course extends AbstractEntity {
 	@NotNull
 	@ManyToOne
 	protected Lecturer		lecturer;
+
+	@ManyToOne(optional = false)
+	@NotNull
+	protected Audit			audit;
 }
