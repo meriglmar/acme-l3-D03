@@ -1,17 +1,15 @@
 
 package acme.entities.tutorials;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import acme.entities.sessions.Session;
+import acme.entities.course.Course;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -49,7 +47,7 @@ public class Tutorial extends AbstractEntity {
 	// Relationships ----------------------------------------------------------
 
 	@NotNull
-	@OneToMany(mappedBy = "tutorial")
-	protected List<Session>		sessions;
+	@ManyToOne(optional = false)
+	protected Course			course;
 
 }
