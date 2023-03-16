@@ -35,11 +35,11 @@ public class Company extends AbstractRole {
 
 	@NotBlank
 	@Length(max = 25)
-	protected String			VAT;
+	protected String			vat;
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			summary;
+	protected String			abstract$;
 
 	@URL
 	protected String			link;
