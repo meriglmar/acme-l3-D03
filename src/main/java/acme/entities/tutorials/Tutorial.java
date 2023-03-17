@@ -11,6 +11,7 @@ import javax.validation.constraints.Size;
 
 import acme.entities.course.Course;
 import acme.framework.data.AbstractEntity;
+import acme.roles.Assistant;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -49,5 +50,9 @@ public class Tutorial extends AbstractEntity {
 	@NotNull
 	@ManyToOne(optional = false)
 	protected Course			course;
+
+	@NotNull
+	@ManyToOne(optional = false)
+	protected Assistant			assistant;
 
 }
