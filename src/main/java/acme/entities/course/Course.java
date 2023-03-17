@@ -10,6 +10,8 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 import acme.entities.audits.Audit;
 import acme.framework.components.datatypes.Money;
@@ -58,6 +60,10 @@ public class Course extends AbstractEntity {
 
 	@URL
 	protected String			link;
+	
+	@NotNull
+	@Enumerated(EnumType.STRING)
+	protected TypeCourse			courseType;
 
 	//	Relationships -----------------------------------------
 
