@@ -1,13 +1,9 @@
 
 package acme.entities.course;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -16,7 +12,6 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.entities.audits.Audit;
-import acme.entities.lectures.Lecture;
 import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Lecturer;
@@ -64,36 +59,14 @@ public class Course extends AbstractEntity {
 	@URL
 	protected String			link;
 
-
-	@Transient
-	protected TypeCourse getTypeCourse() {
-		int theoryCourses = 0;
-		int handsOnCourses = 0;
-
-		for (final Lecture lecture : this.lectures)
-			if (lecture.getLectureType().equals(TypeCourse.THEORY))
-				theoryCourses++;
-			else if (lecture.getLectureType().equals(TypeCourse.HANDS_ON))
-				handsOnCourses++;
-		if (theoryCourses > handsOnCourses)
-			return TypeCourse.THEORY;
-		else if (theoryCourses < handsOnCourses)
-			return TypeCourse.HANDS_ON;
-		else
-			return TypeCourse.BALANCED;
-
-	}
-
+	//	Relationships -----------------------------------------
 
 	@NotNull
-	@OneToMany(mappedBy = "course")
-	protected List<Lecture>	lectures;
-
-	@NotNull
-	@ManyToOne
-	protected Lecturer		lecturer;
+	@ManyToOne(optional = false)
+	protected Lecturer			lecturer;
 
 	@ManyToOne(optional = false)
 	@NotNull
-	protected Audit			audit;
+	protected Audit				audit;
+
 }
