@@ -6,16 +6,14 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Digits;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.entities.course.Course;
+import acme.entities.lectureCourses.LectureCourse;
 import acme.framework.data.AbstractEntity;
-import acme.roles.Lecturer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -52,7 +50,7 @@ public class Lecture extends AbstractEntity {
 	protected String			body;
 
 	@Digits(integer = 3, fraction = 2)
-	@Min((long) 0.01)
+	@NotNull
 	protected Double			estimatedLearningTimeInHours;
 
 	@NotNull
@@ -64,10 +62,6 @@ public class Lecture extends AbstractEntity {
 
 	@ManyToOne
 	@NotNull
-	protected Course			course;
-
-	@NotNull
-	@ManyToOne
-	protected Lecturer			lecturer;
+	protected LectureCourse		course;
 
 }
