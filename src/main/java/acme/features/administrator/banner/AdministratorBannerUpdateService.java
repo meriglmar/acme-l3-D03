@@ -1,3 +1,14 @@
+/*
+ * AdministratorCompanyUpdateService.java
+ *
+ * Copyright (C) 2012-2023 Rafael Corchuelo.
+ *
+ * In keeping with the traditional purpose of furthering education and research, it is
+ * the policy of the copyright owner to permit non-commercial use and redistribution of
+ * this software. It has been tested carefully, but it is not guaranteed for any particular
+ * purposes. The copyright owner does not offer any warranties or representations, nor do
+ * they accept any liabilities with respect to them.
+ */
 
 package acme.features.administrator.banner;
 
@@ -13,19 +24,23 @@ import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AdministratorBannerCreateService extends AbstractService<Administrator, Banner> {
+public class AdministratorBannerUpdateService extends AbstractService<Administrator, Banner> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorBannerRepository repository;
+	protected AdministratorBannerRepository repo;
 
-	// AbstractService interface ----------------------------------------------
+	// AbstractService<Employer, Company> -------------------------------------
 
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -36,18 +51,10 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	@Override
 	public void load() {
 		Banner object;
-		Date moment;
+		int id;
 
-		moment = MomentHelper.getCurrentMoment();
-
-		object = new Banner();
-		object.setMoment(moment);
-
-		object.setStartPeriod(moment);
-		object.setFinPeriod(moment);
-		object.setImageLink("");
-		object.setEslogan("");
-		object.setDocLink("");
+		id = super.getRequest().getData("id", int.class);
+		object = this.repo.findOneBannerById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -56,29 +63,22 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	public void bind(final Banner object) {
 		assert object != null;
 
-		//super.bind(object, "title", "status", "text", "moreInfo");
 		super.bind(object, "moment", "startPeriod", "finPeriod", "imageLink", "eslogan", "docLink");
 	}
 
 	@Override
 	public void validate(final Banner object) {
 		assert object != null;
-
-		//		boolean confirmation;
-		//
-		//		confirmation = super.getRequest().getData("confirmation", boolean.class);
-		//		super.state(confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 	}
 
 	@Override
 	public void perform(final Banner object) {
 		assert object != null;
-
 		Date moment;
 
 		moment = MomentHelper.getCurrentMoment();
 		object.setMoment(moment);
-		this.repository.save(object);
+		this.repo.save(object);
 	}
 
 	@Override
@@ -88,8 +88,6 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 		Tuple tuple;
 
 		tuple = super.unbind(object, "moment", "startPeriod", "finPeriod", "imageLink", "eslogan", "docLink");
-		//		tuple.put("confirmation", true);
-		//		tuple.put("readonly", true);
 
 		super.getResponse().setData(tuple);
 	}
