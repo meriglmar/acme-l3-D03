@@ -1,6 +1,6 @@
 
 
-# master.menu.administrator ###################################################
+# administrator.banner ###################################################
 
 administrator.banner.form.label.moment = Creation moment
 administrator.banner.form.label.imageLink = Image link
@@ -11,3 +11,5 @@ administrator.banner.form.label.finPeriod = End period
 
 administrator.banner.form.label.confirmation = Confirmation
 administrator.banner.form.label.create = Create banner
+administrator.banner.form.label.update = Update a banner 
+administrator.banner.form.label.delete = Delete a banner

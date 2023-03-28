@@ -52,8 +52,6 @@ public class AdministratorBannerShowService extends AbstractService<Administrato
 		Tuple tuple;
 
 		tuple = super.unbind(object, "moment", "startPeriod", "finPeriod", "imageLink", "eslogan", "docLink");
-		tuple.put("confirmation", false);
-		tuple.put("readonly", true);
 
 		super.getResponse().setData(tuple);
 	}

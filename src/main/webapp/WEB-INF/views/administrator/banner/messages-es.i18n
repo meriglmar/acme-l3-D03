@@ -1,4 +1,6 @@
-# master.menu.administrator ###################################################
+
+
+# administrator.banner ###################################################
 
 administrator.banner.form.label.moment = Hora de creación
 administrator.banner.form.label.imageLink = Link de imagen
@@ -9,3 +11,5 @@ administrator.banner.form.label.finPeriod = Periodo de fin
 
 administrator.banner.form.label.confirmation = Confirmación
 administrator.banner.form.label.create = Crear banner
+administrator.banner.form.label.update = Actualizar un banner 
+administrator.banner.form.label.delete = Eliminar un banner
