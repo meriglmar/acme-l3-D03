@@ -56,7 +56,8 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	public void bind(final Banner object) {
 		assert object != null;
 
-		super.bind(object, "title", "status", "text", "moreInfo");
+		//super.bind(object, "title", "status", "text", "moreInfo");
+		super.bind(object, "moment", "startPeriod", "finPeriod", "imageLink", "eslogan", "docLink");
 	}
 
 	@Override
@@ -86,7 +87,7 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "status", "text", "moreInfo");
+		tuple = super.unbind(object, "moment", "startPeriod", "finPeriod", "imageLink", "eslogan", "docLink");
 		tuple.put("confirmation", false);
 		tuple.put("readonly", false);
 

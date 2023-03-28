@@ -1,0 +1,11 @@
+# master.menu.administrator ###################################################
+
+administrator.banner.form.label.moment = Hora de creación
+administrator.banner.form.label.imageLink = Link de imagen
+administrator.banner.form.label.eslogan = Eslogan
+administrator.banner.form.label.docLink = Link de documento
+administrator.banner.form.label.startPeriod = Periodo de inicio
+administrator.banner.form.label.finPeriod = Periodo de fin
+
+administrator.banner.form.label.confirmation = Confirmación
+administrator.banner.form.label.create = Crear banner
