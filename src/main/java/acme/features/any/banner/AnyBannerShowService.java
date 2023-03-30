@@ -3,13 +3,13 @@ package acme.features.any.banner;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.banners.Banner;
 import acme.framework.components.accounts.Any;
+import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
@@ -44,12 +44,23 @@ public class AnyBannerShowService extends AbstractService<Any, Banner> {
 		super.getBuffer().setData(objects);
 	}
 
-	public Banner getRandomActiveBanner() {
-		final List<Banner> activeBanners = this.bannerRepository.findActiveBanners(new Date());
-		if (activeBanners.isEmpty())
-			return null;
-		final int randomIndex = new Random().nextInt(activeBanners.size());
-		return activeBanners.get(randomIndex);
+	@Override
+	public void unbind(final Banner object) {
+		assert object != null;
+
+		Tuple tuple;
+
+		tuple = super.unbind(object, "moment", "startPeriod", "finPeriod", "imageLink", "eslogan", "docLink");
+
+		super.getResponse().setData(tuple);
 	}
+
+	//	public Banner getRandomActiveBanner() {
+	//		final List<Banner> activeBanners = this.bannerRepository.findActiveBanners(new Date());
+	//		if (activeBanners.isEmpty())
+	//			return null;
+	//		final int randomIndex = new Random().nextInt(activeBanners.size());
+	//		return activeBanners.get(randomIndex);
+	//	}
 
 }
