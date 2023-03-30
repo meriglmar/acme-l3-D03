@@ -60,8 +60,9 @@ public class Lecture extends AbstractEntity {
 	@URL
 	protected String			link;
 
+	protected boolean			published;
+
 	@ManyToOne
-	@NotNull
 	protected LectureCourse		course;
 
 }

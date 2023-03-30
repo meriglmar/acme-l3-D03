@@ -21,6 +21,3 @@
 	</jstl:choose>
 	
 </acme:form>
-
-
-<%-- 	<acme:input-checkbox code="administrator.banner.form.label.confirmation" path="confirmation"/> --%>
