@@ -4,22 +4,22 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="employer.application.form.label.reference" path="title" />
-	<acme:input-textbox code="employer.application.form.label.moment" path="abstractLecture" />
-	<acme:input-textarea code="employer.application.form.label.statement" path="body"  />
-	<acme:input-double code="employer.application.form.label.skills" path="estimatedLearningTimeInHours" />
-	<acme:input-url code="employer.application.form.label.qualifications" path="link"/>
+	<acme:input-textbox code="lecturer.lecture.form.label.title" path="title" />
+	<acme:input-textbox code="lecturer.lecture.form.label.abstractLecture" path="abstractLecture" />
+	<acme:input-textarea code="lecturer.lecture.form.label.body" path="body"  />
+	<acme:input-double code="lecturer.lecture.form.label.estimatedLearningTimeInHours" path="estimatedLearningTimeInHours" />
+	<acme:input-url code="lecturer.lecture.form.label.link" path="link"/>
 
-	<acme:input-select path="lectureType" code="employer.application.form.label.new-status"  choices="${choices}"  />
+	<acme:input-select path="lectureType" code="lecturer.lecture.form.label.lectureType"  choices="${choices}"  />
 
 
 <jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode == true}">
-			<acme:submit code="employer.duty.form.button.update" action="/employer/duty/update"/>
-			<acme:submit code="employer.duty.form.button.delete" action="/employer/duty/delete"/>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
+			<acme:submit code="lecturer.lecture.form.label.update" action="/lecturer/lecture/update"/>
+			<acme:submit code="lecturer.lecture.form.label.delete" action="/lecturer/lecture/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="lecturer.lecture.create" action="/lecturer/lecture/create"/>
+			<acme:submit code="lecturer.lecture.form.label.create" action="/lecturer/lecture/create"/>
 		</jstl:when>		
 	</jstl:choose>	
 </acme:form>
