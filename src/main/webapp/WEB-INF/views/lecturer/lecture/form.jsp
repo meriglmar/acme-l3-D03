@@ -9,6 +9,7 @@
 	<acme:input-textarea code="lecturer.lecture.form.label.body" path="body"  />
 	<acme:input-double code="lecturer.lecture.form.label.estimatedLearningTimeInHours" path="estimatedLearningTimeInHours" />
 	<acme:input-url code="lecturer.lecture.form.label.link" path="link"/>
+	<acme:input-checkbox code="lecturer.lecture.form.label.published" path="published"/>
 
 	<acme:input-select path="lectureType" code="lecturer.lecture.form.label.lectureType"  choices="${choices}"  />
 

@@ -12,6 +12,7 @@
 
 package acme.features.administrator.banner;
 
+import java.time.Duration;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,6 +70,17 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	@Override
 	public void validate(final Banner object) {
 		assert object != null;
+
+		boolean status;
+		final boolean status2;
+
+		if (!super.getBuffer().getErrors().hasErrors("startPeriod") && !super.getBuffer().getErrors().hasErrors("endPeriod")) {
+			final Duration sevenDays = Duration.ofDays(7);
+			status = object.periodOfTime().compareTo(sevenDays) > 0;
+			status2 = object.getStartPeriod().compareTo(object.getMoment()) > 0;
+			super.state(status, "finPeriod", "administrator.banner.status.error");
+			super.state(status2, "startPeriod", "administrator.banner.status.error2");
+		}
 	}
 
 	@Override
