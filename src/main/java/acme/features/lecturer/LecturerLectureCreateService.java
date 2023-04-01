@@ -57,7 +57,7 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	public void bind(final Lecture object) {
 		assert object != null;
 
-		super.bind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link");
+		super.bind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "published");
 	}
 
 	@Override
@@ -77,8 +77,9 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 		SelectChoices choices;
 		Tuple tuple;
 		choices = SelectChoices.from(TypeLecture.class, object.getLectureType());
-		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link");
+		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "published");
 		tuple.put("choices", choices);
+		tuple.put("publishedMode", object.isPublished());
 
 		super.getResponse().setData(tuple);
 	}

@@ -12,3 +12,4 @@ lecturer.lecture.form.label.lectureType = Tipo de lección
 lecturer.lecture.form.label.create = Crear lección
 lecturer.lecture.form.label.update = Actualizar lección
 lecturer.lecture.form.label.delete = Eliminar lección
+lecturer.lecture.form.label.published = ¿Publicado?

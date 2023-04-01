@@ -66,6 +66,7 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 
 		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link");
 		tuple.put("choices", choices);
+		tuple.put("publishedMode", object.isPublished());
 
 		super.getResponse().setData(tuple);
 	}
