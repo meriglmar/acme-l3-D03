@@ -3,6 +3,8 @@ package acme.entities.course;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -10,10 +12,7 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 
-import acme.entities.audits.Audit;
 import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Lecturer;
@@ -60,19 +59,15 @@ public class Course extends AbstractEntity {
 
 	@URL
 	protected String			link;
-	
+
 	@NotNull
 	@Enumerated(EnumType.STRING)
-	protected TypeCourse			courseType;
+	protected TypeCourse		courseType;
 
 	//	Relationships -----------------------------------------
 
 	@NotNull
 	@ManyToOne(optional = false)
 	protected Lecturer			lecturer;
-
-	@ManyToOne(optional = false)
-	@NotNull
-	protected Audit				audit;
 
 }
