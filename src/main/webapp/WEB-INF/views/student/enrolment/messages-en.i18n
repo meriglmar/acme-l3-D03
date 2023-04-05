@@ -1,0 +1,12 @@
+
+
+# student.enrolment ###################################################
+
+student.enrolment.form.label.code = Code
+student.enrolment.form.label.motivation = Motivation
+student.enrolment.form.label.goals = Goals
+
+student.enrolment.form.label.create = Create enrolment
+student.enrolment.form.label.update = Update a enrolment 
+student.enrolment.form.label.delete = Delete a enrolment
+student.enrolment.form.label.finalised = Finalise?

@@ -47,7 +47,7 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 	@Override
 	public void bind(final Enrolment object) {
 		assert object != null;
-		super.bind(object, "code", "motivation", "goals", "workTime", "finalised");
+		super.bind(object, "code", "motivation", "goals", "finalised");
 	}
 
 	@Override
@@ -69,7 +69,7 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "workTime", "finalised");
+		tuple = super.unbind(object, "code", "motivation", "goals", "finalised");
 
 		super.getResponse().setData(tuple);
 	}

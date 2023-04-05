@@ -59,8 +59,9 @@ public class Enrolment extends AbstractEntity {
 		return totalWorkTime;
 	}
 
-	protected boolean			finalised; 
-	
+
+	protected boolean			finalised;
+
 	@NotNull
 	@OneToMany(mappedBy = "enrolment")
 	protected List<Activity>	activities;
