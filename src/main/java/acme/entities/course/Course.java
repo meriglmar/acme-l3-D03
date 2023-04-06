@@ -64,6 +64,8 @@ public class Course extends AbstractEntity {
 	@Enumerated(EnumType.STRING)
 	protected TypeCourse		courseType;
 
+	protected boolean			published;
+
 	//	Relationships -----------------------------------------
 
 	@NotNull
