@@ -1,0 +1,15 @@
+
+# lecturer.course ###################################################
+
+lecturer.course.form.label.title = Título
+lecturer.course.form.label.abstractCourse = Abstract
+lecturer.course.form.label.code = Código
+lecturer.course.form.label.retailPrice = Precio
+lecturer.course.form.label.link = Link
+lecturer.course.form.label.courseType = Tipo de curso
+lecturer.course.form.label.lecturer = Profesor
+
+lecturer.course.form.label.create = Crear curso
+lecturer.course.form.label.update = Actualizar curso 
+lecturer.course.form.label.delete = Eliminar curso
+lecturer.course.form.label.published = Publicar?
