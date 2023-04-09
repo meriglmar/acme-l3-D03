@@ -4,6 +4,7 @@ package acme.features.student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.course.Course;
 import acme.entities.enrolments.Enrolment;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -39,6 +40,8 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 	@Override
 	public void load() {
 		Enrolment object;
+		Course course;
+		course = this.repository.findCourseById(2);
 
 		object = new Enrolment();
 		object.setCode("");
@@ -46,6 +49,7 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 		object.setGoals("");
 		//object.setWorkTime(0.0);
 		object.setFinalised(false);
+		object.setCourse(course);
 		super.getBuffer().setData(object);
 	}
 

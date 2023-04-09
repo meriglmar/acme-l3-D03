@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.course.Course;
 import acme.entities.enrolments.Enrolment;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Student;
@@ -22,4 +23,9 @@ public interface StudentEnrolmentRepository extends AbstractRepository {
 	@Query("SELECT i FROM Student i WHERE i.id = :id")
 	Student findStudentById(int id);
 
+	@Query(value = "SELECT * FROM Course ORDER BY RAND() LIMIT 1", nativeQuery = true)
+	Course findRandomCourse();
+
+	@Query("SELECT i FROM Course i WHERE i.id = :id")
+	Course findCourseById(int id);
 }
