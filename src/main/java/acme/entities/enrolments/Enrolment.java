@@ -61,14 +61,17 @@ public class Enrolment extends AbstractEntity {
 
 	protected boolean			finalised;
 
+	//@NotNull
 	@OneToMany(mappedBy = "enrolment")
 	protected List<Activity>	activities;
 
 	@Valid
+	//@NotNull
 	@ManyToOne(optional = false)
 	protected Student			student;
 
 	@Valid
+	//@NotNull
 	@ManyToOne(optional = false)
 	protected Course			course;
 }
