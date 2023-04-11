@@ -1,13 +1,14 @@
 
-package acme.features.lecturer;
+package acme.features.lecturer.course;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
-import acme.entities.course.TypeCourse;
 import acme.framework.components.datatypes.Money;
 import acme.framework.components.models.Tuple;
+import acme.framework.controllers.HttpMethod;
+import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
@@ -16,8 +17,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerCourseRepository	repository;
-	protected LecturerLectureRepository	repositoryLec;
+	protected LecturerCourseRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -41,15 +41,13 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void load() {
 		Course object;
+		Lecturer lecturer;
+
+		lecturer = this.repository.findOneLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
+
 		final Money money = new Money();
 		money.setAmount(0.0);
 		money.setCurrency("EUR");
-		Lecturer lecturer;
-
-		lecturer = this.repository.findLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
-
-		// Esto va en el show,update y todo eso porque no sabemos el id del curso todavía
-		//Collection<Lecture> = this.repository.findManyLecturersByCourseId();
 
 		object = new Course();
 		object.setTitle("");
@@ -57,7 +55,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		object.setLink("");
 		object.setRetailPrice(money);
 		object.setAbstractCourse("");
-		object.setCourseType(TypeCourse.THEORY);
+		object.setPublished(false);
 		object.setLecturer(lecturer);
 		super.getBuffer().setData(object);
 	}
@@ -66,12 +64,21 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	public void bind(final Course object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstractCourse", "retailPrice", "link");
+		super.bind(object, "code", "title", "abstractCourse", "retailPrice", "link", "published");
 	}
 
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Course existing;
+
+			existing = this.repository.findOneCourseByCode(object.getCode());
+			super.state(existing == null, "code", "lecturer.course.form.error.duplicated");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
+			super.state(object.getRetailPrice().getAmount() > 0, "retailPrice", "lecturer.course.form.error.negative-retailPrice");
 	}
 
 	@Override
@@ -85,7 +92,14 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link");
+		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "published");
+		tuple.put("publishedMode", object.isPublished());
 		super.getResponse().setData(tuple);
+	}
+
+	@Override
+	public void onSuccess() {
+		if (super.getRequest().getMethod().equals(HttpMethod.POST))
+			PrincipalHelper.handleUpdate();
 	}
 }
