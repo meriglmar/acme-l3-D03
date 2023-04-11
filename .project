@@ -36,7 +36,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+<<<<<<< HEAD
 			<name>acme-framework</name>
+=======
+			<name>acme-framework2</name>
+>>>>>>> e10f64f (Configuration for framework update)
 			<type>2</type>
 			<location>F:/3º Ing. Soft/Diseño y pruebas 2/Prácticas/Workspace-23/Frameworks/Acme-Framework-23.3.1/target/classes</location>
 		</link>
