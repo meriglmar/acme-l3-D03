@@ -10,7 +10,7 @@ import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AnyPeepShowService extends AbstractService<Any, Peep> {
+public class AnyPeepUpdateService extends AbstractService<Any, Peep> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -25,20 +25,21 @@ public class AnyPeepShowService extends AbstractService<Any, Peep> {
 		boolean status;
 
 		status = super.getRequest().hasData("id", int.class);
-
 		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
+		Any any;
 		boolean status;
 		int id;
 		Peep peep;
 
 		id = super.getRequest().getData("id", int.class);
 		peep = this.repository.findPeepById(id);
-		status = peep != null;
 
+		any = new Any();
+		status = super.getRequest().getPrincipal().hasRole(any) && peep != null;
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -48,10 +49,29 @@ public class AnyPeepShowService extends AbstractService<Any, Peep> {
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
+
 		object = this.repository.findPeepById(id);
 
 		super.getBuffer().setData(object);
+	}
 
+	@Override
+	public void bind(final Peep object) {
+		assert object != null;
+
+		super.bind(object, "nick");
+	}
+
+	@Override
+	public void validate(final Peep object) {
+		assert object != null;
+	}
+
+	@Override
+	public void perform(final Peep object) {
+		assert object != null;
+
+		this.repository.save(object);
 	}
 
 	@Override
@@ -60,9 +80,10 @@ public class AnyPeepShowService extends AbstractService<Any, Peep> {
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "email", "link", "message", "moment", "nick", "title");
+		tuple = super.unbind(object, "title", "nick", "message", "email", "link");
 
 		super.getResponse().setData(tuple);
+
 	}
 
 }
