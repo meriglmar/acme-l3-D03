@@ -31,6 +31,8 @@ master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
+master.menu.administrator.banner.create = Create a banner
+master.menu.administrator.banner.list = List of banners
 master.menu.administrator.shut-down = Shut down
 
 # master.menu.provider ########################################################
@@ -51,7 +53,9 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
-
-# master.menu.anonymous-nosuboptions ####################################################
+master.menu.user-account.student = Student data
+master.menu.user-account.become-student = Become a student
+master.menu.user-account.become-company = Become a company
 
 master.menu.anonymous.peep = Peeps
+

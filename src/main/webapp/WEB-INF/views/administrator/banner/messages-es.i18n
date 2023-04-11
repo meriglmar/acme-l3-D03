@@ -1,0 +1,18 @@
+
+
+# administrator.banner ###################################################
+
+administrator.banner.form.label.moment = Hora de creación
+administrator.banner.form.label.imageLink = Link de imagen
+administrator.banner.form.label.eslogan = Eslogan
+administrator.banner.form.label.docLink = Link de documento
+administrator.banner.form.label.startPeriod = Periodo de inicio
+administrator.banner.form.label.finPeriod = Periodo de fin
+
+administrator.banner.form.label.confirmation = Confirmación
+administrator.banner.form.label.create = Crear banner
+administrator.banner.form.label.update = Actualizar un banner 
+administrator.banner.form.label.delete = Eliminar un banner
+
+administrator.banner.status.error = La duración de un banner debe ser una semana
+administrator.banner.status.error2 = La fecha de inicio debe ser después de la actual

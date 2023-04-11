@@ -8,6 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -51,6 +52,7 @@ public class Lecture extends AbstractEntity {
 
 	@Digits(integer = 3, fraction = 2)
 	@NotNull
+	@Positive
 	protected Double			estimatedLearningTimeInHours;
 
 	@NotNull
@@ -60,8 +62,9 @@ public class Lecture extends AbstractEntity {
 	@URL
 	protected String			link;
 
+	protected boolean			published;
+
 	@ManyToOne
-	@NotNull
 	protected LectureCourse		course;
 
 }
