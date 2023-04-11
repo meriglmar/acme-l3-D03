@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
                                                                                                                                                                               
+=======
+                                                                                                                                                                                                            
+                                                                                                                                                                                                    
+                                                                                                                                                                                                    
+    
+    
+                                                                                                                                                                                        
+    
+>>>>>>> 64c076f Configuration for framework update
     
     
     
@@ -44,7 +54,12 @@
     
     
     <wb-module deploy-name="Acme-L3-D03-23.1">
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
                                                                                                                                                                                                                                                                                                                                                                                                                         
+=======
+                                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+>>>>>>> 64c076f Configuration for framework update
         
         
         
@@ -95,7 +110,12 @@
         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
                                                                                                                                                                                                                                                                                                                                                                                                                 
+=======
+                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+>>>>>>> 64c076f Configuration for framework update
         
         
         
@@ -145,7 +165,12 @@
         
         
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
                                                                                                                                                                                                                                                                                                                                                                                                                 
+=======
+                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+>>>>>>> 64c076f Configuration for framework update
         
         
         
@@ -195,7 +220,12 @@
         
         
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
                                                                                                                                                                                                                                                                                                                                                                                                         
+=======
+                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+>>>>>>> 64c076f Configuration for framework update
         
         
         
@@ -244,7 +274,12 @@
         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp"/>
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
                                                                                                                                                                                                                                                                                                         
+=======
+                                                                                                                                                                                                                                                                                                                
+        
+>>>>>>> 64c076f Configuration for framework update
         
         
         
@@ -281,10 +316,21 @@
         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
                         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/classes"/>
                                                                                                                                                                                                                                                                                                                                                                                                                 
+=======
+                                
+        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/classes"/>
+                
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/acme-framework"/>
+                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+>>>>>>> 64c076f Configuration for framework update
         
         
         
@@ -334,13 +380,23 @@
         
         
         <property name="java-output-path" value="/Hello-World-22.0/target/classes"/>
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
                                                 
+=======
+                                                        
+        
+>>>>>>> 64c076f Configuration for framework update
         
         
         
         
         <property name="context-root" value="Acme-L3-D03"/>
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
                                                                                                                                                                                                                                                                                                                                                                                                                     
+=======
+                                                                                                                                                                                                                                                                                                                                                                                                                            
+    
+>>>>>>> 64c076f Configuration for framework update
     
     
     
@@ -391,7 +447,12 @@
     
     
     </wb-module>
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
                                                                                                                                                                                                         
+=======
+                                                                                                                                                                                                            
+
+>>>>>>> 64c076f Configuration for framework update
 
 
 
