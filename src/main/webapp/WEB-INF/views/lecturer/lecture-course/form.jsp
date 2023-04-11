@@ -8,10 +8,10 @@
 	
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'delete' && !curses.isEmpty()}">
-			<acme:submit code="lecturer.lecture.form.button.delete" action="/lecturer/lecture-course/delete?lectureId=${lectureId}"/>
+			<acme:submit code="lecturer.lectureCourse.form.button.delete" action="/lecturer/lecture-course/delete?lectureId=${lectureId}"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="lecturer.lecture.form.button.add" action="/lecturer/lecture-course/create?lectureId=${lectureId}"/>
+			<acme:submit code="lecturer.lectureCourse.form.button.add" action="/lecturer/lecture-course/create?lectureId=${lectureId}"/>
 		</jstl:when>		
 	</jstl:choose>
 </acme:form>
