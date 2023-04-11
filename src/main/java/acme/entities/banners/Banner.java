@@ -44,7 +44,6 @@ public class Banner extends AbstractEntity {
 	protected Date				finPeriod;
 
 	@URL
-	@NotBlank
 	protected String			imageLink;
 
 	@NotBlank
@@ -52,12 +51,11 @@ public class Banner extends AbstractEntity {
 	protected String			eslogan;
 
 	@URL
-	@NotBlank
 	protected String			docLink;
 
 
 	//Debe durar al menos una semana
-	protected Duration periodOfTime() {
+	public Duration periodOfTime() {
 		return Duration.ofDays(this.finPeriod.getTime() - this.startPeriod.getTime());
 	}
 
