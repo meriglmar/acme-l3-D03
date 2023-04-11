@@ -13,6 +13,7 @@ import javax.validation.constraints.Positive;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.course.TypeCourse;
 import acme.entities.lectureCourses.LectureCourse;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
@@ -57,7 +58,7 @@ public class Lecture extends AbstractEntity {
 
 	@NotNull
 	@Enumerated(EnumType.STRING)
-	protected TypeLecture		lectureType;
+	protected TypeCourse		lectureType;
 
 	@URL
 	protected String			link;
@@ -66,5 +67,11 @@ public class Lecture extends AbstractEntity {
 
 	@ManyToOne
 	protected LectureCourse		course;
+
+	//No sé si está bien
+	//	@NotNull
+	//	@Valid
+	//	@ManyToOne(optional = false)
+	//	protected Lecturer			lecturer;
 
 }
