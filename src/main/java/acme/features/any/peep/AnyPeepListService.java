@@ -23,7 +23,7 @@ public class AnyPeepListService extends AbstractService<Any, Peep> {
 	@Autowired
 	protected SystemConfigurationService	scService;
 
-	// AbstractService interface ----------------------------------------------
+	// AbstractService<Any, Peep> ----------------------------------------------
 
 
 	@Override
