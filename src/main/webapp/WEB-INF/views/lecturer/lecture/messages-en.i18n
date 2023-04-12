@@ -8,6 +8,7 @@ lecturer.lecture.form.label.body = Body
 lecturer.lecture.form.label.estimatedLearningTimeInHours = Estimated learning time
 lecturer.lecture.form.label.link = Link
 lecturer.lecture.form.label.lectureType = Type of lecture
+lecturer.lecture.form.label.draftMode = Draft Mode
 
 lecturer.lecture.form.button.create = Create lecture
 lecturer.lecture.form.button.update = Update a lecture 
@@ -15,4 +16,3 @@ lecturer.lecture.form.button.delete = Delete a lecture
 lecturer.lecture.form.button.publish = Publish?
 lecturer.lecture.form.button.add = Add to course
 lecturer.lecture.form.button.deleteFromCourse = Delete from course
-lecturer.lecture.form.label.draftMode = Draft Mode
