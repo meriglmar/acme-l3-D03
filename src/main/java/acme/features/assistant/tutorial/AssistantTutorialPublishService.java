@@ -2,35 +2,44 @@
 package acme.features.assistant.tutorial;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import acme.entities.tutorials.Tutorial;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
-public class AssistantTutorialCreateService extends AbstractService<Assistant, Tutorial> {
+@Service
+public class AssistantTutorialPublishService extends AbstractService<Assistant, Tutorial> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected AssistantTutorialRepository repository;
 
-	// AbstractService<Assistant, Tutorial> ----------------------------------------------
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
 		boolean status;
+		int id;
 		Assistant assistant;
+		Tutorial tutorial;
 
-		assistant = new Assistant();
-
-		status = super.getRequest().getPrincipal().hasRole(assistant);
+		id = super.getRequest().getData("id", int.class);
+		tutorial = this.repository.findTutorialById(id);
+		assistant = tutorial == null ? null : tutorial.getAssistant();
+		status = tutorial != null && tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(assistant);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -38,15 +47,12 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	@Override
 	public void load() {
 		Tutorial object;
-		Assistant assistant;
+		int id;
 
-		assistant = this.repository.findAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
-		object = new Tutorial();
-		object.setDraftMode(true);
-		object.setAssistant(assistant);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findTutorialById(id);
 
 		super.getBuffer().setData(object);
-
 	}
 
 	@Override
@@ -65,6 +71,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	public void perform(final Tutorial object) {
 		assert object != null;
 
+		object.setDraftMode(false);
 		this.repository.save(object);
 	}
 
