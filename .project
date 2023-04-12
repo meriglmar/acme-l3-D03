@@ -38,11 +38,15 @@
 		<link>
 			<name>acme-framework</name>
 			<type>2</type>
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 <<<<<<< HEAD
 			<locationURI>WORKSPACE_LOC/Frameworks/Acme-Framework-23.3.1/target/classes</locationURI>
 =======
 			<location>F:/3º Ing. Soft/Diseño y pruebas 2/Prácticas/Workspace-23/Frameworks/Acme-Framework-23.3.1/target/classes</location>
 >>>>>>> 52a071b (Task-111: first part almost done)
+=======
+			<locationURI>WORKSPACE_LOC/Frameworks/Acme-Framework-23.3.1/target/classes</locationURI>
+>>>>>>> 2462200 Actualización framework
 		</link>
 	</linkedResources>
 </projectDescription>
