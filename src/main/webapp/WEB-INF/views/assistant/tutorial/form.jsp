@@ -9,6 +9,7 @@
 	<acme:input-textbox code="assistant.tutorial.form.label.abstract" path="abstract"/>
 	<acme:input-textbox code="assistant.tutorial.form.label.goals" path="goals"/>
 	<acme:input-textbox code="assistant.tutorial.form.label.estimatedTotalTime" path="estimatedTotalTime"/>
+	
 
 	<jstl:choose>	 
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
