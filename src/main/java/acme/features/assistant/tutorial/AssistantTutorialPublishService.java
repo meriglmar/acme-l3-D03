@@ -80,7 +80,7 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 		assert object != null;
 
 		Tuple tuple;
-		tuple = super.unbind(object, "reference", "title", "deadline", "salary", "score", "moreInfo", "description", "draftMode");
+		tuple = super.unbind(object, "code", "title", "abstractTutorial", "goals", "estimatedTotalTime", "draftMode");
 
 		super.getResponse().setData(tuple);
 	}

@@ -1,21 +1,34 @@
+/*
+ * AssistantTutorialDeleteService.java
+ *
+ * Copyright (C) 2012-2023 Rafael Corchuelo.
+ *
+ * In keeping with the traditional purpose of furthering education and research, it is
+ * the policy of the copyright owner to permit non-commercial use and redistribution of
+ * this software. It has been tested carefully, but it is not guaranteed for any particular
+ * purposes. The copyright owner does not offer any warranties or representations, nor do
+ * they accept any liabilities with respect to them.
+ */
 
 package acme.features.assistant.tutorial;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import acme.entities.tutorials.Tutorial;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
-public class AssistantTutorialUpdateService extends AbstractService<Assistant, Tutorial> {
+@Service
+public class AssistantTutorialDeleteService extends AbstractService<Assistant, Tutorial> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected AssistantTutorialRepository repository;
 
-	// AbstractService<Assistant, Tutorial> ----------------------------------------------
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -30,14 +43,14 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 	@Override
 	public void authorise() {
 		boolean status;
-		int id;
+		int masterId;
 		Tutorial tutorial;
 		Assistant assistant;
 
-		id = super.getRequest().getData("id", int.class);
-		tutorial = this.repository.findTutorialById(id);
+		masterId = super.getRequest().getData("id", int.class);
+		tutorial = this.repository.findTutorialById(masterId);
 		assistant = tutorial == null ? null : tutorial.getAssistant();
-		status = super.getRequest().getPrincipal().hasRole(assistant) || tutorial != null && !tutorial.isDraftMode();
+		status = tutorial != null && tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(assistant);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -51,7 +64,6 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 		object = this.repository.findTutorialById(id);
 
 		super.getBuffer().setData(object);
-
 	}
 
 	@Override
@@ -62,10 +74,15 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 	}
 
 	@Override
+	public void validate(final Tutorial object) {
+		assert object != null;
+	}
+
+	@Override
 	public void perform(final Tutorial object) {
 		assert object != null;
 
-		this.repository.save(object);
+		this.repository.delete(object);
 	}
 
 	@Override
