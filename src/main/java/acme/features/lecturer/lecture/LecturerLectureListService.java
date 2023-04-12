@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
 import acme.entities.lectures.Lecture;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -25,12 +26,20 @@ public class LecturerLectureListService extends AbstractService<Lecturer, Lectur
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+		status = super.getRequest().hasData("masterId", int.class);
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		Course object;
+		int masterId;
+		masterId = super.getRequest().getData("masterId", int.class);
+		object = this.repo.findOneCourseById(masterId);
+		final Principal principal = super.getRequest().getPrincipal();
+		final int userAccountId = principal.getAccountId();
+		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId);
 	}
 
 	@Override
@@ -46,30 +55,30 @@ public class LecturerLectureListService extends AbstractService<Lecturer, Lectur
 	@Override
 	public void unbind(final Lecture object) {
 		assert object != null;
-
 		Tuple tuple;
-
-		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "published");
-		tuple.put("publishedMode", object.isPublished());
-		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
-
+		tuple = super.unbind(object, "title", "abstractLecture", "estimatedLearningTimeInHours");
+		int masterId;
+		masterId = super.getRequest().getData("masterId", int.class);
+		super.getResponse().setGlobal("masterId", masterId);
+		tuple.put("masterId", masterId);
+		final Course c = this.repo.findOneCourseById(masterId);
+		final boolean showCreate = c.isDraftMode();
+		super.getResponse().setGlobal("showCreate", showCreate);
 		super.getResponse().setData(tuple);
 	}
-
 	@Override
-	public void unbind(final Collection<Lecture> objects) {
-		assert objects != null;
-
+	public void unbind(final Collection<Lecture> object) {
+		assert object != null;
+		//final Tuple tuple;
+		//tuple = super.unbind(object, "title", "summary", "estimatedLearningTime");
 		int masterId;
-		Course course;
-		final boolean showCreate;
-
 		masterId = super.getRequest().getData("masterId", int.class);
-		course = this.repo.findOneCourseById(masterId);
-		showCreate = course.isPublished() && super.getRequest().getPrincipal().hasRole(course.getLecturer());
-
 		super.getResponse().setGlobal("masterId", masterId);
+		//tuple.put("masterId", masterId);
+		final Course c = this.repo.findOneCourseById(masterId);
+		final boolean showCreate = c.isDraftMode();
 		super.getResponse().setGlobal("showCreate", showCreate);
+		//super.getResponse().setData(tuple);
 	}
 
 }

@@ -65,7 +65,7 @@ public class Course extends AbstractEntity {
 	@URL
 	protected String			link;
 
-	protected boolean			published;
+	protected boolean			draftMode;
 
 
 	//Los cursos puramente teóricos deben ser rechazados por el sistema
@@ -73,22 +73,22 @@ public class Course extends AbstractEntity {
 	public TypeCourse courseType(final List<Lecture> lectures) {
 		TypeCourse res = TypeCourse.BALANCED;
 		if (!lectures.isEmpty()) {
-			final Map<TypeCourse, Integer> lecturesByNature = new HashMap<>();
+			final Map<TypeCourse, Integer> lecturesBytype = new HashMap<>();
 			for (final Lecture lecture : lectures) {
-				final TypeCourse nature = lecture.getLectureType();
-				if (lecturesByNature.containsKey(nature))
-					lecturesByNature.put(nature, lecturesByNature.get(nature) + 1);
+				final TypeCourse type = lecture.getLectureType();
+				if (lecturesBytype.containsKey(type))
+					lecturesBytype.put(type, lecturesBytype.get(type) + 1);
 				else
-					lecturesByNature.put(nature, 1);
+					lecturesBytype.put(type, 1);
 			}
-			if (lecturesByNature.containsKey(TypeCourse.HANDS_ON) && lecturesByNature.containsKey(TypeCourse.THEORY))
-				if (lecturesByNature.get(TypeCourse.HANDS_ON) > lecturesByNature.get(TypeCourse.THEORY))
+			if (lecturesBytype.containsKey(TypeCourse.HANDS_ON) && lecturesBytype.containsKey(TypeCourse.THEORY))
+				if (lecturesBytype.get(TypeCourse.HANDS_ON) > lecturesBytype.get(TypeCourse.THEORY))
 					res = TypeCourse.HANDS_ON;
-				else if (lecturesByNature.get(TypeCourse.THEORY) > lecturesByNature.get(TypeCourse.HANDS_ON))
+				else if (lecturesBytype.get(TypeCourse.THEORY) > lecturesBytype.get(TypeCourse.HANDS_ON))
 					res = TypeCourse.THEORY;
-			if (lecturesByNature.containsKey(TypeCourse.HANDS_ON) && !lecturesByNature.containsKey(TypeCourse.THEORY))
+			if (lecturesBytype.containsKey(TypeCourse.HANDS_ON) && !lecturesBytype.containsKey(TypeCourse.THEORY))
 				res = TypeCourse.HANDS_ON;
-			if (!lecturesByNature.containsKey(TypeCourse.HANDS_ON) && lecturesByNature.containsKey(TypeCourse.THEORY))
+			if (!lecturesBytype.containsKey(TypeCourse.HANDS_ON) && lecturesBytype.containsKey(TypeCourse.THEORY))
 				res = TypeCourse.THEORY;
 		}
 		return res;

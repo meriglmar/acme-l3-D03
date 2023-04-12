@@ -1,10 +1,16 @@
 
 package acme.features.lecturer.lecture;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.course.TypeCourse;
+import acme.entities.lectureCourses.LectureCourse;
 import acme.entities.lectures.Lecture;
+import acme.framework.components.accounts.Principal;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -31,7 +37,13 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		Lecture object;
+		int id;
+		id = super.getRequest().getData("id", int.class);
+		object = this.repo.findLectureById(id);
+		final Principal principal = super.getRequest().getPrincipal();
+		final int userAccountId = principal.getAccountId();
+		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
 	}
 
 	@Override
@@ -61,18 +73,21 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 	@Override
 	public void perform(final Lecture object) {
 		assert object != null;
-
+		final Collection<LectureCourse> courseLectures = this.repo.findManyLectureCourseByLecture(object);
+		for (final LectureCourse cl : courseLectures)
+			this.repo.delete(cl);
 		this.repo.delete(object);
 	}
 
 	@Override
 	public void unbind(final Lecture object) {
 		assert object != null;
-
 		Tuple tuple;
-
-		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link");
-
+		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "draftMode", "lecturer");
+		final SelectChoices choices;
+		choices = SelectChoices.from(TypeCourse.class, object.getLectureType());
+		tuple.put("type", choices.getSelected().getKey());
+		tuple.put("types", choices);
 		super.getResponse().setData(tuple);
 	}
 

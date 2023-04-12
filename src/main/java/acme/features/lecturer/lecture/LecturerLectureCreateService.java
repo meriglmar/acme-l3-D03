@@ -41,15 +41,10 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	@Override
 	public void load() {
 		Lecture object;
-
 		object = new Lecture();
-		object.setTitle("");
-		object.setAbstractLecture("");
-		object.setBody("");
-		object.setEstimatedLearningTimeInHours(0.00);
-		object.setLink("");
-		object.setPublished(false);
-		object.setLectureType(TypeCourse.THEORY);
+		object.setDraftMode(true);
+		final Lecturer lecturer = this.repository.findOneLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
+		object.setLecturer(lecturer);
 		super.getBuffer().setData(object);
 	}
 
@@ -57,12 +52,23 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	public void bind(final Lecture object) {
 		assert object != null;
 
-		super.bind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "published");
+		super.bind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link");
 	}
 
 	@Override
 	public void validate(final Lecture object) {
 		assert object != null;
+		;
+		//		if (!super.getBuffer().getErrors().hasErrors("estimatedLearningTime"))
+		//			super.state(object.getEstimatedLearningTime() >= 0.01, "estimatedLearningTime", "lecturer.lecture.form.error.estimatedLearningTIme");
+		//		if (!super.getBuffer().getErrors().hasErrors("title"))
+		//			super.state(this.auxiliarService.validateTextImput(object.getTitle()), "title", "lecturer.lecture.form.error.spam");
+		//		if (!super.getBuffer().getErrors().hasErrors("summary"))
+		//			super.state(this.auxiliarService.validateTextImput(object.getSummary()), "summary", "lecturer.lecture.form.error.spam");
+		//		if (!super.getBuffer().getErrors().hasErrors("body"))
+		//			super.state(this.auxiliarService.validateTextImput(object.getBody()), "body", "lecturer.lecture.form.error.spam");
+		//		if (!super.getBuffer().getErrors().hasErrors("nature"))
+		//			super.state(!object.getNature().equals(Nature.BALANCED), "nature", "lecturer.lecture.form.error.nature");
 	}
 
 	@Override
@@ -74,13 +80,12 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	@Override
 	public void unbind(final Lecture object) {
 		assert object != null;
-		SelectChoices choices;
-		Tuple tuple;
+		final Tuple tuple;
+		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "draftMode", "lecturer");
+		final SelectChoices choices;
 		choices = SelectChoices.from(TypeCourse.class, object.getLectureType());
-		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "published");
-		tuple.put("choices", choices);
-		tuple.put("publishedMode", object.isPublished());
-
+		tuple.put("type", choices.getSelected().getKey());
+		tuple.put("types", choices);
 		super.getResponse().setData(tuple);
 	}
 }

@@ -2,9 +2,8 @@
 package acme.entities.lectures;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -14,8 +13,8 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.entities.course.TypeCourse;
-import acme.entities.lectureCourses.LectureCourse;
 import acme.framework.data.AbstractEntity;
+import acme.roles.Lecturer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -57,21 +56,17 @@ public class Lecture extends AbstractEntity {
 	protected Double			estimatedLearningTimeInHours;
 
 	@NotNull
-	@Enumerated(EnumType.STRING)
 	protected TypeCourse		lectureType;
 
 	@URL
 	protected String			link;
 
-	protected boolean			published;
-
-	@ManyToOne
-	protected LectureCourse		course;
+	protected boolean			draftMode;
 
 	//No sé si está bien
-	//	@NotNull
-	//	@Valid
-	//	@ManyToOne(optional = false)
-	//	protected Lecturer			lecturer;
+	@ManyToOne(optional = false)
+	@NotNull
+	@Valid
+	protected Lecturer			lecturer;
 
 }
