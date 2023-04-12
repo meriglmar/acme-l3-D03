@@ -88,6 +88,13 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 		choices = SelectChoices.from(TypeCourse.class, object.getLectureType());
 		tuple.put("type", choices.getSelected().getKey());
 		tuple.put("types", choices);
+		boolean assigned;
+		final Collection<LectureCourse> objects = this.repo.findManyLectureCourseByLecture(object);
+		if (objects.size() == 0)
+			assigned = false;
+		else
+			assigned = true;
+		tuple.put("assigned", assigned);
 		super.getResponse().setData(tuple);
 	}
 

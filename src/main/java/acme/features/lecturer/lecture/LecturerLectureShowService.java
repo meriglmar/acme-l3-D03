@@ -62,6 +62,7 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 		choices = SelectChoices.from(TypeCourse.class, object.getLectureType());
 		tuple.put("type", choices.getSelected().getKey());
 		tuple.put("types", choices);
+		tuple.put("draftMode", object.isDraftMode());
 
 		final Collection<LectureCourse> objects = this.repository.findManyLectureCourseByLecture(object);
 		if (objects.size() == 0)

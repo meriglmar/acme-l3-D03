@@ -1,6 +1,6 @@
 lecturer.courseLecture.form.label.lecture = Lecture
 lecturer.courseLecture.form.button.delete = Delete
-lecturer.courseLecture.form.button.create = Create
+lecturer.courseLecture.form.button.create = Add
 
 lecturer.courseLecture.form.label.course = Course
 
