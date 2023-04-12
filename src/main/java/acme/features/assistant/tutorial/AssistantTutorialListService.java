@@ -1,25 +1,26 @@
 
-package acme.features.any;
+package acme.features.assistant.tutorial;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.peeps.Peep;
-import acme.framework.components.accounts.Any;
+import acme.entities.tutorials.Tutorial;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Assistant;
 
 @Service
-public class AnyPeepListService extends AbstractService<Any, Peep> {
+public class AssistantTutorialListService extends AbstractService<Assistant, Tutorial> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnyPeepRepository repository;
+	protected AssistantTutorialRepository repository;
 
-	// AbstractService<Any, Peep> ----------------------------------------------
+	// AbstractService<Assistant, Tutorial> ----------------------------------------------
 
 
 	@Override
@@ -34,20 +35,22 @@ public class AnyPeepListService extends AbstractService<Any, Peep> {
 
 	@Override
 	public void load() {
-		Collection<Peep> objects;
+		Collection<Tutorial> objects;
+		Principal principal;
 
-		objects = this.repository.findAllPeeps();
+		principal = super.getRequest().getPrincipal();
+		objects = this.repository.findTutorialsByAssistant(principal.getActiveRoleId());
 
 		super.getBuffer().setData(objects);
 	}
 
 	@Override
-	public void unbind(final Peep object) {
+	public void unbind(final Tutorial object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "moment", "title", "nick");
+		tuple = super.unbind(object, "code", "title");
 
 		super.getResponse().setData(tuple);
 	}
