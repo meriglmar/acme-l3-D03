@@ -62,7 +62,11 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 
 		Tuple tuple;
 
+<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
 		tuple = super.unbind(object, "code", "title", "abstractTutorial", "goals", "estimatedTotalTime", "draftMode");
+=======
+		tuple = super.unbind(object, "code", "title", "abstractTutorial", "goals", "estimatedTotalTime");
+>>>>>>> 7268a1e Task-111: first part almost done
 
 		super.getResponse().setData(tuple);
 	}
