@@ -33,15 +33,7 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int lectureId;
-		Lecture lecture;
-
-		lectureId = super.getRequest().getData("id", int.class);
-		lecture = this.repository.findLectureById(lectureId);
-		status = lecture != null && super.getRequest().getPrincipal().hasRole(Lecturer.class);
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
@@ -58,16 +50,13 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 	@Override
 	public void unbind(final Lecture object) {
 		assert object != null;
-
-		SelectChoices choices;
 		Tuple tuple;
-
+		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "draftMode");
+		tuple.put("confirmation", false);
+		final SelectChoices choices;
 		choices = SelectChoices.from(TypeCourse.class, object.getLectureType());
-
-		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link");
-		tuple.put("choices", choices);
-		tuple.put("publishedMode", object.isPublished());
-
+		tuple.put("type", choices.getSelected().getKey());
+		tuple.put("types", choices);
 		super.getResponse().setData(tuple);
 	}
 

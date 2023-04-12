@@ -1,6 +1,7 @@
 
 package acme.features.lecturer.course;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,22 +17,20 @@ import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class LecturerCourseUpdateService extends AbstractService<Lecturer, Course> {
+public class LecturerCoursePublishService extends AbstractService<Lecturer, Course> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected LecturerCourseRepository repo;
 
-	// AbstractService<Employer, Company> -------------------------------------
+	// AbstractService<Employer, Job> -------------------------------------
 
 
 	@Override
 	public void check() {
 		boolean status;
-
 		status = super.getRequest().hasData("id", int.class);
-
 		super.getResponse().setChecked(status);
 	}
 
@@ -50,34 +49,35 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	public void load() {
 		Course object;
 		int id;
-
 		id = super.getRequest().getData("id", int.class);
 		object = this.repo.findOneCourseById(id);
-
 		super.getBuffer().setData(object);
 	}
 
 	@Override
 	public void bind(final Course object) {
 		assert object != null;
-
 		super.bind(object, "code", "title", "abstractCourse", "retailPrice", "link");
 	}
 
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
-		//		if (!super.getBuffer().getErrors().hasErrors("price"))
-		//			super.state(this.auxiliarService.validatePrice(object.getPrice(), 0, 1000000), "price", "administrator.offer.form.error.price");
-		//		if (!super.getBuffer().getErrors().hasErrors("title"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getTitle()), "title", "lecturer.course.form.error.spam");
-		//		if (!super.getBuffer().getErrors().hasErrors("abstract$"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getAbstract$()), "abstract$", "lecturer.course.form.error.spam");
+		final Collection<Lecture> lectures = this.repo.findManyLecturesByCourseId(object.getId());
+		super.state(!lectures.isEmpty(), "nature", "lecturer.course.form.error.nolecture");
+		if (!lectures.isEmpty()) {
+			boolean handOnLectureInCourse;
+			handOnLectureInCourse = lectures.stream().anyMatch(x -> x.getLectureType().equals(TypeCourse.HANDS_ON));
+			super.state(handOnLectureInCourse, "nature", "lecturer.course.form.error.nohandson");
+			boolean publishedLectures;
+			publishedLectures = lectures.stream().allMatch(x -> x.isDraftMode() == false);
+			super.state(publishedLectures, "nature", "lecturer.course.form.error.lecturenp");
+		}
 	}
 
 	@Override
 	public void perform(final Course object) {
-		assert object != null;
+		object.setDraftMode(false);
 		this.repo.save(object);
 	}
 
@@ -85,12 +85,10 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	public void unbind(final Course object) {
 		assert object != null;
 		Tuple tuple;
-
-		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "draftMode", "lecturer");
+		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "draftMode");
 		final List<Lecture> lectures = this.repo.findManyLecturesByCourseId(object.getId()).stream().collect(Collectors.toList());
 		final TypeCourse type = object.courseType(lectures);
 		tuple.put("type", type);
-		//tuple.put("money", this.auxiliarService.changeCurrency(object.getPrice()));
 		super.getResponse().setData(tuple);
 	}
 }

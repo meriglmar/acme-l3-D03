@@ -4,11 +4,9 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="lecturer.lecture.form.label.title" path="title" width="10%"/>
-	<acme:list-column code="lecturer.lecture.form.label.abstractLecture" path="abstractLecture" width="10%"/>
-	<acme:list-column code="lecturer.lecture.form.label.body" path="body" width="20%"/>		
-	<acme:list-column code="lecturer.lecture.form.label.estimatedLearningTimeInHours" path="estimatedLearningTimeInHours" width="5%"/>		
-	<acme:list-column code="lecturer.lecture.form.label.link" path="link" width="40%"/>		
-	<acme:list-column code="lecturer.lecture.form.label.lectureType" path="lectureType" width="10%"/>
-	<acme:list-column code="lecturer.lecture.form.label.published" path="published" width="5%"/>		
+	<acme:list-column code="lecturer.lecture.form.label.title" path="title"  width="40%"/>
+	<acme:list-column code="lecturer.lecture.form.label.abstractLecture" path="abstractLecture" width="40%" />
+	<acme:list-column code="lecturer.lecture.form.label.estimatedLearningTimeInHours" path="estimatedLearningTimeInHours" width="20%" />
 </acme:list>
+
+<acme:button code="lecturer.lecture.form.button.create" action="/lecturer/lecture/create"/>
