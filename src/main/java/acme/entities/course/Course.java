@@ -1,11 +1,15 @@
 
 package acme.entities.course;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -13,6 +17,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.lectures.Lecture;
 import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Lecturer;
@@ -43,7 +48,7 @@ public class Course extends AbstractEntity {
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
+	@Pattern(regexp = "^[A-Z]{1,3}\\d{3}$")
 	protected String			code;
 
 	@NotBlank
@@ -60,16 +65,41 @@ public class Course extends AbstractEntity {
 	@URL
 	protected String			link;
 
-	@NotNull
-	@Enumerated(EnumType.STRING)
-	protected TypeCourse		courseType;
-
 	protected boolean			published;
+
+
+	//Los cursos puramente teóricos deben ser rechazados por el sistema
+	@Transient
+	public TypeCourse courseType(final List<Lecture> lectures) {
+		TypeCourse res = TypeCourse.BALANCED;
+		if (!lectures.isEmpty()) {
+			final Map<TypeCourse, Integer> lecturesByNature = new HashMap<>();
+			for (final Lecture lecture : lectures) {
+				final TypeCourse nature = lecture.getLectureType();
+				if (lecturesByNature.containsKey(nature))
+					lecturesByNature.put(nature, lecturesByNature.get(nature) + 1);
+				else
+					lecturesByNature.put(nature, 1);
+			}
+			if (lecturesByNature.containsKey(TypeCourse.HANDS_ON) && lecturesByNature.containsKey(TypeCourse.THEORY))
+				if (lecturesByNature.get(TypeCourse.HANDS_ON) > lecturesByNature.get(TypeCourse.THEORY))
+					res = TypeCourse.HANDS_ON;
+				else if (lecturesByNature.get(TypeCourse.THEORY) > lecturesByNature.get(TypeCourse.HANDS_ON))
+					res = TypeCourse.THEORY;
+			if (lecturesByNature.containsKey(TypeCourse.HANDS_ON) && !lecturesByNature.containsKey(TypeCourse.THEORY))
+				res = TypeCourse.HANDS_ON;
+			if (!lecturesByNature.containsKey(TypeCourse.HANDS_ON) && lecturesByNature.containsKey(TypeCourse.THEORY))
+				res = TypeCourse.THEORY;
+		}
+		return res;
+	}
 
 	//	Relationships -----------------------------------------
 
+
 	@NotNull
+	@Valid
 	@ManyToOne(optional = false)
-	protected Lecturer			lecturer;
+	protected Lecturer lecturer;
 
 }

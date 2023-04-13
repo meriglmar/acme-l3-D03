@@ -1,21 +1,21 @@
 
-package acme.features.lecturer;
+package acme.features.lecturer.lecture;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.course.Course;
+import acme.entities.lectures.Lecture;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class LecturerCourseDeleteService extends AbstractService<Lecturer, Course> {
+public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lecture> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerCourseRepository repo;
+	protected LecturerLectureRepository repo;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -36,42 +36,42 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 
 	@Override
 	public void load() {
-		Course object;
+		Lecture object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repo.findCourseById(id);
+		object = this.repo.findLectureById(id);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void bind(final Course object) {
+	public void bind(final Lecture object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstractCourse", "retailPrice", "link");
+		super.bind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link");
 	}
 
 	@Override
-	public void validate(final Course object) {
+	public void validate(final Lecture object) {
 		assert object != null;
 
 	}
 
 	@Override
-	public void perform(final Course object) {
+	public void perform(final Lecture object) {
 		assert object != null;
 
 		this.repo.delete(object);
 	}
 
 	@Override
-	public void unbind(final Course object) {
+	public void unbind(final Lecture object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link");
+		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link");
 
 		super.getResponse().setData(tuple);
 	}

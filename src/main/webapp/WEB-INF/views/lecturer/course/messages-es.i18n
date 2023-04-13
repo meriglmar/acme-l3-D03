@@ -13,3 +13,4 @@ lecturer.course.form.label.create = Crear curso
 lecturer.course.form.label.update = Actualizar curso 
 lecturer.course.form.label.delete = Eliminar curso
 lecturer.course.form.label.published = Publicar?
+lecturer.course.form.button.lectures = Lecciones del curso

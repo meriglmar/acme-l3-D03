@@ -14,3 +14,4 @@ authenticated.company.form.label.abstract$ = Resumen:
 authenticated.company.form.label.link = Link opcional: 
 
 authenticated.company.form.button.create = Registrar
+authenticated.company.form.button.update = Actualizar
