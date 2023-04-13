@@ -50,7 +50,6 @@ master.menu.administrator.banner.list = Lista de banners
 master.menu.administrator.shut-down = Parar el sistema
 master.menu.administrator.offer.list = Lista de ofertas
 master.menu.administrator.offer.create = Crear oferta
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 
 # master.menu.lecturer ########################################################
 
@@ -80,8 +79,6 @@ master.menu.auditor.auditor-dashboard.show = Panel de auditor
 master.menu.company = Empresa
 master.menu.company.practicum.create = Crear práctica
 master.menu.company.practicum.list = Listado de prácticas
-=======
->>>>>>> 32e25b4 Task 082: In review
 
 
 # master.menu.lecturer #######################################################
@@ -130,12 +127,9 @@ master.menu.user-account.company = Datos de la empresa
 master.menu.user-account.become-company = Hazte empresa
 master.menu.user-account.lecturer = Datos de profesor
 master.menu.user-account.become-lecturer = Hazte profesor
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 master.menu.user-account.auditor = Datos de auditor
 master.menu.user-account.become-auditor = Hazte auditor
-=======
-master.menu.user-account.become-assistant = Hazte asistente
->>>>>>> ff805ee Task 107: almost done
+master.menu.user-account.assistant = Datos de asistente
 
 # master.menu.peep ####################################################
 
