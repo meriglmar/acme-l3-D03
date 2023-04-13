@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.course.Course;
 import acme.entities.course.TypeCourse;
 import acme.entities.lectures.Lecture;
-import acme.framework.components.accounts.Principal;
+import acme.entities.lectures.TypeLecture;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -36,13 +36,25 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 
 	@Override
 	public void authorise() {
-		Course object;
-		int id;
-		id = super.getRequest().getData("id", int.class);
-		object = this.repo.findOneCourseById(id);
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
-		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
+		//		Course object;
+		//		int id;
+		//		id = super.getRequest().getData("id", int.class);
+		//		object = this.repo.findOneCourseById(id);
+		//		final Principal principal = super.getRequest().getPrincipal();
+		//		final int userAccountId = principal.getAccountId();
+		//		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
+		boolean status;
+		int courseId;
+		Course course;
+		Lecturer lecturer;
+
+		courseId = super.getRequest().getData("id", int.class);
+		course = this.repo.findOneCourseById(courseId);
+		lecturer = course == null ? null : course.getLecturer();
+		status = course != null && course.isDraftMode() && super.getRequest().getPrincipal().hasRole(lecturer);
+
+		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override
@@ -57,26 +69,33 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 	@Override
 	public void bind(final Course object) {
 		assert object != null;
+		//No sé si tengo que añadir el courseType de Course
 		super.bind(object, "code", "title", "abstractCourse", "retailPrice", "link");
 	}
 
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
+
 		final Collection<Lecture> lectures = this.repo.findManyLecturesByCourseId(object.getId());
-		super.state(!lectures.isEmpty(), "nature", "lecturer.course.form.error.nolecture");
+		super.state(!lectures.isEmpty(), "type", "lecturer.course.form.error.nolecture");
+
 		if (!lectures.isEmpty()) {
+
 			boolean handOnLectureInCourse;
-			handOnLectureInCourse = lectures.stream().anyMatch(x -> x.getLectureType().equals(TypeCourse.HANDS_ON));
-			super.state(handOnLectureInCourse, "nature", "lecturer.course.form.error.nohandson");
+			handOnLectureInCourse = lectures.stream().anyMatch(x -> x.getLectureType().equals(TypeLecture.HANDS_ON));
+			super.state(handOnLectureInCourse, "type", "lecturer.course.form.error.nohandson");
+
 			boolean publishedLectures;
 			publishedLectures = lectures.stream().allMatch(x -> x.isDraftMode() == false);
-			super.state(publishedLectures, "nature", "lecturer.course.form.error.lecturenp");
+			super.state(publishedLectures, "type", "lecturer.course.form.error.lecturenp");
 		}
 	}
 
 	@Override
 	public void perform(final Course object) {
+		assert object != null;
+
 		object.setDraftMode(false);
 		this.repo.save(object);
 	}

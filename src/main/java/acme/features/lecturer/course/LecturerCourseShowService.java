@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import acme.entities.course.Course;
 import acme.entities.course.TypeCourse;
 import acme.entities.lectures.Lecture;
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -37,13 +36,25 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 
 	@Override
 	public void authorise() {
-		Course object;
-		int id;
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneCourseById(id);
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
-		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId);
+		//		Course object;
+		//		int id;
+		//		id = super.getRequest().getData("id", int.class);
+		//		object = this.repository.findOneCourseById(id);
+		//		final Principal principal = super.getRequest().getPrincipal();
+		//		final int userAccountId = principal.getAccountId();
+		//		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId);
+		boolean status;
+		int masterId;
+		Course course;
+		Lecturer lecturer;
+
+		masterId = super.getRequest().getData("id", int.class);
+		course = this.repository.findOneCourseById(masterId);
+		lecturer = course == null ? null : course.getLecturer();
+		status = super.getRequest().getPrincipal().hasRole(lecturer) || course != null && !course.isDraftMode();
+
+		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override
@@ -67,7 +78,6 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 		final List<Lecture> lectures = this.repository.findManyLecturesByCourseId(object.getId()).stream().collect(Collectors.toList());
 		final TypeCourse type = object.courseType(lectures);
 		tuple.put("type", type);
-		//tuple.put("money", this.auxiliarService.changeCurrency(object.getPrice()));
 		super.getResponse().setData(tuple);
 	}
 
