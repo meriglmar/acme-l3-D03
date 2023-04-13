@@ -23,6 +23,8 @@
 			<acme:submit code="lecturer.lecture.form.button.update" action="/lecturer/lecture/update"/>
 			<acme:submit code="lecturer.lecture.form.button.delete" action="/lecturer/lecture/delete"/>
 			<acme:submit code="lecturer.lecture.form.button.publish" action="/lecturer/lecture/publish"/>
+			<acme:button code="lecturer.lecture.form.button.add" action="/lecturer/lecture-course/create?lectureId=${id}"/>
+			<acme:button code="lecturer.lecture.form.button.deleteFromCourse" action="/lecturer/lecture-course/delete?lectureId=${id}"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="lecturer.lecture.form.button.create" action="/lecturer/lecture/create"/>

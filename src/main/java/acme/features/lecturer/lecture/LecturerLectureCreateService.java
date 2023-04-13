@@ -1,13 +1,10 @@
 
 package acme.features.lecturer.lecture;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.TypeCourse;
-import acme.entities.lectureCourses.LectureCourse;
 import acme.entities.lectures.Lecture;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -84,19 +81,19 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	public void unbind(final Lecture object) {
 		assert object != null;
 		final Tuple tuple;
-		boolean assigned;
+		final boolean assigned;
 		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "draftMode", "lecturer");
 		final SelectChoices choices;
 		choices = SelectChoices.from(TypeCourse.class, object.getLectureType());
 		tuple.put("type", choices.getSelected().getKey());
 		tuple.put("types", choices);
 
-		final Collection<LectureCourse> objects = this.repository.findManyLectureCourseByLecture(object);
-		if (objects.size() == 0)
-			assigned = false;
-		else
-			assigned = true;
-		tuple.put("assigned", assigned);
+		//		final Collection<LectureCourse> objects = this.repository.findManyLectureCourseByLecture(object);
+		//		if (objects.size() == 0)
+		//			assigned = false;
+		//		else
+		//			assigned = true;
+		//		tuple.put("assigned", assigned);
 
 		super.getResponse().setData(tuple);
 	}

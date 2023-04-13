@@ -63,7 +63,6 @@ public class Lecture extends AbstractEntity {
 
 	protected boolean			draftMode;
 
-	//No sé si está bien
 	@ManyToOne(optional = false)
 	@NotNull
 	@Valid
