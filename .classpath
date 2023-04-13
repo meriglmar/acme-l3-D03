@@ -35,9 +35,13 @@
 		</attributes>
 	</classpathentry>
 <<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
+<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
 	<classpathentry excluding="**/fragments/**" kind="src" path="acme-framework"/>
 =======
 >>>>>>> 5856da6 .classpath modified
+=======
+	<classpathentry excluding="**/fragments/**" kind="src" path="acme-framework"/>
+>>>>>>> 1b34c45 little configuration changes
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
