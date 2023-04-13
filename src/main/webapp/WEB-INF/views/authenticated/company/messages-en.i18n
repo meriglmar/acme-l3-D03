@@ -14,3 +14,4 @@ authenticated.company.form.label.abstract$ = Abstract:
 authenticated.company.form.label.link = Optional link:  
 
 authenticated.company.form.button.create = Register
+authenticated.company.form.button.update = Update
