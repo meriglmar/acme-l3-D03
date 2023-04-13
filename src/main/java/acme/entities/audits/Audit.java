@@ -19,7 +19,11 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 
 import acme.entities.auditingRecords.TypeMark;
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 import acme.entities.courses.Course;
+=======
+import acme.entities.course.Course;
+>>>>>>> 1cc1cb7 Task 126: In progress
 import acme.framework.data.AbstractEntity;
 import acme.roles.Auditor;
 import lombok.Getter;
@@ -53,7 +57,11 @@ public class Audit extends AbstractEntity {
 	@Length(max = 100)
 	protected String			weakPoints;
 
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 	protected boolean			draftMode;
+=======
+	protected Boolean			draftMode;
+>>>>>>> 1cc1cb7 Task 126: In progress
 
 
 	// Derived attributes -----------------------------------------------------

@@ -40,6 +40,12 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		Course object;
 		object = new Course();
 		final Lecturer lecturer = this.repository.findOneLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
+		object.setTitle("");
+		object.setCode("");
+		object.setLink("");
+		object.setRetailPrice(money);
+		object.setAbstractCourse("");
+		object.setDraftMode(false);
 		object.setLecturer(lecturer);
 		object.setDraftMode(true);
 		super.getBuffer().setData(object);
@@ -86,8 +92,9 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	public void unbind(final Course object) {
 		assert object != null;
 		Tuple tuple;
-
-		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "draftMode", "lecturer");
+		
+		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "draftMode");
+		tuple.put("draftMode", object.isDraftMode());
 		super.getResponse().setData(tuple);
 	}
 }

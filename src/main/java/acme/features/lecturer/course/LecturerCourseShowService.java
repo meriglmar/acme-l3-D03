@@ -74,7 +74,8 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "draftMode", "lecturer");
+		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link");
+		tuple.put("draftMode", object.isDraftMode());
 		final List<Lecture> lectures = this.repository.findManyLecturesByCourseId(object.getId()).stream().collect(Collectors.toList());
 		final TypeCourse type = object.courseType(lectures);
 		tuple.put("type", type);

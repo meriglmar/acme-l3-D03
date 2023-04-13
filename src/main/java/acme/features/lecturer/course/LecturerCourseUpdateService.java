@@ -82,11 +82,8 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "draftMode", "lecturer");
-		final List<Lecture> lectures = this.repo.findManyLecturesByCourseId(object.getId()).stream().collect(Collectors.toList());
-		final TypeCourse type = object.courseType(lectures);
-		tuple.put("type", type);
-		//tuple.put("money", this.auxiliarService.changeCurrency(object.getPrice()));
+		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "draftMode");
+		tuple.put("draftMode", object.isDraftMode());
 		super.getResponse().setData(tuple);
 	}
 }
