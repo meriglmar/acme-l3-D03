@@ -71,13 +71,11 @@ public class LecturerLectureCourseCreateService extends AbstractService<Lecturer
 	public void validate(final LectureCourse object) {
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("lecture") && !super.getBuffer().getErrors().hasErrors("course")) {
-			//int masterId;
-			//masterId = super.getRequest().getData("masterId", int.class);
 			final Collection<Lecture> lectures = this.repository.findManyLecturesByMasterId(object.getCourse().getId());
-			super.state(lectures.isEmpty() || !lectures.contains(object.getLecture()), "course", "lecturer.courseLecture.form.error.lecture");
+			super.state(lectures.isEmpty() || !lectures.contains(object.getLecture()), "course", "lecturer.lectureCourse.form.error.lecture");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("course"))
-			super.state(object.getCourse().isDraftMode(), "course", "lecturer.courseLecture.form.error.course");
+			super.state(object.getCourse().isDraftMode(), "course", "lecturer.lectureCourse.form.error.course");
 	}
 
 	@Override

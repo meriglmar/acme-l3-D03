@@ -16,3 +16,4 @@ lecturer.lecture.form.button.delete = Eliminar lección
 lecturer.lecture.form.button.publish = ¿Publicado?
 lecturer.lecture.form.button.add = Añadir a curso
 lecturer.lecture.form.button.deleteFromCourse = Eliminar de curso
+lecturer.lecture.form.error.estimatedLearningTimeInHours = Las horas deben ser positivas

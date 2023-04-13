@@ -58,17 +58,9 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	@Override
 	public void validate(final Lecture object) {
 		assert object != null;
-		;
-		//		if (!super.getBuffer().getErrors().hasErrors("estimatedLearningTime"))
-		//			super.state(object.getEstimatedLearningTime() >= 0.01, "estimatedLearningTime", "lecturer.lecture.form.error.estimatedLearningTIme");
-		//		if (!super.getBuffer().getErrors().hasErrors("title"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getTitle()), "title", "lecturer.lecture.form.error.spam");
-		//		if (!super.getBuffer().getErrors().hasErrors("summary"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getSummary()), "summary", "lecturer.lecture.form.error.spam");
-		//		if (!super.getBuffer().getErrors().hasErrors("body"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getBody()), "body", "lecturer.lecture.form.error.spam");
-		//		if (!super.getBuffer().getErrors().hasErrors("nature"))
-		//			super.state(!object.getNature().equals(Nature.BALANCED), "nature", "lecturer.lecture.form.error.nature");
+
+		if (!super.getBuffer().getErrors().hasErrors("estimatedLearningTimeInHours"))
+			super.state(object.getEstimatedLearningTimeInHours() >= 0.01, "estimatedLearningTimeInHours", "lecturer.lecture.form.error.estimatedLearningTimeInHours");
 	}
 
 	@Override
@@ -81,19 +73,13 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	public void unbind(final Lecture object) {
 		assert object != null;
 		final Tuple tuple;
-		//final boolean assigned;
+
 		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "draftMode", "lecturer");
+
 		final SelectChoices choices;
 		choices = SelectChoices.from(TypeLecture.class, object.getLectureType());
 		tuple.put("type", choices.getSelected().getKey());
 		tuple.put("types", choices);
-
-		//		final Collection<LectureCourse> objects = this.repository.findManyLectureCourseByLecture(object);
-		//		if (objects.size() == 0)
-		//			assigned = false;
-		//		else
-		//			assigned = true;
-		//		tuple.put("assigned", assigned);
 
 		super.getResponse().setData(tuple);
 	}

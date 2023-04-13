@@ -5,12 +5,12 @@
 <jstl:choose>	 
 	<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
 		<h2>
-			<acme:message code="lecturer.courseLecture.form.lecture.delete.info"/>
+			<acme:message code="lecturer.lectureCourse.form.lecture.delete.info"/>
 		</h2>
 	</jstl:when>
 	<jstl:when test="${_command == 'create'}">
 		<h2>
-			<acme:message code="lecturer.courseLecture.form.lecture.info"/>
+			<acme:message code="lecturer.lectureCourse.form.lecture.info"/>
 		</h2>
 
 	</jstl:when>		
@@ -21,7 +21,7 @@
 	<table class="table table-sm">
 	<tr>
 		<th scope="row">
-			<acme:message code="lecturer.courseLecture.form.lecture.title"/>
+			<acme:message code="lecturer.lectureCourse.form.lecture.title"/>
 		</th>
 		<td>
 			<acme:print value="${lecture.getTitle()}"/>
@@ -29,7 +29,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="lecturer.courseLecture.form.lecture.abstractLecture"/>
+			<acme:message code="lecturer.lectureCourse.form.lecture.abstractLecture"/>
 		</th>
 		<td>
 			<acme:print value="${lecture.getAbstractLecture()}"/>
@@ -38,13 +38,13 @@
 	</table>
 
 <acme:form>
-	<acme:input-select code="lecturer.courseLecture.form.label.course" path="course" choices="${courses}"/>	
+	<acme:input-select code="lecturer.lectureCourse.form.label.course" path="course" choices="${courses}"/>	
 	<jstl:choose>	 
 		<jstl:when test="${acme:anyOf(_command, 'delete') && !cursos.isEmpty()}">
-			<acme:submit code="lecturer.courseLecture.form.button.delete" action="/lecturer/lecture-course/delete?lectureId=${lectureId}"/>
+			<acme:submit code="lecturer.lectureCourse.form.button.delete" action="/lecturer/lecture-course/delete?lectureId=${lectureId}"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="lecturer.courseLecture.form.button.create" action="/lecturer/lecture-course/create?lectureId=${lectureId}"/>
+			<acme:submit code="lecturer.lectureCourse.form.button.create" action="/lecturer/lecture-course/create?lectureId=${lectureId}"/>
 		</jstl:when>		
 	</jstl:choose>
 </acme:form>
