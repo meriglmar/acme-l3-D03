@@ -55,7 +55,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		object.setLink("");
 		object.setRetailPrice(money);
 		object.setAbstractCourse("");
-		object.setPublished(false);
+		object.setDraftMode(false);
 		object.setLecturer(lecturer);
 		super.getBuffer().setData(object);
 	}
@@ -92,8 +92,8 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "published");
-		tuple.put("publishedMode", object.isPublished());
+		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "draftMode");
+		tuple.put("draftMode", object.isDraftMode());
 		super.getResponse().setData(tuple);
 	}
 

@@ -65,7 +65,7 @@ public class Course extends AbstractEntity {
 	@URL
 	protected String			link;
 
-	protected boolean			published;
+	protected boolean			draftMode;
 
 
 	//Los cursos puramente teóricos deben ser rechazados por el sistema

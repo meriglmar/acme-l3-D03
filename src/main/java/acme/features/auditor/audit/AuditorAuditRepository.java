@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.auditingRecords.AuditingRecord;
+import acme.entities.auditingRecords.TypeMark;
 import acme.entities.audits.Audit;
 import acme.entities.course.Course;
 import acme.framework.repositories.AbstractRepository;
@@ -33,7 +34,10 @@ public interface AuditorAuditRepository extends AbstractRepository {
 	@Query("select c from Course c where c.id = :id")
 	Course findCourseById(int id);
 
-	//	@Query("select c from Course c where c.draftMode = false")
-	//	Collection<Course> findCoursesNotAudited();
+	@Query("select ar.mark from AuditingRecord ar where ar.audit.id = :id")
+	Collection<TypeMark> findMarksByAuditId(int id);
+
+	@Query("select c from Course c where c.draftMode = false")
+	Collection<Course> findCoursesNotAudited();
 
 }

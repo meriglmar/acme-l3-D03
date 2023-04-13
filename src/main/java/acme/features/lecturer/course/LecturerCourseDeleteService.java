@@ -89,7 +89,7 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link");
-		tuple.put("publishedMode", object.isPublished());
+		tuple.put("draftMode", object.isDraftMode());
 		super.getResponse().setData(tuple);
 	}
 
