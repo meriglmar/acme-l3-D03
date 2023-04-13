@@ -8,9 +8,9 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.student.form.label.name = Name: 
-authenticated.student.form.label.vat = VAT number:
-authenticated.student.form.label.abstract$ = Abstract: 
-authenticated.student.form.label.link = Optional link:  
+authenticated.company.form.label.name = Name: 
+authenticated.company.form.label.vat = VAT number:
+authenticated.company.form.label.abstract$ = Abstract: 
+authenticated.company.form.label.link = Optional link:  
 
-authenticated.student.form.button.create = Register
+authenticated.company.form.button.create = Register
