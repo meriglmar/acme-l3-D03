@@ -5,6 +5,8 @@
 student.enrolment.form.label.code = Code
 student.enrolment.form.label.motivation = Motivation
 student.enrolment.form.label.goals = Goals
+student.enrolment.form.label.nibble = Nibble of your credit card
+student.enrolment.form.label.holder = Holder of your credit card
 
 student.enrolment.form.label.create = Create enrolment
 student.enrolment.form.label.update = Update a enrolment 

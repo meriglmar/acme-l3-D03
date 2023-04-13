@@ -1,5 +1,5 @@
 
-package acme.features.student;
+package acme.features.student.enrolments;
 
 import java.util.Collection;
 
@@ -23,9 +23,9 @@ public interface StudentEnrolmentRepository extends AbstractRepository {
 	@Query("SELECT i FROM Student i WHERE i.id = :id")
 	Student findStudentById(int id);
 
-	@Query(value = "SELECT * FROM Course ORDER BY RAND() LIMIT 1", nativeQuery = true)
-	Course findRandomCourse();
-
 	@Query("SELECT i FROM Course i WHERE i.id = :id")
 	Course findCourseById(int id);
+
+	@Query("select c from Course c")
+	Collection<Course> findAllCourses();
 }

@@ -10,6 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -61,17 +62,20 @@ public class Enrolment extends AbstractEntity {
 
 	protected boolean			finalised;
 
-	//@NotNull
+	protected String			holder;
+	protected Integer			nibble;
+
+	@NotNull
 	@OneToMany(mappedBy = "enrolment")
 	protected List<Activity>	activities;
 
 	@Valid
-	//@NotNull
+	@NotNull
 	@ManyToOne(optional = false)
 	protected Student			student;
 
 	@Valid
-	//@NotNull
+	@NotNull
 	@ManyToOne(optional = false)
 	protected Course			course;
 }
