@@ -6,7 +6,11 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 	<classpathentry excluding="**/fragments/**" kind="src" path="classes"/>
+=======
+	<classpathentry kind="src" path="acme-framework"/>
+>>>>>>> f81c690 .classpath modified
 	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/webapp">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
@@ -30,7 +34,10 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
 	<classpathentry excluding="**/fragments/**" kind="src" path="acme-framework"/>
+=======
+>>>>>>> 5856da6 .classpath modified
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
