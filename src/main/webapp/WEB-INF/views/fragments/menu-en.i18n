@@ -79,6 +79,12 @@ master.menu.company = Company
 master.menu.company.practicum.create = Create practicum 
 master.menu.company.practicum.list = List of practicums
 
+master.menu.lecturer = Lecturer
+master.menu.lecturer.lecture.create = Create lecture
+master.menu.lecturer.lecture.list = List of lectures
+master.menu.lecturer.course.create = Create course
+master.menu.lecturer.course.list = List of courses 
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
