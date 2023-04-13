@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
 import acme.entities.lectureCourses.LectureCourse;
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -35,13 +34,24 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 
 	@Override
 	public void authorise() {
-		Course object;
-		int id;
-		id = super.getRequest().getData("id", int.class);
-		object = this.repo.findOneCourseById(id);
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
-		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
+		//		Course object;
+		//		int id;
+		//		id = super.getRequest().getData("id", int.class);
+		//		object = this.repo.findOneCourseById(id);
+		//		final Principal principal = super.getRequest().getPrincipal();
+		//		final int userAccountId = principal.getAccountId();
+		//		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
+
+		boolean status;
+		int masterId;
+		Course course;
+		Lecturer lecturer;
+
+		masterId = super.getRequest().getData("id", int.class);
+		course = this.repo.findOneCourseById(masterId);
+		lecturer = course == null ? null : course.getLecturer();
+		status = course != null && course.isDraftMode() && super.getRequest().getPrincipal().hasRole(lecturer);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
