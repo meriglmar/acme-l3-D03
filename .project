@@ -37,6 +37,14 @@
 	<linkedResources>
 		<link>
 			<name>acme-framework</name>
+<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
+=======
+			<type>2</type>
+			<locationURI>WORKSPACE_LOC/Frameworks/Acme-Framework-23.3.1</locationURI>
+		</link>
+		<link>
+			<name>classes</name>
+>>>>>>> fd58594 little project configuration change
 			<type>2</type>
 <<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 <<<<<<< HEAD
