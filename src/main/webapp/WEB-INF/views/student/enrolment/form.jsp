@@ -6,7 +6,10 @@
 <acme:form>
 	<acme:input-textbox code="student.enrolment.form.label.code" path="code" />
 	<acme:input-textbox code="student.enrolment.form.label.motivation" path="motivation" />
-	<acme:input-textarea code="student.enrolment.form.label.goals" path="goals"  />
+	<acme:input-textarea code="student.enrolment.form.label.goals" path="goals" />
+	<acme:input-textarea code="student.enrolment.form.label.holder" path="holder" />
+	<acme:input-textarea code="student.enrolment.form.label.nibble" path="nibble" />
+	<acme:input-textarea code="student.enrolment.form.label.activities" path="activities" />
 	
 	<jstl:choose>
 		<jstl:when test="${finalisedMode == false && acme:anyOf(_command, 'create|show|update|delete')}">

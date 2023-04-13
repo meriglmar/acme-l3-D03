@@ -7,5 +7,7 @@
 	<acme:list-column code="student.enrolment.form.label.code" path="code" width="10%"/>
 	<acme:list-column code="student.enrolment.form.label.motivation" path="motivation" width="10%"/>
 	<acme:list-column code="student.enrolment.form.label.goals" path="goals" width="20%"/>		
-	<acme:list-column code="student.enrolment.form.label.finalised" path="finalised" width="5%"/>		
+	<acme:list-column code="student.enrolment.form.label.finalised" path="finalised" width="5%"/>
+	<acme:list-column code="student.enrolment.form.label.holder" path="holder" width="5%"/>
+	<acme:list-column code="student.enrolment.form.label.nibble" path="nibble" width="5%"/>		
 </acme:list>

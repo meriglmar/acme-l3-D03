@@ -1,83 +1,77 @@
 
-package acme.features.student;
+package acme.features.student.enrolments;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.course.Course;
 import acme.entities.enrolments.Enrolment;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentEnrolmentCreateService extends AbstractService<Student, Enrolment> {
-
+public class StudentEnrolmentDeleteService extends AbstractService<Student, Enrolment> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected StudentEnrolmentRepository repository;
+	protected StudentEnrolmentRepository repo;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		final boolean status = true;
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
 
 		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		boolean status;
-
-		status = super.getRequest().getPrincipal().hasRole(Student.class);
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
 		Enrolment object;
-		Course course;
-		course = this.repository.findCourseById(2);
+		int id;
 
-		object = new Enrolment();
-		object.setCode("");
-		object.setMotivation("");
-		object.setGoals("");
-		//object.setWorkTime(0.0);
-		object.setFinalised(false);
-		object.setCourse(course);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repo.findEnrolmentById(id);
+
 		super.getBuffer().setData(object);
 	}
 
 	@Override
 	public void bind(final Enrolment object) {
 		assert object != null;
-
-		super.bind(object, "code", "motivation", "goals", "finalised");
+		super.bind(object, "code", "motivation", "goals", "finalised", "holder", "nibble");
 	}
 
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
+
 	}
 
 	@Override
 	public void perform(final Enrolment object) {
 		assert object != null;
-		this.repository.save(object);
+
+		this.repo.delete(object);
 	}
 
 	@Override
 	public void unbind(final Enrolment object) {
 		assert object != null;
+
 		Tuple tuple;
-		tuple = super.unbind(object, "code", "motivation", "goals", "finalised");
-		tuple.put("finalisedMode", object.isFinalised());
+
+		tuple = super.unbind(object, "code", "motivation", "goals", "finalised", "holder", "nibble");
 
 		super.getResponse().setData(tuple);
 	}
+
 }

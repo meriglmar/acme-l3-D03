@@ -1,22 +1,21 @@
 
-package acme.features.student;
+package acme.features.student.enrolments;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.course.Course;
 import acme.entities.enrolments.Enrolment;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentEnrolmentDeleteService extends AbstractService<Student, Enrolment> {
+public class StudentEnrolmentUpdateService extends AbstractService<Student, Enrolment> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected StudentEnrolmentRepository repo;
-
-	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -30,7 +29,11 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+
+		status = super.getRequest().getPrincipal().hasRole(Student.class);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -47,29 +50,29 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 	@Override
 	public void bind(final Enrolment object) {
 		assert object != null;
-		super.bind(object, "code", "motivation", "goals", "finalised");
+		super.bind(object, "code", "motivation", "goals", "finalised", "holder", "nibble");
 	}
 
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
-
 	}
 
 	@Override
 	public void perform(final Enrolment object) {
 		assert object != null;
-
-		this.repo.delete(object);
+		this.repo.save(object);
 	}
 
 	@Override
 	public void unbind(final Enrolment object) {
 		assert object != null;
-
+		Course course;
+		course = this.repo.findCourseById(42);
 		Tuple tuple;
-
-		tuple = super.unbind(object, "code", "motivation", "goals", "finalised");
+		tuple = super.unbind(object, "code", "motivation", "goals", "finalised", "holder", "nibble");
+		tuple.put("finalisedMode", object.isFinalised());
+		tuple.put("course", course);
 
 		super.getResponse().setData(tuple);
 	}
