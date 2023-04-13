@@ -1,11 +1,11 @@
 
-package acme.features.lecturer;
+package acme.features.lecturer.lecture;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.course.TypeCourse;
 import acme.entities.lectures.Lecture;
-import acme.entities.lectures.TypeLecture;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -49,7 +49,7 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 		object.setEstimatedLearningTimeInHours(0.00);
 		object.setLink("");
 		object.setPublished(false);
-		object.setLectureType(TypeLecture.THEORY);
+		object.setLectureType(TypeCourse.THEORY);
 		super.getBuffer().setData(object);
 	}
 
@@ -76,7 +76,7 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 		assert object != null;
 		SelectChoices choices;
 		Tuple tuple;
-		choices = SelectChoices.from(TypeLecture.class, object.getLectureType());
+		choices = SelectChoices.from(TypeCourse.class, object.getLectureType());
 		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "published");
 		tuple.put("choices", choices);
 		tuple.put("publishedMode", object.isPublished());

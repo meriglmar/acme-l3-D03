@@ -6,10 +6,9 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -24,16 +23,12 @@ import lombok.Setter;
 @Setter
 public class Offer extends AbstractEntity {
 
-	// Serialisation identifier -----------------------------------------------
-
 	protected static final long	serialVersionUID	= 1L;
 
-	// Attributes -------------------------------------------------------------
-
-	@NotNull
-	@PastOrPresent
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date				moment;
+	@Past
+	@NotNull
+	protected Date				instantiationMoment;
 
 	@NotBlank
 	@Length(max = 75)
@@ -45,16 +40,16 @@ public class Offer extends AbstractEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	@FutureOrPresent
-	protected Date				availabilityStartDate;
+	// validacion de que empiece un dia despues de que se instancie la oferta
+	protected Date				startDay;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	@FutureOrPresent
-	protected Date				availabilityEndDate;
+	// validacion debe durar al menos una semana
+	protected Date				lastDay;
 
 	@NotNull
-	protected Money				retailPrice;
+	protected Money				price;
 
 	@URL
 	protected String			link;

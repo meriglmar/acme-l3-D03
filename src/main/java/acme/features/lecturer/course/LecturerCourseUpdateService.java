@@ -1,5 +1,5 @@
 
-package acme.features.lecturer;
+package acme.features.lecturer.course;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,8 +32,14 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void authorise() {
 		boolean status;
+		int id;
+		Course course;
+		Lecturer lecturer;
 
-		status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
+		id = super.getRequest().getData("id", int.class);
+		course = this.repo.findOneCourseById(id);
+		lecturer = course == null ? null : course.getLecturer();
+		status = course != null && super.getRequest().getPrincipal().hasRole(lecturer);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -44,7 +50,7 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repo.findCourseById(id);
+		object = this.repo.findOneCourseById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -53,7 +59,7 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	public void bind(final Course object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstractCourse", "retailPrice", "link");
+		super.bind(object, "code", "title", "abstractCourse", "retailPrice", "link", "published");
 	}
 
 	@Override
@@ -72,7 +78,8 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link");
+		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "published");
+		tuple.put("publishedMode", object.isPublished());
 		super.getResponse().setData(tuple);
 	}
 }

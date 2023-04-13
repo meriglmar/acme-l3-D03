@@ -1,34 +1,31 @@
 
-package acme.features.lecturer;
+package acme.features.any;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.entities.lectures.Lecture;
+import acme.entities.peeps.Peep;
+import acme.framework.components.accounts.Any;
 import acme.framework.controllers.AbstractController;
-import acme.roles.Lecturer;
 
 @Controller
-public class LecturerLectureController extends AbstractController<Lecturer, Lecture> {
+public class AnyPeepController extends AbstractController<Any, Peep> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerLectureListService	listService;
+	protected AnyPeepListService	listService;
 
 	@Autowired
-	protected LecturerLectureCreateService	createService;
+	protected AnyPeepCreateService	createService;
 
 	@Autowired
-	protected LecturerLectureShowService	showService;
+	protected AnyPeepShowService	showService;
 
 	@Autowired
-	protected LecturerLectureUpdateService	updateService;
-
-	@Autowired
-	protected LecturerLectureDeleteService	deleteService;
+	protected AnyPeepUpdateService	updateService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -39,7 +36,6 @@ public class LecturerLectureController extends AbstractController<Lecturer, Lect
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
-		super.addBasicCommand("delete", this.deleteService);
 	}
 
 }
