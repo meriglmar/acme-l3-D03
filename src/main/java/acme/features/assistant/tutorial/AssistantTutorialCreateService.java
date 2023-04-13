@@ -26,11 +26,8 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	@Override
 	public void authorise() {
 		boolean status;
-		Assistant assistant;
 
-		assistant = new Assistant();
-
-		status = super.getRequest().getPrincipal().hasRole(assistant);
+		status = super.getRequest().getPrincipal().hasRole(Assistant.class);
 
 		super.getResponse().setAuthorised(status);
 	}
