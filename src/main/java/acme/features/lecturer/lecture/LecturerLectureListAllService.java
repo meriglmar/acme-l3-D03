@@ -47,13 +47,6 @@ public class LecturerLectureListAllService extends AbstractService<Lecturer, Lec
 		Tuple tuple;
 
 		tuple = super.unbind(object, "title", "abstractLecture", "estimatedLearningTimeInHours");
-		//		boolean assigned;
-		//		final Collection<LectureCourse> objects = this.repository.findManyLectureCourseByLecture(object);
-		//		if (objects.size() == 0)
-		//			assigned = false;
-		//		else
-		//			assigned = true;
-		//		tuple.put("assigned", assigned);
 		super.getResponse().setGlobal("showCreate", false);
 		super.getResponse().setData(tuple);
 	}

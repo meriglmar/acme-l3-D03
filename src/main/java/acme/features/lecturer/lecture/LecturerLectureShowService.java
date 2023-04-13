@@ -60,13 +60,6 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 		tuple.put("types", choices);
 		tuple.put("draftMode", object.isDraftMode());
 
-		//boolean assigned;
-		//		final Collection<LectureCourse> objects = this.repository.findManyLectureCourseByLecture(object);
-		//		if (objects.size() == 0)
-		//			assigned = false;
-		//		else
-		//			assigned = true;
-		//		tuple.put("assigned", assigned);
 		super.getResponse().setData(tuple);
 	}
 
