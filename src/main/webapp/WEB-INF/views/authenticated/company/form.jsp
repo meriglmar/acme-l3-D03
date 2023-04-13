@@ -18,11 +18,11 @@
 <acme:form>
 	<acme:input-textbox code="authenticated.company.form.label.name" path="name"/>
 	<acme:input-textarea code="authenticated.company.form.label.vat" path="vat"/>
-	<acme:input-textarea code="authenticated.company.form.label.abstract$" path="abstract"/>
+	<acme:input-textarea code="authenticated.company.form.label.abstract$" path="abstract$"/>
 	<acme:input-textbox code="authenticated.company.form.label.link" path="link"/>
 
 	<acme:submit test="${_command == 'create'}" code="authenticated.company.form.button.create" action="/authenticated/company/create"/>
-<%-- 	<jstl:if test="${_command == 'update'}">
-		<acme:submit code="authenticated.student.form.button.update" action="/authenticated/student/update"/>
-	</jstl:if> --%>	
+	<jstl:if test="${_command == 'update'}">
+		<acme:submit code="authenticated.company.form.button.update" action="/authenticated/company/update"/>
+	</jstl:if> 	
 </acme:form>

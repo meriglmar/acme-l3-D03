@@ -1,33 +1,37 @@
 
-package acme.features.lecturer;
+package acme.features.lecturer.lecture;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.entities.course.Course;
+import acme.entities.lectures.Lecture;
 import acme.framework.controllers.AbstractController;
 import acme.roles.Lecturer;
 
 @Controller
-public class LecturerCourseController extends AbstractController<Lecturer, Course> {
+public class LecturerLectureController extends AbstractController<Lecturer, Lecture> {
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerCourseListService		listService;
+	protected LecturerLectureListService			listService;
 
 	@Autowired
-	protected LecturerCourseCreateService	createService;
+	protected LecturerLectureListPersonalService	listPersonalService;
 
 	@Autowired
-	protected LecturerCourseShowService		showService;
+	protected LecturerLectureCreateService			createService;
 
 	@Autowired
-	protected LecturerCourseUpdateService	updateService;
+	protected LecturerLectureShowService			showService;
 
 	@Autowired
-	protected LecturerCourseDeleteService	deleteService;
+	protected LecturerLectureUpdateService			updateService;
+
+	@Autowired
+	protected LecturerLectureDeleteService			deleteService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -35,8 +39,9 @@ public class LecturerCourseController extends AbstractController<Lecturer, Cours
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
-		super.addBasicCommand("create", this.createService);
+		super.addCustomCommand("list-all", "list", this.listPersonalService);
 		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("delete", this.deleteService);
 	}
