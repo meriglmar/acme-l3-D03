@@ -12,7 +12,6 @@ import javax.validation.constraints.Positive;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.entities.course.TypeCourse;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Lecturer;
 import lombok.Getter;
@@ -56,7 +55,7 @@ public class Lecture extends AbstractEntity {
 	protected Double			estimatedLearningTimeInHours;
 
 	@NotNull
-	protected TypeCourse		lectureType;
+	protected TypeLecture		lectureType;
 
 	@URL
 	protected String			link;

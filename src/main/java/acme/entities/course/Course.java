@@ -18,6 +18,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.entities.lectures.Lecture;
+import acme.entities.lectures.TypeLecture;
 import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Lecturer;
@@ -73,22 +74,22 @@ public class Course extends AbstractEntity {
 	public TypeCourse courseType(final List<Lecture> lectures) {
 		TypeCourse res = TypeCourse.BALANCED;
 		if (!lectures.isEmpty()) {
-			final Map<TypeCourse, Integer> lecturesBytype = new HashMap<>();
+			final Map<TypeLecture, Integer> lecturesBytype = new HashMap<>();
 			for (final Lecture lecture : lectures) {
-				final TypeCourse type = lecture.getLectureType();
+				final TypeLecture type = lecture.getLectureType();
 				if (lecturesBytype.containsKey(type))
 					lecturesBytype.put(type, lecturesBytype.get(type) + 1);
 				else
 					lecturesBytype.put(type, 1);
 			}
-			if (lecturesBytype.containsKey(TypeCourse.HANDS_ON) && lecturesBytype.containsKey(TypeCourse.THEORY))
-				if (lecturesBytype.get(TypeCourse.HANDS_ON) > lecturesBytype.get(TypeCourse.THEORY))
+			if (lecturesBytype.containsKey(TypeLecture.HANDS_ON) && lecturesBytype.containsKey(TypeLecture.THEORY))
+				if (lecturesBytype.get(TypeLecture.HANDS_ON) > lecturesBytype.get(TypeLecture.THEORY))
 					res = TypeCourse.HANDS_ON;
-				else if (lecturesBytype.get(TypeCourse.THEORY) > lecturesBytype.get(TypeCourse.HANDS_ON))
+				else if (lecturesBytype.get(TypeLecture.THEORY) > lecturesBytype.get(TypeLecture.HANDS_ON))
 					res = TypeCourse.THEORY;
-			if (lecturesBytype.containsKey(TypeCourse.HANDS_ON) && !lecturesBytype.containsKey(TypeCourse.THEORY))
+			if (lecturesBytype.containsKey(TypeLecture.HANDS_ON) && !lecturesBytype.containsKey(TypeLecture.THEORY))
 				res = TypeCourse.HANDS_ON;
-			if (!lecturesBytype.containsKey(TypeCourse.HANDS_ON) && lecturesBytype.containsKey(TypeCourse.THEORY))
+			if (!lecturesBytype.containsKey(TypeLecture.HANDS_ON) && lecturesBytype.containsKey(TypeLecture.THEORY))
 				res = TypeCourse.THEORY;
 		}
 		return res;
