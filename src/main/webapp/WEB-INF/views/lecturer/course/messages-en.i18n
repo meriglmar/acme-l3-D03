@@ -13,3 +13,6 @@ lecturer.course.form.button.update = Update a course
 lecturer.course.form.button.delete = Delete a course
 lecturer.course.form.button.lectures = Lectures of course
 lecturer.course.form.button.publish = Publish?
+
+lecturer.course.form.error.duplicated = Code already exist, change it!
+lecturer.course.form.error.negative-retailPrice = Amount must be positive!

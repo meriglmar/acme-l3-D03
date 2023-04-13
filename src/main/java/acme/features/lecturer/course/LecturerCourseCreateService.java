@@ -55,6 +55,16 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Course existing;
+
+			existing = this.repository.findOneCourseByCode(object.getCode());
+			super.state(existing == null, "code", "lecturer.course.form.error.duplicated");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
+			super.state(object.getRetailPrice().getAmount() > 0, "retailPrice", "lecturer.course.form.error.negative-retailPrice");
+
 		//		if (!super.getBuffer().getErrors().hasErrors("price"))
 		//			super.state(this.auxiliarService.validatePrice(object.getPrice(), 0, 1000000), "price", "administrator.offer.form.error.price");
 		//		if (!super.getBuffer().getErrors().hasErrors("title"))
