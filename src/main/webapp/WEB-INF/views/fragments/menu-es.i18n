@@ -50,6 +50,12 @@ master.menu.lecturer.lecture.list = Lista de lecciones
 master.menu.lecturer.course.create = Crear curso
 master.menu.lecturer.course.list = Lista de cursos 
 
+# master.menu.student ########################################################
+
+master.menu.student = Estudiante
+master.menu.student.activity.create = Crear actividad
+master.menu.student.activity.list = Lista de actividades 
+
 # master.menu.auditor ########################################################
 
 master.menu.auditor = Auditor
