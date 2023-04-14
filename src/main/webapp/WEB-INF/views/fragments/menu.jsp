@@ -85,6 +85,11 @@
 			<acme:menu-suboption code="master.menu.company.practicum.list" action="/company/practicum/list"/>	
 			<acme:menu-separator/>	
 		</acme:menu-option>
+	
+		<acme:menu-option code="master.menu.anonymous.peep">
+			<acme:menu-suboption code="master.menu.anonymous.peep.list" action="/any/peep/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.peep.create" action="/any/peep/create"/>
+		</acme:menu-option>
 	</acme:menu-left>
 
 	<acme:menu-right>
@@ -103,8 +108,11 @@
 		 	<acme:menu-suboption code="master.menu.user-account.company" action="/authenticated/company/update" access="hasRole('Company')"/>
 		 	<acme:menu-suboption code="master.menu.user-account.become-lecturer" action="/authenticated/lecturer/create" access="!hasRole('Lecturer')"/>
 		 	<acme:menu-suboption code="master.menu.user-account.lecturer" action="/authenticated/lecturer/update" access="hasRole('Lecturer')"/>
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 		 	<acme:menu-suboption code="master.menu.user-account.become-auditor" action="/authenticated/auditor/create" access="!hasRole('Auditor')"/>
 		 	<acme:menu-suboption code="master.menu.user-account.auditor" action="/authenticated/auditor/update" access="hasRole('Auditor')"/>
+=======
+>>>>>>> f8f6662 Task-077: Fixed
 		 	<acme:menu-suboption code="master.menu.user-account.become-assistant" action="/authenticated/assistant/create" access="!hasRole('Assistant')"/>
 		</acme:menu-option>
 
