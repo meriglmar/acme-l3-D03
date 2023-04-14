@@ -13,7 +13,7 @@ import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
-public class AssistantTutorialUpdateService extends AbstractService<Assistant, Session> {
+public class AssistantTutorialSessionUpdateService extends AbstractService<Assistant, Session> {
 
 	// Internal state ---------------------------------------------------------
 

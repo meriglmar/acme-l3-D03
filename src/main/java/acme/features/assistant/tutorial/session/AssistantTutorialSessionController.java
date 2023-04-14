@@ -23,7 +23,7 @@ public class AssistantTutorialSessionController extends AbstractController<Assis
 	protected AssistantTutorialSessionShowService	showService;
 
 	@Autowired
-	protected AssistantSessionUpdateService			updateService;
+	protected AssistantTutorialSessionUpdateService			updateService;
 
 	// Constructors -----------------------------------------------------------
 
