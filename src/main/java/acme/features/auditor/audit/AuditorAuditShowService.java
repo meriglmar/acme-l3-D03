@@ -56,7 +56,7 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 		assert object != null;
 
 		Tuple tuple;
-		final Collection<Course> courses = this.repo.findCoursesNotAudited();
+		final Collection<Course> courses = this.repo.findCourses();
 		SelectChoices choices;
 		final Collection<TypeMark> marks = this.repo.findMarksByAuditId(object.getId());
 		String mark;
