@@ -78,8 +78,8 @@ public class LecturerLectureCourseDeleteService extends AbstractService<Lecturer
 			final Collection<Lecture> lectures = this.repository.findManyLecturesByMasterId(object.getCourse().getId());
 			super.state(lectures.contains(object.getLecture()), "course", "lecturer.lectureCourse.form.error.lectureDeleted");
 		}
-		//		if (!super.getBuffer().getErrors().hasErrors("course"))
-		//			super.state(object.getCourse().isDraftMode(), "course", "lecturer.lectureCourse.form.error.course");
+		if (!super.getBuffer().getErrors().hasErrors("course"))
+			super.state(object.getCourse().isDraftMode(), "course", "lecturer.lectureCourse.form.error.course");
 	}
 
 	@Override
@@ -96,7 +96,6 @@ public class LecturerLectureCourseDeleteService extends AbstractService<Lecturer
 		int lectureId;
 		Lecturer lecturer;
 		Collection<Course> courses;
-		Lecture lecture;
 
 		tuple = super.unbind(object, "course", "lecture");
 		lectureId = super.getRequest().getData("lectureId", int.class);
@@ -104,7 +103,7 @@ public class LecturerLectureCourseDeleteService extends AbstractService<Lecturer
 
 		lecturer = this.repository.findOneLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
 		courses = this.repository.findManyCoursesByLecturer(lecturer);
-		lecture = this.repository.findOneLectureById(lectureId);
+		//lecture = this.repository.findOneLectureById(lectureId);
 
 		final SelectChoices choices = SelectChoices.from(courses, "code", object.getCourse());
 		tuple.put("course", choices.getSelected().getKey());

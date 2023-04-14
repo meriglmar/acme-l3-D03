@@ -1,10 +1,17 @@
-
-
-lecturer.lectureCourse.form.label.course = Course:
-
+lecturer.lectureCourse.form.label.lecture = Lecture
 lecturer.lectureCourse.form.button.delete = Delete
-lecturer.lectureCourse.form.button.add = Add
+lecturer.lectureCourse.form.button.create = Add
 
-lecturer.lectureCourse.form.error.lecture = The selected course contains the lecture
+lecturer.lectureCourse.form.label.course = Course
+
+lecturer.lectureCourse.form.lecture.title = Title of the lecture
+lecturer.lectureCourse.form.lecture.abstractLecture = Summary of the lecture
+
+lecturer.lectureCourse.form.lecture.info = Add the lecture with the following info to a course
+lecturer.lectureCourse.form.lecture.delete.info = Delete lecture with the following info from a course
+
+
+
+lecturer.lectureCourse.form.error.lecture = The lecture is already in the course
 lecturer.lectureCourse.form.error.lectureDeleted = The selected course doesn't contain the lecture
 lecturer.lectureCourse.form.error.course = The selected course is published

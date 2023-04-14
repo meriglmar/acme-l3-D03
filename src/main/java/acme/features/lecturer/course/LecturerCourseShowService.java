@@ -36,17 +36,25 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 
 	@Override
 	public void authorise() {
+		//		Course object;
+		//		int id;
+		//		id = super.getRequest().getData("id", int.class);
+		//		object = this.repository.findOneCourseById(id);
+		//		final Principal principal = super.getRequest().getPrincipal();
+		//		final int userAccountId = principal.getAccountId();
+		//		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId);
 		boolean status;
-		int courseId;
+		int masterId;
 		Course course;
 		Lecturer lecturer;
 
-		courseId = super.getRequest().getData("id", int.class);
-		course = this.repository.findOneCourseById(courseId);
+		masterId = super.getRequest().getData("id", int.class);
+		course = this.repository.findOneCourseById(masterId);
 		lecturer = course == null ? null : course.getLecturer();
-		status = super.getRequest().getPrincipal().hasRole(lecturer) || course != null;
+		status = super.getRequest().getPrincipal().hasRole(lecturer) || course != null && !course.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override
@@ -66,11 +74,10 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link");
-		tuple.put("publishedMode", object.isPublished());
+		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "draftMode", "lecturer");
 		final List<Lecture> lectures = this.repository.findManyLecturesByCourseId(object.getId()).stream().collect(Collectors.toList());
-		final TypeCourse tipo = object.courseType(lectures);
-		tuple.put("type", tipo);
+		final TypeCourse type = object.courseType(lectures);
+		tuple.put("type", type);
 		super.getResponse().setData(tuple);
 	}
 

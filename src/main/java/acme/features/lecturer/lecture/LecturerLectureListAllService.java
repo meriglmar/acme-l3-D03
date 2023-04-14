@@ -12,7 +12,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class LecturerLectureListPersonalService extends AbstractService<Lecturer, Lecture> {
+public class LecturerLectureListAllService extends AbstractService<Lecturer, Lecture> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -35,8 +35,8 @@ public class LecturerLectureListPersonalService extends AbstractService<Lecturer
 	@Override
 	public void load() {
 		Collection<Lecture> objects;
-		objects = this.repository.findAllLectures();
-
+		final Lecturer lecturer = this.repository.findOneLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
+		objects = this.repository.findLecturesByLecturer(lecturer);
 		super.getBuffer().setData(objects);
 	}
 
@@ -46,8 +46,8 @@ public class LecturerLectureListPersonalService extends AbstractService<Lecturer
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "published");
-
+		tuple = super.unbind(object, "title", "abstractLecture", "estimatedLearningTimeInHours");
+		super.getResponse().setGlobal("showCreate", false);
 		super.getResponse().setData(tuple);
 	}
 }

@@ -5,10 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
-import acme.framework.components.datatypes.Money;
 import acme.framework.components.models.Tuple;
-import acme.framework.controllers.HttpMethod;
-import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
@@ -41,22 +38,10 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void load() {
 		Course object;
-		Lecturer lecturer;
-
-		lecturer = this.repository.findOneLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
-
-		final Money money = new Money();
-		money.setAmount(0.0);
-		money.setCurrency("EUR");
-
 		object = new Course();
-		object.setTitle("");
-		object.setCode("");
-		object.setLink("");
-		object.setRetailPrice(money);
-		object.setAbstractCourse("");
-		object.setPublished(false);
+		final Lecturer lecturer = this.repository.findOneLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
 		object.setLecturer(lecturer);
+		object.setDraftMode(true);
 		super.getBuffer().setData(object);
 	}
 
@@ -64,7 +49,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	public void bind(final Course object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstractCourse", "retailPrice", "link", "published");
+		super.bind(object, "code", "title", "abstractCourse", "retailPrice", "link");
 	}
 
 	@Override
@@ -92,14 +77,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "published");
-		tuple.put("publishedMode", object.isPublished());
+		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "draftMode", "lecturer");
 		super.getResponse().setData(tuple);
-	}
-
-	@Override
-	public void onSuccess() {
-		if (super.getRequest().getMethod().equals(HttpMethod.POST))
-			PrincipalHelper.handleUpdate();
 	}
 }
