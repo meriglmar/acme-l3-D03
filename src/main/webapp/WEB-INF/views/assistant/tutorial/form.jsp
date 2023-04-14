@@ -6,11 +6,22 @@
 <acme:form>
 	<acme:input-textbox code="assistant.tutorial.form.label.code" path="code"/>	
 	<acme:input-textbox code="assistant.tutorial.form.label.title" path="title"/>	
+<<<<<<< Upstream, based on 28be164a6bca11cc0bb4935dc38b74904cb02697
 	<acme:input-textarea code="assistant.tutorial.form.label.abstract" path="abstract"/>
+=======
+	<acme:input-textarea code="assistant.tutorial.form.label.abstract" path="abstractTutorial"/>
+>>>>>>> 6666783 Task 110: updated (funcionality)
 	<acme:input-textarea code="assistant.tutorial.form.label.goals" path="goals"/>
+<<<<<<< Upstream, based on 28be164a6bca11cc0bb4935dc38b74904cb02697
 	<acme:input-textbox code="assistant.tutorial.form.label.estimatedTotalTime" path="estimatedTotalTime"/>
 	<acme:button code="assistant.tutorial.form.label.sessions" action="/assistant/tutorial/session/list?tutorialId=${tutorialId}"/>
 	<acme:input-select code="assistant.tutorial.form.label.course" path="course" choices="${courses}"/>
+=======
+	<acme:input-select code="assistant.tutorial.form.label.course" path="course" choices="${courses}"/>
+	<%-- <acme:input-textbox code="assistant.tutorial.form.label.estimatedTotalTime" path="estimatedTotalTime" readonly="true"/> --%>
+
+	<acme:button code="assistant.tutorial.form.label.sessions" action="/assistant/tutorial/session/list?tutorialId=${tutorialId}"/>
+>>>>>>> 6666783 Task 110: updated (funcionality)
 
 	<jstl:choose>	 
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">

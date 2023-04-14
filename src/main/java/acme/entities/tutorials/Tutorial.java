@@ -71,10 +71,13 @@ public class Tutorial extends AbstractEntity {
 >>>>>>> cda6136 Task 111: correctly merged
 	// Relationships ----------------------------------------------------------
 
+<<<<<<< Upstream, based on 28be164a6bca11cc0bb4935dc38b74904cb02697
 	@NotNull
 	@ManyToOne(optional = false)
 	protected Course			course;
 
+=======
+>>>>>>> 6666783 Task 110: updated (funcionality)
 	@NotNull
 	@ManyToOne(optional = false)
 	protected Assistant			assistant;
