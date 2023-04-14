@@ -67,8 +67,8 @@
 			<acme:menu-suboption code="master.menu.auditor.audit.create" action="/auditor/audit/create"/>
 			<acme:menu-suboption code="master.menu.auditor.audit.list" action="/auditor/audit/list"/>	
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.auditor.auditing-records.create" action="/auditor/auditing-records/create"/>
-			<acme:menu-suboption code="master.menu.auditor.auditing-records.list" action="/auditor/auditing-records/list"/>		
+			<acme:menu-suboption code="master.menu.auditor.auditing-record.create" action="/auditor/auditing-record/create"/>
+			<acme:menu-suboption code="master.menu.auditor.auditing-record.list" action="/auditor/auditing-record/list"/>		
 		</acme:menu-option>
 	
 	</acme:menu-left>
