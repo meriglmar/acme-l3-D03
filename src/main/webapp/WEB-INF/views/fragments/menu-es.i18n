@@ -80,7 +80,12 @@ master.menu.company = Empresa
 master.menu.company.practicum.create = Crear práctica
 master.menu.company.practicum.list = Listado de prácticas
 
+<<<<<<< Upstream, based on 823d5630ed5c7f1566d4e30de456da7c1c1b247d
 # master.menu.lecturer #######################################################
+=======
+
+# master.menu.lecturer ########################################################
+>>>>>>> 644e1c1 Task 126: Done
 
 master.menu.lecturer = Profesor
 master.menu.lecturer.lecture.create = Crear lecciÃ³n
@@ -89,6 +94,17 @@ master.menu.lecturer.course.create = Crear curso
 master.menu.lecturer.course.list = Lista de cursos
 master.menu.lecturer.lecturer-dashboard.show = Panel de profesor
 
+<<<<<<< Upstream, based on 28be164a6bca11cc0bb4935dc38b74904cb02697
+=======
+# master.menu.auditor ########################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.audit.create = Crear auditoría
+master.menu.auditor.audit.list = Lista de auditorías
+master.menu.auditor.auditing-records.create = Crear registro de auditoría
+master.menu.auditor.auditing-records.list = Lista de registros de auditorías 
+
+>>>>>>> 5825806 Task 126: Done
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor
