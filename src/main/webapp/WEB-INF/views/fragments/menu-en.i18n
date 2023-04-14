@@ -42,11 +42,14 @@ master.menu.administrator.banner.create = Create a banner
 master.menu.administrator.banner.list = List of banners
 master.menu.administrator.shut-down = Shut down
 
+# master.menu.lecturer #######################################################
+
 master.menu.lecturer = Lecturer
 master.menu.lecturer.lecture.create = Create lecture
 master.menu.lecturer.lecture.list = List of lectures
 master.menu.lecturer.course.create = Create course
-master.menu.lecturer.course.list = List of courses 
+master.menu.lecturer.course.list = List of courses
+master.menu.lecturer.lecturer-dashboard.show = Lecturer dashboard 
 
 # master.menu.provider ########################################################
 
