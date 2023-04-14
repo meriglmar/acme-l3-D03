@@ -46,7 +46,10 @@
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.anonymous.peep" action="/any/peep/list" access="isAnonymous()"/>
+		<acme:menu-option code="master.menu.anonymous.peep">
+			<acme:menu-suboption code="master.menu.anonymous.peep.list" action="/any/peep/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.peep.create" action="/any/peep/create"/>
+		</acme:menu-option>
 	</acme:menu-left>
 
 	<acme:menu-right>
