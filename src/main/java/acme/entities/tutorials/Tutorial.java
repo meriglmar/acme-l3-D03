@@ -1,20 +1,21 @@
 
 package acme.entities.tutorials;
 
+import java.util.Collection;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
 import javax.validation.Valid;
-=======
->>>>>>> 7268a1e Task-111: first part almost done
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import acme.entities.courses.Course;
+import acme.entities.sessions.Session;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Assistant;
 import lombok.Getter;
@@ -48,12 +49,26 @@ public class Tutorial extends AbstractEntity {
 	@Size(max = 100)
 	protected String			goals;
 
-	protected Double			estimatedTotalTime;
-
 	protected boolean			draftMode;
 
 	// Derived attributes -----------------------------------------------------
 
+
+	public Double estimatedTotalTime(final Collection<Session> sessions) {
+		double res = 0.0;
+		if (!sessions.isEmpty())
+			for (final Session sesion : sessions) {
+				final Date start = sesion.getInitTimePeriod();
+				final Date end = sesion.getFinishTimePeriod();
+				double horas = 0.0;
+				double minutos = 0.0;
+				horas = Math.abs(end.getTime() / 3600000 - start.getTime() / 3600000);
+				minutos = Math.abs(end.getTime() / 60000 - start.getTime() / 60000) % 60;
+				final double porcentajeMinutos = minutos / 60;
+				res += horas + porcentajeMinutos;
+			}
+		return res;
+	}
 
 	@Transient
 	public boolean isAvailable() {
@@ -70,10 +85,7 @@ public class Tutorial extends AbstractEntity {
 	protected Course	course;
 
 	@NotNull
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
 	@Valid
-=======
->>>>>>> 7268a1e Task-111: first part almost done
 	@ManyToOne(optional = false)
 	protected Assistant	assistant;
 

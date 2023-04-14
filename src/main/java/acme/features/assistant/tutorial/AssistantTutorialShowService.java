@@ -1,10 +1,15 @@
 
 package acme.features.assistant.tutorial;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.course.Course;
+import acme.entities.sessions.Session;
 import acme.entities.tutorials.Tutorial;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
@@ -61,12 +66,23 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 		assert object != null;
 
 		Tuple tuple;
+		final Collection<Course> courses;
+		final SelectChoices choices;
 
 <<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
 		tuple = super.unbind(object, "code", "title", "abstractTutorial", "goals", "estimatedTotalTime", "draftMode");
 =======
 		tuple = super.unbind(object, "code", "title", "abstractTutorial", "goals", "estimatedTotalTime");
 >>>>>>> 7268a1e Task-111: first part almost done
+
+		final Collection<Session> sessions = this.repository.findTutorialSessionsByTutorial(object);
+		final Double totalTime = object.estimatedTotalTime(sessions);
+		tuple.put("estimatedTotalTime", totalTime);
+
+		courses = this.repository.findAllCourses();
+		choices = SelectChoices.from(courses, "code", object.getCourse());
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
 	}

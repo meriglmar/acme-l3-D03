@@ -40,12 +40,18 @@ public class AssistantTutorialListService extends AbstractService<Assistant, Tut
 
 		principal = super.getRequest().getPrincipal();
 <<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
+<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
 		objects = this.repository.findTutorialsByAssistantId(principal.getActiveRoleId());
 =======
 		objects = this.repository.findTutorialsByAssistant(principal.getActiveRoleId());
 >>>>>>> 7268a1e Task-111: first part almost done
+=======
+		if (principal.getRoles().contains(Assistant.class)) {
+			objects = this.repository.findManyTutorialsByAssistantId(principal.getAccountId());
+			super.getBuffer().setData(objects);
+		}
+>>>>>>> b0b97c5 Task 111: updated
 
-		super.getBuffer().setData(objects);
 	}
 
 	@Override
