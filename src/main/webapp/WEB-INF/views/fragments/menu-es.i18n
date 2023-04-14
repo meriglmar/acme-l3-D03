@@ -54,6 +54,8 @@ master.menu.lecturer.lecturer-dashboard.show = Panel de profesor
 # master.menu.student ########################################################
 
 master.menu.student = Estudiante
+master.menu.student.enrolment.register = Registrar inscripción
+master.menu.student.enrolment.list = Lista de inscripciones 
 master.menu.student.activity.create = Crear actividad
 master.menu.student.activity.list = Lista de actividades 
 

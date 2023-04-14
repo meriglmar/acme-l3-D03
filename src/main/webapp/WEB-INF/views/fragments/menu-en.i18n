@@ -55,6 +55,8 @@ master.menu.lecturer.lecturer-dashboard.show = Lecturer dashboard
 # master.menu.student ###################################################
 
 master.menu.student = Student
+master.menu.student.enrolment.register = Register enrolment
+master.menu.student.enrolment.list = List of enrolments 
 master.menu.student.activity.create = Create activity
 master.menu.student.activity.list = List of activities 
 
