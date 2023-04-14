@@ -24,6 +24,12 @@ master.menu.anonymous.favourite-link-student3 = 21150738F: Garcia Berdejo, Jose 
 master.menu.anonymous.favourite-link-student4 = 77860187N: Iglesias Martín, Mercedes
 master.menu.anonymous.favourite-link-student5 = 77819063N: Martín Sánchez, Paola
 
+master.menu.anonymous.courses = Lista de cursos publicados
+
+# master.menu.authenticated ###################################################
+
+master.menu.authenticated.courses = Lista de cursos publicados
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador

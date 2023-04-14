@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.auditingRecords.AuditingRecord;
 import acme.entities.audits.Audit;
-import acme.entities.course.Course;
+import acme.entities.courses.Course;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Auditor;
 

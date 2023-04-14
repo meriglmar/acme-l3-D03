@@ -1,5 +1,5 @@
 
-package acme.features.lecturer.course;
+package acme.features.any.course;
 
 import java.util.Collection;
 
@@ -7,17 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.courses.Course;
+import acme.framework.components.accounts.Any;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Lecturer;
 
 @Service
-public class LecturerCourseListService extends AbstractService<Lecturer, Course> {
+public class AnyCourseListService extends AbstractService<Any, Course> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerCourseRepository repo;
+	protected AnyCourseRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -35,7 +35,9 @@ public class LecturerCourseListService extends AbstractService<Lecturer, Course>
 	@Override
 	public void load() {
 		Collection<Course> objects;
-		objects = this.repo.findManyCoursesByLecturerId(super.getRequest().getPrincipal().getActiveRoleId());
+
+		objects = this.repository.findCourses();
+
 		super.getBuffer().setData(objects);
 	}
 
@@ -45,7 +47,8 @@ public class LecturerCourseListService extends AbstractService<Lecturer, Course>
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice");
+		tuple = super.unbind(object, "code", "title", "retailPrice");
+
 		super.getResponse().setData(tuple);
 	}
 

@@ -18,13 +18,20 @@
 
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
+		
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-student1" action="https://shop.realbetisbalompie.es/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-student2" action="https://es.shein.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-student3" action="https://www.youtube.com/channel/UCxT6yeg3kKoi6-RJ5ut3wmw"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-student4" action="https://www.rafanadalacademy.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-student5" action="https://www.youtube.com/watch?v=o1dfTZS8E90"/>
+			<acme:menu-suboption code="master.menu.anonymous.courses" action="/any/course/list"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.courses" action="/any/course/list"/>
+		</acme:menu-option>
+
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.banner.create" action="/administrator/banner/create"/>
