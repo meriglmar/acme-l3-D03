@@ -49,11 +49,7 @@ master.menu.administrator.shut-down = Shut down
 master.menu.administrator.offer.list = List of offers
 master.menu.administrator.offer.create = Create offer
 
-<<<<<<< Upstream, based on 28be164a6bca11cc0bb4935dc38b74904cb02697
 # master.menu.lecturer #######################################################
-=======
-# master.menu.lecturer ###################################################
->>>>>>> 644e1c1 Task 126: Done
 
 master.menu.lecturer = Lecturer
 master.menu.lecturer.lecture.create = Create lecture
@@ -81,6 +77,15 @@ master.menu.auditor.auditor-dashboard.show = Auditor dashboard
 master.menu.company = Company
 master.menu.company.practicum.create = Create practicum 
 master.menu.company.practicum.list = List of practicums
+
+# master.menu.lecturer #######################################################
+
+master.menu.lecturer = Lecturer
+master.menu.lecturer.lecture.create = Create lecture
+master.menu.lecturer.lecture.list = List of lectures
+master.menu.lecturer.course.create = Create course
+master.menu.lecturer.course.list = List of courses
+master.menu.lecturer.lecturer-dashboard.show = Lecturer dashboard 
 
 # master.menu.provider ########################################################
 

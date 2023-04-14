@@ -54,10 +54,6 @@
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 		
-<<<<<<< Upstream, based on 28be164a6bca11cc0bb4935dc38b74904cb02697
-=======
-		
->>>>>>> 68e5c64 Task 077: fixed
 		<acme:menu-option code="master.menu.lecturer" access="hasRole('Lecturer')">
 			<acme:menu-suboption code="master.menu.lecturer.lecture.create" action="/lecturer/lecture/create"/>
 			<acme:menu-suboption code="master.menu.lecturer.lecture.list" action="/lecturer/banner/list"/>
@@ -87,7 +83,6 @@
 			<acme:menu-suboption code="master.menu.company.practicum.list" action="/company/practicum/list"/>	
 			<acme:menu-separator/>	
 		</acme:menu-option>
-	
 	</acme:menu-left>
 
 	<acme:menu-right>

@@ -46,15 +46,9 @@ master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.banner.create = Crear un banner
 master.menu.administrator.banner.list = Lista de banners
 master.menu.administrator.shut-down = Parar el sistema
-<<<<<<< Upstream, based on 28be164a6bca11cc0bb4935dc38b74904cb02697
 
 <<<<<<< Upstream, based on 28be164a6bca11cc0bb4935dc38b74904cb02697
 # master.menu.lecturer #######################################################
-=======
-=======
-master.menu.administrator.offer.list = Lista de ofertas
-master.menu.administrator.offer.create = Crear oferta
->>>>>>> 7fe4812 Task 082: In review
 
 # master.menu.lecturer ########################################################
 >>>>>>> 644e1c1 Task 126: Done
@@ -85,6 +79,15 @@ master.menu.auditor.auditor-dashboard.show = Panel de auditor
 master.menu.company = Empresa
 master.menu.company.practicum.create = Crear práctica
 master.menu.company.practicum.list = Listado de prácticas
+
+# master.menu.lecturer #######################################################
+
+master.menu.lecturer = Profesor
+master.menu.lecturer.lecture.create = Crear lecciÃ³n
+master.menu.lecturer.lecture.list = Lista de lecciones
+master.menu.lecturer.course.create = Crear curso
+master.menu.lecturer.course.list = Lista de cursos
+master.menu.lecturer.lecturer-dashboard.show = Panel de profesor
 
 # master.menu.provider ########################################################
 
