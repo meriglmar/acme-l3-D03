@@ -20,6 +20,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 
 import acme.entities.auditingRecords.TypeMark;
+import acme.entities.course.Course;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Auditor;
 import lombok.Getter;
@@ -53,6 +54,8 @@ public class Audit extends AbstractEntity {
 	@Length(max = 100)
 	protected String			weakPoints;
 
+	protected boolean			draftMode;
+
 
 	// Derived attributes -----------------------------------------------------
 	//una nota (computada como la moda de las notas en los registros de auditoría correspondientes; empates debe romperse arbitrariamente si es necesario).
@@ -77,9 +80,14 @@ public class Audit extends AbstractEntity {
 
 
 	// Relationships ----------------------------------------------------------
+	@ManyToOne(optional = false)
+	@NotNull
+	@Valid
+	protected Course	course;
+
 	@Valid
 	@NotNull
 	@ManyToOne(optional = false)
-	protected Auditor auditor;
+	protected Auditor	auditor;
 
 }
