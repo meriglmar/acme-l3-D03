@@ -1,14 +1,41 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
 
+student.enrolment.list.label.code = Code
+student.enrolment.list.label.motivation = Motivation
+student.enrolment.list.label.goals = Goals
+student.enrolment.list.label.courseTitle = Course
+student.enrolment.list.label.finalised = Finalised
+student.enrolment.list.label.draftMode = Draft
 
-# student.enrolment ###################################################
+student.enrolment.list.button.register = Register
 
 student.enrolment.form.label.code = Code
+student.enrolment.form.label.courseTitle = Course
+student.enrolment.form.label.workTime = Work Time (Hours)
 student.enrolment.form.label.motivation = Motivation
 student.enrolment.form.label.goals = Goals
-student.enrolment.form.label.nibble = Nibble of your credit card
-student.enrolment.form.label.holder = Holder of your credit card
+student.enrolment.form.label.draftMode = Draft
+student.enrolment.form.label.numActivities = Number of activities
+student.enrolment.form.label.cardLowerNibble = Credit card number
+student.enrolment.form.label.cardHolder = Card Holder
+student.enrolment.form.label.finalised = Finalised
 
-student.enrolment.form.label.create = Create enrolment
-student.enrolment.form.label.update = Update a enrolment 
-student.enrolment.form.label.delete = Delete a enrolment
-student.enrolment.form.label.finalised = Finalise?
+student.enrolment.form.button.workbook = See workbook
+student.enrolment.form.button.activities = Activities
+
+student.enrolment.form.button.update = Update
+student.enrolment.form.button.delete = Delete
+student.enrolment.form.button.register = Register
+student.enrolment.form.button.publish = Publish
+
+student.enrolment.form.error.finalised = Cannot update a finalised enrolment
+student.enrolment.form.error.invalid-card-number = Enter a valid card number
+student.enrolment.form.error.invalid-card-holder = This field cannot be blank
