@@ -66,6 +66,7 @@
 			<acme:menu-suboption code="master.menu.lecturer.lecturer-dashboard.show" action="/lecturer/lecturer-dashboard/show"/>
 		</acme:menu-option>
 		
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
 		    <acme:menu-suboption code="master.menu.student.course.list" action="/student/course/list"/>
 		    <acme:menu-separator/>
@@ -85,6 +86,16 @@
 			<acme:menu-suboption code="master.menu.company.practicum.list" action="/company/practicum/list"/>	
 			<acme:menu-separator/>	
 		</acme:menu-option>
+=======
+		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
+			<acme:menu-suboption code="master.menu.auditor.audit.create" action="/auditor/audit/create"/>
+			<acme:menu-suboption code="master.menu.auditor.audit.list" action="/auditor/audit/list"/>	
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.auditor.auditing-records.create" action="/auditor/auditing-records/create"/>
+			<acme:menu-suboption code="master.menu.auditor.auditing-records.list" action="/auditor/auditing-records/list"/>		
+		</acme:menu-option>
+	
+>>>>>>> f9b002d Task 126: Done
 	</acme:menu-left>
 
 	<acme:menu-right>

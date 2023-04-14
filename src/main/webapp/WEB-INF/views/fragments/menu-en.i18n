@@ -79,7 +79,11 @@ master.menu.company = Company
 master.menu.company.practicum.create = Create practicum 
 master.menu.company.practicum.list = List of practicums
 
+<<<<<<< Upstream, based on 823d5630ed5c7f1566d4e30de456da7c1c1b247d
 # master.menu.lecturer #######################################################
+=======
+# master.menu.lecturer ###################################################
+>>>>>>> 644e1c1 Task 126: Done
 
 master.menu.lecturer = Lecturer
 master.menu.lecturer.lecture.create = Create lecture
@@ -87,6 +91,14 @@ master.menu.lecturer.lecture.list = List of lectures
 master.menu.lecturer.course.create = Create course
 master.menu.lecturer.course.list = List of courses
 master.menu.lecturer.lecturer-dashboard.show = Lecturer dashboard 
+
+# master.menu.auditor ###################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.audit.create = Create audit
+master.menu.auditor.audit.list = List of audits
+master.menu.auditor.auditing-records.create = Create auditing records 
+master.menu.auditor.auditing-records.list = List of auditing records 
 
 # master.menu.provider ########################################################
 
