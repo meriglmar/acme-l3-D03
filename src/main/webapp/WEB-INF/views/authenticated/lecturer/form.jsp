@@ -16,13 +16,13 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="authenticated.company.form.label.name" path="name"/>
-	<acme:input-textarea code="authenticated.company.form.label.vat" path="vat"/>
-	<acme:input-textarea code="authenticated.company.form.label.abstract$" path="abstract$"/>
-	<acme:input-textbox code="authenticated.company.form.label.link" path="link"/>
+	<acme:input-textbox code="authenticated.lecturer.form.label.almaMater" path="almaMater"/>
+	<acme:input-textarea code="authenticated.lecturer.form.label.resume" path="resume"/>
+	<acme:input-textarea code="authenticated.lecturer.form.label.qualifications" path="qualifications"/>
+	<acme:input-textbox code="authenticated.lecturer.form.label.urlInfo" path="urlInfo"/>
 
-	<acme:submit test="${_command == 'create'}" code="authenticated.company.form.button.create" action="/authenticated/company/create"/>
+	<acme:submit test="${_command == 'create'}" code="authenticated.lecturer.form.button.create" action="/authenticated/lecturer/create"/>
 	<jstl:if test="${_command == 'update'}">
-		<acme:submit code="authenticated.company.form.button.update" action="/authenticated/company/update"/>
+		<acme:submit code="authenticated.lecturer.form.button.update" action="/authenticated/lecturer/update"/>
 	</jstl:if> 	
 </acme:form>
