@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.peeps.Peep;
+import acme.framework.components.accounts.Anonymous;
 import acme.framework.components.accounts.Any;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
@@ -36,8 +37,15 @@ public class AnyPeepCreateService extends AbstractService<Any, Peep> {
 	@Override
 	public void load() {
 		Peep object;
+		//		Principal principal;
+		//		principal = super.getRequest().getPrincipal();
 
 		object = new Peep();
+
+		if (super.getRequest().getPrincipal().hasRole(Anonymous.class))
+			object.setNick(null);
+		else
+			object.setNick(super.getRequest().getPrincipal().getUsername());
 
 		super.getBuffer().setData(object);
 	}
@@ -49,13 +57,6 @@ public class AnyPeepCreateService extends AbstractService<Any, Peep> {
 		Date moment;
 
 		moment = MomentHelper.getCurrentMoment();
-
-		final Any any = new Any();
-
-		if (super.getRequest().getPrincipal().hasRole(any))
-			object.setNick(null);
-		else
-			object.setNick(super.getRequest().getPrincipal().getUsername());
 
 		super.bind(object, "title", "nick", "message", "email", "link");
 		object.setMoment(moment);

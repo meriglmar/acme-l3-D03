@@ -58,4 +58,9 @@ master.menu.user-account.become-student = Hazte estudiante
 master.menu.user-account.company = Datos de la empresa
 master.menu.user-account.become-company = Hazte empresa
 
-master.menu.anonymous.peep = Peeps
+# master.menu.peep ####################################################
+
+master.menu.anonymous.peep = Notificaciones
+master.menu.anonymous.peep.list = Lista de notificaciones
+master.menu.anonymous.peep.create = Crear notificación
+
