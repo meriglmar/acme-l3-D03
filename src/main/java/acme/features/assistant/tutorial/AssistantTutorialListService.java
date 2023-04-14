@@ -39,7 +39,14 @@ public class AssistantTutorialListService extends AbstractService<Assistant, Tut
 		Principal principal;
 
 		principal = super.getRequest().getPrincipal();
+<<<<<<< Upstream, based on 28be164a6bca11cc0bb4935dc38b74904cb02697
 		objects = this.repository.findTutorialsByAssistantId(principal.getActiveRoleId());
+=======
+		if (principal.getRoles().contains(Assistant.class)) {
+			objects = this.repository.findManyTutorialsByAssistantId(principal.getAccountId());
+			super.getBuffer().setData(objects);
+		}
+>>>>>>> cda6136 Task 111: correctly merged
 
 		super.getBuffer().setData(objects);
 	}

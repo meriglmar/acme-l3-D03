@@ -71,6 +71,8 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 
 		Tuple tuple;
 		tuple = super.unbind(object, "reference", "title", "deadline", "salary", "score", "moreInfo", "description", "draftMode");
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
 	}
