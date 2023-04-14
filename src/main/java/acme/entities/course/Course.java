@@ -18,6 +18,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.entities.lectures.Lecture;
+import acme.entities.lectures.TypeLecture;
 import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Lecturer;
@@ -73,22 +74,22 @@ public class Course extends AbstractEntity {
 	public TypeCourse courseType(final List<Lecture> lectures) {
 		TypeCourse res = TypeCourse.BALANCED;
 		if (!lectures.isEmpty()) {
-			final Map<TypeCourse, Integer> lecturesByNature = new HashMap<>();
+			final Map<TypeLecture, Integer> lecturesBytype = new HashMap<>();
 			for (final Lecture lecture : lectures) {
-				final TypeCourse nature = lecture.getLectureType();
-				if (lecturesByNature.containsKey(nature))
-					lecturesByNature.put(nature, lecturesByNature.get(nature) + 1);
+				final TypeLecture type = lecture.getLectureType();
+				if (lecturesBytype.containsKey(type))
+					lecturesBytype.put(type, lecturesBytype.get(type) + 1);
 				else
-					lecturesByNature.put(nature, 1);
+					lecturesBytype.put(type, 1);
 			}
-			if (lecturesByNature.containsKey(TypeCourse.HANDS_ON) && lecturesByNature.containsKey(TypeCourse.THEORY))
-				if (lecturesByNature.get(TypeCourse.HANDS_ON) > lecturesByNature.get(TypeCourse.THEORY))
+			if (lecturesBytype.containsKey(TypeLecture.HANDS_ON) && lecturesBytype.containsKey(TypeLecture.THEORY))
+				if (lecturesBytype.get(TypeLecture.HANDS_ON) > lecturesBytype.get(TypeLecture.THEORY))
 					res = TypeCourse.HANDS_ON;
-				else if (lecturesByNature.get(TypeCourse.THEORY) > lecturesByNature.get(TypeCourse.HANDS_ON))
+				else if (lecturesBytype.get(TypeLecture.THEORY) > lecturesBytype.get(TypeLecture.HANDS_ON))
 					res = TypeCourse.THEORY;
-			if (lecturesByNature.containsKey(TypeCourse.HANDS_ON) && !lecturesByNature.containsKey(TypeCourse.THEORY))
+			if (lecturesBytype.containsKey(TypeLecture.HANDS_ON) && !lecturesBytype.containsKey(TypeLecture.THEORY))
 				res = TypeCourse.HANDS_ON;
-			if (!lecturesByNature.containsKey(TypeCourse.HANDS_ON) && lecturesByNature.containsKey(TypeCourse.THEORY))
+			if (!lecturesBytype.containsKey(TypeLecture.HANDS_ON) && lecturesBytype.containsKey(TypeLecture.THEORY))
 				res = TypeCourse.THEORY;
 		}
 		return res;

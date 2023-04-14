@@ -1,10 +1,16 @@
 
 package acme.features.lecturer.course;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
+import acme.entities.course.TypeCourse;
+import acme.entities.lectures.Lecture;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -31,17 +37,13 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 
 	@Override
 	public void authorise() {
-		boolean status;
+		Course object;
 		int id;
-		Course course;
-		Lecturer lecturer;
-
 		id = super.getRequest().getData("id", int.class);
-		course = this.repo.findOneCourseById(id);
-		lecturer = course == null ? null : course.getLecturer();
-		status = course != null && super.getRequest().getPrincipal().hasRole(lecturer);
-
-		super.getResponse().setAuthorised(status);
+		object = this.repo.findOneCourseById(id);
+		final Principal principal = super.getRequest().getPrincipal();
+		final int userAccountId = principal.getAccountId();
+		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
 	}
 
 	@Override
@@ -59,12 +61,14 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	public void bind(final Course object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstractCourse", "retailPrice", "link", "published");
+		super.bind(object, "code", "title", "abstractCourse", "retailPrice", "link");
 	}
 
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
+		//		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
+		//			super.state(object.getRetailPrice().getAmount() > 0, "retailPrice", "lecturer.course.form.error.negative-retailPrice");
 	}
 
 	@Override
@@ -78,8 +82,11 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "draftMode");
-		tuple.put("draftMode", object.isDraftMode());
+		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "draftMode", "lecturer");
+		final List<Lecture> lectures = this.repo.findManyLecturesByCourseId(object.getId()).stream().collect(Collectors.toList());
+		final TypeCourse type = object.courseType(lectures);
+		tuple.put("type", type);
+		//tuple.put("money", this.auxiliarService.changeCurrency(object.getPrice()));
 		super.getResponse().setData(tuple);
 	}
 }

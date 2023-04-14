@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -36,11 +35,7 @@ public class LecturerCourseListService extends AbstractService<Lecturer, Course>
 	@Override
 	public void load() {
 		Collection<Course> objects;
-		Principal principal;
-
-		principal = super.getRequest().getPrincipal();
-		objects = this.repo.findManyCoursesByLecturerId(principal.getActiveRoleId());
-
+		objects = this.repo.findManyCoursesByLecturerId(super.getRequest().getPrincipal().getActiveRoleId());
 		super.getBuffer().setData(objects);
 	}
 
@@ -50,8 +45,7 @@ public class LecturerCourseListService extends AbstractService<Lecturer, Course>
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "lecturer", "published");
-		tuple.put("draftMode", object.isDraftMode());
+		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice");
 		super.getResponse().setData(tuple);
 	}
 
