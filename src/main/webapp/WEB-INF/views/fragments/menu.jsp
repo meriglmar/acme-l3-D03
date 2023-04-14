@@ -58,7 +58,9 @@
 			<acme:menu-suboption code="master.menu.lecturer.lecture.list" action="/lecturer/lecture/list-all"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.lecturer.course.create" action="/lecturer/course/create"/>
-			<acme:menu-suboption code="master.menu.lecturer.course.list" action="/lecturer/course/list"/>			
+			<acme:menu-suboption code="master.menu.lecturer.course.list" action="/lecturer/course/list"/>	
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.lecturer.lecturer-dashboard.show" action="/lecturer/lecturer-dashboard/show"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
@@ -70,8 +72,8 @@
 			<acme:menu-suboption code="master.menu.auditor.audit.create" action="/auditor/audit/create"/>
 			<acme:menu-suboption code="master.menu.auditor.audit.list" action="/auditor/audit/list"/>	
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.auditor.auditing-records.create" action="/auditor/auditing-records/create"/>
-			<acme:menu-suboption code="master.menu.auditor.auditing-records.list" action="/auditor/auditing-records/list"/>		
+			<acme:menu-suboption code="master.menu.auditor.auditing-record.create" action="/auditor/auditing-record/create"/>
+			<acme:menu-suboption code="master.menu.auditor.auditing-record.list" action="/auditor/auditing-record/list"/>		
 		</acme:menu-option>
 	
 
