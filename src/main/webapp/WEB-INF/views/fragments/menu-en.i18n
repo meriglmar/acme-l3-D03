@@ -48,6 +48,7 @@ master.menu.administrator.banner.list = List of banners
 master.menu.administrator.shut-down = Shut down
 master.menu.administrator.offer.list = List of offers
 master.menu.administrator.offer.create = Create offer
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 
 # master.menu.lecturer #######################################################
 
@@ -77,6 +78,8 @@ master.menu.auditor.auditor-dashboard.show = Auditor dashboard
 master.menu.company = Company
 master.menu.company.practicum.create = Create practicum 
 master.menu.company.practicum.list = List of practicums
+=======
+>>>>>>> 32e25b4 Task 082: In review
 
 <<<<<<< Upstream, based on 823d5630ed5c7f1566d4e30de456da7c1c1b247d
 # master.menu.lecturer #######################################################
