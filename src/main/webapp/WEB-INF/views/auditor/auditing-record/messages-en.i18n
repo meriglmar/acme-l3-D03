@@ -1,5 +1,6 @@
 auditor.auditing-record.form.label.subject = Subject
 auditor.auditing-record.form.label.assessment = Assessment
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 auditor.auditing-record.form.label.startTime = Start time
 auditor.auditing-record.form.label.finishTime = Finish time
 auditor.auditing-record.form.label.mark = Mark
@@ -19,3 +20,10 @@ auditor.auditing-record.list.button.create-correctionRecord = Create correction 
 auditor.auditing-record.form.error.start-before-finish = Finish time must be before start time
 auditor.auditing-record.form.error.at-least-1-hour = Duration must be at least 1 hour
 
+=======
+auditor.auditing-record.form.button.auditing-records = Auditing-Records
+auditor.auditing-record.form.button.update = Update
+auditor.auditing-record.form.button.delete = Delete
+auditor.auditing-record.form.button.publish = Publish
+auditor.auditing-record.form.button.create = Create
+>>>>>>> 25e5797 Task 127: In progress

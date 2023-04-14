@@ -1,3 +1,4 @@
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 
 package acme.features.auditor.auditingRecord;
 
@@ -85,3 +86,100 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 		super.getResponse().setData(tuple);
 	}
 }
+=======
+//
+//package acme.features.auditor.auditingRecord;
+//
+//import java.util.Collection;
+//
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Service;
+//
+//import acme.entities.audits.Audit;
+//import acme.entities.course.Course;
+//import acme.framework.components.accounts.Principal;
+//import acme.framework.components.jsp.SelectChoices;
+//import acme.framework.components.models.Tuple;
+//import acme.framework.services.AbstractService;
+//import acme.roles.Auditor;
+//
+//@Service
+//public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor, Audit> {
+//	// Internal state ---------------------------------------------------------
+//
+//	@Autowired
+//	protected AuditorAuditingRecordRepository repo;
+//
+//
+//	@Override
+//	public void check() {
+//		boolean status;
+//
+//		status = super.getRequest().hasData("id", int.class);
+//
+//		super.getResponse().setChecked(status);
+//	}
+//
+//	@Override
+//	public void authorise() {
+//		Audit object;
+//		int id;
+//		id = super.getRequest().getData("id", int.class);
+//		object = this.repo.findAuditById(id);
+//		final Principal principal = super.getRequest().getPrincipal();
+//		final int userAccountId = principal.getAccountId();
+//		super.getResponse().setAuthorised(object.getAuditor().getUserAccount().getId() == userAccountId && object.isDraftMode());
+//	}
+//
+//	@Override
+//	public void load() {
+//		Audit object;
+//		int id;
+//		id = super.getRequest().getData("id", int.class);
+//		object = this.repo.findAuditById(id);
+//		super.getBuffer().setData(object);
+//	}
+//
+//	@Override
+//	public void bind(final Audit object) {
+//		assert object != null;
+//		int courseId;
+//		Course course;
+//		courseId = super.getRequest().getData("course", int.class);
+//		course = this.repo.findCourseById(courseId);
+//		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints");
+//		object.setCourse(course);
+//	}
+//
+//	@Override
+//	public void validate(final Audit object) {
+//		assert object != null;
+//		if (!super.getBuffer().getErrors().hasErrors("code"))
+//			super.state(this.repo.findAuditByCode(object.getCode()) == null || this.repo.findAuditByCode(object.getCode()).equals(object), "code", "auditor.audit.form.error.code");
+//		//		if (!super.getBuffer().getErrors().hasErrors("conclusion"))
+//		//			super.state(this.auxiliarService.validateTextImput(object.getConclusion()), "conclusion", "auditor.audit.form.error.spam");
+//		//		if (!super.getBuffer().getErrors().hasErrors("strongPoints"))
+//		//			super.state(this.auxiliarService.validateTextImput(object.getStrongPoints()), "strongPoints", "auditor.audit.form.error.spam");
+//		//		if (!super.getBuffer().getErrors().hasErrors("weakPoints"))
+//		//			super.state(this.auxiliarService.validateTextImput(object.getWeakPoints()), "weakPoints", "auditor.audit.form.error.spam");
+//	}
+//
+//	@Override
+//	public void perform(final Audit object) {
+//		assert object != null;
+//		this.repo.save(object);
+//	}
+//
+//	@Override
+//	public void unbind(final Audit object) {
+//		assert object != null;
+//		Tuple tuple;
+//		final Collection<Course> courses = this.repo.findPublishedCourses();
+//		final SelectChoices choices = SelectChoices.from(courses, "code", object.getCourse());
+//		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");
+//		tuple.put("courses", choices);
+//		tuple.put("course", choices.getSelected().getKey());
+//		super.getResponse().setData(tuple);
+//	}
+//}
+>>>>>>> 25e5797 Task 127: In progress
