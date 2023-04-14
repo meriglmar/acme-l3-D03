@@ -16,18 +16,20 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="employer.duty.form.label.title" path="title"/>
-	<acme:input-textarea code="employer.duty.form.label.description" path="description"/>
-	<acme:input-double code="employer.duty.form.label.workLoad" path="workLoad" placeholder="employer.duty.form.placeholder.workLoad"/>
-	<acme:input-url code="employer.duty.form.label.moreInfo" path="moreInfo"/>
+	<acme:input-textbox code="assistant.session.form.label.title" path="title"/>
+	<acme:input-textarea code="assistant.session.form.label.abstractSession" path="abstractSession"/>
+	<acme:input-checkbox code="assistant.session.form.label.isTheorySession" path="isTheorySession"/>
+	<acme:input-moment code="assistant.session.form.label.initTimePeriod" path="initTimePeriod"/>
+	<acme:input-moment code="assistant.session.form.label.finishTimePeriod" path="finishTimePeriod"/>
+	<acme:input-url code="assistant.session.form.label.link" path="link"/>
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode == true}">
-			<acme:submit code="employer.duty.form.button.update" action="/employer/duty/update"/>
-			<acme:submit code="employer.duty.form.button.delete" action="/employer/duty/delete"/>
+			<acme:submit code="assistant.session.form.button.update" action="/assistant/session/update"/>
+			<acme:submit code="assistant.session.form.button.delete" action="/assistant/session/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="employer.duty.form.button.create" action="/employer/duty/create?masterId=${masterId}"/>
+			<acme:submit code="assistant.session.form.button.create" action="/assistant/session/create?tutorialId=${tutorialId}"/>
 		</jstl:when>		
 	</jstl:choose>		
 </acme:form>

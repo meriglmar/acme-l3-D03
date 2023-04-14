@@ -8,18 +8,20 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-employer.duty.form.label.title = Title:
-employer.duty.form.label.description = Description:
-employer.duty.form.label.workLoad = Work load:
-employer.duty.form.label.moreInfo = More info: (Optional)
+assistant.session.form.label.title = Title:
+assistant.session.form.label.abstractSession = Abstract:
+assistant.session.form.label.isTheorySession = Theory Session:
+assistant.session.form.label.initTimePeriod = Init Time Session:
+assistant.session.form.label.finishTimePeriod = Finish Time Session:
+assistant.session.form.label.link = Link: (Optional)
 
-employer.duty.form.button.create = Create		
-employer.duty.form.button.update = Update
-employer.duty.form.button.delete = Delete
+assistant.session.form.button.create = Create		
+assistant.session.form.button.update = Update
+assistant.session.form.button.delete = Delete
 
-employer.duty.form.placeholder.workLoad = 0.00 - 100.00
+assistant.session.list.label.title = Title
+assistant.session.list.label.abstractSession = Abstract
+assistant.session.list.label.isTheorySession = Theory Session
+assistant.session.list.label.initTimePeriod = Init Time Session
 
-employer.duty.list.label.title = Title
-employer.duty.list.label.workLoad = Work load
-
-employer.duty.list.button.create = Create
+assistant.session.list.button.create = Create

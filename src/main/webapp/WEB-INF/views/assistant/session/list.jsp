@@ -16,8 +16,10 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="employer.duty.list.label.title" path="title" width="80%"/>	
-	<acme:list-column code="employer.duty.list.label.workLoad" path="workLoad" width="20%"/>
+	<acme:list-column code="assistant.session.list.label.title" path="title" width="20%"/>	
+	<acme:list-column code="assistant.session.list.label.abstractSession" path="abstractSession" width="20%"/>
+	<acme:list-column code="assistant.session.list.label.isTheorySession" path="isTheorySession" width="20%"/>
+	<acme:list-column code="assistant.session.list.label.initTimePeriod" path="initTimePeriod" width="20%"/>
 </acme:list>
 
-<acme:button test="${showCreate}" code="employer.duty.list.button.create" action="/employer/duty/create?masterId=${masterId}"/>
+<acme:button test="${showCreate}" code="assistant.session.list.button.create" action="/assistant/session/create?tutorialId=${tutorialId}"/>
