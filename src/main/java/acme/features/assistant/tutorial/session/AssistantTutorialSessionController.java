@@ -9,24 +9,21 @@ import acme.entities.sessions.Session;
 import acme.framework.controllers.AbstractController;
 import acme.roles.Assistant;
 
-public class AssistantSessionController extends AbstractController<Assistant, Session> {
+public class AssistantTutorialSessionController extends AbstractController<Assistant, Session> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantSessionListService	listService;
-
-	//	@Autowired
-	//	protected AssistantSessionCreateService		createService;
+	protected AssistantTutorialSessionListService	listService;
 
 	@Autowired
-	protected AssistantSessionShowService	showService;
+	protected AssistantTutorialSessionCreateService	createService;
 
 	@Autowired
-	protected AssistantSessionUpdateService	updateService;
+	protected AssistantTutorialSessionShowService	showService;
 
-	//	@Autowired
-	//	protected AssistantSessionPublishService	publishService;
+	@Autowired
+	protected AssistantSessionUpdateService			updateService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -35,7 +32,7 @@ public class AssistantSessionController extends AbstractController<Assistant, Se
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
-		//		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
 	}
 

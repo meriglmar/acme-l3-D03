@@ -4,7 +4,6 @@ package acme.entities.tutorials;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -48,25 +47,14 @@ public class Tutorial extends AbstractEntity {
 
 	protected boolean			draftMode;
 
-	// Derived attributes -----------------------------------------------------
-
-
-	@Transient
-	public boolean isAvailable() {
-
-		return !this.draftMode;
-
-	}
-
 	// Relationships ----------------------------------------------------------
 
+	@NotNull
+	@ManyToOne(optional = false)
+	protected Course			course;
 
 	@NotNull
 	@ManyToOne(optional = false)
-	protected Course	course;
-
-	@NotNull
-	@ManyToOne(optional = false)
-	protected Assistant	assistant;
+	protected Assistant			assistant;
 
 }

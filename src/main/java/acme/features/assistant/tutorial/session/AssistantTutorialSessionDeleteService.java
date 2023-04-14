@@ -12,26 +12,25 @@
 
 package acme.features.assistant.tutorial.session;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.sessions.Session;
 import acme.entities.tutorials.Tutorial;
-import acme.features.assistant.tutorial.AssistantTutorialRepository;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class AssistantSessionDeleteService extends AbstractService<Assistant, Session> {
+public class AssistantTutorialSessionDeleteService extends AbstractService<Assistant, Session> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantSessionRepository	repository;
-
-	@Autowired
-	protected AssistantTutorialRepository	tutorialRepository;
+	protected AssistantTutorialSessionRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -48,14 +47,14 @@ public class AssistantSessionDeleteService extends AbstractService<Assistant, Se
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
-		Tutorial tutorial;
+		final int sessionId;
 		Assistant assistant;
+		Session session;
 
-		masterId = super.getRequest().getData("id", int.class);
-		tutorial = this.tutorialRepository.findTutorialById(masterId);
-		assistant = tutorial == null ? null : tutorial.getAssistant();
-		status = tutorial != null && tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(assistant);
+		sessionId = super.getRequest().getData("id", int.class);
+		session = this.repository.findSessionById(sessionId);
+		assistant = session == null ? null : session.getTutorial().getAssistant();
+		status = session != null && session.getTutorial().isDraftMode() && super.getRequest().getPrincipal().hasRole(assistant);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -66,8 +65,7 @@ public class AssistantSessionDeleteService extends AbstractService<Assistant, Se
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		//		object = this.repository.findSessionById(id);
-		object = null;
+		object = this.repository.findSessionById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -76,7 +74,13 @@ public class AssistantSessionDeleteService extends AbstractService<Assistant, Se
 	public void bind(final Session object) {
 		assert object != null;
 
+		int tutorialId;
+		Tutorial tutorial;
+		tutorialId = super.getRequest().getData("tutorial", int.class);
+		tutorial = this.repository.findTutorialById(tutorialId);
+
 		super.bind(object, "title", "abstractSession", "isTheorySession", "initTimePeriod", "finishTimePeriod", "link");
+		object.setTutorial(tutorial);
 	}
 
 	@Override
@@ -97,7 +101,17 @@ public class AssistantSessionDeleteService extends AbstractService<Assistant, Se
 
 		Tuple tuple;
 
+		Collection<Tutorial> tutorials;
+		SelectChoices choices;
+
+		tutorials = this.repository.findAllTutorials();
+		choices = SelectChoices.from(tutorials, "code", object.getTutorial());
+
 		tuple = super.unbind(object, "title", "abstractSession", "isTheorySession", "initTimePeriod", "finishTimePeriod", "link");
+		tuple.put("tutorial", choices.getSelected().getKey());
+		tuple.put("tutorials", choices);
+		tuple.put("tutorialId", object.getTutorial().getId());
+		tuple.put("draftMode", object.getTutorial().isDraftMode());
 
 		super.getResponse().setData(tuple);
 	}
