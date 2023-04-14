@@ -1,5 +1,5 @@
 
-package acme.entities.course;
+package acme.entities.courses;
 
 import java.util.HashMap;
 import java.util.List;

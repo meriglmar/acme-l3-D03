@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.course.Course;
-import acme.entities.course.TypeCourse;
+import acme.entities.courses.Course;
+import acme.entities.courses.TypeCourse;
 import acme.entities.lectures.Lecture;
 import acme.entities.lectures.TypeLecture;
 import acme.framework.components.models.Tuple;

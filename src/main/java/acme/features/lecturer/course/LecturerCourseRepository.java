@@ -6,7 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.course.Course;
+import acme.entities.courses.Course;
 import acme.entities.lectureCourses.LectureCourse;
 import acme.entities.lectures.Lecture;
 import acme.framework.repositories.AbstractRepository;

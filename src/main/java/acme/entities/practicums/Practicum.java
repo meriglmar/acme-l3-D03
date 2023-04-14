@@ -14,7 +14,7 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
-import acme.entities.course.Course;
+import acme.entities.courses.Course;
 import acme.entities.sessions.PracticumSession;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Company;
