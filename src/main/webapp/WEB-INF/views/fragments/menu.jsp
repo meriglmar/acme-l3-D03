@@ -51,7 +51,6 @@
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 		
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 		<acme:menu-option code="master.menu.anonymous.peep">
 			<acme:menu-suboption code="master.menu.anonymous.peep.list" action="/any/peep/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.peep.create" action="/any/peep/create"/>
@@ -86,20 +85,6 @@
 			<acme:menu-suboption code="master.menu.company.practicum.list" action="/company/practicum/list"/>	
 			<acme:menu-separator/>	
 		</acme:menu-option>
-	
-
-=======
-		<acme:menu-option code="master.menu.anonymous.peep" action="/any/peep/list" access="isAnonymous()"/>
-		
-		<acme:menu-option code="master.menu.lecturer" access="hasRole('Lecturer')">
-			<acme:menu-suboption code="master.menu.lecturer.lecture.create" action="/lecturer/lecture/create"/>
-			<acme:menu-suboption code="master.menu.lecturer.lecture.list" action="/lecturer/banner/list"/>
-			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.lecturer.course.create" action="/lecturer/course/create"/>
-			<acme:menu-suboption code="master.menu.lecturer.course.list" action="/lecturer/course/list"/>			
-		</acme:menu-option>
-	
->>>>>>> 087f703 Task 095: In progress
 	</acme:menu-left>
 
 	<acme:menu-right>
