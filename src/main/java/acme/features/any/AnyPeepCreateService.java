@@ -37,8 +37,6 @@ public class AnyPeepCreateService extends AbstractService<Any, Peep> {
 	@Override
 	public void load() {
 		Peep object;
-		//		Principal principal;
-		//		principal = super.getRequest().getPrincipal();
 
 		object = new Peep();
 
