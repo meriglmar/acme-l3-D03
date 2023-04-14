@@ -57,6 +57,8 @@ public class AuditingRecord extends AbstractEntity {
 	@URL
 	protected String			moreInfo;
 
+	protected boolean			correctionRecord;
+
 	// Relationships ----------------------------------------------------------
 	@Valid
 	@ManyToOne(optional = false)
