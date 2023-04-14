@@ -70,7 +70,7 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 	public void unbind(final Audit object) {
 		assert object != null;
 		Tuple tuple;
-		final Collection<Course> courses = this.repo.findCourses();
+		final Collection<Course> courses = this.repo.findPublishedCourses();
 		final SelectChoices choices = SelectChoices.from(courses, "code", object.getCourse());
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");
 		tuple.put("courses", choices);

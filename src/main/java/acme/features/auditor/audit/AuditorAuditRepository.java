@@ -38,7 +38,7 @@ public interface AuditorAuditRepository extends AbstractRepository {
 	Collection<TypeMark> findMarksByAuditId(int id);
 
 	@Query("select c from Course c where c.draftMode = false")
-	Collection<Course> findCoursesNotAudited();
+	Collection<Course> findPublishedCourses();
 
 	@Query("select c from Course c")
 	Collection<Course> findCourses();
