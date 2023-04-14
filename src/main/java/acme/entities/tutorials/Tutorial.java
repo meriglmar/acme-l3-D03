@@ -70,13 +70,6 @@ public class Tutorial extends AbstractEntity {
 		return res;
 	}
 
-	@Transient
-	public boolean isAvailable() {
-
-		return !this.draftMode;
-
-	}
-
 	// Relationships ----------------------------------------------------------
 
 

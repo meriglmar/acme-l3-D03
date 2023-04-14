@@ -25,7 +25,6 @@ public class AssistantTutorialController extends AbstractController<Assistant, T
 	@Autowired
 	protected AssistantTutorialUpdateService	updateService;
 
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
 	@Autowired
 	protected AssistantTutorialPublishService	publishService;
 
@@ -40,17 +39,6 @@ public class AssistantTutorialController extends AbstractController<Assistant, T
 		super.addBasicCommand("update", this.updateService);
 
 		super.addCustomCommand("publish", "update", this.publishService);
-=======
-	// Constructors -----------------------------------------------------------
-
-
-	@PostConstruct
-	protected void initialise() {
-		super.addBasicCommand("list", this.listService);
-		super.addBasicCommand("show", this.showService);
-		super.addBasicCommand("create", this.createService);
-		super.addBasicCommand("update", this.updateService);
->>>>>>> 7268a1e Task-111: first part almost done
 	}
 
 }

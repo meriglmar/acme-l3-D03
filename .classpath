@@ -6,8 +6,11 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 	<classpathentry excluding="**/fragments/**" kind="src" path="classes"/>
 	<classpathentry kind="src" path="classes"/>
+=======
+>>>>>>> 202c330 Task 111: correctly merged
 	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/webapp">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>

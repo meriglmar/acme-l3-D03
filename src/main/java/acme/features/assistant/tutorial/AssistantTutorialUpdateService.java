@@ -59,7 +59,6 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 	}
 
 	@Override
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
 	public void bind(final Tutorial object) {
 		assert object != null;
 
@@ -92,19 +91,8 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
 		tuple = super.unbind(object, "code", "title", "abstractTutorial", "goals", "estimatedTotalTime", "draftMode");
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
-=======
-	public void unbind(final Tutorial object) {
-		assert object != null;
-
-		Tuple tuple;
-
-		tuple = super.unbind(object, "code", "title", "abstractTutorial", "goals", "estimatedTotalTime");
->>>>>>> 7268a1e Task-111: first part almost done
-=======
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
->>>>>>> b0b97c5 Task 111: updated
 
 		super.getResponse().setData(tuple);
 	}

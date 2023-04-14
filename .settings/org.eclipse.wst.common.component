@@ -1,29 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
-=======
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
-                                                                                                                                                                                                                
-                                                                                                                                                                                                    
-                                                                                                                                                                                                    
-    
-    
-                                                                                                                                                                                        
-    
-    
-=======
-=======
-                                                                                                                                                                                                        
->>>>>>> b0b97c5 Task 111: updated
-                                                                                                                                                                                                    
-                                                                                                                                                                                                    
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
-                                                                                                                                                                                                    
->>>>>>> 7268a1e Task-111: first part almost done
-=======
-    
->>>>>>> b0b97c5 Task 111: updated
->>>>>>> 9b434da Task 111: updated
     
     
     
@@ -68,90 +43,61 @@
     
     
     <wb-module deploy-name="Acme-L3-D03-23.1">
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
-=======
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
+                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
                                                                                                                                                                                                                                                                                                                                                                                                                                         
         
         
         
-=======
-                                                                                                                                                                                                                                                                                                                                                                                                                
->>>>>>> 7268a1e Task-111: first part almost done
-=======
-                                                                                                                                                                                                                                                                                                                                                                                                                        
         
->>>>>>> b0b97c5 Task 111: updated
->>>>>>> 9b434da Task 111: updated
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
-=======
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
->>>>>>> 9b434da Task 111: updated
-                                                                                                                                                                                                                                                                                                                                                                                                                                
-        
-        
-        
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
-=======
-=======
-                                                                                                                                                                                                                                                                                                                                                                                                        
->>>>>>> 7268a1e Task-111: first part almost done
-=======
-                                                                                                                                                                                                                                                                                                                                                                                                                
-        
->>>>>>> b0b97c5 Task 111: updated
->>>>>>> 9b434da Task 111: updated
         
         
         
@@ -200,25 +146,11 @@
         
         
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
-=======
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
->>>>>>> 9b434da Task 111: updated
-                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                        
         
         
         
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
-=======
-=======
-                                                                                                                                                                                                                                                                                                                                                                                                        
->>>>>>> 7268a1e Task-111: first part almost done
-=======
-                                                                                                                                                                                                                                                                                                                                                                                                                
         
->>>>>>> b0b97c5 Task 111: updated
->>>>>>> 9b434da Task 111: updated
         
         
         
@@ -267,12 +199,7 @@
         
         
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
->>>>>>> d42b0fb Task-111: first part almost done
-=======
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
->>>>>>> 9b434da Task 111: updated
+        &gt;&gt;&gt;&gt;&gt;&gt;&gt; d42b0fb Task-111: first part almost done
                                                                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -323,8 +250,10 @@
         
         
         
+        
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
         
         
         
@@ -374,7 +303,8 @@
         
         
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
-                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
         
         
         
@@ -424,7 +354,101 @@
         
         
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
-                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp"/>
+                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+                                
+        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/classes"/>
+                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
         
         
         
@@ -513,186 +537,6 @@
                         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/classes"/>
-                                                                                                                                                                                                                                                                                                                                                                                                                
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp"/>
-                                                                                                                                                                                                                                                                                                
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-                
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/classes"/>
-=======
->>>>>>> b0b97c5 Task 111: updated
-                                                                                                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp"/>
-                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-                        
-        
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/classes"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/acme-framework"/>
                                                                                                                                                                                                                                                                                                                                                                                                                 
         
         
@@ -743,44 +587,22 @@
         
         
         <property name="java-output-path" value="/Hello-World-22.0/target/classes"/>
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
-                                                
-=======
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
-                                                                
-        
-        
->>>>>>> 9b434da Task 111: updated
+                                                        
         
 =======
                                         
->>>>>>> 7268a1e Task-111: first part almost done
-=======
-                                                
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 7268a1e Task-111: first part almost done
         
->>>>>>> b0b97c5 Task 111: updated
         
         
         
         <property name="context-root" value="Acme-L3-D03"/>
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
-                                                                                                                                                                                                                                                                                                                                                                                                                    
-=======
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
-                                                                                                                                                                                                                                                                                                                                                                                                                                    
-    
-    
->>>>>>> 9b434da Task 111: updated
+                                                                                                                                                                                                                                                                                                                                                                                                                            
     
 =======
                                                                                                                                                                                                                                                                                                                                                                                                             
->>>>>>> 7268a1e Task-111: first part almost done
-=======
-                                                                                                                                                                                                                                                                                                                                                                                                                    
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 7268a1e Task-111: first part almost done
     
->>>>>>> b0b97c5 Task 111: updated
     
     
     
@@ -830,23 +652,12 @@
     
     
     </wb-module>
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
-                                                                                                                                                                                                        
-=======
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
-<<<<<<< Upstream, based on 1310c4f0e810dcb97b2c27b92463b787b7af16d8
-                                                                                                                                                                                                                
-
-
->>>>>>> 9b434da Task 111: updated
+                                                                                                                                                                                                            
 
 =======
                                                                                                                                                                                                     
->>>>>>> 7268a1e Task-111: first part almost done
-=======
-                                                                                                                                                                                                        
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 7268a1e Task-111: first part almost done
 
->>>>>>> b0b97c5 Task 111: updated
 
 
 
