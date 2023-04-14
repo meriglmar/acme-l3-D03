@@ -1,0 +1,14 @@
+
+administrator.offer.list.label.heading=Titulo
+administrator.offer.list.label.price=Precio
+administrator.offer.list.button.create = Crear
+administrator.offer.form.label.heading=Titulo
+administrator.offer.form.label.price=Precio
+administrator.offer.form.label.instantiationMoment=Momento Inicial
+administrator.offer.form.label.summary=Cuerpo
+administrator.offer.form.label.startDay=Primer Dia
+administrator.offer.form.label.lastDay=Ultimo Dia
+administrator.offer.form.label.link=Link
+administrator.offer.form.button.create = Crear
+administrator.offer.form.button.update = Actualizar
+administrator.offer.form.button.delete = Borrar

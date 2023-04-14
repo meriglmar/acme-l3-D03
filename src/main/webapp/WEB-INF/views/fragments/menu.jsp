@@ -34,6 +34,9 @@
 
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
+			<acme:menu-suboption code="master.menu.administrator.offer.create" action="/administrator/offer/create"/>
+			<acme:menu-suboption code="master.menu.administrator.offer.list" action="/administrator/offer/list"/>
+			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.banner.create" action="/administrator/banner/create"/>
 			<acme:menu-suboption code="master.menu.administrator.banner.list" action="/administrator/banner/list"/>
 			<acme:menu-separator/>
