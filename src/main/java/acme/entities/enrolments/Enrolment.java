@@ -60,10 +60,11 @@ public class Enrolment extends AbstractEntity {
 	}
 
 
-	protected boolean			finalised;
+	protected boolean			draftMode;
 
-	protected String			holder;
-	protected Integer			nibble;
+	protected String			cardHolder;
+
+	protected String			cardLowerNibble;
 
 	@NotNull
 	@OneToMany(mappedBy = "enrolment")
