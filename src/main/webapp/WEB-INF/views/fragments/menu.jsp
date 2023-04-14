@@ -53,6 +53,14 @@
 			<acme:menu-suboption code="master.menu.lecturer.course.create" action="/lecturer/course/create"/>
 			<acme:menu-suboption code="master.menu.lecturer.course.list" action="/lecturer/course/list"/>			
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
+			<acme:menu-suboption code="master.menu.auditor.audit.create" action="/auditor/audit/create"/>
+			<acme:menu-suboption code="master.menu.auditor.audit.list" action="/auditor/audit/list"/>	
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.auditor.auditing-records.create" action="/auditor/auditing-records/create"/>
+			<acme:menu-suboption code="master.menu.auditor.auditing-records.list" action="/auditor/auditing-records/list"/>		
+		</acme:menu-option>
 	
 
 	</acme:menu-left>
