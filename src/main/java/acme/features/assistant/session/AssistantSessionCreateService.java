@@ -1,5 +1,5 @@
 
-package acme.features.assistant.tutorial.session;
+package acme.features.assistant.session;
 
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
@@ -13,12 +13,12 @@ import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
-public class AssistantTutorialSessionCreateService extends AbstractService<Assistant, Session> {
+public class AssistantSessionCreateService extends AbstractService<Assistant, Session> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantTutorialSessionRepository repository;
+	protected AssistantSessionRepository repository;
 
 	// AbstractService<Assistant, Session> ----------------------------------------------
 

@@ -1,5 +1,5 @@
 
-package acme.features.assistant.tutorial.session;
+package acme.features.assistant.session;
 
 import javax.annotation.PostConstruct;
 
@@ -9,21 +9,21 @@ import acme.entities.sessions.Session;
 import acme.framework.controllers.AbstractController;
 import acme.roles.Assistant;
 
-public class AssistantTutorialSessionController extends AbstractController<Assistant, Session> {
+public class AssistantSessionController extends AbstractController<Assistant, Session> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantTutorialSessionListService	listService;
+	protected AssistantSessionListService	listService;
 
 	@Autowired
-	protected AssistantTutorialSessionCreateService	createService;
+	protected AssistantSessionCreateService	createService;
 
 	@Autowired
-	protected AssistantTutorialSessionShowService	showService;
+	protected AssistantSessionShowService	showService;
 
 	@Autowired
-	protected AssistantTutorialSessionUpdateService			updateService;
+	protected AssistantSessionUpdateService			updateService;
 
 	// Constructors -----------------------------------------------------------
 

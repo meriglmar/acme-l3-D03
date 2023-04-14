@@ -1,5 +1,5 @@
 
-package acme.features.assistant.tutorial.session;
+package acme.features.assistant.session;
 
 import java.util.Collection;
 
@@ -13,7 +13,7 @@ import acme.framework.repositories.AbstractRepository;
 import acme.roles.Assistant;
 
 @Repository
-public interface AssistantTutorialSessionRepository extends AbstractRepository {
+public interface AssistantSessionRepository extends AbstractRepository {
 
 	@Query("select s from Session s where s.id = :id")
 	Session findSessionById(@Param("id") int id);

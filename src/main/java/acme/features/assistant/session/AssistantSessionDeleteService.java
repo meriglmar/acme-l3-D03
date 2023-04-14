@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.assistant.tutorial.session;
+package acme.features.assistant.session;
 
 import java.util.Collection;
 
@@ -25,12 +25,12 @@ import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class AssistantTutorialSessionDeleteService extends AbstractService<Assistant, Session> {
+public class AssistantSessionDeleteService extends AbstractService<Assistant, Session> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantTutorialSessionRepository repository;
+	protected AssistantSessionRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 

@@ -1,5 +1,5 @@
 
-package acme.features.assistant.tutorial.session;
+package acme.features.assistant.session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,12 +11,12 @@ import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class AssistantTutorialSessionShowService extends AbstractService<Assistant, Session> {
+public class AssistantSessionShowService extends AbstractService<Assistant, Session> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantTutorialSessionRepository repository;
+	protected AssistantSessionRepository repository;
 
 	// AbstractService<Assistant, Session> ----------------------------------------------
 
