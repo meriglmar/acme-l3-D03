@@ -59,8 +59,8 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	public void validate(final Lecture object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("estimatedLearningTimeInHours"))
-			super.state(object.getEstimatedLearningTimeInHours() >= 0.01, "estimatedLearningTimeInHours", "lecturer.lecture.form.error.estimatedLearningTimeInHours");
+		//		if (!super.getBuffer().getErrors().hasErrors("estimatedLearningTimeInHours"))
+		//			super.state(object.getEstimatedLearningTimeInHours() >= 0.01, "estimatedLearningTimeInHours", "lecturer.lecture.form.error.estimatedLearningTimeInHours");
 	}
 
 	@Override
