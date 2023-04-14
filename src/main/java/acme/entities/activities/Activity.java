@@ -51,7 +51,7 @@ public class Activity extends AbstractEntity {
 	protected Date				startPeriod;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date				finPeriod;
+	protected Date				endPeriod;
 
 	@URL
 	protected String			link;
@@ -60,7 +60,7 @@ public class Activity extends AbstractEntity {
 
 
 	protected Duration timePeriod() {
-		return Duration.ofMillis(this.finPeriod.getTime() - this.startPeriod.getTime());
+		return Duration.ofMillis(this.endPeriod.getTime() - this.startPeriod.getTime());
 	}
 
 	public double getDuration() {

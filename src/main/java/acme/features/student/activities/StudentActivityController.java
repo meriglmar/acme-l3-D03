@@ -1,34 +1,34 @@
 
-package acme.features.student.enrolments;
+package acme.features.student.activities;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.entities.enrolments.Enrolment;
+import acme.entities.activities.Activity;
 import acme.framework.controllers.AbstractController;
 import acme.roles.Student;
 
 @Controller
-public class StudentEnrolmentController extends AbstractController<Student, Enrolment> {
+public class StudentActivityController extends AbstractController<Student, Activity> {
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected StudentEnrolmentListService	listService;
+	protected StudentActivityListService	listService;
 
 	@Autowired
-	protected StudentEnrolmentCreateService	createService;
+	protected StudentActivityShowService	showService;
 
 	@Autowired
-	protected StudentEnrolmentShowService	showService;
+	protected StudentActivityUpdateService	updateService;
 
 	@Autowired
-	protected StudentEnrolmentUpdateService	updateService;
+	protected StudentActivityDeleteService	deleteService;
 
 	@Autowired
-	protected StudentEnrolmentDeleteService	deleteService;
-
+	protected StudentActivityCreateService	createService;
 	// Constructors -----------------------------------------------------------
 
 
@@ -36,8 +36,9 @@ public class StudentEnrolmentController extends AbstractController<Student, Enro
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
-		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("delete", this.deleteService);
+		super.addBasicCommand("create", this.createService);
 	}
+
 }
