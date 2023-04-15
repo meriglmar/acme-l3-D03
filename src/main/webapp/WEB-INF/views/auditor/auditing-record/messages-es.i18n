@@ -1,12 +1,17 @@
-auditor.audit.form.label.code = Código
-auditor.audit.form.label.conclusion = Conclusión
-auditor.audit.form.label.create = Crear
-auditor.audit.form.label.course = Curso
-auditor.audit.form.label.strongPoints = Puntos fuertes
-auditor.audit.form.label.weakPoints = Puntos débiles
-auditor.audit.form.label.mark = Nota
-auditor.audit.form.button.auditing-records = Auditing-Records
-auditor.audit.form.button.update = Editar
-auditor.audit.form.button.delete = Eliminar
-auditor.audit.form.button.publish = Publicar
-auditor.audit.form.button.create = Crear
+auditor.auditing-record.form.label.subject = Asignatura
+auditor.auditing-record.form.label.assessment = Evaluación
+auditor.auditing-record.form.label.startTime = Comienzo
+auditor.auditing-record.form.label.finishTime = Finalización
+auditor.auditing-record.form.label.mark = Nota
+auditor.auditing-record.form.label.moreInfo = Más información
+auditor.auditing-record.form.button.update = Editar
+auditor.auditing-record.form.button.delete = Eliminar
+auditor.auditing-record.form.button.create = Crear
+auditor.auditing-record.form.button.confirmation = Confirmación
+auditor.auditing-record.form.button.create-correctionRecord = Crear registro de correción
+
+
+auditor.auditing-record.list.label.subject = Asignatura
+auditor.auditing-record.list.label.assessment = Evaluación
+auditor.auditing-record.list.button.create = Crear
+auditor.auditing-record.list.button.create-correctionRecord = Crear registro de correción

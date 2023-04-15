@@ -6,8 +6,8 @@
 <acme:form>
 	<acme:input-textbox code="auditor.auditing-record.form.label.subject" path="subject"/>	
 	<acme:input-textbox code="auditor.auditing-record.form.label.assessment" path="assessment"/>	
-	<acme:input-moment code="auditor.auditing-record.form.label.startPeriod" path="startPeriod" />
-	<acme:input-moment code="auditor.auditing-record.form.label.endPeriod" path="endPeriod" />
+	<acme:input-moment code="auditor.auditing-record.form.label.startTime" path="startTime" />
+	<acme:input-moment code="auditor.auditing-record.form.label.finishTime" path="finishTime" />
 	<acme:input-select code="auditor.auditing-record.form.label.mark" path="mark" choices="${marks}"/>
 	<acme:input-url code="auditor.auditing-record.form.label.moreInfo" path="moreInfo"/>
 		
@@ -21,7 +21,7 @@
 		</jstl:when>	
 		<jstl:when test="${_command == 'create'&& draftMode == false}">
 			<acme:input-checkbox code="auditor.auditing-record.form.button.confirmation" path="confirmation"/>
-			<acme:submit code="auditor.auditing-record.form.button.create-exceptional" action="/auditor/auditing-record/create?masterId=${masterId}"/>
+			<acme:submit code="auditor.auditing-record.form.button.create-correctionRecord" action="/auditor/auditing-record/create?masterId=${masterId}"/>
 		</jstl:when>	
 	</jstl:choose>
 	

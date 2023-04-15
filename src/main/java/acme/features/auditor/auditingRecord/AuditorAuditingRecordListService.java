@@ -17,7 +17,7 @@ import acme.roles.Auditor;
 public class AuditorAuditingRecordListService extends AbstractService<Auditor, AuditingRecord> {
 
 	@Autowired
-	protected AuditorAuditingRecordRepository repository;
+	protected AuditorAuditingRecordRepository repo;
 
 
 	@Override
@@ -30,7 +30,7 @@ public class AuditorAuditingRecordListService extends AbstractService<Auditor, A
 	@Override
 	public void authorise() {
 		final int masterId = super.getRequest().getData("masterId", int.class);
-		final Audit object = this.repository.findAuditById(masterId);
+		final Audit object = this.repo.findAuditById(masterId);
 		final Principal principal = super.getRequest().getPrincipal();
 		final int userAccountId = principal.getAccountId();
 		super.getResponse().setAuthorised(object.getAuditor().getUserAccount().getId() == userAccountId);
@@ -41,16 +41,17 @@ public class AuditorAuditingRecordListService extends AbstractService<Auditor, A
 		Collection<AuditingRecord> objects;
 		int masterId;
 		masterId = super.getRequest().getData("masterId", int.class);
-		objects = this.repository.findAuditingRecordsByAuditId(masterId);
+		objects = this.repo.findAuditingRecordsByAuditId(masterId);
 		super.getBuffer().setData(objects);
 	}
 
 	@Override
 	public void unbind(final AuditingRecord object) {
 		assert object != null;
-		Tuple tuple;
-		tuple = super.unbind(object, "subject", "assessment");
-		tuple.put("draftMode", object.getAudit().isDraftMode());
+		final int masterId = super.getRequest().getData("masterId", int.class);
+		final Audit audit = this.repo.findAuditById(masterId);
+		final Tuple tuple = super.unbind(object, "subject", "assessment");
+		tuple.put("draftMode", audit.isDraftMode());
 		super.getResponse().setData(tuple);
 	}
 
@@ -59,7 +60,7 @@ public class AuditorAuditingRecordListService extends AbstractService<Auditor, A
 		assert object != null;
 		boolean createButton = false;
 		final int masterId = super.getRequest().getData("masterId", int.class);
-		final Audit audit = this.repository.findAuditById(masterId);
+		final Audit audit = this.repo.findAuditById(masterId);
 		if (super.getRequest().getPrincipal().getAccountId() == audit.getAuditor().getUserAccount().getId())
 			createButton = true;
 		super.getResponse().setGlobal("createButton", createButton);
