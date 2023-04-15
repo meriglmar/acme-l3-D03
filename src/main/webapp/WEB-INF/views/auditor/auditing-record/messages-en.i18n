@@ -1,7 +1,17 @@
 auditor.auditing-record.form.label.subject = Subject
 auditor.auditing-record.form.label.assessment = Assessment
-auditor.auditing-record.form.button.auditing-records = Auditing-Records
+auditor.auditing-record.form.label.startTime = Start time
+auditor.auditing-record.form.label.finishTime = Finish time
+auditor.auditing-record.form.label.mark = Mark
+auditor.auditing-record.form.label.moreInfo = More info
 auditor.auditing-record.form.button.update = Update
 auditor.auditing-record.form.button.delete = Delete
-auditor.auditing-record.form.button.publish = Publish
 auditor.auditing-record.form.button.create = Create
+auditor.auditing-record.form.button.confirmation = Confirmation
+auditor.auditing-record.form.button.create-exceptional = Create exceptional
+
+
+auditor.auditing-record.list.label.subject = Subject
+auditor.auditing-record.list.label.assessment = Assessment
+auditor.auditing-record.list.button.create = Create
+auditor.auditing-record.list.button.create-exceptional = Create exceptional

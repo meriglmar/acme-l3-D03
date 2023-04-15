@@ -6,8 +6,8 @@
 <acme:form>
 	<acme:input-textbox code="auditor.auditing-record.form.label.subject" path="subject"/>	
 	<acme:input-textbox code="auditor.auditing-record.form.label.assessment" path="assessment"/>	
-	<acme:input-moment code="auditor.auditing-record.form.label.startPeriod" path="startPeriod" />
-	<acme:input-moment code="auditor.auditing-record.form.label.endPeriod" path="endPeriod" />
+	<acme:input-moment code="auditor.auditing-record.form.label.startTime" path="startTime" />
+	<acme:input-moment code="auditor.auditing-record.form.label.finishTime" path="finishTime" />
 	<acme:input-select code="auditor.auditing-record.form.label.mark" path="mark" choices="${marks}"/>
 	<acme:input-url code="auditor.auditing-record.form.label.moreInfo" path="moreInfo"/>
 		
