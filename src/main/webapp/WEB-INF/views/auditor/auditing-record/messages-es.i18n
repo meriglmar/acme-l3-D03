@@ -8,10 +8,10 @@ auditor.auditing-record.form.button.update = Editar
 auditor.auditing-record.form.button.delete = Eliminar
 auditor.auditing-record.form.button.create = Crear
 auditor.auditing-record.form.button.confirmation = Confirmación
-auditor.auditing-record.form.button.create-exceptional = Crear excepción
+auditor.auditing-record.form.button.create-correctionRecord = Crear registro de correción
 
 
 auditor.auditing-record.list.label.subject = Asignatura
 auditor.auditing-record.list.label.assessment = Evaluación
 auditor.auditing-record.list.button.create = Crear
-auditor.auditing-record.list.button.create-exceptional = Crear excepción
+auditor.auditing-record.list.button.create-correctionRecord = Crear registro de correción
