@@ -102,6 +102,12 @@ master.menu.auditor.audit.create = Create audit
 master.menu.auditor.audit.list = List of audits
 master.menu.auditor.auditor-dashboard.show = Auditor dashboard
 
+# master.menu.company ###################################################
+
+master.menu.company = Company
+master.menu.company.practicum.create = Create practicum 
+master.menu.company.practicum.list = List of practicums
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider

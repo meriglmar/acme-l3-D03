@@ -55,9 +55,15 @@ public class Practicum extends AbstractEntity {
 	@Length(max = 100)
 	protected String			goals;
 
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 	protected boolean			draftMode;
 
 	//protected Double					estimatedTotalTime; Meter en el load() del servicio de la vista que no se use este atributo.
+=======
+	protected boolean					draftMode;
+
+	protected Double					estimatedTotalTime;
+>>>>>>> 0df8f5f Task 118: In progress
 
 	// Derived attributes -----------------------------------------------------
 
