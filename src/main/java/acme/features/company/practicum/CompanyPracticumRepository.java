@@ -6,13 +6,14 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.course.Course;
+import acme.entities.courses.Course;
 import acme.entities.practicums.Practicum;
 import acme.entities.sessions.PracticumSession;
+import acme.framework.repositories.AbstractRepository;
 import acme.roles.Company;
 
 @Repository
-public interface CompanyPracticumRepository {
+public interface CompanyPracticumRepository extends AbstractRepository {
 
 	@Query("select p from Practicum p where p.id = :id")
 	Practicum findPracticumById(int id);

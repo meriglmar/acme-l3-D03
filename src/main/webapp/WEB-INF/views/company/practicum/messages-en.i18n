@@ -15,3 +15,13 @@ company.practicum.list.label.course-code = Course code
 
 company.practicum.list.button.create = Create
 
+company.practicum.form.label.course = Course:
+company.practicum.form.label.practicum-code = Practicum code:
+company.practicum.form.label.practicum-title = Practicum title:
+company.practicum.form.label.abstract$ = Abstract:
+company.practicum.form.label.goals = Goals:
+
+
+company.practicum.form.button.create = Create
+
+
