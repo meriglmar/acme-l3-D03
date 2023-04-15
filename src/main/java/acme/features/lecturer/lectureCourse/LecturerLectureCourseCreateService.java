@@ -6,9 +6,10 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.course.Course;
+import acme.entities.courses.Course;
 import acme.entities.lectureCourses.LectureCourse;
 import acme.entities.lectures.Lecture;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -34,22 +35,21 @@ public class LecturerLectureCourseCreateService extends AbstractService<Lecturer
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int lectureId;
-		Lecture lecture;
-
-		lectureId = super.getRequest().getData("lectureId", int.class);
-		lecture = this.repository.findOneLectureById(lectureId);
-		status = lecture != null;
-
-		super.getResponse().setAuthorised(status);
+		Lecture object;
+		int id;
+		id = super.getRequest().getData("lectureId", int.class);
+		object = this.repository.findOneLectureById(id);
+		final Principal principal = super.getRequest().getPrincipal();
+		final int userAccountId = principal.getAccountId();
+		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId);
 	}
 
 	@Override
 	public void load() {
-		final LectureCourse object = new LectureCourse();
-		int lectureId;
+		LectureCourse object;
+		object = new LectureCourse();
 		final Lecture lecture;
+		int lectureId;
 		lectureId = super.getRequest().getData("lectureId", int.class);
 		lecture = this.repository.findOneLectureById(lectureId);
 		object.setLecture(lecture);
@@ -72,10 +72,10 @@ public class LecturerLectureCourseCreateService extends AbstractService<Lecturer
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("lecture") && !super.getBuffer().getErrors().hasErrors("course")) {
 			final Collection<Lecture> lectures = this.repository.findManyLecturesByMasterId(object.getCourse().getId());
-			super.state(!lectures.contains(object.getLecture()), "course", "lecturer.lectureCourse.form.error.lecture");
+			super.state(lectures.isEmpty() || !lectures.contains(object.getLecture()), "course", "lecturer.lectureCourse.form.error.lecture");
 		}
-		//		if (!super.getBuffer().getErrors().hasErrors("course"))
-		//			super.state(object.getCourse().isDraftMode(), "course", "lecturer.lectureCourse.form.error.course");
+		if (!super.getBuffer().getErrors().hasErrors("course"))
+			super.state(object.getCourse().isDraftMode(), "course", "lecturer.lectureCourse.form.error.course");
 	}
 
 	@Override
@@ -104,7 +104,7 @@ public class LecturerLectureCourseCreateService extends AbstractService<Lecturer
 		final SelectChoices choices = SelectChoices.from(courses, "code", object.getCourse());
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
-		//tuple.put("draftMode", lecture.isDraftMode());
+		tuple.put("draftMode", lecture.isDraftMode());
 
 		super.getResponse().setData(tuple);
 	}

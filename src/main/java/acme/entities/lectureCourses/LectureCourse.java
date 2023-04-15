@@ -6,7 +6,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import acme.entities.course.Course;
+import acme.entities.courses.Course;
 import acme.entities.lectures.Lecture;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
