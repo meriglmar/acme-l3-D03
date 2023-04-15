@@ -60,6 +60,12 @@ master.menu.auditor.audit.list = Lista de auditorías
 master.menu.auditor.auditing-records.create = Crear registro de auditoría
 master.menu.auditor.auditing-records.list = Lista de registros de auditorías 
 
+# master.menu.company ###################################################
+
+master.menu.company = Empresa
+master.menu.company.practicum.create = Crear práctica
+master.menu.company.practicum.list = Listado de prácticas
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor
