@@ -14,5 +14,5 @@ administrator.banner.form.label.create = Create banner
 administrator.banner.form.label.update = Update a banner 
 administrator.banner.form.label.delete = Delete a banner
 
-administrator.banner.status.error.week = Duration of banner shoulb be at least a week
+administrator.banner.status.error.week = Duration of banner should be at least a week
 administrator.banner.status.error.current = Start period should be after that moment
