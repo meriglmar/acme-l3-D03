@@ -54,7 +54,7 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 	@Override
 	public void bind(final AuditingRecord object) {
 		assert object != null;
-		super.bind(object, "subject", "assessment", "startTime", "finishTime", "mark", "moreInfo", "confirmation");
+		super.bind(object, "subject", "assessment", "mark", "moreInfo", "confirmation");
 	}
 
 	@Override
@@ -70,7 +70,6 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		//			super.state(this.auxiliarService.validateTextImput(object.getSubject()), "subject", "auditor.auditing-record.form.error.spam");
 		//		if (!super.getBuffer().getErrors().hasErrors("assessment"))
 		//			super.state(this.auxiliarService.validateTextImput(object.getSubject()), "assessment", "auditor.auditing-record.form.error.spam");
-
 	}
 
 	@Override
@@ -94,7 +93,6 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		tuple.put("masterId", masterId);
 		tuple.put("draftMode", audit.isDraftMode());
 		tuple.put("confirmation", false);
-		tuple.put("codigo", super.getRequest().getLocale().getLanguage());
 		super.getResponse().setData(tuple);
 	}
 }
