@@ -46,7 +46,7 @@ public class AdministratorBannerListAllService extends AbstractService<Administr
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "moment", "eslogan", "docLink", "startPeriod", "finPeriod");
+		tuple = super.unbind(object, "moment", "startDatePeriod", "endDatePeriod", "imageLink", "eslogan", "docLink");
 
 		super.getResponse().setData(tuple);
 	}

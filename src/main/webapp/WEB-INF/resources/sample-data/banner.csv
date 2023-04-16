@@ -1,4 +1,4 @@
-key,moment,startPeriod,finPeriod,imageLink,eslogan,docLink
+key,moment,startDatePeriod,endDatePeriod,imageLink,eslogan,docLink
 banner-01,2021/01/01 10:30,2022/01/01 10:30,2023/02/01 10:30,https://i.imgur.com/8YcXhS0.png,Be the hero nature needs,https://www.worldwildlife.org/
 banner-02,2021/03/22 20:30,2022/01/01 10:30,2023/02/01 10:30,https://i.imgur.com/MtBRoNP.png,Medical care where it's needed most,https://www.doctorswithoutborders.org/
 banner-03,2021/07/12 11:00,2022/01/01 10:30,2023/07/01 10:30,https://i.imgur.com/NGLSjk6.png,The world’s platform for change,https://www.change.org/

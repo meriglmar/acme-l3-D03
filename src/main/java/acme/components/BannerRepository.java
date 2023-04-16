@@ -17,10 +17,10 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface BannerRepository extends AbstractRepository {
 
-	@Query("SELECT COUNT(b) FROM Banner b WHERE b.startPeriod <= :now AND b.finPeriod >= :now")
+	@Query("SELECT COUNT(b) FROM Banner b WHERE b.startDatePeriod <= :now AND b.endDatePeriod >= :now")
 	int countActiveBanners(@Param("now") Date now);
 
-	@Query("SELECT b FROM Banner b WHERE b.startPeriod <= :now AND b.finPeriod >= :now")
+	@Query("SELECT b FROM Banner b WHERE b.startDatePeriod <= :now AND b.startDatePeriod >= :now")
 	List<Banner> findActiveBanners(@Param("now") Date now, Pageable pageable);
 
 	default Banner findRandomAdvertisement(final Date now) {
