@@ -1,2 +1,7 @@
-key,code,title,abstractCourse,retailPrice,link,published,key:lecturer
-course1,ABC123,Titulo1,Abstract1,9€,https://www.google.com,true,lecturer1
+key,key:lecturer,code,title,abstractCourse,retailPrice,link,draftMode
+course1,lecturer1,ABC123,Introduction to Programming,This course will introduce you to the basics of programming,EUR 100.00,https://www.us.es/abc123,false
+course2,lecturer2,A123,Introduction to Programming,This course will teach you how to program in Java.,EUR 100.00,https://www.us.es/abc123,false
+course3,lecturer1,AB123,Introduction to Programming,This course will teach you how to program in Java.,EUR 100.00,https://www.us.es/abc123,false
+course4,lecturer2,ABC000,Introduction to Programming,This course will teach you how to program in Java.,EUR 100.00,https://www.us.es/abc123,false
+course5,lecturer1,ABC124,A,This course will teach you how to program in Java.,EUR 100.00,https://www.us.es/abc123,false
+course6,lecturer2,ABC146,AA,This course will teach you how to program in Java.,EUR 100.00,https://www.us.es/abc123,false
