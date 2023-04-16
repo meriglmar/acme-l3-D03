@@ -29,6 +29,7 @@ master.menu.anonymous.courses = Lista de cursos publicados
 # master.menu.authenticated ###################################################
 
 master.menu.authenticated.courses = Lista de cursos publicados
+master.menu.authenticated = Autenticado
 
 # master.menu.administrator ###################################################
 

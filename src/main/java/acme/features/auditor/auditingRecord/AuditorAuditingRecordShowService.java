@@ -4,6 +4,7 @@ package acme.features.auditor.auditingRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SystemConfigurationService;
 import acme.entities.auditingRecords.AuditingRecord;
 import acme.entities.auditingRecords.TypeMark;
 import acme.entities.audits.Audit;
@@ -16,7 +17,10 @@ import acme.roles.Auditor;
 public class AuditorAuditingRecordShowService extends AbstractService<Auditor, AuditingRecord> {
 
 	@Autowired
-	protected AuditorAuditingRecordRepository repo;
+	protected AuditorAuditingRecordRepository	repo;
+
+	@Autowired
+	protected SystemConfigurationService		scService;
 
 
 	@Override
@@ -45,7 +49,9 @@ public class AuditorAuditingRecordShowService extends AbstractService<Auditor, A
 		assert object != null;
 		final int id = super.getRequest().getData("id", int.class);
 		final Audit audit = this.repo.findAuditByAuditingRecordId(id);
-		final Tuple tuple = super.unbind(object, "subject", "assessment", "startTime", "finishTime", "mark", "moreInfo");
+		final Tuple tuple = super.unbind(object, "subject", "assessment", "mark", "moreInfo");
+		tuple.put("startTime", this.scService.translateDate(object.getStartTime(), "es"));
+		tuple.put("finishTime", this.scService.translateDate(object.getFinishTime(), "es"));
 		final SelectChoices choice = SelectChoices.from(TypeMark.class, object.getMark());
 		tuple.put("masterId", audit.getId());
 		tuple.put("draftMode", audit.isDraftMode());
