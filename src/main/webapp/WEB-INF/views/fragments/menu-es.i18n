@@ -72,6 +72,8 @@ master.menu.auditor.auditor-dashboard.show = Panel de auditor
 master.menu.company = Empresa
 master.menu.company.practicum.create = Crear práctica
 master.menu.company.practicum.list = Listado de prácticas
+master.menu.company.practicum-session.create = Crear sesión práctica
+master.menu.company.practicum-session.list = Listado de sesiones prácticas
 
 # master.menu.provider ########################################################
 
