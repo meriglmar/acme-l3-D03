@@ -16,7 +16,7 @@ import acme.roles.Assistant;
 @Repository
 public interface AssistantTutorialRepository extends AbstractRepository {
 
-	@Query("select t from Tutorial t where t.assistant.userAccount.id = :id")
+	@Query("select t from Tutorial t where t.assistant.id = :id")
 	Collection<Tutorial> findManyTutorialsByAssistantId(@Param("id") int id);
 
 	@Query("select t from Tutorial t where t.id = :id")
