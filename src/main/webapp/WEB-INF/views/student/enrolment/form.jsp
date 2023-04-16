@@ -38,7 +38,7 @@
 		<acme:form>
 		    <acme:input-textbox code="student.enrolment.form.label.code" path="code"/>
 		    <acme:input-select code="student.enrolment.form.label.courseTitle" path="course" choices="${courses}"/>
-		    <acme:input-textbox readonly="true" code="student.enrolment.form.label.workTime" path="workTime"/>
+		    
 		    <acme:input-textarea code="student.enrolment.form.label.motivation" path="motivation"/>
 		    <acme:input-textarea code="student.enrolment.form.label.goals" path="goals"/>
 		    
