@@ -91,8 +91,7 @@
 			<acme:menu-suboption code="master.menu.auditor.audit.create" action="/auditor/audit/create"/>
 			<acme:menu-suboption code="master.menu.auditor.audit.list" action="/auditor/audit/list"/>	
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.auditor.auditing-record.create" action="/auditor/auditing-record/create"/>
-			<acme:menu-suboption code="master.menu.auditor.auditing-record.list" action="/auditor/auditing-record/list"/>		
+			<acme:menu-suboption code="master.menu.auditor.auditor-dashboard.show" action="/auditor/auditor-dashboard/show"/>	
 		</acme:menu-option>
 	
 >>>>>>> f9b002d Task 126: Done

@@ -100,8 +100,7 @@ master.menu.lecturer.lecturer-dashboard.show = Lecturer dashboard
 master.menu.auditor = Auditor
 master.menu.auditor.audit.create = Create audit
 master.menu.auditor.audit.list = List of audits
-master.menu.auditor.auditing-records.create = Create auditing records 
-master.menu.auditor.auditing-records.list = List of auditing records 
+master.menu.auditor.auditor-dashboard.show = Auditor dashboard
 
 # master.menu.provider ########################################################
 
