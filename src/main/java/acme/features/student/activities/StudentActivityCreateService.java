@@ -79,9 +79,6 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 
 		if (!super.getBuffer().getErrors().hasErrors("endPeriod") && !super.getBuffer().getErrors().hasErrors("startPeriod"))
 			super.state(MomentHelper.isAfter(object.getEndPeriod(), object.getStartPeriod()), "endPeriod", "student.activity.form.error.endPeriod-too-soon");
-
-		//if (!super.getBuffer().getErrors().hasErrors("type"))
-		//	super.state(!object.getType().equals(Nature.BALANCED), "type", "student.activity.form.error.type-cannot-be-balanced");
 	}
 
 	@Override

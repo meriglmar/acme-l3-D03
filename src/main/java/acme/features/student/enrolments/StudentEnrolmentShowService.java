@@ -44,7 +44,7 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 		id = super.getRequest().getData("id", int.class);
 		enrolment = this.repository.findEnrolmentById(id);
 		principal = super.getRequest().getPrincipal();
-		student = this.repository.findStudentByPrincipalId(principal.getActiveRoleId());
+		student = this.repository.findStudentById(principal.getActiveRoleId());
 		status = student != null && enrolment.getStudent().equals(student);
 
 		super.getResponse().setAuthorised(status);
@@ -69,10 +69,10 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 		SelectChoices choices;
 
 		Tuple tuple;
-		courses = this.repository.findManyCourses();
+		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
 
-		workTime = this.repository.finWorkTimeByEnrolmentId(object.getId());
+		workTime = this.repository.findWorktimeByEnrolmentId(object.getId());
 		workTime = workTime != null ? workTime : 0.0;
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode");

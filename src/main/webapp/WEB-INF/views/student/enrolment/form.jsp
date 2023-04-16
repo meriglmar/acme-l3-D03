@@ -28,6 +28,8 @@
 		<acme:form>
 		    <acme:input-textbox code="student.enrolment.form.label.cardLowerNibble" path="cardLowerNibble"/>
 		    <acme:input-textbox code="student.enrolment.form.label.cardHolder" path="cardHolder"/>
+		    <acme:input-integer code="student.enrolment.form.label.cvv" path="cvv" placeholder="123"/>
+		    <acme:input-moment code="student.enrolment.form.label.expireDate" path="expireDate"/>
 		    
 			<acme:submit code="student.enrolment.form.button.publish" action="/student/enrolment/publish"/>
 		</acme:form>
@@ -37,7 +39,6 @@
 		    <acme:input-textbox code="student.enrolment.form.label.code" path="code"/>
 		    <acme:input-select code="student.enrolment.form.label.courseTitle" path="course" choices="${courses}"/>
 		    <acme:input-textbox readonly="true" code="student.enrolment.form.label.workTime" path="workTime"/>
-		    <acme:input-textarea readonly="true" code="student.enrolment.form.label.finalised" path="draftMode"/>
 		    <acme:input-textarea code="student.enrolment.form.label.motivation" path="motivation"/>
 		    <acme:input-textarea code="student.enrolment.form.label.goals" path="goals"/>
 		    
@@ -47,7 +48,7 @@
 		        		<jstl:when test="${draftMode}">
 				            <acme:submit code="student.enrolment.form.button.update" action="/student/enrolment/update"/>
 				            <acme:submit code="student.enrolment.form.button.delete" action="/student/enrolment/delete"/>
-				            <acme:button code="student.enrolment.form.button.publish" action="/student/enrolment/publish?id=${id}"/>
+				             <acme:button code="student.enrolment.form.button.payment" action="/student/enrolment/publish?id=${id}"/>
 		        		</jstl:when>
 		        		<jstl:otherwise>
 		            		<acme:button code="student.enrolment.form.button.workbook" action="/student/enrolment/show-workbook?enrolmentId=${id}"/>
