@@ -1,0 +1,6 @@
+key,key:student,key:course,code,motivation,goals,draftMode,cardHolder,cardLowerNibble
+enrolment1,student2,course1,ABM1234,motivation,"this, is, a list, of, goals", false, null, null
+enrolment2,student2,course2,ABM1235,motivation,"this, is, a list, of, goals", false, null, null
+enrolment3,student1,course2,ABM1236,motivation,"this, is, a list, of, goals", false, null, null
+enrolment4,student1,course1,ABM1237,motivation,"this, is, a list, of, goals", false, null, null
+enrolment5,student1,course1,ABM1538,motivation,"this, is, a list, of, goals", false, null, null
