@@ -55,6 +55,8 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
+		    <acme:menu-suboption code="master.menu.student.course.list" action="/student/course/list"/>
+		    <acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.student.enrolment.register" action="/student/enrolment/register"/>
 			<acme:menu-suboption code="master.menu.student.enrolment.list" action="/student/enrolment/list"/>			
 		</acme:menu-option>
