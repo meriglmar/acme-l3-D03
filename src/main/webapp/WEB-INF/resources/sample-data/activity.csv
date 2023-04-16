@@ -1,0 +1,15 @@
+key,key:enrolment,title,abstractt,activityType,link,startPeriod,endPeriod
+activity1,enrolment3,title,abstract,THEORY,http://www.example.com,2023/04/16 22:00,2023/04/16 23:00
+activity2,enrolment1,title,abstract,THEORY,http://www.example.com,2023/07/16 16:00,2023/07/16 17:00
+activity3,enrolment3,a,abstract,THEORY,http://www.example.com,2023/07/16 16:00,2023/07/16 17:00
+activity4,enrolment3,titillllee,abstract,THEORY,http://www.example.com,2023/07/16 16:00,2023/07/16 17:00
+activity5,enrolment2,title,abstract,THEORY,http://www.example.com,2023/07/16 16:00,2023/07/16 18:00
+activity6,enrolment2,title,abstract,THEORY,http://www.example.com,2023/07/16 16:00,2023/07/16 19:00
+activity7,enrolment2,title,abstract,THEORY,http://www.example.com,2023/07/16 16:00,2023/07/16 17:00
+activity8,enrolment2,title,abstract,THEORY,http://www.example.com,2023/07/16 16:00,2023/07/16 16:30
+activity9,enrolment2,title,abstract,THEORY,http://www.example.com,2023/07/16 16:00,2023/07/16 18:00
+activity10,enrolment2,title,absstractttt,THEORY,http://www.example.com,2023/07/16 16:00,2023/07/16 17:00
+activity11,enrolment2,title,sisiisisi,THEORY,http://www.example.com,2023/07/16 16:00,2023/07/16 19:00
+activity12,enrolment4,title,sisisiis,THEORY,http://www.example.com,2023/07/16 16:00,2023/07/16 20:00
+activity13,enrolment4,title,a,THEORY,http://www.example.com,2023/07/16 16:00,2023/07/16 21:00
+activity14,enrolment2,title,abstract,THEORY,http://www.example.com,2023/07/16 16:00,2023/07/16 22:00
