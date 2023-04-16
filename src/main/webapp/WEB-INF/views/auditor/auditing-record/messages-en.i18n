@@ -13,4 +13,4 @@ auditor.auditing-record.form.button.update = Update
 auditor.auditing-record.form.button.delete = Delete
 auditor.auditing-record.form.button.create = Create
 auditor.auditing-record.form.button.confirmation = Confirmation
-auditor.auditing-record.form.button.create-correction = Create correction record
+auditor.auditing-record.form.button.create-correctionRecord = Create correction record
