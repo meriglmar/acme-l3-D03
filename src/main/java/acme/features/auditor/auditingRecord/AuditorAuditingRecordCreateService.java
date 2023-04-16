@@ -18,7 +18,6 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 	@Autowired
 	protected AuditorAuditingRecordRepository repo;
 
-
 	@Override
 	public void check() {
 		boolean status;
