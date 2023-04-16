@@ -10,7 +10,7 @@
 	<acme:input-moment code="auditor.auditing-record.form.label.finishTime" path="finishTime" />
 	<acme:input-select code="auditor.auditing-record.form.label.mark" path="mark" choices="${marks}"/>
 	<acme:input-url code="auditor.auditing-record.form.label.moreInfo" path="moreInfo"/>
-		
+	<h1>${codigo}</h1>
 	<jstl:choose>	 
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode == true}">
 			<acme:submit code="auditor.auditing-record.form.button.update" action="/auditor/auditing-record/update"/>

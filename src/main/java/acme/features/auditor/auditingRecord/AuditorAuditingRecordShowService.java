@@ -50,8 +50,9 @@ public class AuditorAuditingRecordShowService extends AbstractService<Auditor, A
 		final int id = super.getRequest().getData("id", int.class);
 		final Audit audit = this.repo.findAuditByAuditingRecordId(id);
 		final Tuple tuple = super.unbind(object, "subject", "assessment", "mark", "moreInfo");
-		tuple.put("startTime", this.scService.translateDate(object.getStartTime(), "es"));
-		tuple.put("finishTime", this.scService.translateDate(object.getFinishTime(), "es"));
+		final String lang = super.getRequest().getLocale().getLanguage();
+		tuple.put("startTime", this.scService.translateDate(object.getStartTime(), lang));
+		tuple.put("finishTime", this.scService.translateDate(object.getFinishTime(), lang));
 		final SelectChoices choice = SelectChoices.from(TypeMark.class, object.getMark());
 		tuple.put("masterId", audit.getId());
 		tuple.put("draftMode", audit.isDraftMode());

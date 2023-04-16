@@ -85,14 +85,16 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		final int masterId = super.getRequest().getData("masterId", int.class);
 		final Audit audit = this.repo.findAuditById(masterId);
 		final Tuple tuple = super.unbind(object, "subject", "assessment", "mark", "moreInfo");
-		tuple.put("startTime", this.scService.translateDate(object.getStartTime(), "es"));
-		tuple.put("finishTime", this.scService.translateDate(object.getFinishTime(), "es"));
+		final String lang = super.getRequest().getLocale().getLanguage();
+		tuple.put("startTime", this.scService.translateDate(object.getStartTime(), lang));
+		tuple.put("finishTime", this.scService.translateDate(object.getFinishTime(), lang));
 		final SelectChoices choices = SelectChoices.from(TypeMark.class, object.getMark());
 		tuple.put("mark", choices.getSelected().getKey());
 		tuple.put("marks", choices);
 		tuple.put("masterId", masterId);
 		tuple.put("draftMode", audit.isDraftMode());
 		tuple.put("confirmation", false);
+		tuple.put("codigo", super.getRequest().getLocale().getLanguage());
 		super.getResponse().setData(tuple);
 	}
 }
