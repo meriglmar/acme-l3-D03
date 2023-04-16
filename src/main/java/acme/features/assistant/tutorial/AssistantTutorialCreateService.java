@@ -5,7 +5,7 @@ import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.entities.course.Course;
+import acme.entities.courses.Course;
 import acme.entities.tutorials.Tutorial;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;

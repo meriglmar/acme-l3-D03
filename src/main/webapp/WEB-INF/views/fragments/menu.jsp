@@ -85,7 +85,14 @@
 			<acme:menu-suboption code="master.menu.company.practicum.list" action="/company/practicum/list"/>	
 			<acme:menu-separator/>	
 		</acme:menu-option>
-	
+		
+		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
+			<acme:menu-suboption code="master.menu.assistant.tutorial.list" action="/assistant/tutorial/list"/>
+			<acme:menu-suboption code="master.menu.assistant.tutorial.create" action="/assistant/tutorial/create"/>	
+			<acme:menu-separator/>
+			<%-- <acme:menu-suboption code="master.menu.auditor.auditor-dashboard.show" action="/auditor/auditor-dashboard/show"/> --%>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.anonymous.peep">
 			<acme:menu-suboption code="master.menu.anonymous.peep.list" action="/any/peep/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.peep.create" action="/any/peep/create"/>
