@@ -60,6 +60,14 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.auditor.auditor-dashboard.show" action="/auditor/auditor-dashboard/show"/>	
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.company" access="hasRole('Company')">
+			<acme:menu-suboption code="master.menu.company.practicum.create" action="/company/practicum/create"/>		
+			<acme:menu-suboption code="master.menu.company.practicum.list" action="/company/practicum/list"/>	
+			<acme:menu-separator/>
+			<%-- <acme:menu-suboption code="master.menu.auditor.auditing-record.create" action="/auditor/auditing-record/create"/>
+			<acme:menu-suboption code="master.menu.auditor.auditing-record.list" action="/auditor/auditing-record/list"/> --%>		
+		</acme:menu-option>
 	
 
 	</acme:menu-left>
