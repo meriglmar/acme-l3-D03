@@ -12,16 +12,12 @@
 
 package acme.features.administrator.banner;
 
-import java.time.Duration;
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.banners.Banner;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
-import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -64,32 +60,26 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	public void bind(final Banner object) {
 		assert object != null;
 
-		super.bind(object, "moment", "startPeriod", "finPeriod", "imageLink", "eslogan", "docLink");
+		super.bind(object, "moment", "startDatePeriod", "endDatePeriod", "imageLink", "eslogan", "docLink");
 	}
 
 	@Override
 	public void validate(final Banner object) {
 		assert object != null;
 
-		boolean status;
-		final boolean status2;
+		boolean validMoment;
+		validMoment = object.getMoment().compareTo(object.getStartDatePeriod()) < 0;
+		super.state(validMoment, "startDatePeriod", "administrator.banner.post.after-instantiation");
 
-		if (!super.getBuffer().getErrors().hasErrors("startPeriod") && !super.getBuffer().getErrors().hasErrors("endPeriod")) {
-			final Duration sevenDays = Duration.ofDays(7);
-			status = object.periodOfTime().compareTo(sevenDays) > 0;
-			status2 = object.getStartPeriod().compareTo(object.getMoment()) > 0;
-			super.state(status, "finPeriod", "administrator.banner.status.error");
-			super.state(status2, "startPeriod", "administrator.banner.status.error2");
-		}
+		boolean validPeriod;
+		validPeriod = object.getEndDatePeriod().getTime() - object.getStartDatePeriod().getTime() >= 604800000;
+		super.state(validPeriod, "endDatePeriod", "administrator.banner.post.one-week");
 	}
 
 	@Override
 	public void perform(final Banner object) {
 		assert object != null;
-		Date moment;
 
-		moment = MomentHelper.getCurrentMoment();
-		object.setMoment(moment);
 		this.repo.save(object);
 	}
 
@@ -99,7 +89,7 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "moment", "startPeriod", "finPeriod", "imageLink", "eslogan", "docLink");
+		tuple = super.unbind(object, "moment", "startDatePeriod", "endDatePeriod", "imageLink", "eslogan", "docLink");
 
 		super.getResponse().setData(tuple);
 	}

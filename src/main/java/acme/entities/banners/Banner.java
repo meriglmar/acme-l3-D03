@@ -1,14 +1,14 @@
 
 package acme.entities.banners;
 
-import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -22,10 +22,15 @@ import lombok.Setter;
 @Setter
 
 public class Banner extends AbstractEntity {
-	//un momento de instanciación/actualización (en el pasado), un período de visualización 
-	//(debe comenzar en cualquier momento después del momento de instanciación/actualización y 
-	//debe durar al menos una semana), un enlace a una imagen que debe almacenarse en otro lugar, 
-	//un eslogan (no en blanco, de menos de 76 caracteres) y un enlace a un documento web de destino.
+
+	/*
+	 * A banner allows administrators to advertise products, services, or organisations.
+	 * The system must store the following data about them: an instantiation/update moment (in the past),
+	 * a display period (must start at any moment after the instantiation/update moment and must last for at least one week),
+	 * a link to a picture that must be stored somewhere else,
+	 * a slogan (not blank, shorter than 76 characters),
+	 * and a link to a target web document.
+	 */
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -34,14 +39,17 @@ public class Banner extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Past
+	@PastOrPresent  //or Past
+	@NotNull
 	protected Date				moment;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date				startPeriod;
+	@NotNull
+	protected Date				startDatePeriod;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date				finPeriod;
+	@NotNull
+	protected Date				endDatePeriod;
 
 	@URL
 	protected String			imageLink;
@@ -52,11 +60,5 @@ public class Banner extends AbstractEntity {
 
 	@URL
 	protected String			docLink;
-
-
-	//Debe durar al menos una semana
-	public Duration periodOfTime() {
-		return Duration.ofDays(this.finPeriod.getTime() - this.startPeriod.getTime());
-	}
 
 }
