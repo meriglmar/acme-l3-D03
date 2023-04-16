@@ -67,13 +67,14 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	public void validate(final Banner object) {
 		assert object != null;
 
-		boolean validMoment;
-		validMoment = object.getMoment().compareTo(object.getStartDatePeriod()) < 0;
-		super.state(validMoment, "startDatePeriod", "administrator.banner.post.after-instantiation");
-
-		boolean validPeriod;
-		validPeriod = object.getEndDatePeriod().getTime() - object.getStartDatePeriod().getTime() >= 604800000;
-		super.state(validPeriod, "endDatePeriod", "administrator.banner.post.one-week");
+		if (!super.getBuffer().getErrors().hasErrors("startDatePeriod") && !super.getBuffer().getErrors().hasErrors("endDatePeriod")) {
+			boolean validMoment;
+			validMoment = object.getMoment().compareTo(object.getStartDatePeriod()) < 0;
+			super.state(validMoment, "startDatePeriod", "administrator.banner.status.error.current");
+			boolean validPeriod;
+			validPeriod = object.getEndDatePeriod().getTime() - object.getStartDatePeriod().getTime() >= 604800000;
+			super.state(validPeriod, "endDatePeriod", "administrator.banner.status.error.week");
+		}
 	}
 
 	@Override
