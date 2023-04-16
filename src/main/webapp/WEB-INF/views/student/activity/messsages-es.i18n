@@ -18,9 +18,9 @@ student.activity.form.label.link = Información adicional: (Opcional)
 student.activity.form.label.startPeriod = Fecha de inicio
 student.activity.form.label.endPeriod = Fecha de fin
 
-student.activity.form.button.update = Actualizar
-student.activity.form.button.delete = Eliminar
-student.activity.form.button.create = Crear
-student.activity.list.button.create = Crear
+student.activity.form.button.update = Actualizar actividad
+student.activity.form.button.delete = Eliminar actividad
+student.activity.form.button.create = Crear actividad
+student.activity.list.button.create = Crear actividad
 
-student.activity.form.error.endPeriod-too-soon = La actividad debe terminar después de su inicio
+student.activity.form.error.endPeriod-too-soon = La actividad no puede finalizar antes de haber comenzado.

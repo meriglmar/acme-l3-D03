@@ -15,12 +15,12 @@ student.activity.form.label.title = Title
 student.activity.form.label.abstractt = Abstract
 student.activity.form.label.activityType = Activity Type
 student.activity.form.label.link = More Info: (Optional)
-student.activity.form.label.startPeriod = startPeriod
-student.activity.form.label.endPeriod = endPeriod
+student.activity.form.label.startPeriod = Start period
+student.activity.form.label.endPeriod = End period
 
-student.activity.form.button.update = Update
-student.activity.form.button.delete = Delete
-student.activity.form.button.create = Create
-student.activity.list.button.create = Create
+student.activity.form.button.update = Update activity
+student.activity.form.button.delete = Delete activity
+student.activity.form.button.create = Create activity
+student.activity.list.button.create = Create activity
 
-student.activity.form.error.endPeriod-too-soon = The activity must end after it begins
+student.activity.form.error.endPeriod-too-soon = The activity must end after its start.
