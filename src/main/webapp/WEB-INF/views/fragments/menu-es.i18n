@@ -91,6 +91,16 @@ master.menu.lecturer.course.create = Crear curso
 master.menu.lecturer.course.list = Lista de cursos
 master.menu.lecturer.lecturer-dashboard.show = Panel de profesor
 
+<<<<<<< Upstream, based on 28be164a6bca11cc0bb4935dc38b74904cb02697
+=======
+# master.menu.auditor ########################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.audit.create = Crear auditoría
+master.menu.auditor.audit.list = Lista de auditorías
+master.menu.auditor.auditor-dashboard.show = Panel de auditor
+
+>>>>>>> 23c80b2 Task 127: Done
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor

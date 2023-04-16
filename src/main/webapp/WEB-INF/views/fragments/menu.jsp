@@ -89,8 +89,12 @@
 			<acme:menu-suboption code="master.menu.auditor.audit.create" action="/auditor/audit/create"/>
 			<acme:menu-suboption code="master.menu.auditor.audit.list" action="/auditor/audit/list"/>	
 			<acme:menu-separator/>
+<<<<<<< Upstream, based on 28be164a6bca11cc0bb4935dc38b74904cb02697
 			<acme:menu-suboption code="master.menu.auditor.auditing-records.create" action="/auditor/auditing-records/create"/>
 			<acme:menu-suboption code="master.menu.auditor.auditing-records.list" action="/auditor/auditing-records/list"/>		
+=======
+			<acme:menu-suboption code="master.menu.auditor.auditor-dashboard.show" action="/auditor/auditor-dashboard/show"/>	
+>>>>>>> 23c80b2 Task 127: Done
 		</acme:menu-option>
 	
 >>>>>>> f9b002d Task 126: Done
