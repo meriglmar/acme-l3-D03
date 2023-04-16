@@ -44,7 +44,7 @@ public class StudentEnrolmentRegisterService extends AbstractService<Student, En
 		principal = super.getRequest().getPrincipal();
 		final int principalId = principal.getActiveRoleId();
 
-		object.setStudent(this.repository.findStudentByPrincipalId(principalId));
+		object.setStudent(this.repository.findStudentById(principalId));
 		object.setDraftMode(true);
 
 		super.getBuffer().setData(object);
@@ -58,7 +58,7 @@ public class StudentEnrolmentRegisterService extends AbstractService<Student, En
 		Course course;
 
 		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findOneCourseById(courseId);
+		course = this.repository.findCourseById(courseId);
 
 		object.setCourse(course);
 
@@ -68,6 +68,9 @@ public class StudentEnrolmentRegisterService extends AbstractService<Student, En
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
+		final Enrolment enrolmentWithSameCode = this.repository.findEnrolmentByCode(object.getCode());
+
+		super.state(enrolmentWithSameCode == null, "code", "student.enrolment.form.error.duplicated-code");
 	}
 
 	@Override
@@ -84,8 +87,8 @@ public class StudentEnrolmentRegisterService extends AbstractService<Student, En
 		SelectChoices choices;
 
 		Tuple tuple;
-		courses = this.repository.findManyCourses();
-		choices = SelectChoices.from(courses, "title", object.getCourse());
+		courses = this.repository.findAllCourses();
+		choices = SelectChoices.from(courses, "code", object.getCourse());
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode");
 		tuple.put("readonly", !object.isDraftMode());

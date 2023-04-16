@@ -40,7 +40,7 @@ public class StudentEnrolmentShowWorkbookService extends AbstractService<Student
 		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
 		enrolment = this.repository.findEnrolmentById(enrolmentId);
 		principal = super.getRequest().getPrincipal();
-		student = this.repository.findStudentByPrincipalId(principal.getActiveRoleId());
+		student = this.repository.findStudentById(principal.getActiveRoleId());
 		status = student != null && enrolment.getStudent().equals(student);
 
 		super.getResponse().setAuthorised(status);
@@ -63,9 +63,9 @@ public class StudentEnrolmentShowWorkbookService extends AbstractService<Student
 		Double workTime;
 		Integer numActivities;
 
-		workTime = this.repository.finWorkTimeByEnrolmentId(object.getId());
+		workTime = this.repository.findWorktimeByEnrolmentId(object.getId());
 		workTime = workTime != null ? workTime : 0.0;
-		numActivities = this.repository.findNumberOfAcitivitiesByEnrolmentId(object.getId());
+		numActivities = this.repository.findNumberActivitiesByEnrolmentId(object.getId());
 
 		Tuple tuple;
 

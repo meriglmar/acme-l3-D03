@@ -44,7 +44,7 @@ public class Activity extends AbstractEntity {
 	@Length(max = 100)
 	protected String			abstractt;
 
-	@NotBlank
+	@NotNull
 	protected ActivityType		activityType;
 
 	@Temporal(TemporalType.TIMESTAMP)

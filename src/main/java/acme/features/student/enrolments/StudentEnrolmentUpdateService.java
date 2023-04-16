@@ -44,7 +44,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		id = super.getRequest().getData("id", int.class);
 		enrolment = this.repository.findEnrolmentById(id);
 		principal = super.getRequest().getPrincipal();
-		student = this.repository.findStudentByPrincipalId(principal.getActiveRoleId());
+		student = this.repository.findStudentById(principal.getActiveRoleId());
 		status = student != null && enrolment.getStudent().equals(student) && enrolment.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
@@ -69,16 +69,18 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		Course course;
 
 		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findOneCourseById(courseId);
+		course = this.repository.findCourseById(courseId);
 
 		object.setCourse(course);
 
-		super.bind(object, "motivation", "goals");
+		super.bind(object, "code", "motivation", "goals");
 	}
 
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
+		final Enrolment enrolmentWithSameCode = this.repository.findEnrolmentByCode(object.getCode());
+		super.state(enrolmentWithSameCode == null || enrolmentWithSameCode.getId() == object.getId(), "code", "student.enrolment.form.error.duplicated-code");
 		super.state(object.isDraftMode(), "draftMode", "student.enrolment.form.error.finalised");
 	}
 
@@ -97,10 +99,10 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		SelectChoices choices;
 
 		Tuple tuple;
-		courses = this.repository.findManyCourses();
+		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
 
-		workTime = this.repository.finWorkTimeByEnrolmentId(object.getId());
+		workTime = this.repository.findWorktimeByEnrolmentId(object.getId());
 		workTime = workTime != null ? workTime : 0.0;
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode");

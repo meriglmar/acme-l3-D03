@@ -40,7 +40,7 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 		id = super.getRequest().getData("id", int.class);
 		enrolment = this.repository.findEnrolmentById(id);
 		principal = super.getRequest().getPrincipal();
-		student = this.repository.findStudentByPrincipalId(principal.getActiveRoleId());
+		student = this.repository.findStudentById(principal.getActiveRoleId());
 		status = student != null && enrolment.getStudent().equals(student) && enrolment.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
@@ -80,7 +80,7 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 		assert object != null;
 		Double workTime;
 
-		workTime = this.repository.finWorkTimeByEnrolmentId(object.getId());
+		workTime = this.repository.findWorktimeByEnrolmentId(object.getId());
 		workTime = workTime != null ? workTime : 0.0;
 
 		Tuple tuple;
