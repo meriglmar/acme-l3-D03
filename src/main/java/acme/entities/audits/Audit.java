@@ -1,12 +1,11 @@
 
 package acme.entities.audits;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -59,21 +58,21 @@ public class Audit extends AbstractEntity {
 	//una nota (computada como la moda de las notas en los registros de auditoría correspondientes; empates debe romperse arbitrariamente si es necesario).
 	@Transient
 	public TypeMark mark(final Collection<TypeMark> lista) {
-
-		final Map<TypeMark, Integer> dicc = new HashMap<>();
-
+		final Map<TypeMark, Integer> frecuencias = new HashMap<>();
 		for (final TypeMark type : lista)
-			if (dicc.containsKey(type)) {
-				Integer res = dicc.get(type);
-				res++;
-			} else
-				dicc.put(type, 1);
+			frecuencias.put(type, frecuencias.getOrDefault(type, 0) + 1);
 
-		final Map<TypeMark, Integer> sortedMap = dicc.entrySet().stream().sorted(Map.Entry.<TypeMark, Integer> comparingByValue().reversed())
-			.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+		final List<TypeMark> moda = new ArrayList<>();
+		int maxFrecuencia = 0;
+		for (final Map.Entry<TypeMark, Integer> entry : frecuencias.entrySet())
+			if (entry.getValue() > maxFrecuencia) {
+				moda.clear();
+				moda.add(entry.getKey());
+				maxFrecuencia = entry.getValue();
+			} else if (entry.getValue() == maxFrecuencia)
+				moda.add(entry.getKey());
 
-		final Iterator<TypeMark> iterator = sortedMap.keySet().iterator();
-		return iterator.next();
+		return moda.get((int) (Math.random() * moda.size()));
 	}
 
 
