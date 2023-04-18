@@ -64,6 +64,7 @@ public class AuditorAuditingRecordListService extends AbstractService<Auditor, A
 		if (super.getRequest().getPrincipal().getAccountId() == audit.getAuditor().getUserAccount().getId())
 			createButton = true;
 		super.getResponse().setGlobal("createButton", createButton);
+		super.getResponse().setGlobal("draftMode", audit.isDraftMode());
 		super.getResponse().setGlobal("masterId", masterId);
 	}
 
