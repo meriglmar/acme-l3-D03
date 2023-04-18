@@ -34,6 +34,7 @@ master.menu.any.courses = Lista de cursos publicados
 master.menu.authenticated = Autenticado
 master.menu.authenticated.note.create = Crear nota
 master.menu.authenticated.note.list = Lista de notas
+master.menu.authenticated.offer.list = Lista de ofertas
 
 # master.menu.administrator ###################################################
 
