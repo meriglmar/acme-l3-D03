@@ -16,10 +16,10 @@
 			<acme:submit code="auditor.auditing-record.form.button.update" action="/auditor/auditing-record/update"/>
 			<acme:submit code="auditor.auditing-record.form.button.delete" action="/auditor/auditing-record/delete"/>
 		</jstl:when>
-		<jstl:when test="${_command == 'create' && draftMode == true}">
+		<jstl:when test="${_command == 'create' && draftMode}">
 			<acme:submit code="auditor.auditing-record.form.button.create" action="/auditor/auditing-record/create?masterId=${masterId}"/>
 		</jstl:when>	
-		<jstl:when test="${_command == 'create'&& draftMode == false}">
+		<jstl:when test="${_command == 'create'&& !draftMode }">
 			<acme:input-checkbox code="auditor.auditing-record.form.button.confirmation" path="confirmation"/>
 			<acme:submit code="auditor.auditing-record.form.button.create-correctionRecord" action="/auditor/auditing-record/create?masterId=${masterId}"/>
 		</jstl:when>	
