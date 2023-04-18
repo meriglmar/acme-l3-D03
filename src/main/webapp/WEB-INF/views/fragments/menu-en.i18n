@@ -24,12 +24,16 @@ master.menu.anonymous.favourite-link-student3 = 21150738F: Garcia Berdejo, Jose 
 master.menu.anonymous.favourite-link-student4 = 77860187N: Iglesias Martín, Mercedes
 master.menu.anonymous.favourite-link-student5 = 77819063N: Martín Sánchez, Paola
 
-master.menu.anonymous.courses = List of published courses
+# master.menu.any ####################################################
+
+master.menu.any= Any
+master.menu.any.courses = List of published courses
 
 # master.menu.authenticated ###################################################
 
 master.menu.authenticated = Authenticated
-master.menu.authenticated.courses = List of published courses
+master.menu.authenticated.note.create = Create note 
+master.menu.authenticated.note.list = List of notes
 
 # master.menu.administrator ###################################################
 
@@ -73,8 +77,6 @@ master.menu.auditor.auditor-dashboard.show = Auditor dashboard
 master.menu.company = Company
 master.menu.company.practicum.create = Create practicum 
 master.menu.company.practicum.list = List of practicums
-master.menu.company.practicum-session.create = Create practicum session
-master.menu.company.practicum-session.list = List of practicums sessions
 
 # master.menu.provider ########################################################
 

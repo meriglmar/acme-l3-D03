@@ -20,7 +20,7 @@ company.practicum-session.form.label.title = Título:
 company.practicum-session.form.label.abstract$ = Resumen:
 company.practicum-session.form.label.start-period = Fecha de inicio:
 company.practicum-session.form.label.finish-period = Fecha de fin:
-company.practicum-session.form.label.optionalLink = Más informarción (Opcional):
+company.practicum-session.form.label.optionalLink = Más informarción (opcional):
 company.practicum-session.form.label.confirmation = Confirmar sesión de práctica excepcional
 
 company.practicum-session.form.button.create = Crear sesión práctica
