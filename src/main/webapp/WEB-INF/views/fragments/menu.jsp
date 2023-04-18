@@ -23,6 +23,8 @@
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.note.create" action="/authenticated/note/create"/>	
 			<acme:menu-suboption code="master.menu.authenticated.note.list" action="/authenticated/note/list"/>
+			<acme:menu-separator/>	
+			<acme:menu-suboption code="master.menu.authenticated.offer.list" action="/authenticated/offer/list"/>
 		</acme:menu-option>
 
 
