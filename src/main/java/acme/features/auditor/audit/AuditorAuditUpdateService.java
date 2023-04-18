@@ -16,7 +16,6 @@ import acme.roles.Auditor;
 
 @Service
 public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
-	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected AuditorAuditRepository repo;
@@ -67,12 +66,6 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("code"))
 			super.state(this.repo.findAuditByCode(object.getCode()) == null || this.repo.findAuditByCode(object.getCode()).equals(object), "code", "auditor.audit.form.error.code");
-		//		if (!super.getBuffer().getErrors().hasErrors("conclusion"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getConclusion()), "conclusion", "auditor.audit.form.error.spam");
-		//		if (!super.getBuffer().getErrors().hasErrors("strongPoints"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getStrongPoints()), "strongPoints", "auditor.audit.form.error.spam");
-		//		if (!super.getBuffer().getErrors().hasErrors("weakPoints"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getWeakPoints()), "weakPoints", "auditor.audit.form.error.spam");
 	}
 
 	@Override

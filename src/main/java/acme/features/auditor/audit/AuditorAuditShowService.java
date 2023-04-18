@@ -21,8 +21,6 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 	@Autowired
 	protected AuditorAuditRepository repo;
 
-	// AbstractService interface ----------------------------------------------
-
 
 	@Override
 	public void check() {
