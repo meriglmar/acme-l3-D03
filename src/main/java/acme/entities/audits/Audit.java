@@ -1,10 +1,10 @@
 
 package acme.entities.audits;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -58,7 +58,7 @@ public class Audit extends AbstractEntity {
 	// Derived attributes -----------------------------------------------------
 	//una nota (computada como la moda de las notas en los registros de auditoría correspondientes; empates debe romperse arbitrariamente si es necesario).
 	@Transient
-	protected TypeMark mark(final List<TypeMark> lista) {
+	public TypeMark mark(final Collection<TypeMark> lista) {
 
 		final Map<TypeMark, Integer> dicc = new HashMap<>();
 
