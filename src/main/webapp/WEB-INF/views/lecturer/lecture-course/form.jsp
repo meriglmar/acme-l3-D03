@@ -22,7 +22,7 @@
 <acme:form>
 	<acme:input-select code="lecturer.lectureCourse.form.label.course" path="course" choices="${courses}"/>	
 	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(_command, 'delete') && !courses.isEmpty()}">
+		<jstl:when test="${acme:anyOf(_command, 'delete')}">
 			<acme:submit code="lecturer.lectureCourse.form.button.delete" action="/lecturer/lecture-course/delete?lectureId=${lectureId}"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
