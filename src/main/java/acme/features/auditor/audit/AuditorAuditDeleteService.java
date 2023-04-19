@@ -18,12 +18,8 @@ import acme.roles.Auditor;
 @Service
 public class AuditorAuditDeleteService extends AbstractService<Auditor, Audit> {
 
-	// Internal state ---------------------------------------------------------
-
 	@Autowired
 	protected AuditorAuditRepository repo;
-
-	// AbstractService interface ----------------------------------------------
 
 
 	@Override

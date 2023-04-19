@@ -60,23 +60,12 @@ public class AdministratorBannerDeleteService extends AbstractService<Administra
 	public void bind(final Banner object) {
 		assert object != null;
 
-		super.bind(object, "moment", "startPeriod", "finPeriod", "imageLink", "eslogan", "docLink");
+		super.bind(object, "moment", "startDatePeriod", "endDatePeriod", "imageLink", "eslogan", "docLink");
 	}
 
 	@Override
 	public void validate(final Banner object) {
 		assert object != null;
-
-		final boolean status = true;
-		//		int id, numberProxies, numberJobs;
-
-		//		id = super.getRequest().getData("id", int.class);
-		//		numberProxies = this.repo.findNumberProxiesByContractorId(id);
-		//		numberJobs = this.repo.findNumberJobsByContractorId(id);
-
-		//		status = numberProxies == 0 && numberJobs == 0;
-
-		//		super.state(status, "*", "administrator.company.delete.company-linked");
 	}
 
 	@Override
@@ -92,7 +81,7 @@ public class AdministratorBannerDeleteService extends AbstractService<Administra
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "moment", "startPeriod", "finPeriod", "imageLink", "eslogan", "docLink");
+		tuple = super.unbind(object, "moment", "startDatePeriod", "endDatePeriod", "imageLink", "eslogan", "docLink");
 
 		super.getResponse().setData(tuple);
 	}

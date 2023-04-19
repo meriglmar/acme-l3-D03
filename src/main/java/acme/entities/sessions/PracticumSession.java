@@ -52,7 +52,7 @@ public class PracticumSession extends AbstractEntity {
 	protected Date				finishPeriod;
 
 	@URL
-	protected String			link;
+	protected String			optionalLink;
 
 	// Derived attributes -----------------------------------------------------
 

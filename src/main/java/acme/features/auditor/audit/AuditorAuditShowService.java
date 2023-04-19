@@ -21,8 +21,6 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 	@Autowired
 	protected AuditorAuditRepository repo;
 
-	// AbstractService interface ----------------------------------------------
-
 
 	@Override
 	public void check() {
@@ -62,7 +60,7 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 		if (marks.isEmpty())
 			mark = "Vacía";
 		else
-			mark = marks.toString();
+			mark = object.mark(marks).toString();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");
 		tuple.put("course", choices.getSelected().getKey());
