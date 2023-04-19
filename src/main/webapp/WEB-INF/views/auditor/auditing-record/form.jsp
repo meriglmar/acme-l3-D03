@@ -22,7 +22,10 @@
 		<jstl:when test="${_command == 'create'&& !draftMode }">
 			<acme:input-checkbox code="auditor.auditing-record.form.button.confirmation" path="confirmation"/>
 			<acme:submit code="auditor.auditing-record.form.button.create-correctionRecord" action="/auditor/auditing-record/create?masterId=${masterId}"/>
+<<<<<<< Upstream, based on 28be164a6bca11cc0bb4935dc38b74904cb02697
 		</jstl:when>	
+=======
+		</jstl:when>
+>>>>>>> 50ea1cf Task 111: Done
 	</jstl:choose>
-	
 </acme:form>

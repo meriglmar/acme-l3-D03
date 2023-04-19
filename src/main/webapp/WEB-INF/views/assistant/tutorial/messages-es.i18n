@@ -11,6 +11,7 @@ assistant.tutorial.form.label.abstractTutorial = Visión general
 assistant.tutorial.form.label.goals = Objetivos
 assistant.tutorial.form.label.estimatedTotalTime = Tiempo total estimado
 assistant.tutorial.form.label.sessions = Sesiones
+assistant.tutorial.form.label.course = Curso
 
 assistant.tutorial.form.button.update = Actualizar
 assistant.tutorial.form.button.publish = Publicar

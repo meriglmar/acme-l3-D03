@@ -6,7 +6,11 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< Upstream, based on 28be164a6bca11cc0bb4935dc38b74904cb02697
 	<classpathentry excluding="**/fragments/**" kind="src" path="classes"/>
+=======
+	<classpathentry excluding="**/fragments/**" kind="src" path="acme-framework"/>
+>>>>>>> 50ea1cf Task 111: Done
 	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/webapp">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
@@ -35,7 +39,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>

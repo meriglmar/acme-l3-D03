@@ -53,6 +53,8 @@ public class Audit extends AbstractEntity {
 	@Length(max = 100)
 	protected String			weakPoints;
 
+	protected boolean			draftMode;
+
 
 	// Derived attributes -----------------------------------------------------
 	//una nota (computada como la moda de las notas en los registros de auditoría correspondientes; empates debe romperse arbitrariamente si es necesario).

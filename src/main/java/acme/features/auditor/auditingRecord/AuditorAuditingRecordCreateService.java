@@ -1,15 +1,17 @@
 
 package acme.features.auditor.auditingRecord;
 
+import java.time.temporal.ChronoUnit;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.components.SystemConfigurationService;
 import acme.entities.auditingRecords.AuditingRecord;
 import acme.entities.auditingRecords.TypeMark;
 import acme.entities.audits.Audit;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
 
@@ -17,10 +19,7 @@ import acme.roles.Auditor;
 public class AuditorAuditingRecordCreateService extends AbstractService<Auditor, AuditingRecord> {
 
 	@Autowired
-	protected AuditorAuditingRecordRepository	repo;
-
-	@Autowired
-	protected SystemConfigurationService		scService;
+	protected AuditorAuditingRecordRepository repo;
 
 
 	@Override
@@ -62,15 +61,10 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		final boolean confirmation = object.getAudit().isDraftMode() ? true : super.getRequest().getData("confirmation", boolean.class);
 		super.state(confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 		assert object != null;
-		//		if (!super.getBuffer().getErrors().hasErrors("startTime") && !super.getBuffer().getErrors().hasErrors("startPeriod"))
-		//			super.state(MomentHelper.isAfterOrEqual(object.getFinishTime(), object.getStartTime()), "startPeriod", "auditor.auditing-record.form.error.post-date");
-		//		if (!super.getBuffer().getErrors().hasErrors("startTime") && !super.getBuffer().getErrors().hasErrors("startPeriod"))
-		//			super.state(MomentHelper.isAfterOrEqual(object.getFinishTime(), MomentHelper.deltaFromMoment(object.getStartTime(), 1, ChronoUnit.HOURS)), "finishTime", "auditor.auditing-record.form.error.not-enough-time");
-		//		if (!super.getBuffer().getErrors().hasErrors("subject"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getSubject()), "subject", "auditor.auditing-record.form.error.spam");
-		//		if (!super.getBuffer().getErrors().hasErrors("assessment"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getSubject()), "assessment", "auditor.auditing-record.form.error.spam");
-
+		if (!super.getBuffer().getErrors().hasErrors("finishTime") && !super.getBuffer().getErrors().hasErrors("startTime"))
+			super.state(MomentHelper.isAfterOrEqual(object.getFinishTime(), object.getStartTime()), "startTime", "auditor.auditing-record.form.error.start-before-finish");
+		if (!super.getBuffer().getErrors().hasErrors("finishTime") && !super.getBuffer().getErrors().hasErrors("startTime"))
+			super.state(MomentHelper.isAfterOrEqual(object.getFinishTime(), MomentHelper.deltaFromMoment(object.getStartTime(), 1, ChronoUnit.HOURS)), "finishTime", "auditor.auditing-record.form.error.at-least-1-hour");
 	}
 
 	@Override
@@ -84,17 +78,13 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		assert object != null;
 		final int masterId = super.getRequest().getData("masterId", int.class);
 		final Audit audit = this.repo.findAuditById(masterId);
-		final Tuple tuple = super.unbind(object, "subject", "assessment", "mark", "moreInfo");
-		final String lang = super.getRequest().getLocale().getLanguage();
-		tuple.put("startTime", this.scService.translateDate(object.getStartTime(), lang));
-		tuple.put("finishTime", this.scService.translateDate(object.getFinishTime(), lang));
+		final Tuple tuple = super.unbind(object, "subject", "assessment", "startTime", "finishTime", "mark", "moreInfo");
 		final SelectChoices choices = SelectChoices.from(TypeMark.class, object.getMark());
 		tuple.put("mark", choices.getSelected().getKey());
 		tuple.put("marks", choices);
 		tuple.put("masterId", masterId);
 		tuple.put("draftMode", audit.isDraftMode());
 		tuple.put("confirmation", false);
-		tuple.put("codigo", super.getRequest().getLocale().getLanguage());
 		super.getResponse().setData(tuple);
 	}
 }

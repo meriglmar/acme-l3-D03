@@ -6,8 +6,8 @@
 <acme:form>
 	<acme:input-textbox code="assistant.tutorial.form.label.code" path="code"/>	
 	<acme:input-textbox code="assistant.tutorial.form.label.title" path="title"/>	
-	<acme:input-textbox code="assistant.tutorial.form.label.abstract" path="abstract"/>
-	<acme:input-textbox code="assistant.tutorial.form.label.goals" path="goals"/>
+	<acme:input-textarea code="assistant.tutorial.form.label.abstract" path="abstract"/>
+	<acme:input-textarea code="assistant.tutorial.form.label.goals" path="goals"/>
 	<acme:input-textbox code="assistant.tutorial.form.label.estimatedTotalTime" path="estimatedTotalTime"/>
 	<acme:button code="assistant.tutorial.form.label.sessions" action="/assistant/tutorial/session/list?tutorialId=${tutorialId}"/>
 
