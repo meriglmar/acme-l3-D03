@@ -4,6 +4,7 @@ package acme.features.assistant.tutorial;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import acme.entities.courses.Course;
 import acme.entities.tutorials.Tutorial;
@@ -12,6 +13,7 @@ import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
+@Service
 public class AssistantTutorialCreateService extends AbstractService<Assistant, Tutorial> {
 
 	// Internal state ---------------------------------------------------------
@@ -60,7 +62,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		courseId = super.getRequest().getData("course", int.class);
 		course = this.repository.findCourseById(courseId);
 
-		super.bind(object, "code", "title", "abstractTutorial", "goals", "estimatedTotalTime");
+		super.bind(object, "code", "title", "abstractTutorial", "goals");
 		object.setCourse(course);
 	}
 
@@ -87,7 +89,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
 		Tuple tuple;
-		tuple = super.unbind(object, "reference", "title", "deadline", "salary", "score", "moreInfo", "description", "draftMode");
+		tuple = super.unbind(object, "code", "title", "abstractTutorial", "goals");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 

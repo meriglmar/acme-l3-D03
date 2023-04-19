@@ -4,11 +4,11 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="assistant.tutorial.form.label.code" path="code"/>	
+	<acme:input-textbox code="assistant.tutorial.form.label.code" placeholder="ABC123" path="code"/>	
 	<acme:input-textbox code="assistant.tutorial.form.label.title" path="title"/>	
-	<acme:input-textbox code="assistant.tutorial.form.label.abstract" path="abstract"/>
-	<acme:input-textbox code="assistant.tutorial.form.label.goals" path="goals"/>
-	<acme:input-textbox code="assistant.tutorial.form.label.estimatedTotalTime" path="estimatedTotalTime"/>
+	<acme:input-textarea code="assistant.tutorial.form.label.abstract" path="abstractTutorial"/>
+	<acme:input-textarea code="assistant.tutorial.form.label.goals" path="goals"/>
+	<acme:input-textbox code="assistant.tutorial.form.label.estimatedTotalTime" path="estimatedTotalTime" readonly="true"/>
 
 	<jstl:choose>	 
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">

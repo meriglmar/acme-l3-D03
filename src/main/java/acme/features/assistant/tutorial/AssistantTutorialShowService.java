@@ -69,7 +69,7 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 		final Collection<Course> courses;
 		final SelectChoices choices;
 
-		tuple = super.unbind(object, "code", "title", "abstractTutorial", "goals", "estimatedTotalTime", "draftMode");
+		tuple = super.unbind(object, "code", "title", "abstractTutorial", "goals", "draftMode");
 
 		final Collection<Session> sessions = this.repository.findTutorialSessionsByTutorial(object);
 		final Double totalTime = object.estimatedTotalTime(sessions);

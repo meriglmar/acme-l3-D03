@@ -33,7 +33,7 @@ public class Tutorial extends AbstractEntity {
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
+	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
 	protected String			code;
 
 	@NotBlank
@@ -59,10 +59,8 @@ public class Tutorial extends AbstractEntity {
 			for (final Session sesion : sessions) {
 				final Date start = sesion.getInitTimePeriod();
 				final Date end = sesion.getFinishTimePeriod();
-				double horas = 0.0;
-				double minutos = 0.0;
-				horas = Math.abs(end.getTime() / 3600000 - start.getTime() / 3600000);
-				minutos = Math.abs(end.getTime() / 60000 - start.getTime() / 60000) % 60;
+				final double horas = Math.abs(end.getTime() / 3600000 - start.getTime() / 3600000);
+				final double minutos = Math.abs(end.getTime() / 60000 - start.getTime() / 60000) % 60;
 				final double porcentajeMinutos = minutos / 60;
 				res += horas + porcentajeMinutos;
 			}

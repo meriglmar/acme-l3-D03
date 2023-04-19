@@ -7,7 +7,7 @@ assistant.tutorial.list.button.create = Create
 
 assistant.tutorial.form.label.code = Code
 assistant.tutorial.form.label.title = Title
-assistant.tutorial.form.label.abstractTutorial = Abstract
+assistant.tutorial.form.label.abstract = Abstract
 assistant.tutorial.form.label.goals = Goals
 assistant.tutorial.form.label.estimatedTotalTime = Estimated total time
 

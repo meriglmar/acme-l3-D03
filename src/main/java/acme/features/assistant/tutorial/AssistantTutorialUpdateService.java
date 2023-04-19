@@ -4,6 +4,7 @@ package acme.features.assistant.tutorial;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import acme.entities.courses.Course;
 import acme.entities.tutorials.Tutorial;
@@ -12,6 +13,7 @@ import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
+@Service
 public class AssistantTutorialUpdateService extends AbstractService<Assistant, Tutorial> {
 
 	// Internal state ---------------------------------------------------------
