@@ -15,4 +15,8 @@
 		<acme:button code="any.practicum.form.button.list" action="/authenticated/practicum/list?masterId=${id}"/>
 	</acme:check-access>
 	
+	<acme:check-access test="isAuthenticated()">
+		<acme:button code="any.audit.form.button.list" action="/authenticated/audit/list?masterId=${id}"/>
+	</acme:check-access>
+	
 </acme:form>

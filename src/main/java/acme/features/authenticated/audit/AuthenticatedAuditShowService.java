@@ -1,27 +1,27 @@
 
 package acme.features.authenticated.audit;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.practicums.Practicum;
+import acme.entities.auditingRecords.TypeMark;
+import acme.entities.audits.Audit;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AuthenticatedAuditShowService extends AbstractService<Authenticated, Practicum> {
+public class AuthenticatedAuditShowService extends AbstractService<Authenticated, Audit> {
 
 	@Autowired
-	protected AuthenticatedAuditRepository practicumRepository;
+	protected AuthenticatedAuditRepository repo;
 
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("id", int.class);
-
+		final boolean status = super.getRequest().hasData("id", int.class);
 		super.getResponse().setChecked(status);
 	}
 
@@ -32,24 +32,23 @@ public class AuthenticatedAuditShowService extends AbstractService<Authenticated
 
 	@Override
 	public void load() {
-		Practicum object;
-		int id;
-
-		id = super.getRequest().getData("id", int.class);
-		object = this.practicumRepository.findPracticumById(id);
-
+		final int id = super.getRequest().getData("id", int.class);
+		final Audit object = this.repo.findAuditById(id);
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Practicum object) {
+	public void unbind(final Audit object) {
 		assert object != null;
-
-		Tuple tuple;
-
-		tuple = super.unbind(object, "code", "title", "abstract$", "goals");
-		tuple.put("company", object.getCompany().getName());
-
+		final Collection<TypeMark> marks = this.repo.findMarksByAuditId(object.getId());
+		String mark;
+		if (marks.isEmpty())
+			mark = "Vacía";
+		else
+			mark = object.mark(marks).toString();
+		final Tuple tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints");
+		tuple.put("auditor", object.getAuditor().getFirm());
+		tuple.put("mark", mark);
 		super.getResponse().setData(tuple);
 	}
 

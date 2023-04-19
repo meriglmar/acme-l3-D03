@@ -6,15 +6,19 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.practicums.Practicum;
+import acme.entities.auditingRecords.TypeMark;
+import acme.entities.audits.Audit;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
 public interface AuthenticatedAuditRepository extends AbstractRepository {
 
-	@Query("select p from Practicum p where p.course.id = :masterId and p.draftMode = false")
-	Collection<Practicum> findPracticaByCourseId(int masterId);
+	@Query("select a from Audit a where a.course.id = :masterId")
+	Collection<Audit> findAuditByCourseId(int masterId);
 
-	@Query("select p from Practicum p where p.id = :id")
-	Practicum findPracticumById(int id);
+	@Query("select a from Audit a where a.id = :id")
+	Audit findAuditById(int id);
+
+	@Query("select ar.mark from AuditingRecord ar where ar.audit.id = :id")
+	Collection<TypeMark> findMarksByAuditId(int id);
 }

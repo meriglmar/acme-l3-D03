@@ -6,24 +6,21 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.practicums.Practicum;
+import acme.entities.audits.Audit;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AuthenticatedAuditListService extends AbstractService<Authenticated, Practicum> {
+public class AuthenticatedAuditListService extends AbstractService<Authenticated, Audit> {
 
 	@Autowired
-	protected AuthenticatedAuditRepository practicumRepository;
+	protected AuthenticatedAuditRepository auditRepository;
 
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("masterId", int.class);
-
+		final boolean status = super.getRequest().hasData("masterId", int.class);
 		super.getResponse().setChecked(status);
 	}
 
@@ -34,23 +31,15 @@ public class AuthenticatedAuditListService extends AbstractService<Authenticated
 
 	@Override
 	public void load() {
-		Collection<Practicum> objects;
-		int masterId;
-
-		masterId = super.getRequest().getData("masterId", int.class);
-		objects = this.practicumRepository.findPracticaByCourseId(masterId);
-
+		final int masterId = super.getRequest().getData("masterId", int.class);
+		final Collection<Audit> objects = this.auditRepository.findAuditByCourseId(masterId);
 		super.getBuffer().setData(objects);
 	}
 
 	@Override
-	public void unbind(final Practicum object) {
+	public void unbind(final Audit object) {
 		assert object != null;
-
-		Tuple tuple;
-
-		tuple = super.unbind(object, "code", "title");
-
+		final Tuple tuple = super.unbind(object, "code", "conclusion");
 		super.getResponse().setData(tuple);
 	}
 
