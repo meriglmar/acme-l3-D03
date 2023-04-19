@@ -6,7 +6,6 @@ import java.time.temporal.ChronoUnit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.components.SystemConfigurationService;
 import acme.entities.auditingRecords.AuditingRecord;
 import acme.entities.auditingRecords.TypeMark;
 import acme.entities.audits.Audit;
@@ -20,11 +19,7 @@ import acme.roles.Auditor;
 public class AuditorAuditingRecordCreateService extends AbstractService<Auditor, AuditingRecord> {
 
 	@Autowired
-	protected AuditorAuditingRecordRepository	repo;
-
-	@Autowired
-	protected SystemConfigurationService		scService;
-
+	protected AuditorAuditingRecordRepository repo;
 
 
 	@Override
@@ -58,7 +53,7 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 	@Override
 	public void bind(final AuditingRecord object) {
 		assert object != null;
-		super.bind(object, "subject", "assessment", "mark", "moreInfo", "confirmation");
+		super.bind(object, "subject", "assessment", "startTime", "finishTime", "mark", "moreInfo", "confirmation");
 	}
 
 	@Override
@@ -67,7 +62,7 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		super.state(confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("finishTime") && !super.getBuffer().getErrors().hasErrors("startTime"))
-			super.state(MomentHelper.isAfterOrEqual(object.getFinishTime(), object.getStartTime()), "startPeriod", "auditor.auditing-record.form.error.start-before-finish");
+			super.state(MomentHelper.isAfterOrEqual(object.getFinishTime(), object.getStartTime()), "startTime", "auditor.auditing-record.form.error.start-before-finish");
 		if (!super.getBuffer().getErrors().hasErrors("finishTime") && !super.getBuffer().getErrors().hasErrors("startTime"))
 			super.state(MomentHelper.isAfterOrEqual(object.getFinishTime(), MomentHelper.deltaFromMoment(object.getStartTime(), 1, ChronoUnit.HOURS)), "finishTime", "auditor.auditing-record.form.error.at-least-1-hour");
 	}
@@ -83,10 +78,7 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		assert object != null;
 		final int masterId = super.getRequest().getData("masterId", int.class);
 		final Audit audit = this.repo.findAuditById(masterId);
-		final Tuple tuple = super.unbind(object, "subject", "assessment", "mark", "moreInfo");
-		final String lang = super.getRequest().getLocale().getLanguage();
-		tuple.put("startTime", this.scService.translateDate(object.getStartTime(), lang));
-		tuple.put("finishTime", this.scService.translateDate(object.getFinishTime(), lang));
+		final Tuple tuple = super.unbind(object, "subject", "assessment", "startTime", "finishTime", "mark", "moreInfo");
 		final SelectChoices choices = SelectChoices.from(TypeMark.class, object.getMark());
 		tuple.put("mark", choices.getSelected().getKey());
 		tuple.put("marks", choices);
