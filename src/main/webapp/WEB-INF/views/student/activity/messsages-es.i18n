@@ -23,4 +23,6 @@ student.activity.form.button.delete = Eliminar actividad
 student.activity.form.button.create = Crear actividad
 student.activity.list.button.create = Crear actividad
 
-student.activity.form.error.endPeriod-too-soon = La actividad no puede finalizar antes de haber comenzado.
+student.activity.form.error.endPeriod-too-soon = La actividad no puede finalizar antes de haber comenzado
+student.activity.form.error.endPeriod-too-late = La actividad debe finalizar antes del año 2100
+student.activity.form.error.startPeriod-too-soon = La actividad debe empezar después del año 2022

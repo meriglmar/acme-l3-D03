@@ -23,4 +23,6 @@ student.activity.form.button.delete = Delete activity
 student.activity.form.button.create = Create activity
 student.activity.list.button.create = Create activity
 
-student.activity.form.error.endPeriod-too-soon = The activity must end after its start.
+student.activity.form.error.endPeriod-too-soon = The activity must end after its start
+student.activity.form.error.endPeriod-too-late = The activity must end before 2100
+student.activity.form.error.startPeriod-too-soon = The activity must start after 2022
