@@ -16,7 +16,6 @@ import acme.roles.Company;
 @Service
 public class CompanyPracticumCreateService extends AbstractService<Company, Practicum> {
 
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
@@ -98,85 +97,6 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 		Tuple tuple;
 
 		courses = this.practicumRepository.findAllCourses();
-=======
-	@Autowired
-	protected CompanyPracticumRepository repository;
-
-	//	@Autowired
-	//	protected AuxiliarService				auxiliarService;
-
-
-	@Override
-	public void check() {
-		super.getResponse().setChecked(true);
-	}
-
-	@Override
-	public void authorise() {
-		super.getResponse().setAuthorised(true);
-	}
-
-	@Override
-	public void load() {
-		Practicum object;
-		Company company;
-
-		company = this.repository.findCompanyById(super.getRequest().getPrincipal().getActiveRoleId());
-		object = new Practicum();
-		object.setDraftMode(true);
-		object.setCompany(company);
-
-		super.getBuffer().setData(object);
-	}
-
-	@Override
-	public void bind(final Practicum object) {
-		assert object != null;
-
-		int courseId;
-		Course course;
-
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findCourseById(courseId);
-
-		super.bind(object, "code", "title", "abstract$", "goals");
-		object.setCourse(course);
-	}
-
-	//	@Override
-	//	public void validate(final Practicum object) {
-	//		assert object != null;
-	//
-	//		if (!super.getBuffer().getErrors().hasErrors("code"))
-	//			super.state(this.repository.findPracticumByCode(object.getCode()) == null, "code", "company.practicum.form.error.code");
-	//
-	//		if (!super.getBuffer().getErrors().hasErrors("title"))
-	//			super.state(this.auxiliarService.validateTextImput(object.getTitle()), "title", "company.practicum.form.error.spam");
-	//
-	//		if (!super.getBuffer().getErrors().hasErrors("abstract$"))
-	//			super.state(this.auxiliarService.validateTextImput(object.getAbstract$()), "abstract$", "company.practicum.form.error.spam");
-	//
-	//		if (!super.getBuffer().getErrors().hasErrors("goals"))
-	//			super.state(this.auxiliarService.validateTextImput(object.getGoals()), "goals", "company.practicum.form.error.spam");
-	//	}
-
-	@Override
-	public void perform(final Practicum object) {
-		assert object != null;
-
-		this.repository.save(object);
-	}
-
-	@Override
-	public void unbind(final Practicum object) {
-		assert object != null;
-
-		Collection<Course> courses;
-		SelectChoices choices;
-		Tuple tuple;
-
-		courses = this.repository.findAllCourses();
->>>>>>> 0df8f5f Task 118: In progress
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
 		tuple = super.unbind(object, "code", "title", "abstract$", "goals");

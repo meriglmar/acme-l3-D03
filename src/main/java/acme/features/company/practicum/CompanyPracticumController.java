@@ -16,24 +16,10 @@ public class CompanyPracticumController extends AbstractController<Company, Prac
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 	protected CompanyPracticumListService		listService;
-=======
-	protected CompanyPracticumListService	listService;
->>>>>>> 0df8f5f Task 118: In progress
 
 	@Autowired
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 	protected CompanyPracticumCreateService		createService;
-=======
-	protected CompanyPracticumCreateService	createService;
-	//
-	//	@Autowired
-	//	protected CompanyPracticumUpdateService		updateService;
-	//
-	//	@Autowired
-	//	protected CompanyPracticumDeleteService		deleteService;
->>>>>>> 0df8f5f Task 118: In progress
 
 	@Autowired
 	protected CompanyPracticumShowService		showService;
@@ -53,19 +39,11 @@ public class CompanyPracticumController extends AbstractController<Company, Prac
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("delete", this.deleteService);
 		super.addCustomCommand("publish", "update", this.publishService);
-=======
-		//		super.addBasicCommand("show", this.showService);
-		super.addBasicCommand("create", this.createService);
-		//		super.addBasicCommand("update", this.updateService);
-		//		super.addBasicCommand("delete", this.deleteService);
-		//		super.addCustomCommand("publish", "update", this.publishService);
->>>>>>> 0df8f5f Task 118: In progress
 	}
 
 }

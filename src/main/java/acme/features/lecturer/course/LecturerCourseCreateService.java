@@ -64,16 +64,6 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		}
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
 			super.state(object.getRetailPrice().getAmount() > 0, "retailPrice", "lecturer.course.form.error.negative-retailPrice");
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
-=======
-
-		//		if (!super.getBuffer().getErrors().hasErrors("price"))
-		//			super.state(this.auxiliarService.validatePrice(object.getPrice(), 0, 1000000), "price", "administrator.offer.form.error.price");
-		//		if (!super.getBuffer().getErrors().hasErrors("title"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getTitle()), "title", "lecturer.course.form.error.spam");
-		//		if (!super.getBuffer().getErrors().hasErrors("abstract$"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getAbstract$()), "abstract$", "lecturer.course.form.error.spam");
->>>>>>> 087f703 Task 095: In progress
 	}
 
 	@Override
