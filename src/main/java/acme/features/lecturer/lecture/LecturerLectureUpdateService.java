@@ -78,7 +78,7 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 	public void unbind(final Lecture object) {
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "title", "summary", "estimatedLearningTime", "body", "nature", "furtherInformationLink", "draftMode");
+		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "draftMode");
 		final SelectChoices choices;
 		choices = SelectChoices.from(TypeLecture.class, object.getLectureType());
 		tuple.put("type", choices.getSelected().getKey());

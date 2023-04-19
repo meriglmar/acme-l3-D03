@@ -26,19 +26,19 @@
 	</jstl:when>
 	<jstl:when test="${_command == 'publish'}">
 		<acme:form>
-		    <acme:input-textbox code="student.enrolment.form.label.cardLowerNibble" path="cardLowerNibble"/>
-		    <acme:input-textbox code="student.enrolment.form.label.cardHolder" path="cardHolder"/>
-		    <acme:input-integer code="student.enrolment.form.label.cvv" path="cvv" placeholder="123"/>
-		    <acme:input-moment code="student.enrolment.form.label.expireDate" path="expireDate"/>
+		    <acme:input-textbox code="student.enrolment.publish.label.cardLowerNibble" path="cardLowerNibble"/>
+		    <acme:input-textbox code="student.enrolment.publish.label.cardHolder" path="cardHolder"/>
+		    <acme:input-integer code="student.enrolment.publish.label.cvv" path="cvv" placeholder="123"/>
+		    <acme:input-moment code="student.enrolment.publish.label.expireDate" path="expireDate"/>
 		    
-			<acme:submit code="student.enrolment.form.button.publish" action="/student/enrolment/publish"/>
+			<acme:submit code="student.enrolment.publish.button.publish" action="/student/enrolment/publish"/>
 		</acme:form>
 	</jstl:when>
 	<jstl:otherwise>
 		<acme:form>
 		    <acme:input-textbox code="student.enrolment.form.label.code" path="code"/>
 		    <acme:input-select code="student.enrolment.form.label.courseTitle" path="course" choices="${courses}"/>
-		    
+		    <acme:input-textbox readonly="true" code="student.enrolment.form.label.workTime" path="workTime"/>
 		    <acme:input-textarea code="student.enrolment.form.label.motivation" path="motivation"/>
 		    <acme:input-textarea code="student.enrolment.form.label.goals" path="goals"/>
 		    
@@ -51,6 +51,8 @@
 				             <acme:button code="student.enrolment.form.button.payment" action="/student/enrolment/publish?id=${id}"/>
 		        		</jstl:when>
 		        		<jstl:otherwise>
+		        			<acme:input-textbox code="student.enrolment.form.label.cardHolder" path="cardHolder"/>
+						    <acme:input-textbox code="student.enrolment.form.label.cardLowerNibble" path="cardLowerNibble"/>
 		            		<acme:button code="student.enrolment.form.button.workbook" action="/student/enrolment/show-workbook?enrolmentId=${id}"/>
 		        		</jstl:otherwise>
 		        	</jstl:choose>

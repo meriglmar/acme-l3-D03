@@ -1,16 +1,20 @@
 
-package acme.features.any;
+package acme.features.any.peep;
+
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.peeps.Peep;
+import acme.framework.components.accounts.Anonymous;
 import acme.framework.components.accounts.Any;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AnyPeepUpdateService extends AbstractService<Any, Peep> {
+public class AnyPeepCreateService extends AbstractService<Any, Peep> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -22,35 +26,24 @@ public class AnyPeepUpdateService extends AbstractService<Any, Peep> {
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("id", int.class);
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
 	public void authorise() {
-		Any any;
-		boolean status;
-		int id;
-		Peep peep;
-
-		id = super.getRequest().getData("id", int.class);
-		peep = this.repository.findPeepById(id);
-
-		any = new Any();
-		status = super.getRequest().getPrincipal().hasRole(any) && peep != null;
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
 		Peep object;
-		int id;
 
-		id = super.getRequest().getData("id", int.class);
+		object = new Peep();
 
-		object = this.repository.findPeepById(id);
+		if (super.getRequest().getPrincipal().hasRole(Anonymous.class))
+			object.setNick(null);
+		else
+			object.setNick(super.getRequest().getPrincipal().getUsername());
 
 		super.getBuffer().setData(object);
 	}
@@ -59,7 +52,12 @@ public class AnyPeepUpdateService extends AbstractService<Any, Peep> {
 	public void bind(final Peep object) {
 		assert object != null;
 
-		super.bind(object, "nick");
+		Date moment;
+
+		moment = MomentHelper.getCurrentMoment();
+
+		super.bind(object, "title", "nick", "message", "email", "link");
+		object.setMoment(moment);
 	}
 
 	@Override
