@@ -77,8 +77,12 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	public void validate(final Activity object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("endPeriod") && !super.getBuffer().getErrors().hasErrors("startPeriod"))
+		if (!super.getBuffer().getErrors().hasErrors("endPeriod") && !super.getBuffer().getErrors().hasErrors("startPeriod")) {
+
 			super.state(MomentHelper.isAfter(object.getEndPeriod(), object.getStartPeriod()), "endPeriod", "student.activity.form.error.endPeriod-too-soon");
+			super.state(MomentHelper.isBeforeOrEqual(object.getEndPeriod(), MomentHelper.parse("yyyy-MM-dd-HH:mm", "2099-12-31-23:59")), "endPeriod", "student.activity.form.error.endPeriod-too-late");
+			super.state(MomentHelper.isAfterOrEqual(object.getStartPeriod(), MomentHelper.parse("yyyy-MM-dd-HH:mm", "2022-01-01-00:00")), "startPeriod", "student.activity.form.error.startPeriod-too-soon");
+		}
 	}
 
 	@Override
