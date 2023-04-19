@@ -20,9 +20,21 @@ master.menu.sign-out = Sign out
 master.menu.anonymous = Anonymous
 master.menu.anonymous.favourite-link-student1 = 77932863P: Barba Trejo, Francisco Javier
 master.menu.anonymous.favourite-link-student2 = 29531591M: Bernal Martin, Angela
-master.menu.anonymous.favourite-link-student3 = 21150738: Garcia Berdejo, Jose Maria
+master.menu.anonymous.favourite-link-student3 = 21150738F: Garcia Berdejo, Jose Maria
 master.menu.anonymous.favourite-link-student4 = 77860187N: Iglesias Martín, Mercedes
 master.menu.anonymous.favourite-link-student5 = 77819063N: Martín Sánchez, Paola
+
+# master.menu.any ####################################################
+
+master.menu.any= Any
+master.menu.any.courses = List of published courses
+
+# master.menu.authenticated ###################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.note.create = Create note 
+master.menu.authenticated.note.list = List of notes
+master.menu.authenticated.offer.list = List of offers
 
 # master.menu.administrator ###################################################
 
@@ -34,6 +46,38 @@ master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.banner.create = Create a banner
 master.menu.administrator.banner.list = List of banners
 master.menu.administrator.shut-down = Shut down
+master.menu.administrator.offer.list = List of offers
+master.menu.administrator.offer.create = Create offer
+
+
+# master.menu.lecturer #######################################################
+
+master.menu.lecturer = Lecturer
+master.menu.lecturer.lecture.create = Create lecture
+master.menu.lecturer.lecture.list = List of lectures
+master.menu.lecturer.course.create = Create course
+master.menu.lecturer.course.list = List of courses
+master.menu.lecturer.lecturer-dashboard.show = Lecturer dashboard 
+
+# master.menu.student ###################################################
+
+master.menu.student = Student
+master.menu.student.enrolment.register = Register enrolment
+master.menu.student.enrolment.list = List of enrolments 
+master.menu.student.course.list = List of published courses
+
+# master.menu.auditor ###################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.audit.create = Create audit
+master.menu.auditor.audit.list = List of audits
+master.menu.auditor.auditor-dashboard.show = Auditor dashboard
+
+# master.menu.company ###################################################
+
+master.menu.company = Company
+master.menu.company.practicum.create = Create practicum 
+master.menu.company.practicum.list = List of practicums
 
 # master.menu.provider ########################################################
 
@@ -57,6 +101,10 @@ master.menu.user-account.student = Student data
 master.menu.user-account.become-student = Become a student
 master.menu.user-account.company = Company data
 master.menu.user-account.become-company = Become a company
+master.menu.user-account.lecturer = Lecturer data
+master.menu.user-account.become-lecturer = Become a lecturer
+master.menu.user-account.auditor = Auditor data
+master.menu.user-account.become-auditor = Become a auditor
 
 # master.menu.peep ####################################################
 

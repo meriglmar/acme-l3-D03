@@ -1,0 +1,20 @@
+auditor.auditing-record.form.label.subject = Asignatura
+auditor.auditing-record.form.label.assessment = Evaluación
+auditor.auditing-record.form.label.startTime = Comienzo
+auditor.auditing-record.form.label.finishTime = Finalización
+auditor.auditing-record.form.label.mark = Nota
+auditor.auditing-record.form.label.moreInfo = Más información
+
+auditor.auditing-record.form.button.update = Editar
+auditor.auditing-record.form.button.delete = Eliminar
+auditor.auditing-record.form.button.create = Crear
+auditor.auditing-record.form.button.confirmation = Confirmación
+auditor.auditing-record.form.button.create-correctionRecord = Crear registro de correción
+
+auditor.auditing-record.list.label.subject = Asignatura
+auditor.auditing-record.list.label.assessment = Evaluación
+auditor.auditing-record.list.button.create = Crear
+auditor.auditing-record.list.button.create-correctionRecord = Crear registro de correción
+
+auditor.auditing-record.form.error.start-before-finish = El tiempo de finalización debe ser posterior al tiempo de inicio
+auditor.auditing-record.form.error.at-least-1-hour = La duración debe ser de al menos una hora

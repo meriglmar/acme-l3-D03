@@ -3,13 +3,13 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
-<acme:form>
-	<acme:hidden-data path="moment"/>	
+<acme:form>	
+	<acme:input-moment code="administrator.banner.form.label.moment" path="moment"/>	
 	<acme:input-textbox code="administrator.banner.form.label.imageLink" path="imageLink"/>	
 	<acme:input-textbox code="administrator.banner.form.label.eslogan" path="eslogan" />
 	<acme:input-textbox code="administrator.banner.form.label.docLink" path="docLink"/>
-	<acme:input-moment code="administrator.banner.form.label.startPeriod" path="startPeriod"/>
-	<acme:input-moment code="administrator.banner.form.label.finPeriod" path="finPeriod"/>
+	<acme:input-moment code="administrator.banner.form.label.startDatePeriod" path="startDatePeriod"/>
+	<acme:input-moment code="administrator.banner.form.label.endDatePeriod" path="endDatePeriod"/>
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">

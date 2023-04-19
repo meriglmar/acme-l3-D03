@@ -1,0 +1,49 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+student.enrolment.list.label.code = Código
+student.enrolment.list.label.motivation = Motivación
+student.enrolment.list.label.goals = Metas
+student.enrolment.list.label.courseTitle = Curso
+student.enrolment.list.label.finalised = Finalizado
+student.enrolment.list.label.draftMode = Borrador
+
+student.enrolment.list.button.register = Registrar
+
+student.enrolment.form.label.code = Código
+student.enrolment.form.label.courseTitle = Curso
+student.enrolment.form.label.workTime = Tiempo de trabajo en horas
+student.enrolment.form.label.motivation = Motivación
+student.enrolment.form.label.goals = Objetivos
+student.enrolment.form.label.draftMode = Borrador
+student.enrolment.form.label.numActivities = Número de actividades
+student.enrolment.form.label.cardLowerNibble = Número de la tarjeta
+student.enrolment.form.label.cardHolder = Titular de la tarjeta
+student.enrolment.form.label.cvv = CVV
+student.enrolment.form.label.expireDate = Fecha de caducidad
+
+
+student.enrolment.form.button.workbook = Ver actividades
+student.enrolment.form.button.activities = Actividades
+
+student.enrolment.form.button.update = Actualizar
+student.enrolment.form.button.delete = Eliminar
+student.enrolment.form.button.register = Registrar
+student.enrolment.form.button.payment = Formulario de pago
+student.enrolment.form.button.publish = Publicar
+student.enrolment.form.button.activity = Actividades
+
+student.enrolment.form.error.finalised = No se puede actualizar una matrícula finalizada
+student.enrolment.form.error.invalid-card-number = Introduzca número de tarjeta válido
+student.enrolment.form.error.invalid-card-holder = Este campo no puede estar vacío
+student.enrolment.form.error.invalid-cvv = El CVV debe ser un número de 3 dígitos
+student.enrolment.form.error.invalid-expireDate-format = La fecha debe ser de la forma dd/MM/yyyy
+student.enrolment.form.error.invalid-expireDate-value = La tarjeta está caducada
+student.enrolment.form.error.duplicated-code = El código está en uso por otra matrícula

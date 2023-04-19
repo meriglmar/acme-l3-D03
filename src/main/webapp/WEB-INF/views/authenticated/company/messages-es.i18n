@@ -7,7 +7,6 @@
 # this software. It has been tested carefully, but it is not guaranteed for any particular
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
-
 authenticated.company.form.label.name = Nombre: 
 authenticated.company.form.label.vat =  Número de IVA:
 authenticated.company.form.label.abstract$ = Resumen: 

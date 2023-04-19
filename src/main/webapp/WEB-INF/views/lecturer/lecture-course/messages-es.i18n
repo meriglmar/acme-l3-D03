@@ -1,8 +1,17 @@
-lecturer.lectureCourse.form.label.course = Curso:
-
+lecturer.lectureCourse.form.label.lecture = Lección
 lecturer.lectureCourse.form.button.delete = Borrar
-lecturer.lectureCourse.form.button.add = Añadir
+lecturer.lectureCourse.form.button.create = Añadir
 
-lecturer.lectureCourse.form.error.lecture = El curso seleccionado contiene a la clase
-lecturer.lectureCourse.form.error.lectureDeleted = El curso seleccionado no contiene a la clase
-lecturer.lectureCourse.form.error.course = El curso seleccionado está público
+lecturer.lectureCourse.form.label.course = Curso
+
+lecturer.lectureCourse.form.lecture.title = Título de la lección
+lecturer.lectureCourse.form.lecture.abstractLecture = Abstract de la lección
+
+lecturer.lectureCourse.form.lecture.info = Añadir la lección a un curso
+lecturer.lectureCourse.form.lecture.delete.info = Eliminar la lección dentro de un curso
+
+
+
+lecturer.lectureCourse.form.error.lecture = La lección seleccionada ya estaba en el curso
+lecturer.lectureCourse.form.error.lectureDeleted = El curso no contiene la lección
+lecturer.lectureCourse.form.error.course = El curso seleccionado no se puede editar

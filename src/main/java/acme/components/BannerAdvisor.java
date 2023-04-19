@@ -21,7 +21,7 @@ public class BannerAdvisor {
 		Banner result;
 
 		try {
-			result = this.repository.findRandomAdvertisement(new Date());
+			result = this.repository.findRandomBanners(new Date());
 		} catch (final Throwable oops) {
 			result = null;
 		}
