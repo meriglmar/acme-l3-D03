@@ -34,7 +34,7 @@ public class StudentEnrolmentController extends AbstractController<Student, Enro
 	protected StudentEnrolmentShowWorkbookService	workbookService;
 
 	@Autowired
-	protected StudentEnrolmentPublishService		publishService;
+	protected StudentEnrolmentFinaliseService		finaliseService;
 	// Constructors -----------------------------------------------------------
 
 
@@ -47,7 +47,7 @@ public class StudentEnrolmentController extends AbstractController<Student, Enro
 
 		super.addCustomCommand("register", "create", this.registerService);
 		super.addCustomCommand("show-workbook", "show", this.workbookService);
-		super.addCustomCommand("publish", "update", this.publishService);
+		super.addCustomCommand("publish", "update", this.finaliseService);
 	}
 
 }
