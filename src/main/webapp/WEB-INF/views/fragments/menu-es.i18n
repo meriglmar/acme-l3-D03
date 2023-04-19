@@ -107,4 +107,9 @@ master.menu.user-account.become-lecturer = Hazte profesor
 master.menu.user-account.auditor = Datos de auditor
 master.menu.user-account.become-auditor = Hazte auditor
 
-master.menu.anonymous.peep = Peeps
+# master.menu.peep ####################################################
+
+master.menu.anonymous.peep = Notificaciones
+master.menu.anonymous.peep.list = Lista de notificaciones
+master.menu.anonymous.peep.create = Crear notificación
+

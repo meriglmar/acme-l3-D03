@@ -1,6 +1,7 @@
 any.peep.list.label.moment = Fecha de creación
 any.peep.list.label.title = Título
 any.peep.list.label.nick = Apodo
+any.peep.list.label.message = Mensaje
 any.peep.list.button.publish = Publicar
 
 any.peep.form.label.moment = Fecha de creación
