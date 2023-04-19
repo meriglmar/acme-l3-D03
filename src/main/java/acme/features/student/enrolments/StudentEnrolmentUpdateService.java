@@ -105,7 +105,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		workTime = this.repository.findWorktimeByEnrolmentId(object.getId());
 		workTime = workTime != null ? workTime : 0.0;
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode");
+		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "cardLowerNibble", "cardHolder");
 		tuple.put("readonly", !object.isDraftMode());
 		tuple.put("workTime", workTime);
 		tuple.put("courseTitle", object.getCourse().getTitle());

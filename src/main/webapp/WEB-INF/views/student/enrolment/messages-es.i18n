@@ -24,11 +24,12 @@ student.enrolment.form.label.motivation = Motivación
 student.enrolment.form.label.goals = Objetivos
 student.enrolment.form.label.draftMode = Borrador
 student.enrolment.form.label.numActivities = Número de actividades
-student.enrolment.form.label.cardLowerNibble = Número de la tarjeta
+student.enrolment.form.label.cardLowerNibble = Últimos 4 números de la tarjeta
 student.enrolment.form.label.cardHolder = Titular de la tarjeta
-student.enrolment.form.label.cvv = CVV
-student.enrolment.form.label.expireDate = Fecha de caducidad
-
+student.enrolment.publish.label.cardLowerNibble = Número de la tarjeta
+student.enrolment.publish.label.cardHolder = Titular de la tarjeta
+student.enrolment.publish.label.cvv = CVV
+student.enrolment.publish.label.expireDate = Fecha de caducidad
 
 student.enrolment.form.button.workbook = Ver actividades
 student.enrolment.form.button.activities = Actividades
@@ -37,7 +38,7 @@ student.enrolment.form.button.update = Actualizar
 student.enrolment.form.button.delete = Eliminar
 student.enrolment.form.button.register = Registrar
 student.enrolment.form.button.payment = Formulario de pago
-student.enrolment.form.button.publish = Publicar
+student.enrolment.publish.button.publish = Publicar
 student.enrolment.form.button.activity = Actividades
 
 student.enrolment.form.error.finalised = No se puede actualizar una matrícula finalizada

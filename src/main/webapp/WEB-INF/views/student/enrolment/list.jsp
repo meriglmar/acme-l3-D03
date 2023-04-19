@@ -18,7 +18,6 @@
 <acme:list>
     <acme:list-column code="student.enrolment.list.label.code" path="code" width="35%" />
     <acme:list-column code="student.enrolment.list.label.courseTitle" path="courseTitle" width="35%" />
-    <acme:list-column code="student.enrolment.list.label.draftMode" path="draftMode" width="30%"/>
 </acme:list>
 
 <acme:button code="student.enrolment.list.button.register" action="/student/enrolment/register"/>

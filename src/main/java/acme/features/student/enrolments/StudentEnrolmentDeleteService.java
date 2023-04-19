@@ -85,7 +85,7 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode");
+		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "cardLowerNibble", "cardHolder");
 		tuple.put("readonly", !object.isDraftMode());
 		tuple.put("workTime", workTime);
 		tuple.put("courseTitle", object.getCourse().getTitle());
