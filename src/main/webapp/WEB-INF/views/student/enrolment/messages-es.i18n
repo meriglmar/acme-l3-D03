@@ -14,7 +14,6 @@ student.enrolment.list.label.goals = Metas
 student.enrolment.list.label.courseTitle = Curso
 student.enrolment.list.label.finalised = Finalizado
 student.enrolment.list.label.draftMode = Borrador
-student.enrolment.form.label.finalised = Finalizado
 
 student.enrolment.list.button.register = Registrar
 
