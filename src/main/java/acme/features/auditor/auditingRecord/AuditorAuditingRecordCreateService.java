@@ -6,6 +6,7 @@ import java.time.temporal.ChronoUnit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SystemConfigurationService;
 import acme.entities.auditingRecords.AuditingRecord;
 import acme.entities.auditingRecords.TypeMark;
 import acme.entities.audits.Audit;
@@ -19,7 +20,11 @@ import acme.roles.Auditor;
 public class AuditorAuditingRecordCreateService extends AbstractService<Auditor, AuditingRecord> {
 
 	@Autowired
-	protected AuditorAuditingRecordRepository repo;
+	protected AuditorAuditingRecordRepository	repo;
+
+	@Autowired
+	protected SystemConfigurationService		scService;
+
 
 
 	@Override
@@ -53,7 +58,7 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 	@Override
 	public void bind(final AuditingRecord object) {
 		assert object != null;
-		super.bind(object, "subject", "assessment", "startTime", "finishTime", "mark", "moreInfo", "confirmation");
+		super.bind(object, "subject", "assessment", "mark", "moreInfo", "confirmation");
 	}
 
 	@Override
@@ -78,7 +83,10 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		assert object != null;
 		final int masterId = super.getRequest().getData("masterId", int.class);
 		final Audit audit = this.repo.findAuditById(masterId);
-		final Tuple tuple = super.unbind(object, "subject", "assessment", "startTime", "finishTime", "mark", "moreInfo");
+		final Tuple tuple = super.unbind(object, "subject", "assessment", "mark", "moreInfo");
+		final String lang = super.getRequest().getLocale().getLanguage();
+		tuple.put("startTime", this.scService.translateDate(object.getStartTime(), lang));
+		tuple.put("finishTime", this.scService.translateDate(object.getFinishTime(), lang));
 		final SelectChoices choices = SelectChoices.from(TypeMark.class, object.getMark());
 		tuple.put("mark", choices.getSelected().getKey());
 		tuple.put("marks", choices);
