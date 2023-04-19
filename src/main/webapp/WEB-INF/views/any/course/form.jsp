@@ -10,4 +10,9 @@
 	<acme:input-textbox code="any.course.label.draftMode" path="draftMode" readonly="${readonly}"/>	
 	<acme:input-money code="any.course.label.retailPrice" path="retailPrice" readonly="${readonly}"/>
 	<acme:input-url code="any.course.label.link" path="link" readonly="${readonly}"/>
+	
+	<acme:check-access test="isAuthenticated()">
+		<acme:button code="any.practicum.form.button.list" action="/authenticated/practicum/list?masterId=${id}"/>
+	</acme:check-access>
+	
 </acme:form>
