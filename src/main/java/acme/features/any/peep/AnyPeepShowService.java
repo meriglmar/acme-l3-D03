@@ -1,9 +1,10 @@
 
-package acme.features.any;
+package acme.features.any.peep;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SystemConfigurationService;
 import acme.entities.peeps.Peep;
 import acme.framework.components.accounts.Any;
 import acme.framework.components.models.Tuple;
@@ -15,7 +16,10 @@ public class AnyPeepShowService extends AbstractService<Any, Peep> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnyPeepRepository repository;
+	protected AnyPeepRepository				repository;
+
+	@Autowired
+	protected SystemConfigurationService	scService;
 
 	// AbstractService<Any, Peep> ----------------------------------------------
 
@@ -60,7 +64,9 @@ public class AnyPeepShowService extends AbstractService<Any, Peep> {
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "email", "link", "message", "moment", "nick", "title");
+		tuple = super.unbind(object, "email", "link", "message", "nick", "title");
+		final String lang = super.getRequest().getLocale().getLanguage();
+		tuple.put("moment", this.scService.translateDate(object.getMoment(), lang));
 
 		super.getResponse().setData(tuple);
 	}
