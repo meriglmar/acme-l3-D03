@@ -1,6 +1,8 @@
 
 package acme.features.auditor.auditingRecord;
 
+import java.time.temporal.ChronoUnit;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,7 @@ import acme.entities.auditingRecords.TypeMark;
 import acme.entities.audits.Audit;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
 
@@ -17,6 +20,7 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 
 	@Autowired
 	protected AuditorAuditingRecordRepository repo;
+
 
 	@Override
 	public void check() {
@@ -57,15 +61,10 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		final boolean confirmation = object.getAudit().isDraftMode() ? true : super.getRequest().getData("confirmation", boolean.class);
 		super.state(confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 		assert object != null;
-		//		if (!super.getBuffer().getErrors().hasErrors("startTime") && !super.getBuffer().getErrors().hasErrors("startPeriod"))
-		//			super.state(MomentHelper.isAfterOrEqual(object.getFinishTime(), object.getStartTime()), "startPeriod", "auditor.auditing-record.form.error.post-date");
-		//		if (!super.getBuffer().getErrors().hasErrors("startTime") && !super.getBuffer().getErrors().hasErrors("startPeriod"))
-		//			super.state(MomentHelper.isAfterOrEqual(object.getFinishTime(), MomentHelper.deltaFromMoment(object.getStartTime(), 1, ChronoUnit.HOURS)), "finishTime", "auditor.auditing-record.form.error.not-enough-time");
-		//		if (!super.getBuffer().getErrors().hasErrors("subject"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getSubject()), "subject", "auditor.auditing-record.form.error.spam");
-		//		if (!super.getBuffer().getErrors().hasErrors("assessment"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getSubject()), "assessment", "auditor.auditing-record.form.error.spam");
-
+		if (!super.getBuffer().getErrors().hasErrors("finishTime") && !super.getBuffer().getErrors().hasErrors("startTime"))
+			super.state(MomentHelper.isAfterOrEqual(object.getFinishTime(), object.getStartTime()), "startTime", "auditor.auditing-record.form.error.start-before-finish");
+		if (!super.getBuffer().getErrors().hasErrors("finishTime") && !super.getBuffer().getErrors().hasErrors("startTime"))
+			super.state(MomentHelper.isAfterOrEqual(object.getFinishTime(), MomentHelper.deltaFromMoment(object.getStartTime(), 1, ChronoUnit.HOURS)), "finishTime", "auditor.auditing-record.form.error.at-least-1-hour");
 	}
 
 	@Override
