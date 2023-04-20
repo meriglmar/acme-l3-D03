@@ -41,10 +41,12 @@ student.enrolment.form.button.payment = Payment form
 student.enrolment.publish.button.publish = Publish
 student.enrolment.form.button.activity = Activities
 
+student.enrolment.publish.placeholder.expireDate = yyyy/MM
+
 student.enrolment.form.error.duplicated-code = The code is already in use by a different enrolment
 student.enrolment.form.error.finalised = Cannot update a finalised enrolment
 student.enrolment.form.error.invalid-card-number = Enter a valid card number
 student.enrolment.form.error.invalid-card-holder = This field cannot be blank
 student.enrolment.form.error.invalid-cvv = CVV of the card must be a 3 digit number
-student.enrolment.form.error.invalid-expireDate-format = Date must be of format yyy/MM/dd
+student.enrolment.form.error.invalid-expireDate-format = Date must be of format yyyy/MM
 student.enrolment.form.error.invalid-expireDate-value = The card cannot be expired

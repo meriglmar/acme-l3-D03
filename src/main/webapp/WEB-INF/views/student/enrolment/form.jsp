@@ -29,7 +29,7 @@
 		    <acme:input-textbox code="student.enrolment.publish.label.cardLowerNibble" path="cardLowerNibble"/>
 		    <acme:input-textbox code="student.enrolment.publish.label.cardHolder" path="cardHolder"/>
 		    <acme:input-integer code="student.enrolment.publish.label.cvv" path="cvv" placeholder="123"/>
-		    <acme:input-moment code="student.enrolment.publish.label.expireDate" path="expireDate"/>
+		    <acme:input-moment code="student.enrolment.publish.label.expireDate" path="expireDate" placeholder="student.enrolment.publish.placeholder.expireDate"/>
 		    
 			<acme:submit code="student.enrolment.publish.button.publish" action="/student/enrolment/publish"/>
 		</acme:form>
