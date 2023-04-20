@@ -20,6 +20,7 @@ company.practicum.form.label.practicum-code = Practicum code:
 company.practicum.form.label.practicum-title = Practicum title:
 company.practicum.form.label.abstract$ = Abstract:
 company.practicum.form.label.goals = Goals:
+company.practicum.form.label.estimatedTotalTime = Estimated total time:
 
 company.practicum.form.button.practicum-sessions = Practicum sessions
 company.practicum.form.button.create = Create practicum
@@ -27,13 +28,6 @@ company.practicum.form.button.update = Update
 company.practicum.form.button.delete = Delete
 company.practicum.form.button.publish = Publish
 
-company.practicum.form.label.course = Course:
-company.practicum.form.label.practicum-code = Practicum code:
-company.practicum.form.label.practicum-title = Practicum title:
-company.practicum.form.label.abstract$ = Abstract:
-company.practicum.form.label.goals = Goals:
-
-
 company.practicum.form.button.create = Create
 
-
+company.practicum.form.error.estimated-total-time = The estimated time should be plus/minus 10% of the corresponding sessions

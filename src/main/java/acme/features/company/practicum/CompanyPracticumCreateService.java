@@ -67,6 +67,14 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 	@Override
 	public void validate(final Practicum object) {
 		assert object != null;
+
+		//		PracticumSession ses; 
+		//		
+		//		if(!super.getBuffer().getErrors().hasErrors("estimatedTotalTime")) {
+		//			super.state(object.getEstimatedTotalTime() > 0.10*(ses.getFinishPeriod().getTime() - ses.getStartPeriod().getTime()) || 
+		//				object.getEstimatedTotalTime() < 0.10*(ses.getFinishPeriod().getTime() - ses.getStartPeriod().getTime(), "estimatedTotalTime", "") 
+		//		}
+
 		//
 		//		if (!super.getBuffer().getErrors().hasErrors("code"))
 		//			super.state(this.repository.findPracticumByCode(object.getCode()) == null, "code", "company.practicum.form.error.code");

@@ -39,8 +39,7 @@ public class Practicum extends AbstractEntity {
 
 	@NotBlank
 	@Column(unique = true)
-	//	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
-	@Pattern(regexp = "^[A-Z]{1,3}\\d{3}$") //^([A-Z]{1,3}[0-9]{3})$
+	@Pattern(regexp = "^[A-Z]{1,3}\\d{3}$")
 	protected String			code;
 
 	@NotBlank
@@ -57,7 +56,7 @@ public class Practicum extends AbstractEntity {
 
 	protected boolean			draftMode;
 
-	protected Double			estimatedTotalTime; //Meter en el load() del servicio de la vista que no se use este atributo.
+	protected Double			estimatedTotalTime;
 
 	// Derived attributes -----------------------------------------------------
 
