@@ -64,7 +64,6 @@
 			<acme:menu-suboption code="master.menu.lecturer.lecturer-dashboard.show" action="/lecturer/lecturer-dashboard/show"/>
 		</acme:menu-option>
 		
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
 		    <acme:menu-suboption code="master.menu.student.course.list" action="/student/course/list"/>
 		    <acme:menu-separator/>
@@ -84,20 +83,13 @@
 			<acme:menu-suboption code="master.menu.company.practicum.list" action="/company/practicum/list"/>	
 			<acme:menu-separator/>	
 		</acme:menu-option>
-=======
-		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
-			<acme:menu-suboption code="master.menu.auditor.audit.create" action="/auditor/audit/create"/>
-			<acme:menu-suboption code="master.menu.auditor.audit.list" action="/auditor/audit/list"/>	
+		
+		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
+			<acme:menu-suboption code="master.menu.assistant.tutorial.list" action="/assistant/tutorial/list"/>
+			<acme:menu-suboption code="master.menu.assistant.tutorial.create" action="/assistant/tutorial/create"/>	
 			<acme:menu-separator/>
-<<<<<<< Upstream, based on 28be164a6bca11cc0bb4935dc38b74904cb02697
-			<acme:menu-suboption code="master.menu.auditor.auditing-records.create" action="/auditor/auditing-records/create"/>
-			<acme:menu-suboption code="master.menu.auditor.auditing-records.list" action="/auditor/auditing-records/list"/>		
-=======
-			<acme:menu-suboption code="master.menu.auditor.auditor-dashboard.show" action="/auditor/auditor-dashboard/show"/>	
->>>>>>> 23c80b2 Task 127: Done
+			<%-- <acme:menu-suboption code="master.menu.auditor.auditor-dashboard.show" action="/auditor/auditor-dashboard/show"/> --%>
 		</acme:menu-option>
-	
->>>>>>> f9b002d Task 126: Done
 	</acme:menu-left>
 
 	<acme:menu-right>
@@ -116,12 +108,8 @@
 		 	<acme:menu-suboption code="master.menu.user-account.company" action="/authenticated/company/update" access="hasRole('Company')"/>
 		 	<acme:menu-suboption code="master.menu.user-account.become-lecturer" action="/authenticated/lecturer/create" access="!hasRole('Lecturer')"/>
 		 	<acme:menu-suboption code="master.menu.user-account.lecturer" action="/authenticated/lecturer/update" access="hasRole('Lecturer')"/>
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 		 	<acme:menu-suboption code="master.menu.user-account.become-auditor" action="/authenticated/auditor/create" access="!hasRole('Auditor')"/>
 		 	<acme:menu-suboption code="master.menu.user-account.auditor" action="/authenticated/auditor/update" access="hasRole('Auditor')"/>
-=======
-		 	<acme:menu-suboption code="master.menu.user-account.become-assistant" action="/authenticated/assistant/create" access="!hasRole('Assistant')"/>
->>>>>>> ff805ee Task 107: almost done
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>
