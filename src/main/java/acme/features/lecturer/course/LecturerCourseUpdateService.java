@@ -23,7 +23,7 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	@Autowired
 	protected LecturerCourseRepository repo;
 
-	// AbstractService<Employer, Company> -------------------------------------
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override

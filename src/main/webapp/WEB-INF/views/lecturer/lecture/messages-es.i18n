@@ -6,7 +6,7 @@ lecturer.lecture.form.label.title = Título
 lecturer.lecture.form.label.abstractLecture = Abstract
 lecturer.lecture.form.label.body = Cuerpo
 lecturer.lecture.form.label.estimatedLearningTimeInHours = Tiempo estimado de aprender
-lecturer.lecture.form.label.link = Link
+lecturer.lecture.form.label.link = Link (opcional)
 lecturer.lecture.form.label.lectureType = Tipo de lección
 lecturer.lecture.form.label.draftMode = Draft Mode
 

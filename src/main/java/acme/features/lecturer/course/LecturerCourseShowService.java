@@ -22,7 +22,7 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 	@Autowired
 	protected LecturerCourseRepository repository;
 
-	// AbstractShowService<Inventor, Item> interface --------------------
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
