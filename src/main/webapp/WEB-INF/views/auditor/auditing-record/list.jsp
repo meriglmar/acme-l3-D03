@@ -9,4 +9,5 @@
 </acme:list>
 <acme:button test = "${draftMode == true && createButton}" code="auditor.auditing-record.list.button.create" action="/auditor/auditing-record/create?masterId=${masterId}"/>
 <acme:button test = "${draftMode == false && createButton}" code="auditor.auditing-record.list.button.create-correctionRecord" action="/auditor/auditing-record/create?masterId=${masterId}"/>
+<acme:button test = "${createButton && !draftMode}" code="auditor.auditing-record.list.button.create-correctionRecord" action="/auditor/auditing-record/create?masterId=${masterId}"/>
 

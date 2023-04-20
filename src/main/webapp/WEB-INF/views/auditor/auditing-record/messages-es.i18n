@@ -1,3 +1,4 @@
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 auditor.auditing-record.form.label.subject = Asignatura
 auditor.auditing-record.form.label.assessment = Evaluación
 auditor.auditing-record.form.label.startTime = Comienzo
@@ -18,3 +19,17 @@ auditor.auditing-record.list.button.create-correctionRecord = Crear registro de 
 
 auditor.auditing-record.form.error.start-before-finish = El tiempo de finalización debe ser posterior al tiempo de inicio
 auditor.auditing-record.form.error.at-least-1-hour = La duración debe ser de al menos una hora
+=======
+auditor.audit.form.label.code = Código
+auditor.audit.form.label.conclusion = Conclusión
+auditor.audit.form.label.create = Crear
+auditor.audit.form.label.course = Curso
+auditor.audit.form.label.strongPoints = Puntos fuertes
+auditor.audit.form.label.weakPoints = Puntos débiles
+auditor.audit.form.label.mark = Nota
+auditor.audit.form.button.auditing-records = Auditing-Records
+auditor.audit.form.button.update = Editar
+auditor.audit.form.button.delete = Eliminar
+auditor.audit.form.button.publish = Publicar
+auditor.audit.form.button.create = Crear
+>>>>>>> 25e5797 Task 127: In progress

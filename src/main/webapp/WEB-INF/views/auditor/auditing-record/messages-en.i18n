@@ -1,3 +1,8 @@
+auditor.auditing-record.list.label.subject = Subject
+auditor.auditing-record.list.label.assessment = Assessment
+auditor.auditing-record.list.button.create = Create
+auditor.auditing-record.list.button.create-correction = Create correction
+
 auditor.auditing-record.form.label.subject = Subject
 auditor.auditing-record.form.label.assessment = Assessment
 auditor.auditing-record.form.label.startTime = Start time
@@ -9,6 +14,7 @@ auditor.auditing-record.form.button.update = Update
 auditor.auditing-record.form.button.delete = Delete
 auditor.auditing-record.form.button.create = Create
 auditor.auditing-record.form.button.confirmation = Confirmation
+<<<<<<< Upstream, based on 823d5630ed5c7f1566d4e30de456da7c1c1b247d
 auditor.auditing-record.form.button.create-correctionRecord = Create correction record
 
 auditor.auditing-record.list.label.subject = Subject
@@ -19,3 +25,4 @@ auditor.auditing-record.list.button.create-correctionRecord = Create correction 
 auditor.auditing-record.form.error.start-before-finish = Finish time must be before start time
 auditor.auditing-record.form.error.at-least-1-hour = Duration must be at least 1 hour
 
+auditor.auditing-record.form.button.create-correction = Create correction

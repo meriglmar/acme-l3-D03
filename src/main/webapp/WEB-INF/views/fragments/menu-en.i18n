@@ -79,6 +79,28 @@ master.menu.company = Company
 master.menu.company.practicum.create = Create practicum 
 master.menu.company.practicum.list = List of practicums
 
+# master.menu.lecturer #######################################################
+
+master.menu.lecturer = Lecturer
+master.menu.lecturer.lecture.create = Create lecture
+master.menu.lecturer.lecture.list = List of lectures
+master.menu.lecturer.course.create = Create course
+master.menu.lecturer.course.list = List of courses
+master.menu.lecturer.lecturer-dashboard.show = Lecturer dashboard 
+
+# master.menu.auditor ###################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.audit.create = Create audit
+master.menu.auditor.audit.list = List of audits
+master.menu.auditor.auditor-dashboard.show = Auditor dashboard
+
+# master.menu.company ###################################################
+
+master.menu.company = Company
+master.menu.company.practicum.create = Create practicum 
+master.menu.company.practicum.list = List of practicums
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
@@ -88,6 +110,12 @@ master.menu.provider.favourite-link = Favourite link
 
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
+
+# master.menu.assistant ##########################################################
+
+master.menu.assistant = Assistant
+master.menu.assistant.tutorial.list = Tutorial List
+master.menu.assistant.tutorial.create = Create Tutorial
 
 # master.menu.user-account ####################################################
 
@@ -105,6 +133,10 @@ master.menu.user-account.lecturer = Lecturer data
 master.menu.user-account.become-lecturer = Become a lecturer
 master.menu.user-account.auditor = Auditor data
 master.menu.user-account.become-auditor = Become a auditor
+
+# master.menu.peep ####################################################
+
+master.menu.user-account.assistant = Assistant data
 
 # master.menu.peep ####################################################
 

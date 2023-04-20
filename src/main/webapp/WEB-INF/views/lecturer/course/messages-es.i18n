@@ -15,8 +15,12 @@ lecturer.course.form.button.lectures = Lecciones del curso
 lecturer.course.form.button.publish = Publicar?
 
 lecturer.course.form.error.duplicated = Código ya en uso, cámbialo
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 lecturer.course.form.error.negative-retailPrice = La cantidad debe ser positiva
 
 lecturer.course.form.error.nolecture = Este curso no tiene lecciones
 lecturer.course.form.error.nohandson = Este curso es solo teórico
 lecturer.course.form.error.lecturenp = Alguna lección no está publicada
+=======
+lecturer.course.form.error.negative-retailPrice = La cantidad debe ser positiva
+>>>>>>> 087f703 Task 095: In progress

@@ -73,7 +73,11 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	public void unbind(final Lecture object) {
 		assert object != null;
 		final Tuple tuple;
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 
+=======
+		//final boolean assigned;
+>>>>>>> 087f703 Task 095: In progress
 		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "draftMode", "lecturer");
 
 		final SelectChoices choices;

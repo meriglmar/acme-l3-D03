@@ -19,7 +19,7 @@ public class Auditor extends AbstractRole {
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-	//firma (no en blanco, menos de 76 caracteres), 
+	//firma (no en blanco, menos de 76 caracteres),
 	//identificación profesional (no en blanco, menos de 26 caracteres)
 	//una lista de certificaciones (no en blanco, menos de 101 caracteres)
 	//un enlace opcional con más información.

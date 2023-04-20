@@ -74,8 +74,20 @@ public class LecturerLecturePublishService extends AbstractService<Lecturer, Lec
 		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "draftMode");
 		final SelectChoices choices;
 		choices = SelectChoices.from(TypeLecture.class, object.getLectureType());
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 		tuple.put("type", choices.getSelected().getKey());
 		tuple.put("types", choices);
+=======
+		tuple.put("nature", choices.getSelected().getKey());
+		tuple.put("natures", choices);
+		//		boolean assigned;
+		//		final Collection<LectureCourse> objects = this.repository.findManyLectureCourseByLecture(object);
+		//		if (objects.size() == 0)
+		//			assigned = false;
+		//		else
+		//			assigned = true;
+		//		tuple.put("assigned", assigned);
+>>>>>>> 087f703 Task 095: In progress
 		super.getResponse().setData(tuple);
 	}
 }

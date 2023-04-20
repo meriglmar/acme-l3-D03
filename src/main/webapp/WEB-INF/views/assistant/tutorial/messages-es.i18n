@@ -1,0 +1,18 @@
+assistant.tutorial.list.label.code = Código	
+assistant.tutorial.list.label.title = Título
+assistant.tutorial.list.label.abstract = Visión general
+assistant.tutorial.list.label.goals = Objetivos
+assistant.tutorial.list.label.estimatedTotalTime = Tiempo total estimado
+assistant.tutorial.list.button.create = Crear
+
+assistant.tutorial.form.label.code = Código
+assistant.tutorial.form.label.title = Título
+assistant.tutorial.form.label.abstract = Visión general
+assistant.tutorial.form.label.goals = Objetivos
+assistant.tutorial.form.label.estimatedTotalTime = Tiempo total estimado
+assistant.tutorial.form.label.course = Curso
+
+assistant.tutorial.form.button.update = Actualizar
+assistant.tutorial.form.button.publish = Publicar
+assistant.tutorial.form.button.create = Crear
+assistant.tutorial.form.button.delete = Eliminar
