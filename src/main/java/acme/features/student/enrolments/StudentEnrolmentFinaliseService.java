@@ -73,26 +73,39 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 	public void validate(final Enrolment object) {
 		assert object != null;
 		final SimpleDateFormat formatter;
+		final String dateFormat;
 		Integer cvv;
 		final String expireDateString;
-		final Date expireDate;
+		Date expireDate = null;
 
 		cvv = super.getRequest().getData("cvv", Integer.class);
 		expireDateString = super.getRequest().getData("expireDate", String.class);
-		formatter = new SimpleDateFormat("MM/yyyy");
+		if (super.getRequest().getLocale().getLanguage().equals("es")) {
+			formatter = new SimpleDateFormat("MM/yyyy");
+			dateFormat = "MM/yyyy";
+		} else {
+			formatter = new SimpleDateFormat("yyyy/MM");
+			dateFormat = "yyyy/MM";
+		}
 
 		super.state(object.getCardLowerNibble() != null && object.getCardLowerNibble().matches("^([0-9]{16})$"), "cardLowerNibble", "student.enrolment.form.error.invalid-card-number");
 		super.state(!"".equals(object.getCardHolder()), "cardHolder", "student.enrolment.form.error.invalid-card-holder");
 		super.state(cvv != null, "cvv", "student.enrolment.form.error.invalid-cvv");
-		super.state(expireDateString != null && expireDateString.matches("^(0[1-9]|1[0-2])/(20)[2-9][0-9]$"), "expireDate", "student.enrolment.form.error.invalid-expireDate-format");
 
-		if (expireDateString != null)
+		if (super.getRequest().getLocale().getLanguage().equals("es"))
+			super.state(expireDateString != null && expireDateString.matches("^(0[1-9]|1[0-2])/(20)[2-9][0-9]$"), "expireDate", "student.enrolment.form.error.invalid-expireDate-format");
+		else
+			super.state(expireDateString != null && expireDateString.matches("^(20[2-9][2-9]|2[1-9][3-9][0-9])/(0[1-9]|1[0-2])$"), "expireDate", "student.enrolment.form.error.invalid-expireDate-format");
+
+		if (expireDateString != null) {
 			try {
 				expireDate = formatter.parse(expireDateString);
-				super.state(!MomentHelper.isAfterOrEqual(MomentHelper.getCurrentMoment(), expireDate), "expireDate", "student.enrolment.form.error.invalid-expireDate-value");
-			} catch (final ParseException e) {
+			} catch (final ParseException e1) {
 				super.state(false, "expireDate", "student.enrolment.form.error.invalid-expireDate-format");
 			}
+			if (expireDate != null)
+				super.state(!MomentHelper.isAfterOrEqual(MomentHelper.getCurrentMoment(), expireDate), "expireDate", "student.enrolment.form.error.invalid-expireDate-value");
+		}
 
 		if (cvv != null)
 			super.state(String.valueOf(cvv).length() == 3, "cvv", "student.enrolment.form.error.invalid-cvv");
