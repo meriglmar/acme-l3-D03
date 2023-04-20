@@ -5,7 +5,7 @@
 administrator.banner.form.label.moment = Creation moment
 administrator.banner.form.label.imageLink = Image link
 administrator.banner.form.label.eslogan = Eslogan
-administrator.banner.form.label.docLink = Document link (optional)
+administrator.banner.form.label.docLink = Document link
 administrator.banner.form.label.startDatePeriod = Start period
 administrator.banner.form.label.endDatePeriod = End period
 
