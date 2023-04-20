@@ -4,6 +4,7 @@ package acme.features.assistant.session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SystemConfigurationService;
 import acme.entities.sessions.Session;
 import acme.entities.tutorials.Tutorial;
 import acme.framework.components.models.Tuple;
@@ -16,7 +17,10 @@ public class AssistantSessionShowService extends AbstractService<Assistant, Sess
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantSessionRepository repository;
+	protected AssistantSessionRepository	repository;
+
+	@Autowired
+	protected SystemConfigurationService	scService;
 
 	// AbstractService<Assistant, Session> ----------------------------------------------
 
@@ -37,7 +41,7 @@ public class AssistantSessionShowService extends AbstractService<Assistant, Sess
 		Tutorial tutorial;
 
 		sessionId = super.getRequest().getData("id", int.class);
-		tutorial = this.repository.findTutorialById(sessionId);
+		tutorial = this.repository.findTutorialBySessionId(sessionId);
 		status = tutorial != null && (super.getRequest().getPrincipal().hasRole(tutorial.getAssistant()) || !tutorial.isDraftMode());
 
 		super.getResponse().setAuthorised(status);
@@ -61,7 +65,11 @@ public class AssistantSessionShowService extends AbstractService<Assistant, Sess
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstractSession", "isTheorySession", "initTimePeriod", "finishTimePeriod", "link");
+		tuple = super.unbind(object, "title", "abstractSession", "link");
+		final String lang = super.getRequest().getLocale().getLanguage();
+		tuple.put("initTimePeriod", this.scService.translateDate(object.getInitTimePeriod(), lang));
+		tuple.put("finishTimePeriod", this.scService.translateDate(object.getFinishTimePeriod(), lang));
+		tuple.put("isTheorySession", this.scService.translateBoolean(object.getIsTheorySession(), lang));
 		tuple.put("masterId", object.getTutorial().getId());
 		tuple.put("draftMode", object.getTutorial().isDraftMode());
 

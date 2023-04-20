@@ -10,7 +10,7 @@
 
 assistant.session.form.label.title = Title:
 assistant.session.form.label.abstractSession = Abstract:
-assistant.session.form.label.isTheorySession = Theory Session:
+assistant.session.form.label.isTheorySession = Theory Session
 assistant.session.form.label.initTimePeriod = Init Time Session:
 assistant.session.form.label.finishTimePeriod = Finish Time Session:
 assistant.session.form.label.link = Link: (Optional)
@@ -23,5 +23,9 @@ assistant.session.list.label.title = Title
 assistant.session.list.label.abstractSession = Abstract
 assistant.session.list.label.isTheorySession = Theory Session
 assistant.session.list.label.initTimePeriod = Init Time Session
+assistant.session.list.label.isTheorySession = Theory Session
 
 assistant.session.list.button.create = Create
+
+assistant.session.form.error.too-big = Sessions should take 5 hours long as maximum
+assistant.session.form.error.too-little = Sessions should take 1 hour long as minimum

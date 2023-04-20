@@ -10,7 +10,7 @@
 
 assistant.session.form.label.title = Título:
 assistant.session.form.label.abstractSession = Visión general:
-assistant.session.form.label.isTheorySession = Sesión teórica:
+assistant.session.form.label.isTheorySession = Sesión teórica
 assistant.session.form.label.initTimePeriod = Comienzo de la sesión:
 assistant.session.form.label.finishTimePeriod = Fin de la sesión:
 assistant.session.form.label.link = Enlace: (Opcional)
@@ -23,5 +23,9 @@ assistant.session.list.label.title = Título
 assistant.session.list.label.abstractSession = Visión general
 assistant.session.list.label.isTheorySession = Sesión teórica
 assistant.session.list.label.initTimePeriod = Comienzo de la sesión
+assistant.session.list.label.isTheorySession = Sesión Teórica
 
 assistant.session.list.button.create = Crear
+
+assistant.session.form.error.too-big = Las sesiones deben durar como máximo 5 horas
+assistant.session.form.error.too-little = Las sesiones deben durar como mínimo 1 hora

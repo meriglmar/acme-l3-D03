@@ -17,6 +17,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SystemConfigurationService;
 import acme.entities.sessions.Session;
 import acme.entities.tutorials.Tutorial;
 import acme.framework.components.jsp.SelectChoices;
@@ -30,7 +31,10 @@ public class AssistantSessionDeleteService extends AbstractService<Assistant, Se
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantSessionRepository repository;
+	protected AssistantSessionRepository	repository;
+
+	@Autowired
+	protected SystemConfigurationService	scService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -107,7 +111,11 @@ public class AssistantSessionDeleteService extends AbstractService<Assistant, Se
 		tutorials = this.repository.findAllTutorials();
 		choices = SelectChoices.from(tutorials, "code", object.getTutorial());
 
-		tuple = super.unbind(object, "title", "abstractSession", "isTheorySession", "initTimePeriod", "finishTimePeriod", "link");
+		tuple = super.unbind(object, "title", "abstractSession", "link");
+		final String lang = super.getRequest().getLocale().getLanguage();
+		tuple.put("initTimePeriod", this.scService.translateDate(object.getInitTimePeriod(), lang));
+		tuple.put("finishTimePeriod", this.scService.translateDate(object.getFinishTimePeriod(), lang));
+		tuple.put("isTheorySession", this.scService.translateBoolean(object.getIsTheorySession(), lang));
 		tuple.put("tutorial", choices.getSelected().getKey());
 		tuple.put("tutorials", choices);
 		tuple.put("tutorialId", object.getTutorial().getId());

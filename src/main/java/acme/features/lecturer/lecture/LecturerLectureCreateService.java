@@ -73,6 +73,7 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	public void unbind(final Lecture object) {
 		assert object != null;
 		final Tuple tuple;
+		
 		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "draftMode", "lecturer");
 
 		final SelectChoices choices;

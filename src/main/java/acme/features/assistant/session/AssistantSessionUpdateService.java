@@ -5,7 +5,9 @@ import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import acme.components.SystemConfigurationService;
 import acme.entities.sessions.Session;
 import acme.entities.tutorials.Tutorial;
 import acme.framework.components.models.Tuple;
@@ -13,12 +15,16 @@ import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
+@Service
 public class AssistantSessionUpdateService extends AbstractService<Assistant, Session> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantSessionRepository repository;
+	protected AssistantSessionRepository	repository;
+
+	@Autowired
+	protected SystemConfigurationService	scService;
 
 	// AbstractService<Assistant, Session> ----------------------------------------------
 
@@ -103,7 +109,11 @@ public class AssistantSessionUpdateService extends AbstractService<Assistant, Se
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstractSession", "isTheorySession", "initTimePeriod", "finishTimePeriod", "link");
+		tuple = super.unbind(object, "title", "abstractSession", "link");
+		final String lang = super.getRequest().getLocale().getLanguage();
+		tuple.put("initTimePeriod", this.scService.translateDate(object.getInitTimePeriod(), lang));
+		tuple.put("finishTimePeriod", this.scService.translateDate(object.getFinishTimePeriod(), lang));
+		tuple.put("isTheorySession", this.scService.translateBoolean(object.getIsTheorySession(), lang));
 		tuple.put("tutorialId", object.getTutorial().getId());
 		tuple.put("draftMode", object.getTutorial().isDraftMode());
 

@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SystemConfigurationService;
 import acme.entities.sessions.Session;
 import acme.entities.tutorials.Tutorial;
 import acme.framework.components.models.Tuple;
@@ -18,7 +19,10 @@ public class AssistantSessionListService extends AbstractService<Assistant, Sess
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantSessionRepository repository;
+	protected AssistantSessionRepository	repository;
+
+	@Autowired
+	protected SystemConfigurationService	scService;
 
 	// AbstractService<Assistant, Session> ----------------------------------------------
 
@@ -63,7 +67,10 @@ public class AssistantSessionListService extends AbstractService<Assistant, Sess
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstractSession", "isTheorySession", "initTimePeriod");
+		tuple = super.unbind(object, "title", "abstractSession");
+		final String lang = super.getRequest().getLocale().getLanguage();
+		tuple.put("initTimePeriod", this.scService.translateDate(object.getInitTimePeriod(), lang));
+		tuple.put("isTheorySession", this.scService.translateBoolean(object.getIsTheorySession(), lang));
 
 		super.getResponse().setData(tuple);
 	}

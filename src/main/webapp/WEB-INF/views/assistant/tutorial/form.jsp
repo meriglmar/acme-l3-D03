@@ -20,8 +20,12 @@
 	<acme:input-select code="assistant.tutorial.form.label.course" path="course" choices="${courses}"/>
 	<%-- <acme:input-textbox code="assistant.tutorial.form.label.estimatedTotalTime" path="estimatedTotalTime" readonly="true"/> --%>
 
+<<<<<<< Upstream, based on 28be164a6bca11cc0bb4935dc38b74904cb02697
 	<acme:button code="assistant.tutorial.form.label.sessions" action="/assistant/tutorial/session/list?tutorialId=${tutorialId}"/>
 >>>>>>> 6666783 Task 110: updated (funcionality)
+=======
+	<acme:button code="assistant.tutorial.form.label.sessions" action="/assistant/session/list?tutorialId=${id}"/>
+>>>>>>> 4c3c4e2 Task 110: updated
 
 	<jstl:choose>	 
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
