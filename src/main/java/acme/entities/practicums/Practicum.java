@@ -57,15 +57,11 @@ public class Practicum extends AbstractEntity {
 
 	protected boolean			draftMode;
 
-	//protected Double					estimatedTotalTime; Meter en el load() del servicio de la vista que no se use este atributo.
+	protected Double			estimatedTotalTime; //Meter en el load() del servicio de la vista que no se use este atributo.
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-
-	//	@NotNull
-	//	@OneToMany(mappedBy = "practicum")
-	//	protected List<PracticumSession>	practicumSessions;
 
 	@Valid
 	@NotNull
