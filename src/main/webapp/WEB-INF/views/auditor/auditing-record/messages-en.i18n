@@ -19,6 +19,7 @@ auditor.auditing-record.form.button.create-correctionRecord = Create correction 
 
 auditor.auditing-record.list.label.subject = Subject
 auditor.auditing-record.list.label.assessment = Assessment
+auditor.auditing-record.list.label.exceptional = Modified after been published
 auditor.auditing-record.list.button.create = Create
 auditor.auditing-record.list.button.create-correctionRecord = Create correction record
 

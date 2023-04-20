@@ -14,6 +14,7 @@ auditor.auditing-record.form.button.create-correctionRecord = Crear registro de 
 
 auditor.auditing-record.list.label.subject = Asignatura
 auditor.auditing-record.list.label.assessment = Evaluación
+auditor.auditing-record.list.label.exceptional = Modificada después de haber sido publicada
 auditor.auditing-record.list.button.create = Crear
 auditor.auditing-record.list.button.create-correctionRecord = Crear registro de correción
 
