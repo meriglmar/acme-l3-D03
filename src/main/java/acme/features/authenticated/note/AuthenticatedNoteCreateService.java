@@ -50,7 +50,7 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 
 		object = new Note();
 		object.setInstantiationMoment(instantiationMoment);
-		object.setAuthor(userAccount.getUsername() + "-" + userAccount.getIdentity().getSurname() + ", " + userAccount.getIdentity().getName());
+		object.setAuthor(userAccount.getUsername() + " - " + userAccount.getIdentity().getSurname() + ", " + userAccount.getIdentity().getName());
 
 		super.getBuffer().setData(object);
 	}
@@ -84,7 +84,7 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 		//			super.state(this.auxiliarService.validateTextImput(object.getEmail()), "email", "authenticated.note.form.error.spam");
 		//
 		//		if (!super.getBuffer().getErrors().hasErrors("furtherInformationLink"))
-		//			super.state(this.auxiliarService.validateTextImput(object.getFurtherInformationLink()), "furtherInformationLink", "authenticated.note.form.error.spam");
+		//			super.state(this.auxiliarService.validatvalidaeTextImput(object.getFurtherInformationLink()), "furtherInformationLink", "authenticated.note.form.error.spam");
 	}
 
 	@Override

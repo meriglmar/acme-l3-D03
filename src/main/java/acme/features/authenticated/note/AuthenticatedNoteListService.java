@@ -38,10 +38,10 @@ public class AuthenticatedNoteListService extends AbstractService<Authenticated,
 	@Override
 	public void load() {
 		Collection<Note> objects;
-		Date deadline;
+		Date limitDate;
 
-		deadline = MomentHelper.deltaFromCurrentMoment(-30, ChronoUnit.DAYS);
-		objects = this.noteRepository.findRecentNotes(deadline);
+		limitDate = MomentHelper.deltaFromCurrentMoment(-1, ChronoUnit.MONTHS);
+		objects = this.noteRepository.findRecentNotes(limitDate);
 
 		super.getBuffer().setData(objects);
 	}
