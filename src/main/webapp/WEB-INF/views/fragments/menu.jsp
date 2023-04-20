@@ -17,6 +17,9 @@
 		
 		<acme:menu-option code="master.menu.any">
 			<acme:menu-suboption code="master.menu.any.courses" action="/any/course/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.anonymous.peep.list" action="/any/peep/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.peep.create" action="/any/peep/create"/>
 		</acme:menu-option>
 		
 		
@@ -51,6 +54,10 @@
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 		
+<<<<<<< Upstream, based on 28be164a6bca11cc0bb4935dc38b74904cb02697
+=======
+		
+>>>>>>> 68e5c64 Task 077: fixed
 		<acme:menu-option code="master.menu.lecturer" access="hasRole('Lecturer')">
 			<acme:menu-suboption code="master.menu.lecturer.lecture.create" action="/lecturer/lecture/create"/>
 			<acme:menu-suboption code="master.menu.lecturer.lecture.list" action="/lecturer/banner/list"/>
