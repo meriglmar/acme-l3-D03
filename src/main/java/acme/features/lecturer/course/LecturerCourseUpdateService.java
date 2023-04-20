@@ -67,8 +67,15 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
-		//		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
-		//			super.state(object.getRetailPrice().getAmount() > 0, "retailPrice", "lecturer.course.form.error.negative-retailPrice");
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
+			super.state(object.getRetailPrice().getAmount() > 0, "retailPrice", "lecturer.course.form.error.negative-retailPrice");
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Course existing;
+
+			existing = this.repo.findOneCourseByCode(object.getCode());
+			super.state(existing == null || existing.equals(object), "code", "lecturer.course.form.error.duplicated");
+		}
 	}
 
 	@Override
@@ -86,7 +93,6 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 		final List<Lecture> lectures = this.repo.findManyLecturesByCourseId(object.getId()).stream().collect(Collectors.toList());
 		final TypeCourse type = object.courseType(lectures);
 		tuple.put("type", type);
-		//tuple.put("money", this.auxiliarService.changeCurrency(object.getPrice()));
 		super.getResponse().setData(tuple);
 	}
 }

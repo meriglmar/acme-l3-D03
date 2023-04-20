@@ -52,6 +52,7 @@ public class Banner extends AbstractEntity {
 	protected Date				endDatePeriod;
 
 	@URL
+	@NotBlank
 	protected String			imageLink;
 
 	@NotBlank
