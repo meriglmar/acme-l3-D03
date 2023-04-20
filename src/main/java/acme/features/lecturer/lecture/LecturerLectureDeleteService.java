@@ -89,7 +89,6 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 		choices = SelectChoices.from(TypeLecture.class, object.getLectureType());
 		tuple.put("type", choices.getSelected().getKey());
 		tuple.put("types", choices);
-
 		super.getResponse().setData(tuple);
 	}
 
