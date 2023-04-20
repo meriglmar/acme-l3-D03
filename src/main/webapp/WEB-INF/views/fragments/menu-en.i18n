@@ -140,7 +140,6 @@ master.menu.user-account.assistant = Assistant data
 
 # master.menu.peep ####################################################
 
-master.menu.anonymous.peep = Peeps
 master.menu.anonymous.peep.list = Peep list
 master.menu.anonymous.peep.create = Create peep
 
