@@ -112,11 +112,7 @@ public class AssistantSessionCreateService extends AbstractService<Assistant, Se
 		assert object != null;
 
 		Tuple tuple;
-		tuple = super.unbind(object, "title", "abstractSession", "link");
-		final String lang = super.getRequest().getLocale().getLanguage();
-		tuple.put("initTimePeriod", this.scService.translateDate(object.getInitTimePeriod(), lang));
-		tuple.put("finishTimePeriod", this.scService.translateDate(object.getFinishTimePeriod(), lang));
-		tuple.put("isTheorySession", this.scService.translateBoolean(object.getIsTheorySession(), lang));
+		tuple = super.unbind(object, "title", "abstractSession", "initTimePeriod", "finishTimePeriod", "isTheorySession", "link");
 		tuple.put("tutorialId", super.getRequest().getData("tutorialId", int.class));
 		tuple.put("draftMode", object.getTutorial().isDraftMode());
 

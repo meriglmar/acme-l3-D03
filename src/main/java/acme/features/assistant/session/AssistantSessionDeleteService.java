@@ -112,10 +112,6 @@ public class AssistantSessionDeleteService extends AbstractService<Assistant, Se
 		choices = SelectChoices.from(tutorials, "code", object.getTutorial());
 
 		tuple = super.unbind(object, "title", "abstractSession", "link");
-		final String lang = super.getRequest().getLocale().getLanguage();
-		tuple.put("initTimePeriod", this.scService.translateDate(object.getInitTimePeriod(), lang));
-		tuple.put("finishTimePeriod", this.scService.translateDate(object.getFinishTimePeriod(), lang));
-		tuple.put("isTheorySession", this.scService.translateBoolean(object.getIsTheorySession(), lang));
 		tuple.put("tutorial", choices.getSelected().getKey());
 		tuple.put("tutorials", choices);
 		tuple.put("tutorialId", object.getTutorial().getId());

@@ -65,7 +65,7 @@ public class AssistantSessionShowService extends AbstractService<Assistant, Sess
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstractSession", "link");
+		tuple = super.unbind(object, "title", "abstractSession", "isTheorySession", "link");
 		final String lang = super.getRequest().getLocale().getLanguage();
 		tuple.put("initTimePeriod", this.scService.translateDate(object.getInitTimePeriod(), lang));
 		tuple.put("finishTimePeriod", this.scService.translateDate(object.getFinishTimePeriod(), lang));
