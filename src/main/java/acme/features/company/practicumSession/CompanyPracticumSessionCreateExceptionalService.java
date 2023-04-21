@@ -70,8 +70,6 @@ public class CompanyPracticumSessionCreateExceptionalService extends AbstractSer
 	public void validate(final PracticumSession object) {
 		assert object != null;
 
-		//Date Validations
-
 		final Date startPeriod = super.getRequest().getData("startPeriod", Date.class);
 		final Date finishPeriod = super.getRequest().getData("finishPeriod", Date.class);
 		final Date availableStart = MomentHelper.deltaFromCurrentMoment(7, ChronoUnit.DAYS);
@@ -83,13 +81,12 @@ public class CompanyPracticumSessionCreateExceptionalService extends AbstractSer
 		final boolean validEnd = finishPeriod.getTime() >= availableEnd.getTime();
 		super.state(validEnd, "finishPeriod", "company.practicum-session.validation.finishPeriod.error.WeekLong");
 
-		//Confirmation validation
 		boolean confirmation;
 
 		confirmation = super.getRequest().getData("confirmation", boolean.class);
 		super.state(confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 
-		//Unique addendum validation
+		//Sesión exceptional única
 		final Collection<Practicum> practica;
 		Collection<PracticumSession> exceptionals;
 		final SelectChoices choices;

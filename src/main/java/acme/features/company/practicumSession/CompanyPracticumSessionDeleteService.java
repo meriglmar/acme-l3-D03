@@ -33,19 +33,6 @@ public class CompanyPracticumSessionDeleteService extends AbstractService<Compan
 		super.getResponse().setChecked(status);
 	}
 
-	//	@Override
-	//	public void authorise() {
-	//		boolean status;
-	//		int practicumSessionId;
-	//		Practicum practicum;
-	//
-	//		practicumSessionId = super.getRequest().getData("id", int.class);
-	//		practicum = this.psRepository.findPracticumByPracticumSessionId(practicumSessionId);
-	//		status = practicum != null && practicum.isDraftMode() && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
-	//
-	//		super.getResponse().setAuthorised(status);
-	//	}
-
 	@Override
 	public void authorise() {
 		boolean status;
