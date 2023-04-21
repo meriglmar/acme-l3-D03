@@ -1,0 +1,5 @@
+key,title,abstractSession,isTheorySession,initTimePeriod,finishTimePeriod,link,draftMode,key:tutorial
+session1,Session 1,Prueba,true,2022/07/31 00:00,2022/07/31 01:00,,true,tutorial1
+session2,Session 2,Pruebaxd,false,2022/07/31 00:00,2022/07/31 01:00,,false,tutorial1
+session4,Session 1,Prueba,true,2022/07/31 00:00,2022/07/31 01:00,,false,tutorial2
+session5,Session 1,Prueba,true,2022/07/31 00:00,2022/07/31 01:00,,false,tutorial2
