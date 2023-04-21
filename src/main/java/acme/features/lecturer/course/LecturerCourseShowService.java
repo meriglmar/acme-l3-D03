@@ -22,7 +22,7 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 	@Autowired
 	protected LecturerCourseRepository repository;
 
-	// AbstractShowService<Inventor, Item> interface --------------------
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -36,13 +36,7 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 
 	@Override
 	public void authorise() {
-		//		Course object;
-		//		int id;
-		//		id = super.getRequest().getData("id", int.class);
-		//		object = this.repository.findOneCourseById(id);
-		//		final Principal principal = super.getRequest().getPrincipal();
-		//		final int userAccountId = principal.getAccountId();
-		//		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId);
+
 		boolean status;
 		int masterId;
 		Course course;
@@ -74,8 +68,7 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link");
-		tuple.put("draftMode", object.isDraftMode());
+		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "draftMode", "lecturer");
 		final List<Lecture> lectures = this.repository.findManyLecturesByCourseId(object.getId()).stream().collect(Collectors.toList());
 		final TypeCourse type = object.courseType(lectures);
 		tuple.put("type", type);

@@ -1,11 +1,15 @@
 
 package acme.features.lecturer.course;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.courses.Course;
-import acme.framework.components.accounts.Principal;
+import acme.entities.courses.TypeCourse;
+import acme.entities.lectures.Lecture;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -18,7 +22,7 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	@Autowired
 	protected LecturerCourseRepository repo;
 
-	// AbstractService<Employer, Company> -------------------------------------
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -32,13 +36,17 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 
 	@Override
 	public void authorise() {
-		Course object;
-		int id;
-		id = super.getRequest().getData("id", int.class);
-		object = this.repo.findOneCourseById(id);
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
-		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
+		boolean status;
+		int courseId;
+		Course course;
+		Lecturer lecturer;
+
+		courseId = super.getRequest().getData("id", int.class);
+		course = this.repo.findOneCourseById(courseId);
+		lecturer = course == null ? null : course.getLecturer();
+		status = course != null && course.isDraftMode() && super.getRequest().getPrincipal().hasRole(lecturer);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -62,8 +70,15 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
-		//		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
-		//			super.state(object.getRetailPrice().getAmount() > 0, "retailPrice", "lecturer.course.form.error.negative-retailPrice");
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
+			super.state(object.getRetailPrice().getAmount() > 0, "retailPrice", "lecturer.course.form.error.negative-retailPrice");
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Course existing;
+
+			existing = this.repo.findOneCourseByCode(object.getCode());
+			super.state(existing == null || existing.equals(object), "code", "lecturer.course.form.error.duplicated");
+		}
 	}
 
 	@Override
@@ -77,8 +92,10 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "draftMode");
-		tuple.put("draftMode", object.isDraftMode());
+		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "draftMode", "lecturer");
+		final List<Lecture> lectures = this.repo.findManyLecturesByCourseId(object.getId()).stream().collect(Collectors.toList());
+		final TypeCourse type = object.courseType(lectures);
+		tuple.put("type", type);
 		super.getResponse().setData(tuple);
 	}
 }

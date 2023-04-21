@@ -11,12 +11,12 @@ import lombok.Setter;
 @Setter
 public class LecturerDashboard extends AbstractForm {
 	/*
-	 *
+	 * 
 	 * The system must handle lecturer dashboard with the following data:
 	 * total number of theory and hands-on lectures;
 	 * average, deviation, minimum, and maximum learning time of the lectures;
 	 * average, deviation, minimum, and maximum learning time of the courses.
-	 *
+	 * 
 	 */
 
 	// Serialisation identifier -----------------------------------------------

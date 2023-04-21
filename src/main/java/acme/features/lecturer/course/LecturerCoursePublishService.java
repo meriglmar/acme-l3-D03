@@ -24,7 +24,7 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 	@Autowired
 	protected LecturerCourseRepository repo;
 
-	// AbstractService<Employer, Job> -------------------------------------
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -36,13 +36,6 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 
 	@Override
 	public void authorise() {
-		//		Course object;
-		//		int id;
-		//		id = super.getRequest().getData("id", int.class);
-		//		object = this.repo.findOneCourseById(id);
-		//		final Principal principal = super.getRequest().getPrincipal();
-		//		final int userAccountId = principal.getAccountId();
-		//		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
 		boolean status;
 		int courseId;
 		Course course;
@@ -87,7 +80,7 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 			super.state(handOnLectureInCourse, "type", "lecturer.course.form.error.nohandson");
 
 			boolean publishedLectures;
-			publishedLectures = lectures.stream().allMatch(x -> !x.isDraftMode());
+			publishedLectures = lectures.stream().allMatch(x -> x.isDraftMode() == false);
 			super.state(publishedLectures, "type", "lecturer.course.form.error.lecturenp");
 		}
 	}
