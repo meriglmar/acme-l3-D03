@@ -9,7 +9,7 @@
 # they accept any liabilities with respect to them.
 
 student.lecture.list.label.title=Title
-student.lecture.list.label.abstractCourse=Abstract
+student.lecture.list.label.estimatedLearningTimeInHours= Estimated time (hours)
 student.lecture.form.label.title=Title
 student.lecture.form.label.abstractCourse=Abstract
 student.lecture.form.label.estimatedLearningTimeInHours=Estimated learning time (hours)
