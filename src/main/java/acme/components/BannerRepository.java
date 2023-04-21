@@ -20,7 +20,7 @@ public interface BannerRepository extends AbstractRepository {
 	@Query("SELECT COUNT(b) FROM Banner b WHERE b.startDatePeriod <= :now AND b.endDatePeriod >= :now")
 	int countActiveBanners(@Param("now") Date now);
 
-	@Query("SELECT b FROM Banner b WHERE b.startDatePeriod <= :now AND b.startDatePeriod >= :now")
+	@Query("SELECT b FROM Banner b WHERE b.startDatePeriod <= :now AND b.endDatePeriod >= :now")
 	List<Banner> findActiveBanners(@Param("now") Date now, Pageable pageable);
 
 	default Banner findRandomBanners(final Date now) {

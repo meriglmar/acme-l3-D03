@@ -28,7 +28,7 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	@Autowired
 	protected AdministratorBannerRepository repo;
 
-	// AbstractService<Employer, Company> -------------------------------------
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override

@@ -4,6 +4,7 @@ package acme.features.lecturer.lecture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SystemConfigurationService;
 import acme.entities.lectures.Lecture;
 import acme.entities.lectures.TypeLecture;
 import acme.framework.components.accounts.Principal;
@@ -18,9 +19,12 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerLectureRepository repo;
+	protected LecturerLectureRepository		repo;
 
-	// AbstractService<Employer, Company> -------------------------------------
+	@Autowired
+	protected SystemConfigurationService	scService;
+
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -78,11 +82,14 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 	public void unbind(final Lecture object) {
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "draftMode");
+		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "lecturer");
+		final String lang = super.getRequest().getLocale().getLanguage();
+		tuple.put("draftMode", this.scService.translateBoolean(object.isDraftMode(), lang));
 		final SelectChoices choices;
 		choices = SelectChoices.from(TypeLecture.class, object.getLectureType());
 		tuple.put("type", choices.getSelected().getKey());
 		tuple.put("types", choices);
+		tuple.put("draftModeBoolean", object.isDraftMode());
 		super.getResponse().setData(tuple);
 	}
 }

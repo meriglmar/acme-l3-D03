@@ -12,12 +12,15 @@
 
 package acme.features.administrator.offer;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.offers.Offer;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -44,8 +47,9 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 	@Override
 	public void load() {
 		Offer object;
-
+		final Date moment = MomentHelper.getCurrentMoment();
 		object = new Offer();
+		object.setInstantiationMoment(moment);
 
 		super.getBuffer().setData(object);
 	}
@@ -60,6 +64,17 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 	@Override
 	public void validate(final Offer object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("startDay") && !super.getBuffer().getErrors().hasErrors("lastDay")) {
+			final boolean dayAfterInstantiation = object.getStartDay().getTime() - object.getInstantiationMoment().getTime() >= 86400000;
+			final boolean oneWeek = object.getLastDay().getTime() - object.getStartDay().getTime() >= 604800000;
+			super.state(dayAfterInstantiation, "startDay", "administrator.offer.post.day-after-instantiation");
+			super.state(oneWeek, "lastDay", "administrator.offer.post.one-week");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("price")) {
+			final boolean pricePositive = object.getPrice().getAmount() >= 0.0;
+			super.state(pricePositive, "price", "administrator.offer.post.price-positive");
+		}
 	}
 
 	@Override
