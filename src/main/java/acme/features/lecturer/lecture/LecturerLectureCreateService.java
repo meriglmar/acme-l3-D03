@@ -4,6 +4,7 @@ package acme.features.lecturer.lecture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SystemConfigurationService;
 import acme.entities.lectures.Lecture;
 import acme.entities.lectures.TypeLecture;
 import acme.framework.components.jsp.SelectChoices;
@@ -17,7 +18,10 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerLectureRepository repository;
+	protected LecturerLectureRepository		repository;
+
+	@Autowired
+	protected SystemConfigurationService	scService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -58,9 +62,6 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	@Override
 	public void validate(final Lecture object) {
 		assert object != null;
-
-		//		if (!super.getBuffer().getErrors().hasErrors("estimatedLearningTimeInHours"))
-		//			super.state(object.getEstimatedLearningTimeInHours() >= 0.01, "estimatedLearningTimeInHours", "lecturer.lecture.form.error.estimatedLearningTimeInHours");
 	}
 
 	@Override
@@ -73,12 +74,15 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	public void unbind(final Lecture object) {
 		assert object != null;
 		final Tuple tuple;
-		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "draftMode", "lecturer");
 
+		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "lecturer");
+		final String lang = super.getRequest().getLocale().getLanguage();
+		tuple.put("draftMode", this.scService.translateBoolean(object.isDraftMode(), lang));
 		final SelectChoices choices;
 		choices = SelectChoices.from(TypeLecture.class, object.getLectureType());
 		tuple.put("type", choices.getSelected().getKey());
 		tuple.put("types", choices);
+		tuple.put("draftModeBoolean", object.isDraftMode());
 
 		super.getResponse().setData(tuple);
 	}

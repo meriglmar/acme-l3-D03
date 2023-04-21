@@ -34,13 +34,6 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 
 	@Override
 	public void authorise() {
-		//		Course object;
-		//		int id;
-		//		id = super.getRequest().getData("id", int.class);
-		//		object = this.repo.findOneCourseById(id);
-		//		final Principal principal = super.getRequest().getPrincipal();
-		//		final int userAccountId = principal.getAccountId();
-		//		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
 
 		boolean status;
 		int masterId;
@@ -93,7 +86,6 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 
 		Tuple tuple;
 		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link");
-		tuple.put("draftMode", object.isDraftMode());
 		super.getResponse().setData(tuple);
 	}
 

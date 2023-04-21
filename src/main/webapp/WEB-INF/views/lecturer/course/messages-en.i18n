@@ -5,22 +5,18 @@ lecturer.course.form.label.title = Title
 lecturer.course.form.label.abstractCourse = Abstract
 lecturer.course.form.label.code = Code
 lecturer.course.form.label.retailPrice = Retail price
-lecturer.course.form.label.link = Link
+lecturer.course.form.label.link = Link (optional)
 lecturer.course.form.label.courseType = Type of course
 
 lecturer.course.form.button.create = Create course
 lecturer.course.form.button.update = Update a course 
 lecturer.course.form.button.delete = Delete a course
 lecturer.course.form.button.lectures = Lectures of course
-lecturer.course.form.button.publish = Publish?
+lecturer.course.form.button.publish = Publish a course
 
 lecturer.course.form.error.duplicated = Code already exist, change it!
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 lecturer.course.form.error.negative-retailPrice = Amount must be positive!
 
 lecturer.course.form.error.nolecture = No lectures!
 lecturer.course.form.error.nohandson = No hand-on lecture!
 lecturer.course.form.error.lecturenp = Some lectures does not published
-=======
-lecturer.course.form.error.negative-retailPrice = Amount must be positive!
->>>>>>> 087f703 Task 095: In progress

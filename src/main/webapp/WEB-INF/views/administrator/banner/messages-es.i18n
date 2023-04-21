@@ -9,10 +9,9 @@ administrator.banner.form.label.docLink = Link de documento
 administrator.banner.form.label.startDatePeriod = Periodo de inicio
 administrator.banner.form.label.endDatePeriod = Periodo de fin
 
-administrator.banner.form.label.confirmation = Confirmación
-administrator.banner.form.label.create = Crear banner
-administrator.banner.form.label.update = Actualizar un banner 
-administrator.banner.form.label.delete = Eliminar un banner
+administrator.banner.form.label.create = Crear anuncio
+administrator.banner.form.label.update = Actualizar un anuncio 
+administrator.banner.form.label.delete = Eliminar un anuncio
 
-administrator.banner.status.error.week = La duración de un banner debe ser una semana
+administrator.banner.status.error.week = La duración de un anuncio debe ser mínimo una semana
 administrator.banner.status.error.current = La fecha de inicio debe ser después de la actual
