@@ -43,7 +43,7 @@ public class StudentLectureListService extends AbstractService<Student, Lecture>
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstractCourse");
+		tuple = super.unbind(object, "title", "estimatedLearningTimeInHours");
 
 		super.getResponse().setData(tuple);
 	}

@@ -31,7 +31,7 @@ public class StudentOnCourseListService extends AbstractService<Student, Course>
 	@Override
 	public void load() {
 		Collection<Course> objects;
-		objects = this.repository.findAllCourses();
+		objects = this.repository.findAllPublishedCourses();
 
 		super.getBuffer().setData(objects);
 	}
@@ -42,7 +42,7 @@ public class StudentOnCourseListService extends AbstractService<Student, Course>
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title");
+		tuple = super.unbind(object, "code", "title", "retailPrice");
 
 		super.getResponse().setData(tuple);
 	}

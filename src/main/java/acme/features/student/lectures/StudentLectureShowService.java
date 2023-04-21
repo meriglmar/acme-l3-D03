@@ -50,8 +50,9 @@ public class StudentLectureShowService extends AbstractService<Student, Lecture>
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstractCourse", "estimatedLearningTimeInHours", "body", "draftMode", "lectureType", "link");
-
+		tuple = super.unbind(object, "title", "abstractLecture", "estimatedLearningTimeInHours", "body", "draftMode", "lectureType", "link");
+		final String lecturer = object.getLecturer().getUserAccount().getUsername();
+		tuple.put("lecturer", lecturer);
 		super.getResponse().setData(tuple);
 	}
 }
