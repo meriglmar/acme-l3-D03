@@ -10,8 +10,9 @@
 
 student.lecture.list.label.title=Título
 student.lecture.list.label.estimatedLearningTimeInHours=Tiempo estimado (horas)
+student.lecture.form.label.lecturer=Profesor
 student.lecture.form.label.title=Título
-student.lecture.form.label.abstractCourse=Resumen
+student.lecture.form.label.abstractLecture=Resumen
 student.lecture.form.label.estimatedLearningTimeInHours=Tiempo estimado de aprendizaje (horas)
 student.lecture.form.label.body=Cuerpo
 student.lecture.form.label.draftMode=Modo de edición
