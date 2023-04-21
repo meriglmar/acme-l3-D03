@@ -136,6 +136,7 @@ master.menu.user-account.become-lecturer = Hazte profesor
 master.menu.user-account.auditor = Datos de auditor
 master.menu.user-account.become-auditor = Hazte auditor
 master.menu.user-account.assistant = Datos de asistente
+master.menu.user-account.become-assistant = Hazte asistente
 
 # master.menu.peep ####################################################
 
