@@ -16,11 +16,11 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
+	<acme:input-textbox code="student.lecture.form.label.lecturer" path="lecturer" readonly="true"/>
 	<acme:input-textbox code="student.lecture.form.label.title" path="title"/>
-	<acme:input-textarea code="student.lecture.form.label.abstractCourse" path="abstractCourse"/>
+	<acme:input-textarea code="student.lecture.form.label.abstractLecture" path="abstractLecture"/>
 	<acme:input-double code="student.lecture.form.label.estimatedLearningTimeInHours" path="estimatedLearningTimeInHours"/>
 	<acme:input-textarea code="student.lecture.form.label.body" path="body"/>
-	<acme:input-textarea code="student.lecture.form.label.draftMode" path="draftMode"/>
 	<acme:input-textbox code="student.lecture.form.label.lectureType" path="lectureType"/>
 	<acme:input-textbox code="student.lecture.form.label.link" path="link"/>
 </acme:form>

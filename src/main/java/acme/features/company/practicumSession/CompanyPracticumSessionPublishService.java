@@ -17,7 +17,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumSessionUpdateService extends AbstractService<Company, PracticumSession> {
+public class CompanyPracticumSessionPublishService extends AbstractService<Company, PracticumSession> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -81,6 +81,8 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 	public void validate(final PracticumSession object) {
 		assert object != null;
 
+		//Date Validations
+
 		final Date startPeriod = super.getRequest().getData("startPeriod", Date.class);
 		final Date finishPeriod = super.getRequest().getData("finishPeriod", Date.class);
 		final Date availableStart = MomentHelper.deltaFromCurrentMoment(7, ChronoUnit.DAYS);
@@ -111,7 +113,7 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 	@Override
 	public void perform(final PracticumSession object) {
 		assert object != null;
-
+		object.setDraftMode(false);
 		this.psRepository.save(object);
 	}
 

@@ -5,14 +5,14 @@ lecturer.course.form.label.title = Título
 lecturer.course.form.label.abstractCourse = Abstract
 lecturer.course.form.label.code = Código
 lecturer.course.form.label.retailPrice = Precio
-lecturer.course.form.label.link = Link
+lecturer.course.form.label.link = Link (opcional)
 lecturer.course.form.label.courseType = Tipo de curso
 
 lecturer.course.form.button.create = Crear curso
 lecturer.course.form.button.update = Actualizar curso 
 lecturer.course.form.button.delete = Eliminar curso
 lecturer.course.form.button.lectures = Lecciones del curso
-lecturer.course.form.button.publish = Publicar?
+lecturer.course.form.button.publish = Publicar curso
 
 lecturer.course.form.error.duplicated = Código ya en uso, cámbialo
 <<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c

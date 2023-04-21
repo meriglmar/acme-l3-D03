@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.courses.Course;
 import acme.entities.lectureCourses.LectureCourse;
 import acme.entities.lectures.Lecture;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -36,15 +37,13 @@ public class LecturerLectureCourseDeleteService extends AbstractService<Lecturer
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int lectureId;
-		Lecture lecture;
-
-		lectureId = super.getRequest().getData("lectureId", int.class);
-		lecture = this.repository.findOneLectureById(lectureId);
-		status = lecture != null;
-
-		super.getResponse().setAuthorised(status);
+		Lecture object;
+		int id;
+		id = super.getRequest().getData("lectureId", int.class);
+		object = this.repository.findOneLectureById(id);
+		final Principal principal = super.getRequest().getPrincipal();
+		final int userAccountId = principal.getAccountId();
+		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId);
 	}
 
 	@Override

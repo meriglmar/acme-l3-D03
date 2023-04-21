@@ -9,7 +9,6 @@ administrator.banner.form.label.docLink = Document link
 administrator.banner.form.label.startDatePeriod = Start period
 administrator.banner.form.label.endDatePeriod = End period
 
-administrator.banner.form.label.confirmation = Confirmation
 administrator.banner.form.label.create = Create banner
 administrator.banner.form.label.update = Update a banner 
 administrator.banner.form.label.delete = Delete a banner

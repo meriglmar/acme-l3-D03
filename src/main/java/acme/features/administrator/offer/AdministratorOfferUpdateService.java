@@ -28,7 +28,7 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 	@Autowired
 	protected AdministratorOfferRepository repository;
 
-	// AbstractService<Employer, Company> -------------------------------------
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -66,6 +66,16 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 	@Override
 	public void validate(final Offer object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("startDay") && !super.getBuffer().getErrors().hasErrors("lastDay")) {
+			final boolean dayAfterInstantiation = object.getStartDay().getTime() - object.getInstantiationMoment().getTime() >= 86400000;
+			final boolean oneWeek = object.getLastDay().getTime() - object.getStartDay().getTime() >= 604800000;
+			super.state(dayAfterInstantiation, "startDay", "administrator.offer.post.day-after-instantiation");
+			super.state(oneWeek, "lastDay", "administrator.offer.post.one-week");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("price")) {
+			final boolean pricePositive = object.getPrice().getAmount() >= 0.0;
+			super.state(pricePositive, "price", "administrator.offer.post.price-positive");
+		}
 	}
 
 	@Override
