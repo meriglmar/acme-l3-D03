@@ -34,22 +34,4 @@
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-<<<<<<< Upstream, based on 28be164a6bca11cc0bb4935dc38b74904cb02697
-			<name>acme-framework</name>
-<<<<<<< Upstream, based on 28be164a6bca11cc0bb4935dc38b74904cb02697
-=======
-			<type>2</type>
-			<locationURI>WORKSPACE_LOC/Frameworks/Acme-Framework-23.3.1</locationURI>
-		</link>
-		<link>
-=======
->>>>>>> 014bb66 classes en framework detection
-			<name>classes</name>
->>>>>>> fd58594 little project configuration change
-			<type>2</type>
-			<locationURI>WORKSPACE_LOC/Frameworks/Acme-Framework-23.3.1/target/classes</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
