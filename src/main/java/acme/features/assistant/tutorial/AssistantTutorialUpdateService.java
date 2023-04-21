@@ -75,6 +75,11 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 	}
 
 	@Override
+	public void validate(final Tutorial object) {
+		assert object != null;
+	}
+
+	@Override
 	public void perform(final Tutorial object) {
 		assert object != null;
 
