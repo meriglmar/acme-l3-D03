@@ -50,8 +50,15 @@ public class AuditorAuditingRecordListService extends AbstractService<Auditor, A
 		assert object != null;
 		final int masterId = super.getRequest().getData("masterId", int.class);
 		final Audit audit = this.repo.findAuditById(masterId);
+		final boolean exceptional = object.isCorrectionRecord();
+		String res = "";
+		if (exceptional == true)
+			res = "*";
+		else
+			res = " ";
 		final Tuple tuple = super.unbind(object, "subject", "assessment");
 		tuple.put("draftMode", audit.isDraftMode());
+		tuple.put("exceptional", res);
 		super.getResponse().setData(tuple);
 	}
 

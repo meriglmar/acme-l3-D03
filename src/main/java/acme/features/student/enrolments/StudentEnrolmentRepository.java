@@ -23,7 +23,7 @@ public interface StudentEnrolmentRepository extends AbstractRepository {
 	@Query("select e from Enrolment e where e.student.id=:activeRoleId")
 	Collection<Enrolment> findEnrolmentsByStudentId(int activeRoleId);
 
-	@Query("select sum(TIME_TO_SEC(TIMEDIFF(a.endPeriod, a.startPeriod)) / 3600) from Activity a where a.enrolment.id=:id")
+	@Query("select sum(TIME_TO_SEC(TIMEDIFF(a.endPeriod, a.startPeriod)) / 3600.0) from Activity a where a.enrolment.id=:id")
 	Double findWorktimeByEnrolmentId(int id);
 
 	@Query("select c from Course c where c.id=:courseId")
@@ -35,8 +35,8 @@ public interface StudentEnrolmentRepository extends AbstractRepository {
 	@Query("select count(a) from Activity a where a.enrolment.id=:id")
 	Integer findNumberActivitiesByEnrolmentId(int id);
 
-	//@Query("select c from Course c where c.draftMode=false")
-	@Query("select c from Course c")
-	Collection<Course> findAllCourses();
+	//Solo los cursos que están publicados
+	@Query("select c from Course c where c.draftMode=false")
+	Collection<Course> findAllPublishedCourses();
 
 }

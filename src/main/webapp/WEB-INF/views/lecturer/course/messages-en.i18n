@@ -15,8 +15,12 @@ lecturer.course.form.button.lectures = Lectures of course
 lecturer.course.form.button.publish = Publish a course
 
 lecturer.course.form.error.duplicated = Code already exist, change it!
+<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
 lecturer.course.form.error.negative-retailPrice = Amount must be positive!
 
 lecturer.course.form.error.nolecture = No lectures!
 lecturer.course.form.error.nohandson = No hand-on lecture!
 lecturer.course.form.error.lecturenp = Some lectures does not published
+=======
+lecturer.course.form.error.negative-retailPrice = Amount must be positive!
+>>>>>>> 087f703 Task 095: In progress

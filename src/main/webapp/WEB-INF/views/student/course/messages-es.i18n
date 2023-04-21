@@ -10,6 +10,7 @@
 
 student.course.list.label.code=Codigo
 student.course.list.label.title=Título
+student.course.list.label.retailPrice=Precio
 student.course.form.label.code=Código
 student.course.form.label.title=Título
 student.course.form.label.abstractCourse=Resumen

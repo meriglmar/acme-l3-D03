@@ -41,10 +41,11 @@ student.enrolment.form.button.payment = Formulario de pago
 student.enrolment.publish.button.publish = Publicar
 student.enrolment.form.button.activity = Actividades
 
+student.enrolment.publish.placeholder.expireDate = MM/yyyy
 student.enrolment.form.error.duplicated-code = El código está en uso por otra inscripción
 student.enrolment.form.error.finalised = No se puede actualizar una inscripción finalizada
 student.enrolment.form.error.invalid-card-number = Introduzca número de tarjeta válido
 student.enrolment.form.error.invalid-card-holder = Este campo no puede estar vacío
 student.enrolment.form.error.invalid-cvv = El CVV de la tarjeta debe ser un número de 3 dígitos
-student.enrolment.form.error.invalid-expireDate-format = La fecha debe tener el formato dd/MM/yyyy
+student.enrolment.form.error.invalid-expireDate-format = La fecha debe tener el formato MM/yyyy
 student.enrolment.form.error.invalid-expireDate-value = La tarjeta no puede estar caducada

@@ -53,7 +53,7 @@ public class AuditingRecord extends AbstractEntity {
 	@Enumerated(EnumType.STRING)
 	protected TypeMark			mark;
 
-	//an optional link with further information. 
+	//an optional link with further information.
 	@URL
 	protected String			moreInfo;
 

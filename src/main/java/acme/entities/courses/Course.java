@@ -38,7 +38,7 @@ public class Course extends AbstractEntity {
 	 * an indication on whether it can be considered a theory course or a hands-on course (depending on the lectures that it aggregates),
 	 * a retail price (positive or nought),
 	 * and an optional link with further information. Purely theoretical courses must be rejected by the system.
-	 * 
+	 *
 	 */
 
 	// Serialisation identifier -----------------------------------------------
