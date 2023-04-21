@@ -17,8 +17,11 @@
 			<acme:submit code="assistant.tutorial.form.button.delete" action="/assistant/tutorial/delete"/>
 			<acme:submit code="assistant.tutorial.form.button.publish" action="/assistant/tutorial/publish"/>
 		</jstl:when>
+		<jstl:when test="${acme:anyOf(_command, 'show')}">
+			<acme:button code="assistant.tutorial.form.label.sessions" action="/assistant/session/list?tutorialId=${id}"/>
+		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="assistant.tutorial.form.button.create" action="/assistant/tutorial/create"/>
-		</jstl:when>		
+		</jstl:when>
 	</jstl:choose>
 </acme:form>

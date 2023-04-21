@@ -1,0 +1,31 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+assistant.session.form.label.title = Title:
+assistant.session.form.label.abstractSession = Abstract:
+assistant.session.form.label.isTheorySession = Theory Session
+assistant.session.form.label.initTimePeriod = Init Time Session:
+assistant.session.form.label.finishTimePeriod = Finish Time Session:
+assistant.session.form.label.link = Link: (Optional)
+
+assistant.session.form.button.create = Create		
+assistant.session.form.button.update = Update
+assistant.session.form.button.delete = Delete
+
+assistant.session.list.label.title = Title
+assistant.session.list.label.abstractSession = Abstract
+assistant.session.list.label.isTheorySession = Theory Session
+assistant.session.list.label.initTimePeriod = Init Time Session
+assistant.session.list.label.isTheorySession = Theory Session
+
+assistant.session.list.button.create = Create
+
+assistant.session.form.error.too-big = Sessions should take 5 hours long as maximum
+assistant.session.form.error.too-little = Sessions should take 1 hour long as minimum
