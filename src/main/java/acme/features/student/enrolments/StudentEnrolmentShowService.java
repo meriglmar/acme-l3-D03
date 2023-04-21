@@ -69,7 +69,7 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 		SelectChoices choices;
 
 		Tuple tuple;
-		courses = this.repository.findAllCourses();
+		courses = this.repository.findAllPublishedCourses();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
 
 		workTime = this.repository.findWorktimeByEnrolmentId(object.getId());
