@@ -1,7 +1,7 @@
 key,key:lecturer,title,abstractLecture,body,estimatedLearningTimeInHours,lectureType,link,draftMode
-lecture1,lecturer1,Lecture 1,Introduction to Programming,This course will introduce you to the basics of programming,100.00,THEORY,https://www.us.es/abc123,true
-lecture2,lecturer2,Lecture 2,Introduction to Math,This course will teach you how to program in Java.,100.00,THEORY,https://www.us.es/abc123,true
+lecture1,lecturer1,Lecture 1,Introduction to Programming,This course will introduce you to the basics of programming,100.00,THEORY,https://www.us.es/abc123,false
+lecture2,lecturer1,Lecture 2,Introduction to Math,This course will teach you how to program in Java.,100.00,HANDS_ON,https://www.us.es/abc123,false
 lecture3,lecturer1,Lecture 3,Introduction to Programming,This course will teach you how to program in Java.,100.00,THEORY,https://www.us.es/abc123,true
-lecture4,lecturer2,Lecture 4,Introduction to Math,This course will teach you how to program in Java.,100.00,THEORY,https://www.us.es/abc123,true
-lecture5,lecturer1,Lecture 5,Introduction to Programming,This course will teach you how to program in Java.,100.00,THEORY,https://www.us.es/abc123,false
-lecture6,lecturer2,Lecture 6,Introduction to Math,This course will teach you how to program in Java.,100.00,THEORY,https://www.us.es/abc123,false
+lecture4,lecturer2,Lecture 4,Introduction to Math,This course will teach you how to program in Java.,100.00,HANDS_ON,https://www.us.es/abc123,true
+lecture5,lecturer2,Lecture 5,Introduction to Programming,This course will teach you how to program in Java.,100.00,THEORY,https://www.us.es/abc123,true
+lecture6,lecturer2,Lecture 6,Introduction to Math,This course will teach you how to program in Java.,100.00,HANDS_ON,https://www.us.es/abc123,true

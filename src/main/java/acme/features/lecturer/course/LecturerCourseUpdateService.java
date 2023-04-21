@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import acme.entities.courses.Course;
 import acme.entities.courses.TypeCourse;
 import acme.entities.lectures.Lecture;
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -37,13 +36,17 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 
 	@Override
 	public void authorise() {
-		Course object;
-		int id;
-		id = super.getRequest().getData("id", int.class);
-		object = this.repo.findOneCourseById(id);
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
-		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
+		boolean status;
+		int courseId;
+		Course course;
+		Lecturer lecturer;
+
+		courseId = super.getRequest().getData("id", int.class);
+		course = this.repo.findOneCourseById(courseId);
+		lecturer = course == null ? null : course.getLecturer();
+		status = course != null && course.isDraftMode() && super.getRequest().getPrincipal().hasRole(lecturer);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
