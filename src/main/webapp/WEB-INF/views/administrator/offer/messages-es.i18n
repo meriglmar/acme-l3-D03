@@ -1,19 +1,14 @@
 
-administrator.offer.list.label.heading=Título
+administrator.offer.list.label.heading=Titulo
 administrator.offer.list.label.price=Precio
 administrator.offer.list.button.create = Crear
-administrator.offer.form.label.heading=Título
+administrator.offer.form.label.heading=Titulo
 administrator.offer.form.label.price=Precio
-administrator.offer.form.label.instantiationMoment=Fecha de creación
+administrator.offer.form.label.instantiationMoment=Momento Inicial
 administrator.offer.form.label.summary=Cuerpo
-administrator.offer.form.label.startDay=Día de inicio
-administrator.offer.form.label.lastDay=Día de final
-administrator.offer.form.label.link=Link (opcional)
+administrator.offer.form.label.startDay=Primer Dia
+administrator.offer.form.label.lastDay=Ultimo Dia
+administrator.offer.form.label.link=Link
 administrator.offer.form.button.create = Crear
 administrator.offer.form.button.update = Actualizar
-administrator.offer.form.button.delete = Eliminar
-
-
-administrator.offer.post.price-positive = El precio debe ser positivo
-administrator.offer.post.day-after-instantiation = El día de comienzo tiene que ser un día después de la fecha de creación
-administrator.offer.post.one-week = El día de final tiene que ser mínimo una semana después de la fecha de inicio
+administrator.offer.form.button.delete = Borrar

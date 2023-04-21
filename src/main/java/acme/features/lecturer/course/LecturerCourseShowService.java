@@ -22,7 +22,7 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 	@Autowired
 	protected LecturerCourseRepository repository;
 
-	// AbstractService interface ----------------------------------------------
+	// AbstractShowService<Inventor, Item> interface --------------------
 
 
 	@Override
@@ -36,7 +36,13 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 
 	@Override
 	public void authorise() {
-
+		//		Course object;
+		//		int id;
+		//		id = super.getRequest().getData("id", int.class);
+		//		object = this.repository.findOneCourseById(id);
+		//		final Principal principal = super.getRequest().getPrincipal();
+		//		final int userAccountId = principal.getAccountId();
+		//		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId);
 		boolean status;
 		int masterId;
 		Course course;

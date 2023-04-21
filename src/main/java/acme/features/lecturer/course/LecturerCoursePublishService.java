@@ -24,7 +24,7 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 	@Autowired
 	protected LecturerCourseRepository repo;
 
-	// AbstractService interface ----------------------------------------------
+	// AbstractService<Employer, Job> -------------------------------------
 
 
 	@Override
@@ -36,6 +36,13 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 
 	@Override
 	public void authorise() {
+		//		Course object;
+		//		int id;
+		//		id = super.getRequest().getData("id", int.class);
+		//		object = this.repo.findOneCourseById(id);
+		//		final Principal principal = super.getRequest().getPrincipal();
+		//		final int userAccountId = principal.getAccountId();
+		//		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
 		boolean status;
 		int courseId;
 		Course course;
