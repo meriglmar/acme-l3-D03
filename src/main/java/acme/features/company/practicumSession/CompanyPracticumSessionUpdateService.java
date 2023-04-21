@@ -127,7 +127,7 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 		choices = SelectChoices.from(practica, "code", object.getPracticum());
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstract$", "startPeriod", "finishPeriod", "draftMode", "exceptional", "optionalLink");
+		tuple = super.unbind(object, "title", "abstract$", "startPeriod", "finishPeriod", "draftMode", "exceptional", "optionalLink", "estimatedTotalTime");
 		tuple.put("practicum", choices.getSelected().getKey());
 		tuple.put("practica", choices);
 
