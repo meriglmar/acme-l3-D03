@@ -31,5 +31,6 @@ company.practicum.form.button.publish = Publicar
 
 company.practicum.form.button.create = Crear
 
+company.practicum.form.error.existing-code = Este código está ya en uso
 company.practicum.form.error.estimated-total-time = El tiempo estimado debe ser más/menos 10% de las sesiones correspondientes
 
