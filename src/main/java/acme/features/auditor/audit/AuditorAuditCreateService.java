@@ -1,8 +1,4 @@
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 0610eda9b76993595f97f80f44904a32fb5ce8e2
 package acme.features.auditor.audit;
 
 import java.util.Collection;

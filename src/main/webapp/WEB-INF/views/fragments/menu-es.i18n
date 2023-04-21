@@ -28,6 +28,9 @@ master.menu.anonymous.favourite-link-student5 = 77819063N: Martín Sánchez, Pao
 
 master.menu.any = Cualquiera
 master.menu.any.courses = Lista de cursos publicados
+master.menu.any.peep = Notificaciones
+master.menu.any.peep.list = Lista de notificaciones
+master.menu.any.peep.create = Crear notificación
 
 # master.menu.authenticated ###################################################
 
@@ -51,59 +54,12 @@ master.menu.administrator.shut-down = Parar el sistema
 master.menu.administrator.offer.list = Lista de ofertas
 master.menu.administrator.offer.create = Crear oferta
 
-# master.menu.lecturer ########################################################
-
-master.menu.lecturer = Profesor
-master.menu.lecturer.lecture.create = Crear lección
-master.menu.lecturer.lecture.list = Lista de lecciones
-master.menu.lecturer.course.create = Crear curso
-master.menu.lecturer.course.list = Lista de cursos
-master.menu.lecturer.lecturer-dashboard.show = Panel de profesor
-
 # master.menu.student ########################################################
 
 master.menu.student = Estudiante
 master.menu.student.enrolment.register = Registrar inscripción
 master.menu.student.enrolment.list = Lista de inscripciones 
 master.menu.student.course.list = Lista de cursos publicados
-
-# master.menu.auditor ########################################################
-
-master.menu.auditor = Auditor
-master.menu.auditor.audit.create = Crear auditoría
-master.menu.auditor.audit.list = Lista de auditorías
-master.menu.auditor.auditor-dashboard.show = Panel de auditor
-
-# master.menu.company ###################################################
-
-master.menu.company = Empresa
-master.menu.company.practicum.create = Crear práctica
-master.menu.company.practicum.list = Listado de prácticas
-
-
-# master.menu.lecturer #######################################################
-
-master.menu.lecturer = Profesor
-master.menu.lecturer.lecture.create = Crear lección
-master.menu.lecturer.lecture.list = Lista de lecciones
-master.menu.lecturer.course.create = Crear curso
-master.menu.lecturer.course.list = Lista de cursos
-master.menu.lecturer.lecturer-dashboard.show = Panel de profesor
-
-# master.menu.auditor ########################################################
-
-master.menu.auditor = Auditor
-master.menu.auditor.audit.create = Crear auditoría
-master.menu.auditor.audit.list = Lista de auditorías
-master.menu.auditor.auditor-dashboard.show = Panel de auditor
-
-# master.menu.company ###################################################
-
-master.menu.company = Empresa
-master.menu.company.practicum.create = Crear práctica
-master.menu.company.practicum.list = Listado de prácticas
-
-# master.menu.lecturer #######################################################
 
 # master.menu.lecturer ########################################################
 
@@ -133,17 +89,6 @@ master.menu.auditor.auditor-dashboard.show = Panel de auditor
 master.menu.company = Empresa
 master.menu.company.practicum.create = Crear práctica
 master.menu.company.practicum.list = Listado de prácticas
-
-
-
-# master.menu.lecturer #######################################################
-
-master.menu.lecturer = Profesor
-master.menu.lecturer.lecture.create = Crear lecciÃ³n
-master.menu.lecturer.lecture.list = Lista de lecciones
-master.menu.lecturer.course.create = Crear curso
-master.menu.lecturer.course.list = Lista de cursos
-master.menu.lecturer.lecturer-dashboard.show = Panel de profesor
 
 # master.menu.provider ########################################################
 
@@ -178,10 +123,3 @@ master.menu.user-account.become-lecturer = Hazte profesor
 master.menu.user-account.auditor = Datos de auditor
 master.menu.user-account.become-auditor = Hazte auditor
 master.menu.user-account.assistant = Datos de asistente
-
-# master.menu.peep ####################################################
-
-master.menu.anonymous.peep = Notificaciones
-master.menu.anonymous.peep.list = Lista de notificaciones
-master.menu.anonymous.peep.create = Crear notificación
-

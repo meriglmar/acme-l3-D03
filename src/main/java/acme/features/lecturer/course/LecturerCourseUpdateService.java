@@ -1,18 +1,10 @@
 
 package acme.features.lecturer.course;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.courses.Course;
-<<<<<<< HEAD
-=======
-import acme.entities.courses.TypeCourse;
-import acme.entities.lectures.Lecture;
->>>>>>> 0610eda9b76993595f97f80f44904a32fb5ce8e2
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -83,18 +75,10 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void unbind(final Course object) {
 		assert object != null;
-		Tuple tuple;
+		final Tuple tuple;
 
-<<<<<<< HEAD
 		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "draftMode");
 		tuple.put("draftMode", object.isDraftMode());
-=======
-		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "draftMode", "lecturer");
-		final List<Lecture> lectures = this.repo.findManyLecturesByCourseId(object.getId()).stream().collect(Collectors.toList());
-		final TypeCourse type = object.courseType(lectures);
-		tuple.put("type", type);
-		//tuple.put("money", this.auxiliarService.changeCurrency(object.getPrice()));
->>>>>>> 0610eda9b76993595f97f80f44904a32fb5ce8e2
 		super.getResponse().setData(tuple);
 	}
 }

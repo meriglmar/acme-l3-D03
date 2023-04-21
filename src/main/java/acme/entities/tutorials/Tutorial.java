@@ -1,9 +1,6 @@
 
 package acme.entities.tutorials;
 
-import java.util.Collection;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -14,7 +11,6 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import acme.entities.courses.Course;
-import acme.entities.sessions.Session;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Assistant;
 import lombok.Getter;
@@ -47,8 +43,8 @@ public class Tutorial extends AbstractEntity {
 	@NotBlank
 	@Size(max = 100)
 	protected String			goals;
-	
-	protected Double estimatedTotalTime;
+
+	protected Double			estimatedTotalTime;
 
 	protected boolean			draftMode;
 
@@ -57,11 +53,11 @@ public class Tutorial extends AbstractEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	protected Course	course;
+	protected Course			course;
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	protected Assistant	assistant;
+	protected Assistant			assistant;
 
 }

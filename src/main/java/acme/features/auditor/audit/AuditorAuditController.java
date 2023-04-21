@@ -18,10 +18,6 @@ public class AuditorAuditController extends AbstractController<Auditor, Audit> {
 
 	@Autowired
 	protected AuditorAuditDeleteService		deleteService;
-	
-
-	@Autowired
-	protected AuditorAuditDeleteService		deleteService;
 
 	@Autowired
 	protected AuditorAuditListService		listService;

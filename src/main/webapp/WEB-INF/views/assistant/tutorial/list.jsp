@@ -1,4 +1,3 @@
-<acme:button code="assistant.tutorial.list.button.create" action="/assistant/tutorial/create"/>
 <%@page language="java"%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>

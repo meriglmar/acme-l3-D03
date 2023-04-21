@@ -28,6 +28,9 @@ master.menu.anonymous.favourite-link-student5 = 77819063N: Martín Sánchez, Pao
 
 master.menu.any= Any
 master.menu.any.courses = List of published courses
+master.menu.any.peep = Peep
+master.menu.any.peep.list = Peep list
+master.menu.any.peep.create = Create peep
 
 # master.menu.authenticated ###################################################
 
@@ -49,37 +52,12 @@ master.menu.administrator.shut-down = Shut down
 master.menu.administrator.offer.list = List of offers
 master.menu.administrator.offer.create = Create offer
 
-
-# master.menu.lecturer #######################################################
-
-master.menu.lecturer = Lecturer
-master.menu.lecturer.lecture.create = Create lecture
-master.menu.lecturer.lecture.list = List of lectures
-master.menu.lecturer.course.create = Create course
-master.menu.lecturer.course.list = List of courses
-master.menu.lecturer.lecturer-dashboard.show = Lecturer dashboard 
-
 # master.menu.student ###################################################
 
 master.menu.student = Student
 master.menu.student.enrolment.register = Register enrolment
 master.menu.student.enrolment.list = List of enrolments 
 master.menu.student.course.list = List of published courses
-
-# master.menu.auditor ###################################################
-
-master.menu.auditor = Auditor
-master.menu.auditor.audit.create = Create audit
-master.menu.auditor.audit.list = List of audits
-master.menu.auditor.auditor-dashboard.show = Auditor dashboard
-
-# master.menu.company ###################################################
-
-master.menu.company = Company
-master.menu.company.practicum.create = Create practicum 
-master.menu.company.practicum.list = List of practicums
-
-# master.menu.lecturer #######################################################
 
 # master.menu.lecturer #######################################################
 
@@ -136,12 +114,4 @@ master.menu.user-account.become-lecturer = Become a lecturer
 master.menu.user-account.auditor = Auditor data
 master.menu.user-account.become-auditor = Become a auditor
 
-# master.menu.peep ####################################################
-
-master.menu.user-account.assistant = Assistant data
-
-# master.menu.peep ####################################################
-
-master.menu.anonymous.peep.list = Peep list
-master.menu.anonymous.peep.create = Create peep
 
