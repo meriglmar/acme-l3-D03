@@ -17,7 +17,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumSessionUpdateService extends AbstractService<Company, PracticumSession> {
+public class CompanyPracticumSessionCreateExceptionalService extends AbstractService<Company, PracticumSession> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -29,35 +29,23 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 
 	@Override
 	public void check() {
-		boolean status;
 
-		status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int sessionId;
-		PracticumSession session;
-		Company company;
 
-		sessionId = super.getRequest().getData("id", int.class);
-		session = this.psRepository.findPracticumSessionById(sessionId);
-		company = session == null ? null : session.getPracticum().getCompany();
-		status = session != null && session.isDraftMode() && super.getRequest().getPrincipal().hasRole(company);
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
 		PracticumSession object;
-		int id;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.psRepository.findPracticumSessionById(id);
+		object = new PracticumSession();
+		object.setDraftMode(true);
+		object.setExceptional(true);
 
 		super.getBuffer().setData(object);
 	}
@@ -75,6 +63,7 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 		super.bind(object, "title", "abstract$", "optionalLink", "startPeriod", "finishPeriod");
 
 		object.setPracticum(practicum);
+
 	}
 
 	@Override
@@ -92,44 +81,49 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 		final boolean validEnd = finishPeriod.getTime() >= availableEnd.getTime();
 		super.state(validEnd, "finishPeriod", "company.practicum-session.validation.finishPeriod.error.WeekLong");
 
-		//Practicum Validation
+		boolean confirmation;
+
+		confirmation = super.getRequest().getData("confirmation", boolean.class);
+		super.state(confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
+
+		//Sesión exceptional única
 		final Collection<Practicum> practica;
+		Collection<PracticumSession> exceptionals;
 		final SelectChoices choices;
 		final int companyId = super.getRequest().getPrincipal().getActiveRoleId();
 
-		practica = this.psRepository.findManyPrivatePracticaByCompanyId(companyId);
+		practica = this.psRepository.findManyPublishedPracticaByCompanyId(companyId);
 		choices = SelectChoices.from(practica, "code", object.getPracticum());
 
 		final int selectedId = Integer.parseInt(choices.getSelected().getKey());
-		final Practicum selectedPracticum = this.psRepository.findPracticumById(selectedId);
+		exceptionals = this.psRepository.findExceptionalSessionsByPracticumId(selectedId);
 
-		final boolean valid = selectedPracticum.isDraftMode();
-		super.state(valid, "practicum", "company.practicum-session.validation.practicum.error.Published");
-
+		final boolean valid = exceptionals.size() == 0;
+		super.state(valid, "practicum", "company.practicum-session.validation.practicum.error.ExceptionalAlreadyExists");
 	}
 
 	@Override
 	public void perform(final PracticumSession object) {
 		assert object != null;
-
+		object.setDraftMode(false);
 		this.psRepository.save(object);
 	}
 
 	@Override
 	public void unbind(final PracticumSession object) {
 		assert object != null;
-		assert object != null;
 		final Collection<Practicum> practica;
 		final SelectChoices choices;
 		final int companyId = super.getRequest().getPrincipal().getActiveRoleId();
 
-		practica = this.psRepository.findManyPrivatePracticaByCompanyId(companyId);
+		practica = this.psRepository.findManyPublishedPracticaByCompanyId(companyId);
 		choices = SelectChoices.from(practica, "code", object.getPracticum());
 		Tuple tuple;
 
 		tuple = super.unbind(object, "title", "abstract$", "startPeriod", "finishPeriod", "draftMode", "exceptional", "optionalLink");
 		tuple.put("practicum", choices.getSelected().getKey());
 		tuple.put("practica", choices);
+		tuple.put("confirmation", false);
 
 		super.getResponse().setData(tuple);
 	}

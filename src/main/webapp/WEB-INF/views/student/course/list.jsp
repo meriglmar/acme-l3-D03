@@ -4,6 +4,7 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="student.course.list.label.code" path="code" width="70%"/>
-	<acme:list-column code="student.course.list.label.title" path="title" width="30%"/>
+	<acme:list-column code="student.course.list.label.code" path="code" width="30%"/>
+	<acme:list-column code="student.course.list.label.title" path="title" width="60%"/>
+	<acme:list-column code="student.course.list.label.retailPrice" path="retailPrice" width="30%"/>	
 </acme:list>
