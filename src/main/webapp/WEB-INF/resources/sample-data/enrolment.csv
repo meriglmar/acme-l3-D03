@@ -1,6 +1,6 @@
 key,key:student,key:course,code,motivation,goals,draftMode,cardHolder,cardLowerNibble
 enrolment1,student2,course1,ABM1234,motivation,"this, is, a list, of, goals",false,Mercedes Iglesias,4322
 enrolment2,student2,course1,ABM1235,motivation,"this, is, a list, of, goals",false,Ángela Bernal,1234
-enrolment3,student1,course1,ABM1236,motivation,"this, is, a list, of, goals",false,Paola Martín,2341
-enrolment4,student1,course1,ABM1237,motivation,"this, is, a list, of, goals",false,Francisco Javier Barba,4321
+enrolment3,student1,course7,ABM1236,motivation,"this, is, a list, of, goals",false,Paola Martín,2341
+enrolment4,student1,course7,ABM1237,motivation,"this, is, a list, of, goals",false,Francisco Javier Barba,4321
 enrolment5,student1,course1,ABM1538,motivation,"this, is, a list, of, goals",false,Jose María García,1432
