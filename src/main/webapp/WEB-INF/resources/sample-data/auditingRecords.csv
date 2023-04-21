@@ -1,5 +1,0 @@
-key,key:audit,subject,assessment,startTime,finishTime,mark,moreInfo,correctionRecord
-auditing-record1,audit1,Matemáticas,Examen final, 2022/04/04 11:11, 2022/04/04 12:11,A,http://google.com, false
-auditing-record2,audit2,Inglés,Parciales,2022/04/05 11:11, 2022/04/06 11:11,A,http://facebook.com, false
-auditing-record3,audit3,Biología,Prácticas,2022/04/05 11:11, 2022/04/05 12:11,A,http://instagram.com, false
-auditing-record4,audit1,Tecnología,Proyecto,2022/04/04 12:11, 2022/04/04 16:11,A,http://shein.com, true
