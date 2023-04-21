@@ -1,8 +1,4 @@
 key,key:lecture,key:course
 lectureCourse1,lecture1,course1
 lectureCourse2,lecture2,course1
-lectureCourse3,lecture2,course2
-lectureCourse4,lecture4,course4
-lectureCourse5,lecture5,course5
-lectureCourse6,lecture7,course7
-lectureCourse7,lecture8,course7
+lectureCourse3,lecture1,course2

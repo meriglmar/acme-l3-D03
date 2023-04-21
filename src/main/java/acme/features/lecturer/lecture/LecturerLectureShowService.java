@@ -4,7 +4,6 @@ package acme.features.lecturer.lecture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.components.SystemConfigurationService;
 import acme.entities.lectures.Lecture;
 import acme.entities.lectures.TypeLecture;
 import acme.framework.components.jsp.SelectChoices;
@@ -18,12 +17,9 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 	// Internal state --------------------------------------------------
 
 	@Autowired
-	protected LecturerLectureRepository		repository;
+	protected LecturerLectureRepository repository;
 
-	@Autowired
-	protected SystemConfigurationService	scService;
-
-	// AbstractService interface ----------------------------------------------
+	// AbstractShowService<Inventor, Item> interface --------------------
 
 
 	@Override
@@ -37,17 +33,7 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int masterId;
-		Lecture lecture;
-		Lecturer lecturer;
-
-		masterId = super.getRequest().getData("id", int.class);
-		lecture = this.repository.findLectureById(masterId);
-		lecturer = lecture == null ? null : lecture.getLecturer();
-		status = super.getRequest().getPrincipal().hasRole(lecturer) || lecture != null && !lecture.isDraftMode();
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
@@ -66,14 +52,13 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link");
-		final String lang = super.getRequest().getLocale().getLanguage();
-		tuple.put("draftMode", this.scService.translateBoolean(object.isDraftMode(), lang));
+		tuple = super.unbind(object, "title", "abstractLecture", "body", "estimatedLearningTimeInHours", "lectureType", "link", "draftMode");
+		tuple.put("confirmation", false);
 		final SelectChoices choices;
 		choices = SelectChoices.from(TypeLecture.class, object.getLectureType());
 		tuple.put("type", choices.getSelected().getKey());
 		tuple.put("types", choices);
-		tuple.put("draftModeBoolean", object.isDraftMode());
+		tuple.put("draftMode", object.isDraftMode());
 
 		super.getResponse().setData(tuple);
 	}
