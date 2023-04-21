@@ -87,4 +87,8 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		tuple.put("confirmation", false);
 		super.getResponse().setData(tuple);
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0610eda9b76993595f97f80f44904a32fb5ce8e2

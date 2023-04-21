@@ -81,6 +81,8 @@ master.menu.company.practicum.list = List of practicums
 
 # master.menu.lecturer #######################################################
 
+# master.menu.lecturer #######################################################
+
 master.menu.lecturer = Lecturer
 master.menu.lecturer.lecture.create = Create lecture
 master.menu.lecturer.lecture.list = List of lectures
@@ -140,8 +142,6 @@ master.menu.user-account.assistant = Assistant data
 
 # master.menu.peep ####################################################
 
-master.menu.anonymous.peep = Peeps
 master.menu.anonymous.peep.list = Peep list
 master.menu.anonymous.peep.create = Create peep
-
 

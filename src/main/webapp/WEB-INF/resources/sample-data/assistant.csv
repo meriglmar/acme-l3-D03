@@ -1,3 +1,8 @@
 key,key:userAccount,supervisor,listOfExpertiseFields,resume,link
+<<<<<<< Upstream, based on 28be164a6bca11cc0bb4935dc38b74904cb02697
 assistant1,user-account-assistant1,prueba,prueba,prueba,
 assistant2,user-account-assistant2,prueba,prueba,prueba,
+=======
+assistant-01,user-account-assistant-01,prueba,prueba,prueba,
+assistant-02,user-account-assistant-02,prueba,prueba,prueba,
+>>>>>>> 6a5c072 Task 111: updated csv

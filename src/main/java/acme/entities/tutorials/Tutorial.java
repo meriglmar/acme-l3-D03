@@ -47,28 +47,12 @@ public class Tutorial extends AbstractEntity {
 	@NotBlank
 	@Size(max = 100)
 	protected String			goals;
+	
+	protected Double estimatedTotalTime;
 
 	protected boolean			draftMode;
 
-	// Derived attributes -----------------------------------------------------
-
-
-	public Double estimatedTotalTime(final Collection<Session> sessions) {
-		double res = 0.0;
-		if (!sessions.isEmpty())
-			for (final Session sesion : sessions) {
-				final Date start = sesion.getInitTimePeriod();
-				final Date end = sesion.getFinishTimePeriod();
-				final double horas = Math.abs(end.getTime() / 3600000 - start.getTime() / 3600000);
-				final double minutos = Math.abs(end.getTime() / 60000 - start.getTime() / 60000) % 60;
-				final double porcentajeMinutos = minutos / 60;
-				res += horas + porcentajeMinutos;
-			}
-		return res;
-	}
-
 	// Relationships ----------------------------------------------------------
-
 
 	@NotNull
 	@Valid

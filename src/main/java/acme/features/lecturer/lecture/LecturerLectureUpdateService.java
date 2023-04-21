@@ -83,16 +83,6 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 		choices = SelectChoices.from(TypeLecture.class, object.getLectureType());
 		tuple.put("type", choices.getSelected().getKey());
 		tuple.put("types", choices);
-<<<<<<< Upstream, based on a50f42936ac0cac1e0cdcfaa908e61c464506f7c
-=======
-		//		boolean assigned;
-		//		final Collection<LectureCourse> objects = this.repo.findManyLectureCourseByLecture(object);
-		//		if (objects.size() == 0)
-		//			assigned = false;
-		//		else
-		//			assigned = true;
-		//		tuple.put("assigned", assigned);
->>>>>>> 087f703 Task 095: In progress
 		super.getResponse().setData(tuple);
 	}
 }

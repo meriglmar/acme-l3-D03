@@ -7,10 +7,12 @@ assistant.tutorial.list.button.create = Create
 
 assistant.tutorial.form.label.code = Code
 assistant.tutorial.form.label.title = Title
-assistant.tutorial.form.label.abstract = Abstract
+assistant.tutorial.form.label.abstractTutorial = Abstract
 assistant.tutorial.form.label.goals = Goals
 assistant.tutorial.form.label.estimatedTotalTime = Estimated total time
+assistant.tutorial.form.label.sessions = Sessions
 assistant.tutorial.form.label.course = Course
+assistant.tutorial.form.label.sessions = Sessions
 
 assistant.tutorial.form.button.update = Update
 assistant.tutorial.form.button.publish = Publish

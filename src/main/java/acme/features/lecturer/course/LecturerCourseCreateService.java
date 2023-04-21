@@ -77,8 +77,12 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		assert object != null;
 		Tuple tuple;
 
+<<<<<<< HEAD
 		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "draftMode");
 		tuple.put("draftMode", object.isDraftMode());
+=======
+		tuple = super.unbind(object, "code", "title", "abstractCourse", "retailPrice", "link", "draftMode", "lecturer");
+>>>>>>> 0610eda9b76993595f97f80f44904a32fb5ce8e2
 		super.getResponse().setData(tuple);
 	}
 }

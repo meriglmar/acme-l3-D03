@@ -1,8 +1,11 @@
 
 package acme.features.auditor.auditingRecord;
 
+<<<<<<< HEAD
 import java.time.temporal.ChronoUnit;
 
+=======
+>>>>>>> 0610eda9b76993595f97f80f44904a32fb5ce8e2
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +15,10 @@ import acme.entities.auditingRecords.TypeMark;
 import acme.entities.audits.Audit;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
+<<<<<<< HEAD
 import acme.framework.helpers.MomentHelper;
+=======
+>>>>>>> 0610eda9b76993595f97f80f44904a32fb5ce8e2
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
 
@@ -56,10 +62,22 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 	@Override
 	public void validate(final AuditingRecord object) {
 		assert object != null;
+<<<<<<< HEAD
 		if (!super.getBuffer().getErrors().hasErrors("finishTime") && !super.getBuffer().getErrors().hasErrors("startTime"))
 			super.state(MomentHelper.isAfterOrEqual(object.getFinishTime(), object.getStartTime()), "startPeriod", "auditor.auditing-record.form.error.start-before-finish");
 		if (!super.getBuffer().getErrors().hasErrors("finishTime") && !super.getBuffer().getErrors().hasErrors("startTime"))
 			super.state(MomentHelper.isAfterOrEqual(object.getFinishTime(), MomentHelper.deltaFromMoment(object.getStartTime(), 1, ChronoUnit.HOURS)), "finishTime", "auditor.auditing-record.form.error.at-least-1-hour");
+=======
+		//		if (!super.getBuffer().getErrors().hasErrors("endPeriod") && !super.getBuffer().getErrors().hasErrors("startPeriod"))
+		//			super.state(MomentHelper.isAfterOrEqual(object.getEndPeriod(), object.getStartPeriod()), "startPeriod", "auditor.auditing-record.form.error.post-date");
+		//		if (!super.getBuffer().getErrors().hasErrors("endPeriod") && !super.getBuffer().getErrors().hasErrors("startPeriod"))
+		//			super.state(MomentHelper.isAfterOrEqual(object.getEndPeriod(), MomentHelper.deltaFromMoment(object.getStartPeriod(), 1, ChronoUnit.HOURS)), "endPeriod", "auditor.auditing-record.form.error.not-enough-time");
+		//		if (!super.getBuffer().getErrors().hasErrors("subject"))
+		//			super.state(this.auxiliarService.validateTextImput(object.getSubject()), "subject", "auditor.auditing-record.form.error.spam");
+		//		if (!super.getBuffer().getErrors().hasErrors("assessment"))
+		//			super.state(this.auxiliarService.validateTextImput(object.getSubject()), "assessment", "auditor.auditing-record.form.error.spam");
+
+>>>>>>> 0610eda9b76993595f97f80f44904a32fb5ce8e2
 	}
 
 	@Override

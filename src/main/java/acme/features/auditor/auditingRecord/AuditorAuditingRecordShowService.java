@@ -4,7 +4,10 @@ package acme.features.auditor.auditingRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+<<<<<<< HEAD
 import acme.components.SystemConfigurationService;
+=======
+>>>>>>> 0610eda9b76993595f97f80f44904a32fb5ce8e2
 import acme.entities.auditingRecords.AuditingRecord;
 import acme.entities.auditingRecords.TypeMark;
 import acme.entities.audits.Audit;
@@ -17,10 +20,14 @@ import acme.roles.Auditor;
 public class AuditorAuditingRecordShowService extends AbstractService<Auditor, AuditingRecord> {
 
 	@Autowired
+<<<<<<< HEAD
 	protected AuditorAuditingRecordRepository	repo;
 
 	@Autowired
 	protected SystemConfigurationService		scService;
+=======
+	protected AuditorAuditingRecordRepository repo;
+>>>>>>> 0610eda9b76993595f97f80f44904a32fb5ce8e2
 
 
 	@Override

@@ -9,7 +9,11 @@ import org.springframework.stereotype.Repository;
 import acme.entities.auditingRecords.AuditingRecord;
 import acme.entities.auditingRecords.TypeMark;
 import acme.entities.audits.Audit;
+<<<<<<< HEAD
 import acme.entities.courses.Course;
+=======
+import acme.entities.course.Course;
+>>>>>>> 0610eda9b76993595f97f80f44904a32fb5ce8e2
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Auditor;
 
@@ -43,4 +47,8 @@ public interface AuditorAuditRepository extends AbstractRepository {
 	@Query("select c from Course c")
 	Collection<Course> findCourses();
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0610eda9b76993595f97f80f44904a32fb5ce8e2

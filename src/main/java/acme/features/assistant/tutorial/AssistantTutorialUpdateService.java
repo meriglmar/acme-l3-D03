@@ -1,6 +1,7 @@
 
 package acme.features.assistant.tutorial;
 
+<<<<<<< HEAD
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +10,19 @@ import org.springframework.stereotype.Service;
 import acme.entities.courses.Course;
 import acme.entities.tutorials.Tutorial;
 import acme.framework.components.jsp.SelectChoices;
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+
+import acme.entities.tutorials.Tutorial;
+>>>>>>> 0610eda9b76993595f97f80f44904a32fb5ce8e2
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
+<<<<<<< HEAD
 @Service
+=======
+>>>>>>> 0610eda9b76993595f97f80f44904a32fb5ce8e2
 public class AssistantTutorialUpdateService extends AbstractService<Assistant, Tutorial> {
 
 	// Internal state ---------------------------------------------------------
@@ -64,6 +73,7 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 	public void bind(final Tutorial object) {
 		assert object != null;
 
+<<<<<<< HEAD
 		int courseId;
 		Course course;
 
@@ -72,6 +82,9 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 
 		super.bind(object, "code", "title", "abstractTutorial", "goals", "estimatedTotalTime");
 		object.setCourse(course);
+=======
+		super.bind(object, "code", "title", "abstractTutorial", "goals", "estimatedTotalTime");
+>>>>>>> 0610eda9b76993595f97f80f44904a32fb5ce8e2
 	}
 
 	@Override
@@ -85,6 +98,7 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 	public void unbind(final Tutorial object) {
 		assert object != null;
 
+<<<<<<< HEAD
 		Collection<Course> courses;
 		SelectChoices choices;
 		Tuple tuple;
@@ -92,6 +106,10 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
+=======
+		Tuple tuple;
+
+>>>>>>> 0610eda9b76993595f97f80f44904a32fb5ce8e2
 		tuple = super.unbind(object, "code", "title", "abstractTutorial", "goals", "estimatedTotalTime", "draftMode");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
