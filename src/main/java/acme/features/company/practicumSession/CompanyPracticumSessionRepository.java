@@ -16,6 +16,15 @@ public interface CompanyPracticumSessionRepository extends AbstractRepository {
 	@Query("select p from Practicum p where p.id = :id")
 	Practicum findPracticumById(int id);
 
+	@Query("Select p From Practicum p Where p.company.id = :id And p.draftMode = false")
+	Collection<Practicum> findManyPublishedPracticaByCompanyId(int id);
+
+	@Query("Select ps From PracticumSession ps Where ps.practicum.id = :id And ps.exceptional = true")
+	Collection<PracticumSession> findExceptionalSessionsByPracticumId(int id);
+
+	@Query("Select p From Practicum p Where p.company.id = :id And p.draftMode = true")
+	Collection<Practicum> findManyPrivatePracticaByCompanyId(int id);
+
 	@Query("select ps from PracticumSession ps where ps.practicum.id = :id")
 	Collection<PracticumSession> findPracticumSessionsByPracticumId(int id);
 
@@ -24,4 +33,10 @@ public interface CompanyPracticumSessionRepository extends AbstractRepository {
 
 	@Query("select ps from PracticumSession ps where ps.id = :id")
 	PracticumSession findPracticumSessionById(int id);
+
+	@Query("Select ps From PracticumSession ps Where ps.practicum.id = :id")
+	Collection<PracticumSession> findManyPracticumSessionsByPracticumId(int id);
+
+	@Query("Select p From Practicum p Where p.company.id = :id")
+	Collection<Practicum> findManyPracticaByCompanyId(int id);
 }

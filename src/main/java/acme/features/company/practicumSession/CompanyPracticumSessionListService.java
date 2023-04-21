@@ -15,6 +15,87 @@ import acme.roles.Company;
 @Service
 public class CompanyPracticumSessionListService extends AbstractService<Company, PracticumSession> {
 
+	//	// Internal state ---------------------------------------------------------
+	//
+	//	@Autowired
+	//	protected CompanyPracticumSessionRepository psRepository;
+	//
+	//	// AbstractService interface ----------------------------------------------
+	//
+	//
+	//	@Override
+	//	public void check() {
+	//		boolean status;
+	//
+	//		status = super.getRequest().hasData("masterId", int.class);
+	//
+	//		super.getResponse().setChecked(status);
+	//	}
+	//
+	//	@Override
+	//	public void authorise() {
+	//		boolean status;
+	//		int masterId;
+	//		Practicum practicum;
+	//
+	//		masterId = super.getRequest().getData("masterId", int.class);
+	//		practicum = this.psRepository.findPracticumById(masterId);
+	//		status = practicum != null && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
+	//
+	//		super.getResponse().setAuthorised(status);
+	//	}
+	//
+	//	@Override
+	//	public void load() {
+	//		Collection<PracticumSession> objects;
+	//		int practicumId;
+	//
+	//		practicumId = super.getRequest().getData("masterId", int.class);
+	//		objects = this.psRepository.findPracticumSessionsByPracticumId(practicumId);
+	//
+	//		super.getBuffer().setData(objects);
+	//	}
+	//
+	//	@Override
+	//	public void unbind(final PracticumSession object) {
+	//		assert object != null;
+	//		final int masterId = super.getRequest().getData("masterId", int.class);
+	//		final Practicum practicum = this.psRepository.findPracticumById(masterId);
+	//		final boolean exceptional = object.isExceptional();
+	//		String res = "";
+	//		if (exceptional == true)
+	//			res = "Yes";
+	//		else
+	//			res = "No ";
+	//
+	//		Tuple tuple;
+	//
+	//		tuple = super.unbind(object, "title", "startPeriod", "finishPeriod");
+	//		tuple.put("exceptionalCreate", practicum.isDraftMode());
+	//		tuple.put("exceptional", res);
+	//		super.getResponse().setData(tuple);
+	//	}
+	//
+	//	@Override
+	//	public void unbind(final Collection<PracticumSession> objects) {
+	//		assert objects != null;
+	//
+	//		int practicumId;
+	//		Practicum practicum;
+	//		final boolean showCompany;
+	//		final boolean exceptionalCreate;
+	//
+	//		practicumId = super.getRequest().getData("masterId", int.class);
+	//		practicum = this.psRepository.findPracticumById(practicumId);
+	//		showCompany = super.getRequest().getPrincipal().hasRole(practicum.getCompany());
+	//		exceptionalCreate = practicum.isDraftMode();
+	//
+	//		super.getResponse().setGlobal("masterId", practicumId);
+	//		super.getResponse().setGlobal("showCompany", showCompany);
+	//		super.getResponse().setGlobal("exceptionalCreate", exceptionalCreate);
+	//
+	//	}
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
@@ -27,7 +108,7 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("masterId", int.class);
+		status = super.getRequest().hasData("practicumId", int.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -35,25 +116,25 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
-		Practicum practicum;
+		final int practicumId;
+		final Practicum practicum;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		practicum = this.psRepository.findPracticumById(masterId);
-		status = practicum != null && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
+		practicumId = super.getRequest().getData("practicumId", int.class);
+		practicum = this.psRepository.findPracticumById(practicumId);
+		status = practicum != null && super.getRequest().getPrincipal().getActiveRoleId() == practicum.getCompany().getId();
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Collection<PracticumSession> objects;
+		Collection<PracticumSession> object;
 		int practicumId;
 
-		practicumId = super.getRequest().getData("masterId", int.class);
-		objects = this.psRepository.findPracticumSessionsByPracticumId(practicumId);
+		practicumId = super.getRequest().getData("practicumId", int.class);
+		object = this.psRepository.findManyPracticumSessionsByPracticumId(practicumId);
 
-		super.getBuffer().setData(objects);
+		super.getBuffer().setData(object);
 	}
 
 	@Override
@@ -62,27 +143,8 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "startPeriod", "finishPeriod");
+		tuple = super.unbind(object, "title", "abstract$", "startPeriod", "finishPeriod", "draftMode", "exceptional");
 
 		super.getResponse().setData(tuple);
-	}
-
-	@Override
-	public void unbind(final Collection<PracticumSession> objects) {
-		assert objects != null;
-
-		int practicumId;
-		Practicum practicum;
-		final boolean showCreate;
-		final boolean exceptionalCreate;
-
-		practicumId = super.getRequest().getData("masterId", int.class);
-		practicum = this.psRepository.findPracticumById(practicumId);
-		showCreate = super.getRequest().getPrincipal().hasRole(practicum.getCompany());
-		exceptionalCreate = practicum.isDraftMode();
-
-		super.getResponse().setGlobal("masterId", practicumId);
-		super.getResponse().setGlobal("showCreate", showCreate);
-		super.getResponse().setGlobal("exceptionalCreate", exceptionalCreate);
 	}
 }
