@@ -1,0 +1,14 @@
+authenticated.tutorial.list.label.code = Código	
+authenticated.tutorial.list.label.title = Título
+authenticated.tutorial.list.label.abstract = Visión general
+authenticated.tutorial.list.label.goals = Objetivos
+authenticated.tutorial.list.label.estimatedTotalTime = Tiempo total estimado
+
+authenticated.tutorial.form.label.code = Código
+authenticated.tutorial.form.label.title = Título
+authenticated.tutorial.form.label.abstract = Visión general
+authenticated.tutorial.form.label.goals = Objetivos
+authenticated.tutorial.form.label.estimatedTotalTime = Tiempo total estimado
+authenticated.tutorial.form.label.course = Curso
+authenticated.tutorial.form.label.sessions = Sesiones
+authenticated.tutorial.form.label.assistants = Asistentes
